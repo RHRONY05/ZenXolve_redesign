@@ -22,7 +22,9 @@ export function MobileMenu() {
     const opener = document.getElementById("menu-opener");
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    root?.querySelector<HTMLElement>("[data-close]")?.focus();
+    const rafId = requestAnimationFrame(() => {
+      root?.querySelector<HTMLElement>("[data-close]")?.focus();
+    });
 
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -45,6 +47,7 @@ export function MobileMenu() {
     };
     document.addEventListener("keydown", onKey);
     return () => {
+      cancelAnimationFrame(rafId);
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = prevOverflow;
       opener?.focus();

@@ -116,7 +116,14 @@ export default function Home() {
               In their <em className="acc">words.</em>
             </>
           }
-          lead={<PlaceholderTag>Placeholder · replace with real, named clients (photo + link)</PlaceholderTag>}
+          lead={
+            <PlaceholderTag>
+              <span className="hidden md:inline">
+                Placeholder · replace with real, named clients (photo + link)
+              </span>
+              <span className="md:hidden">Placeholder · real, named clients</span>
+            </PlaceholderTag>
+          }
           leadOnMobile
         />
         <Quotes items={testimonials} />
