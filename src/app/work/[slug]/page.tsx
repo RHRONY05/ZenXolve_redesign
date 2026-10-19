@@ -24,10 +24,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const item = work.find((w) => w.slug === slug);
   if (!item) {
-    return { title: "Case Study · XenZolve" };
+    return { title: "Case Study" };
   }
   return {
-    title: `${item.name}: ${item.outcome || item.kind} · XenZolve`,
+    title: `${item.name}: ${item.outcome || item.kind}`,
     description: `${item.kind} — ${item.result}. Case study by XenZolve.`,
   };
 }

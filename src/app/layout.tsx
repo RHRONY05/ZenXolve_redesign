@@ -24,9 +24,28 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "XenZolve: software your business runs on",
+  metadataBase: new URL("https://xenzolve.com"),
+  title: {
+    default: "XenZolve · Software your business runs on",
+    template: "%s · XenZolve",
+  },
   description:
     "We build powerful websites, intelligent AI systems, and custom software that help startups and businesses scale faster. From Dhaka, for anywhere.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://xenzolve.com",
+    siteName: "XenZolve",
+    title: "XenZolve · Software your business runs on",
+    description:
+      "We build powerful websites, intelligent AI systems, and custom software that help startups and businesses scale faster. From Dhaka, for anywhere.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "XenZolve · Software your business runs on",
+    description:
+      "We build powerful websites, intelligent AI systems, and custom software that help startups and businesses scale faster.",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

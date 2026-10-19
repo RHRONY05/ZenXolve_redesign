@@ -11,7 +11,7 @@ import { IndustryList } from "@/components/home/IndustryList";
 import { CtaBand } from "@/components/home/CtaBand";
 
 export const metadata: Metadata = {
-  title: "About · XenZolve",
+  title: "About",
   description:
     "The last agency you'll need to hire. XenZolve is at the forefront of innovation, delivering cutting-edge solutions that transform how businesses operate. From Dhaka, for anywhere.",
 };

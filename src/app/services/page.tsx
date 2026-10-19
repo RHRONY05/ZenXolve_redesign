@@ -8,7 +8,7 @@ import { Section } from "@/components/ui/Section";
 import { SectionHead } from "@/components/ui/SectionHead";
 
 export const metadata: Metadata = {
-  title: "Services · XenZolve",
+  title: "Services",
   description:
     "End-to-end digital solutions tailored to accelerate your business growth. Full stack web development, mobile apps, business systems, AI agents, bots, and UI/UX design.",
 };

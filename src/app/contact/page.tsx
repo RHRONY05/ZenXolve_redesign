@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ContactClient } from "./ContactClient";
 
 export const metadata: Metadata = {
-  title: "Contact · XenZolve",
+  title: "Contact",
   description:
     "Have a project in mind? Let's bring your vision to life. Get in touch with XenZolve via WhatsApp, email, or contact form.",
 };

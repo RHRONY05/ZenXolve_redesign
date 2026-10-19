@@ -33,7 +33,7 @@ Headless Chrome side-by-side vs `desktop/01-home.html` at 1440 and `mobile/01-ho
 
 ## Slice 3 (in progress): Contact, SEO/OG, 404, Lighthouse, deploy
 - [x] **Task 6: `/contact`**: ContactChannels + ContactForm + FormSuccess, matching `desktop/06-contact.html`, `mobile/08-contact-error.html`, `mobile/09-contact-sent.html`. Zod validation (name required, email valid, message ≥ 20 chars, optional subject/budget), top danger banner + per-field error messages + `aria-invalid`, idle/sending/sent button states. `?service=ai|web|systems` preselects service chip. Server Action via Resend with dev fallback logging and honeypot field. `.env.example` created. Verified at 1440 and 390, light and dark. Zero horizontal overflow.
-- [ ] **Task 7**: `not-found.tsx` (404 state from `states.html`), per-page `metadata` (title + description), Open Graph image (`opengraph-image.tsx`), `sitemap.ts`, `robots.ts`, favicon SVG/ICO.
+- [x] **Task 7**: `not-found.tsx` (404 state from `states.html`), per-page `metadata` (title + description with template), Open Graph image (`opengraph-image.tsx` using hero photo and Satori flexbox), `sitemap.ts`, `robots.ts`, dynamic favicon mark in `icon.tsx`. Prerendered statically. Verified at 1440 and 390.
 - [ ] **Task 8**: Placeholder gate: `scripts/check-placeholders.mjs` (fails when `placeholder: true` items remain when `STRICT_CONTENT=1`).
 - [ ] **Task 9**: Close small gaps from PROGRESS.md (FAQ height animation, shorter mobile placeholder tag, keyboard navigation).
 - [ ] **Task 10**: Quality pass: `npm run build` 0 type/lint errors, Lighthouse audit targets (Perf ≥ 90, A11y ≥ 95, BP ≥ 95, SEO ≥ 95), final report.

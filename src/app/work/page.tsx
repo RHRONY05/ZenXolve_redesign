@@ -7,7 +7,7 @@ import { work } from "@/content/work";
 import { WorkClient } from "./WorkClient";
 
 export const metadata: Metadata = {
-  title: "Work · XenZolve",
+  title: "Work",
   description:
     "Websites, apps, AI agents and business systems for startups and growing businesses. Built, shipped, running.",
 };

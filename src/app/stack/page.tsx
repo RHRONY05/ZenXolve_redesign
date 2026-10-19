@@ -5,7 +5,7 @@ import { CtaBand } from "@/components/home/CtaBand";
 import { stack, stackGroups } from "@/content/stack";
 
 export const metadata: Metadata = {
-  title: "Tech Stack · XenZolve",
+  title: "Tech Stack",
   description:
     "We pick the tool that fits the job, not the trend. These are the ones we ship with most.",
 };
