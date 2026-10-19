@@ -2,21 +2,28 @@ import { faq } from "@/content/faq";
 import { site } from "@/content/site";
 import { Icon } from "@/components/ui/Icon";
 
+type FaqProps = {
+  index?: string | null;
+  hideLead?: boolean;
+};
+
 /** Native <details>; the first item is open. */
-export function Faq() {
+export function Faq({ index = "08", hideLead = false }: FaqProps) {
   return (
     <div className="grid grid-cols-1 gap-9 lg:grid-cols-[420px_1fr] lg:gap-20">
       <div className="reveal">
         <div className="mono mb-3.5 flex gap-[14px] text-ink-3 md:mb-5">
-          <span>08</span>
+          {index && <span>{index}</span>}
           <span>FAQ</span>
         </div>
         <h2 className="font-serif text-[46px] leading-[46px] font-normal tracking-display md:text-display-lg md:leading-(--text-display-lg--line-height)">
           Got <em className="acc">questions?</em>
         </h2>
-        <p className="mt-5 hidden text-lg leading-[29px] text-ink-2 md:block">
-          Still unsure about something? Ask us on WhatsApp or email {site.email}.
-        </p>
+        {!hideLead && (
+          <p className="mt-5 hidden text-lg leading-[29px] text-ink-2 md:block">
+            Still unsure about something? Ask us on WhatsApp or email {site.email}.
+          </p>
+        )}
       </div>
       <div className="faq border-t border-line">
         {faq.map((item, i) => (

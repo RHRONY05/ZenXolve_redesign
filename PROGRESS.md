@@ -26,8 +26,8 @@ Headless Chrome side-by-side vs `desktop/01-home.html` at 1440 and `mobile/01-ho
 ## Slice 2 (in progress): Work, Case study, Services, About, Stack
 - [x] **Task 1: `/work`**: PageHero, FilterChips (`?type=`, no reload), WorkGrid from `content/work.ts`, empty state from `states.html`. Design: `desktop/02-work.html`, `mobile/04-work.html`. Verified at 1440 and 390, light and dark. Zero horizontal overflow, touch targets >= 44px on mobile. Header count for Work derived dynamically from content.
 - [x] **Task 2: `/work/[slug]`**: case-study template (CaseStudyMeta, cover, Challenge / What we built / Result, StatRow, screenshots, quote, NextCase, BackLink). `generateStaticParams` from `content/work.ts`. Prerenders all 6 project static pages. Design: `desktop/03-case-study.html`, `mobile/05-case-study.html`. Side-by-side verified at 1440 and 390, light and dark.
-- [ ] **Task 3: `/services`**: ServiceDetail ×6 with `id=<slug>` anchors, filter chips, ProcessSteps, Faq, CtaBand.
-- [ ] **Task 4: `/about`**: PageHero, PhotoBand, StatRow, TeamGrid, Reasons, IndustryList.
+- [x] **Task 3: `/services`**: ServiceDetail ×6 with `id=<slug>` anchors, filter chips (`?group=`, no reload), ProcessSteps, Faq (without 08 index), CtaBand. Timelines real where known, placeholders for AI/Bots/UI-UX. Design: `desktop/04-services.html`, `mobile/06-services.html`. Side-by-side verified at 1440 and 390, light and dark.
+- [ ] **Task 4: `/about`**: PageHero, PhotoBand (reuse HeroPhoto, shorter), StatRow (placeholder), TeamGrid (placeholder), Reasons, IndustryList. Design: `desktop/05-about.html`, `mobile/07-about.html`.
 - [ ] **Task 5: `/stack`**: StackGroup/ToolTile from `content/stack.ts`, 301 `/technologies` -> `/stack`, dynamic Stack nav count.
 
 
