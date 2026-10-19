@@ -23,10 +23,13 @@ Headless Chrome side-by-side vs `desktop/01-home.html` at 1440 and `mobile/01-ho
 - Nav/footer links point to routes that do not exist yet (see slice 2/3), so they 404.
 - Nothing was tested with a real screen reader. Menu focus trap and Esc were written but only reviewed in code, not driven in a browser.
 
-## Slice 2 (todo): Work, Case study, Services, About, Stack
-- `/work` (FilterChips with `?type=`, empty state), `/work/[slug]` (CaseStudy*, StatRow, next case), `/services` (ServiceDetail with `id=<slug>` anchors; timelines only where the FAQ supports them), `/about` (PageHero, PhotoBand reusing HeroPhoto, TeamGrid, stats, all placeholders), `/stack` (StackGroup/ToolTile, two-letter marks) plus 301 `/technologies` -> `/stack` in `next.config.ts`.
-- Add `PageHero`, `BackLink`, `Banner`/`Toast`. Header counts (`Work` 06, `Stack` 31) are hard-coded in `content/site.ts`; derive them from the content once the data exists.
-- `SiteHeader`/`MobileHeader` already switch to sticky paper on non-home routes.
+## Slice 2 (in progress): Work, Case study, Services, About, Stack
+- [x] **Task 1: `/work`**: PageHero, FilterChips (`?type=`, no reload), WorkGrid from `content/work.ts`, empty state from `states.html`. Design: `desktop/02-work.html`, `mobile/04-work.html`. Verified at 1440 and 390, light and dark. Zero horizontal overflow, touch targets >= 44px on mobile. Header count for Work derived dynamically from content.
+- [ ] **Task 2: `/work/[slug]`**: case-study template (CaseStudyMeta, cover, Challenge / What we built / Result, StatRow, screenshots, quote, NextCase, BackLink). `generateStaticParams` from `content/work.ts`. Design: `desktop/03-case-study.html`, `mobile/05-case-study.html`.
+- [ ] **Task 3: `/services`**: ServiceDetail ×6 with `id=<slug>` anchors, filter chips, ProcessSteps, Faq, CtaBand.
+- [ ] **Task 4: `/about`**: PageHero, PhotoBand, StatRow, TeamGrid, Reasons, IndustryList.
+- [ ] **Task 5: `/stack`**: StackGroup/ToolTile from `content/stack.ts`, 301 `/technologies` -> `/stack`, dynamic Stack nav count.
+
 
 ## Slice 3 (todo): Contact, SEO/OG, 404, Lighthouse, deploy
 - `/contact` form (ContactChannels, ContactForm, FormSuccess; validate on submit then blur; `?service=ai|web|systems` from the picker preselects the chip; the picker links already use it) and a server action or API route for sending.

@@ -50,7 +50,7 @@ export default function Home() {
             </div>
           }
         />
-        <WorkGrid items={work} />
+        <WorkGrid items={work.slice(0, 4)} />
         <Button href="/work" variant="ghost" icon="arrow-right" className="mt-8 w-full md:hidden">
           All work
         </Button>

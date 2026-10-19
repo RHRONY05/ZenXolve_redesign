@@ -39,11 +39,21 @@ export function WorkCard({ item, className = "" }: { item: WorkItem; className?:
   );
 }
 
-export function WorkGrid({ items }: { items: WorkItem[] }) {
+export function WorkGrid({
+  items,
+  showAllOnMobile = false,
+}: {
+  items: WorkItem[];
+  showAllOnMobile?: boolean;
+}) {
   return (
-    <div className="grid grid-cols-1 gap-9 md:grid-cols-12 md:gap-5">
+    <div className="work-grid grid grid-cols-1 gap-9 md:grid-cols-12 md:gap-5">
       {items.map((item, i) => (
-        <WorkCard key={item.slug} item={item} className={`${spans[i % 4]} ${i >= 2 ? "hidden md:block" : ""}`} />
+        <WorkCard
+          key={item.slug}
+          item={item}
+          className={`${spans[i % 4]} ${showAllOnMobile || i < 2 ? "" : "hidden md:block"}`}
+        />
       ))}
     </div>
   );

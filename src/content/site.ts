@@ -1,3 +1,5 @@
+import { work } from "./work";
+
 export const site = {
   name: "XenZolve",
   email: "hello@xenzolve.com",
@@ -15,7 +17,7 @@ export const site = {
 
 /** Counts shown as superscripts: Work = published case studies, Stack = number of tools. */
 export const nav = [
-  { label: "Work", href: "/work", count: "06" },
+  { label: "Work", href: "/work", count: work.length.toString().padStart(2, "0") },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Stack", href: "/stack", count: "31" },
