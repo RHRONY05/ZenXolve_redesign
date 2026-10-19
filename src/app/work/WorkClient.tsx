@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { work, workCategories, type WorkCategory } from "@/content/work";
+import { work, workCategories } from "@/content/work";
 import { WorkGrid } from "@/components/home/WorkGrid";
 import { PlaceholderTag } from "@/components/ui/Placeholder";
 import { Icon } from "@/components/ui/Icon";

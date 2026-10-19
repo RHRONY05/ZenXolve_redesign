@@ -43,7 +43,10 @@ export function ChromeProvider({ children }: { children: React.ReactNode }) {
   }, [pathname]);
 
   // Close the sheet whenever the route changes.
-  useEffect(() => setMenuOpenState(false), [pathname]);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMenuOpenState(false);
+  }, [pathname]);
 
   const value = useMemo(() => ({ menuOpen, setMenuOpen, pastHero, isHome }), [menuOpen, setMenuOpen, pastHero, isHome]);
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

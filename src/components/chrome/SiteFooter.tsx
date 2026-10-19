@@ -15,7 +15,7 @@ export function SiteFooter() {
             </p>
           </div>
           <div>
-            <h5 className="mono mb-4 text-ink-3">Studio</h5>
+            <div className="mono mb-4 text-ink-3">Studio</div>
             <ul className="grid gap-[10px] text-[15px] text-ink-2">
               {footerStudio.map((l) => (
                 <li key={l.href}>
@@ -25,7 +25,7 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h5 className="mono mb-4 text-ink-3">Services</h5>
+            <div className="mono mb-4 text-ink-3">Services</div>
             <ul className="grid gap-[10px] text-[15px] text-ink-2">
               {footerServices.map((s) => (
                 <li key={s}>
@@ -35,7 +35,7 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h5 className="mono mb-4 text-ink-3">Contact</h5>
+            <div className="mono mb-4 text-ink-3">Contact</div>
             <ul className="grid gap-[10px] text-[15px] text-ink-2">
               <li>
                 <a href={`mailto:${site.email}`}>{site.email}</a>

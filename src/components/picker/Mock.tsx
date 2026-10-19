@@ -2,7 +2,7 @@
 
 export function MockBrowser({ url, className = "", children }: { url: string; className?: string; children: React.ReactNode }) {
   return (
-    <div className={`absolute overflow-hidden rounded-[14px] bg-surface shadow-(--shadow-lg) ${className}`}>
+    <div aria-hidden="true" className={`absolute overflow-hidden rounded-[14px] bg-surface shadow-(--shadow-lg) ${className}`}>
       <div className="flex h-[34px] items-center gap-1.5 border-b border-line px-[14px]">
         <i className="size-[9px] rounded-full bg-line-strong" />
         <i className="size-[9px] rounded-full bg-line-strong" />
@@ -24,7 +24,7 @@ export function MockPhone({
   children: React.ReactNode;
 }) {
   return (
-    <div className={`absolute bg-mock-phone shadow-[0_40px_70px_-24px_var(--mock-shadow)] ${className}`}>
+    <div aria-hidden="true" className={`absolute bg-mock-phone shadow-[0_40px_70px_-24px_var(--mock-shadow)] ${className}`}>
       <div className={`flex h-full w-full flex-col overflow-hidden bg-mock-screen text-mock-screen-ink ${screenClassName}`}>
         {children}
       </div>
@@ -33,14 +33,14 @@ export function MockPhone({
 }
 
 export function FlowCard({ className = "", children }: { className?: string; children: React.ReactNode }) {
-  return <div className={`absolute rounded-[16px] bg-surface p-4 text-sm shadow-(--shadow-md) ${className}`}>{children}</div>;
+  return <div aria-hidden="true" className={`absolute rounded-[16px] bg-surface p-4 text-sm shadow-(--shadow-md) ${className}`}>{children}</div>;
 }
 
 export function Msg({ me, time, children }: { me?: boolean; time: string; children: React.ReactNode }) {
   return (
     <div className={`max-w-[84%] rounded-[12px] px-[11px] py-2 ${me ? "self-end bg-mock-msg-me" : "bg-mock-msg"}`}>
       {children}
-      <small className="mt-[3px] block text-right text-[10px] text-mock-muted">{time}</small>
+      <small aria-hidden="true" className="mt-[3px] block text-right text-[10px] text-mock-muted">{time}</small>
     </div>
   );
 }

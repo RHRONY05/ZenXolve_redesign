@@ -11,7 +11,7 @@ export function ProcessSteps() {
             className="absolute top-1 -left-[5px] size-[9px] rounded-full bg-ink md:-top-[5px] md:left-0"
           />
           <span className="mono mb-2 block text-ink-3 md:mt-[14px] md:mb-3">Step {String(i + 1).padStart(2, "0")}</span>
-          <h4 className="mb-3 font-serif text-[28px] leading-8 font-normal md:text-[34px] md:leading-[38px]">{s.title}</h4>
+          <h3 className="mb-3 font-serif text-[28px] leading-8 font-normal md:text-[34px] md:leading-[38px]">{s.title}</h3>
           <p className="text-[15px] leading-6 text-ink-2">{s.body}</p>
         </li>
       ))}

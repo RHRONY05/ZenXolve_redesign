@@ -68,7 +68,7 @@ export function ContactForm({ initialService }: ContactFormProps) {
     return true;
   };
 
-  const handleBlur = (field: string) => {
+  const handleBlur = () => {
     if (!hasSubmitted) return;
     validate();
   };
@@ -105,7 +105,7 @@ export function ContactForm({ initialService }: ContactFormProps) {
             "Couldn't send your message. Check your connection and try again, or reach us on WhatsApp."
         );
       }
-    } catch (err) {
+    } catch {
       setStatus("error");
       setServerError(
         "Couldn't send your message. Check your connection and try again, or reach us on WhatsApp."
@@ -182,7 +182,7 @@ export function ContactForm({ initialService }: ContactFormProps) {
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            onBlur={() => handleBlur("name")}
+            onBlur={handleBlur}
             aria-invalid={!!errors.name}
             placeholder="Full name"
             disabled={status === "submitting"}
@@ -208,7 +208,7 @@ export function ContactForm({ initialService }: ContactFormProps) {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            onBlur={() => handleBlur("email")}
+            onBlur={handleBlur}
             aria-invalid={!!errors.email}
             placeholder="name@company.com"
             disabled={status === "submitting"}
@@ -304,7 +304,7 @@ export function ContactForm({ initialService }: ContactFormProps) {
           rows={4}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          onBlur={() => handleBlur("message")}
+          onBlur={handleBlur}
           aria-invalid={!!errors.message}
           placeholder="What are you building, who is it for, and when do you need it?"
           disabled={status === "submitting"}
