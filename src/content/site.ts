@@ -1,3 +1,4 @@
+import { stack } from "./stack";
 import { work } from "./work";
 
 export const site = {
@@ -20,7 +21,7 @@ export const nav = [
   { label: "Work", href: "/work", count: work.length.toString().padStart(2, "0") },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
-  { label: "Stack", href: "/stack", count: "31" },
+  { label: "Stack", href: "/stack", count: stack.length.toString().padStart(2, "0") },
 ] as const;
 
 export const footerStudio = ["Work", "Services", "About", "Stack", "Contact"].map((label) => ({

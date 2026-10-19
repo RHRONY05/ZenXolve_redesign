@@ -10,6 +10,15 @@ const nextConfig: NextConfig = {
     },
   },
   images: { formats: ["image/avif", "image/webp"] },
+  async redirects() {
+    return [
+      {
+        source: "/technologies",
+        destination: "/stack",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
