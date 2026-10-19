@@ -1,0 +1,400 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Xenzolve design tokens: "Paper & Ink". Source of truth: .agent/design/tokens.css
+   Light = paper, dark = ink (prefers-color-scheme). Components use only tokens.
+   ========================================================================== */
+
+:root {
+  /* Layout */
+  --container: 1328px;
+  --gutter-d: 56px;
+  --gutter-m: 20px;
+  --header-h: 80px;
+  --header-h-m: 64px;
+  --section-y: 140px;
+  --section-y-m: 80px;
+  --frame-inset: 12px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-fast: 140ms;
+  --dur: 240ms;
+  --dur-slow: 450ms;
+  --drift: 24s;
+  --flash-every: 9s;
+
+  /* Colours: light (paper) */
+  --bg: #f2efe8;
+  --surface: #fbfaf6;
+  --surface-2: #e9e5dc;
+  --surface-3: #dfdad0;
+  --line: #dcd7cc;
+  --line-strong: #c4beb1;
+  --ink: #121212;
+  --ink-2: #4a4844;
+  --ink-3: #6f6b63;
+  --inverse: #121212;
+  --on-inverse: #f2eee6;
+  --on-inverse-2: #a8a39a;
+
+  --accent: #2f4bff;
+  --accent-hover: #2139e6;
+  --accent-soft: #e3e7ff;
+  --accent-text: #2438d6;
+  --on-accent: #ffffff;
+  --cta-accent: var(--accent);
+
+  --success: #1f8a5b;
+  --success-soft: #ddf1e6;
+  --danger: #b93226;
+  --danger-soft: #f8e1dd;
+  --warn: #9a5b00;
+  --warn-soft: #fbebd0;
+
+  /* Photo hero: identical in both themes */
+  --photo-bg: #16131c;
+  --photo-ink: #121212;
+  --on-photo: #f6f2ea;
+  --on-photo-2: rgba(246, 242, 234, 0.78);
+  --flash: #d9c8ff;
+  --photo-scrim: linear-gradient(
+    180deg,
+    rgba(10, 8, 14, 0.35) 0%,
+    rgba(10, 8, 14, 0) 22%,
+    rgba(10, 8, 14, 0) 50%,
+    rgba(10, 8, 14, 0.72) 100%
+  );
+  --glass: rgba(255, 255, 255, 0.1);
+  --glass-line: rgba(255, 255, 255, 0.3);
+  --flash-glow: rgba(217, 200, 255, 0.55);
+  --white: #ffffff;
+
+  /* Placeholder marker */
+  --ph: #b4590a;
+  --ph-soft: #fdf0e2;
+
+  /* Case-study tile tints */
+  --tile-1: linear-gradient(160deg, #1f2b5c, #2f4bff);
+  --tile-2: linear-gradient(160deg, #3a2e22, #8c6a44);
+  --tile-3: linear-gradient(160deg, #1e3a33, #3e7f6b);
+  --tile-4: linear-gradient(160deg, #3b1f33, #8e4a74);
+  --tile-5: linear-gradient(160deg, #2b2b2b, #5e5a53);
+  --tile-6: linear-gradient(160deg, #1d3448, #3f7aa6);
+
+  /* Picker illustrations (phone mockups look the same in both themes) */
+  --mock-phone: #111111;
+  --mock-screen: #efe9df;
+  --mock-screen-ink: #121212;
+  --mock-msg: #ffffff;
+  --mock-msg-me: #d8f3c9;
+  --mock-wa: #1f5f4a;
+  --mock-muted: #6f6b63;
+  --mock-checkout: #fbfaf6;
+  --mock-checkout-ink: #4a4844;
+  --mock-shadow: rgba(0, 0, 0, 0.45);
+
+  /* Focus + shadows */
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+  --shadow-sm: 0 1px 2px rgba(30, 25, 15, 0.06);
+  --shadow-md: 0 12px 28px -12px rgba(30, 25, 15, 0.22), 0 0 0 1px var(--line);
+  --shadow-lg: 0 34px 64px -22px rgba(30, 25, 15, 0.32), 0 0 0 1px var(--line);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121110;
+    --surface: #1a1917;
+    --surface-2: #23211e;
+    --surface-3: #2d2a26;
+    --line: #2e2c28;
+    --line-strong: #45413b;
+    --ink: #f2eee6;
+    --ink-2: #bdb8ae;
+    --ink-3: #8e897f;
+    --inverse: #f2eee6;
+    --on-inverse: #121212;
+    --on-inverse-2: #5a5650;
+    --accent: #8c9bff;
+    --accent-hover: #a5b1ff;
+    --accent-soft: rgba(140, 155, 255, 0.14);
+    --accent-text: #a9b4ff;
+    --on-accent: #0e1240;
+    --cta-accent: #2f4bff;
+    --success: #4fc48d;
+    --success-soft: rgba(79, 196, 141, 0.14);
+    --danger: #f07a6c;
+    --danger-soft: rgba(240, 122, 108, 0.14);
+    --warn: #e9a94b;
+    --warn-soft: rgba(233, 169, 75, 0.14);
+    --ph: #f0a55b;
+    --ph-soft: rgba(240, 165, 91, 0.12);
+    --shadow-md: 0 12px 28px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--line);
+    --shadow-lg: 0 34px 64px -22px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--line);
+    color-scheme: dark;
+  }
+}
+
+@theme {
+  /* Fonts (next/font sets the --font-* variables below on <html>) */
+  --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: var(--font-instrument-serif), "Times New Roman", Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "Cascadia Code", Consolas, monospace;
+
+  /* Type scale: sans */
+  --text-xs: 12px;
+  --text-xs--line-height: 16px;
+  --text-sm: 14px;
+  --text-sm--line-height: 20px;
+  --text-base: 16px;
+  --text-base--line-height: 26px;
+  --text-lg: 18px;
+  --text-lg--line-height: 29px;
+  --text-xl: 22px;
+  --text-xl--line-height: 30px;
+  --text-2xl: 28px;
+  --text-2xl--line-height: 34px;
+
+  /* Type scale: serif display */
+  --text-display-sm: 40px;
+  --text-display-sm--line-height: 44px;
+  --text-display-md: 56px;
+  --text-display-md--line-height: 58px;
+  --text-display-lg: 80px;
+  --text-display-lg--line-height: 78px;
+  --text-display-xl: 104px;
+  --text-display-xl--line-height: 96px;
+  --text-display-hero: 132px;
+  --text-display-hero--line-height: 119px;
+  --text-display-hero-m: 60px;
+  --text-display-hero-m--line-height: 56px;
+  --tracking-display: -0.03em;
+  --tracking-mono: 0.04em;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 999px;
+
+  /* Breakpoints: < 768 mobile, >= 768 desktop; grids drop to 2 cols below 1100 */
+  --breakpoint-lgx: 68.75rem; /* 1100px, in rem so it sorts correctly next to the default breakpoints */
+
+  /* Colours (resolved at use time, so dark mode swaps them) */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-inverse: var(--inverse);
+  --color-on-inverse: var(--on-inverse);
+  --color-on-inverse-2: var(--on-inverse-2);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-text: var(--accent-text);
+  --color-on-accent: var(--on-accent);
+  --color-cta-accent: var(--cta-accent);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-photo-bg: var(--photo-bg);
+  --color-photo-ink: var(--photo-ink);
+  --color-on-photo: var(--on-photo);
+  --color-on-photo-2: var(--on-photo-2);
+  --color-flash: var(--flash);
+  --color-glass: var(--glass);
+  --color-glass-line: var(--glass-line);
+  --color-white: var(--white);
+  --color-ph: var(--ph);
+  --color-ph-soft: var(--ph-soft);
+  --color-mock-phone: var(--mock-phone);
+  --color-mock-screen: var(--mock-screen);
+  --color-mock-screen-ink: var(--mock-screen-ink);
+  --color-mock-msg: var(--mock-msg);
+  --color-mock-msg-me: var(--mock-msg-me);
+  --color-mock-wa: var(--mock-wa);
+  --color-mock-muted: var(--mock-muted);
+  --color-mock-checkout: var(--mock-checkout);
+  --color-mock-checkout-ink: var(--mock-checkout-ink);
+}
+
+/* ---- Base (in a layer so utilities can override it) ---- */
+@layer base {
+  html {
+    background: var(--bg);
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 26px;
+    -webkit-font-smoothing: antialiased;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  button {
+    font: inherit;
+    color: inherit;
+  }
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+    border-radius: var(--radius-sm);
+  }
+  .hero-photo :focus-visible {
+    box-shadow: 0 0 0 2px var(--photo-bg), 0 0 0 4px var(--flash);
+  }
+  .inverse-surface :focus-visible {
+    box-shadow: 0 0 0 2px var(--inverse), 0 0 0 4px var(--accent);
+  }
+}
+
+/* ---- Shared utilities ---- */
+@utility mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+}
+@utility serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: var(--tracking-display);
+}
+em.acc,
+.acc {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* ---- Hero photo: drift + flash (off with reduced motion) ---- */
+.hero-img {
+  filter: brightness(1.45) contrast(1.12) saturate(1.1);
+  transform: scale(1.04);
+  animation: drift var(--drift) ease-in-out infinite alternate;
+}
+.hero-flash {
+  background: radial-gradient(600px 300px at 52% 8%, var(--flash-glow), transparent 70%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  animation: flash var(--flash-every) infinite;
+}
+@keyframes drift {
+  to {
+    transform: scale(1.1) translate(-1%, 1%);
+  }
+}
+@keyframes flash {
+  0%,
+  88%,
+  100% {
+    opacity: 0;
+  }
+  89% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  91.5% {
+    opacity: 0.85;
+  }
+  94% {
+    opacity: 0;
+  }
+}
+/* Hero text rises on load. Fill mode "backwards": fully visible once finished, with or without JS. */
+.rise {
+  animation: rise 600ms var(--ease) backwards;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Section heads fade+rise as they enter the viewport. Without scroll-timeline support they simply show. */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal 1ms linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 45%;
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+/* ---- Picker scenes: cross-fade ---- */
+.scene {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+  pointer-events: none;
+}
+.scene.on {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+/* ---- FAQ ---- */
+.faq summary {
+  list-style: none;
+}
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+.faq details[open] summary svg {
+  transform: rotate(45deg);
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-img,
+  .hero-flash {
+    animation: none;
+  }
+  .rise {
+    animation: fade 150ms linear backwards;
+    animation-delay: 0ms;
+  }
+  .reveal {
+    animation: none;
+  }
+  .scene {
+    transform: none;
+    transition: opacity var(--dur-fast) linear;
+  }
+  .faq summary svg {
+    transition: none;
+  }
+}
