@@ -82,6 +82,17 @@
   --tile-5: linear-gradient(160deg, #2b2b2b, #5e5a53);
   --tile-6: linear-gradient(160deg, #1d3448, #3f7aa6);
 
+  /* Colour panels (services, process, reasons). Same hues in both themes except sand, which follows the theme. */
+  --panel-cobalt: #2f4bff;
+  --panel-ink: #16131c;
+  --panel-forest: #1e3a33;
+  --panel-plum: #3b1f33;
+  --panel-sand: var(--surface-2);
+  --on-panel: #f6f2ea;
+  --on-panel-2: rgba(246, 242, 234, 0.8);
+  --panel-line: rgba(246, 242, 234, 0.18);
+  --panel-lift: rgba(255, 255, 255, 0.08);
+
   /* Picker illustrations (phone mockups look the same in both themes) */
   --mock-phone: #111111;
   --mock-screen: #efe9df;
@@ -102,8 +113,9 @@
   color-scheme: light;
 }
 
+/* Dark = the OS preference unless the visitor picked "light"; or forced with data-theme="dark" (ThemeToggle). */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #121110;
     --surface: #1a1917;
     --surface-2: #23211e;
@@ -135,6 +147,38 @@
     color-scheme: dark;
   }
 }
+:root[data-theme="dark"] {
+  --bg: #121110;
+  --surface: #1a1917;
+  --surface-2: #23211e;
+  --surface-3: #2d2a26;
+  --line: #2e2c28;
+  --line-strong: #45413b;
+  --ink: #f2eee6;
+  --ink-2: #bdb8ae;
+  --ink-3: #8e897f;
+  --inverse: #f2eee6;
+  --on-inverse: #121212;
+  --on-inverse-2: #5a5650;
+  --accent: #8c9bff;
+  --accent-hover: #a5b1ff;
+  --accent-soft: rgba(140, 155, 255, 0.14);
+  --accent-text: #a9b4ff;
+  --on-accent: #0e1240;
+  --cta-accent: #2f4bff;
+  --success: #4fc48d;
+  --success-soft: rgba(79, 196, 141, 0.14);
+  --danger: #f07a6c;
+  --danger-soft: rgba(240, 122, 108, 0.14);
+  --warn: #e9a94b;
+  --warn-soft: rgba(233, 169, 75, 0.14);
+  --ph: #f0a55b;
+  --ph-soft: rgba(240, 165, 91, 0.12);
+  --shadow-md: 0 12px 28px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--line);
+  --shadow-lg: 0 34px 64px -22px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--line);
+  color-scheme: dark;
+}
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @theme {
   /* Fonts (next/font sets the --font-* variables below on <html>) */
@@ -217,6 +261,15 @@
   --color-white: var(--white);
   --color-ph: var(--ph);
   --color-ph-soft: var(--ph-soft);
+  --color-panel-cobalt: var(--panel-cobalt);
+  --color-panel-ink: var(--panel-ink);
+  --color-panel-forest: var(--panel-forest);
+  --color-panel-plum: var(--panel-plum);
+  --color-panel-sand: var(--panel-sand);
+  --color-on-panel: var(--on-panel);
+  --color-on-panel-2: var(--on-panel-2);
+  --color-panel-line: var(--panel-line);
+  --color-panel-lift: var(--panel-lift);
   --color-mock-phone: var(--mock-phone);
   --color-mock-screen: var(--mock-screen);
   --color-mock-screen-ink: var(--mock-screen-ink);
@@ -377,6 +430,132 @@ em.acc,
   transform: rotate(45deg);
 }
 
+/* ---- Colour panels: cursor spotlight + illustration animations ---- */
+.spot {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(420px circle at var(--mx, 85%) var(--my, 0%), var(--panel-lift), transparent 65%);
+  opacity: 0.9;
+  transition: opacity var(--dur) var(--ease);
+}
+@media (hover: none) {
+  .spot::before {
+    background: radial-gradient(420px circle at 85% 0%, var(--panel-lift), transparent 65%);
+  }
+}
+
+/* Build: wireframe blocks assemble, then hold, then loop */
+.art-block {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: assemble 7s var(--ease) infinite;
+  animation-delay: calc(var(--d, 0) * 220ms);
+}
+@keyframes assemble {
+  0%,
+  6% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  22%,
+  88% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+/* Automate: data pulses along connectors */
+.art-flow {
+  stroke-dasharray: 6 8;
+  animation: flow 1.6s linear infinite;
+}
+.art-pulse {
+  offset-rotate: 0deg;
+  animation: travel 3.2s var(--ease) infinite;
+  animation-delay: calc(var(--d, 0) * 1s);
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+@keyframes travel {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  12%,
+  88% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+/* Design: curve draws itself, anchors pop in */
+.art-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 6s var(--ease) infinite;
+}
+.art-anchor {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pop 6s var(--ease) infinite;
+  animation-delay: calc(var(--d, 0) * 400ms);
+}
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 1;
+  }
+  45%,
+  90% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1;
+  }
+}
+@keyframes pop {
+  0%,
+  8% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  20%,
+  90% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* Reasons: icon tile lifts on hover */
+.tile-icon {
+  transition: transform var(--dur) var(--ease);
+}
+.tile:hover .tile-icon {
+  transform: translateY(-4px) rotate(-6deg) scale(1.06);
+}
+.tile .tile-ghost {
+  transition: transform 600ms var(--ease);
+}
+.tile:hover .tile-ghost {
+  transform: scale(1.08) rotate(4deg);
+}
+
 /* ---- Reduced motion ---- */
 @media (prefers-reduced-motion: reduce) {
   .hero-img,
@@ -389,6 +568,23 @@ em.acc,
   }
   .reveal {
     animation: none;
+  }
+  .art-block,
+  .art-flow,
+  .art-pulse,
+  .art-draw,
+  .art-anchor {
+    animation: none;
+  }
+  .art-draw {
+    stroke-dashoffset: 0;
+  }
+  .art-pulse {
+    display: none;
+  }
+  .tile:hover .tile-icon,
+  .tile:hover .tile-ghost {
+    transform: none;
   }
   .scene {
     transform: none;

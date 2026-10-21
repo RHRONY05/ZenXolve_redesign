@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { nav, site } from "@/content/site";
 import { Button } from "@/components/ui/Button";
+import { ThemeToggle } from "./ThemeToggle";
 import { Icon } from "@/components/ui/Icon";
 import { Logo } from "@/components/ui/Logo";
 import { useChrome } from "./ChromeProvider";
@@ -96,6 +97,10 @@ export function MobileMenu() {
         <Button href={site.whatsapp} external variant="ghost" iconLeft="message-circle">
           WhatsApp {site.phone}
         </Button>
+        <div className="mt-2 flex items-center justify-between">
+          <span className="mono text-ink-3">Theme</span>
+          <ThemeToggle />
+        </div>
         <div className="mono mt-2 text-center text-ink-3">
           {site.email} · {site.location}
         </div>

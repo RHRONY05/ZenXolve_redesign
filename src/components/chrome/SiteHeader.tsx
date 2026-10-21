@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { nav } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
+import { ThemeToggle } from "./ThemeToggle";
 import { useChrome } from "./ChromeProvider";
 
 /** >= 768px. `on-photo` on Home while the hero is in view, then `paper` (fixed, blurred). Other pages: sticky paper. */
@@ -41,6 +42,7 @@ export function SiteHeader() {
             </Link>
           );
         })}
+        <ThemeToggle />
         <Button href="/contact" variant={onPhoto ? "on-photo" : "primary"}>
           Start a project
         </Button>

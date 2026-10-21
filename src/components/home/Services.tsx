@@ -1,59 +1,98 @@
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
-import { serviceGroups, services, type Service } from "@/content/services";
+import { services, type Service } from "@/content/services";
+import { AutomateArt, BuildArt, DesignArt } from "./ServiceArt";
+import { Spotlight } from "./Spotlight";
 
-export function ServiceRow({ s }: { s: Service }) {
+function PanelRow({ s }: { s: Service }) {
   return (
     <Link
       href={`/services#${s.slug}`}
-      className="group grid grid-cols-[1fr_22px] items-start gap-3 border-b border-line py-[22px] last:border-b-0 md:grid-cols-[1fr_1.1fr_24px] md:gap-10"
+      className="group block border-t border-panel-line py-6 first:border-t-0 first:pt-0 md:py-5 md:first:pt-0"
     >
-      <h4 className="col-start-1 row-start-1 text-xl leading-[30px] font-medium tracking-[-0.01em]">{s.title}</h4>
-      <div className="col-span-2 row-start-2 md:col-span-1 md:col-start-2 md:row-start-1">
-        <p className="text-[15px] leading-6 text-ink-2">{s.body}</p>
-        <ul className="mt-3 hidden flex-wrap gap-1.5 md:flex">
-          {s.tags.map((t) => (
-            <li key={t} className="rounded-full bg-surface-2 px-[10px] py-1 text-[13px] text-ink-2">
-              {t}
-            </li>
-          ))}
-        </ul>
+      <div className="flex items-start justify-between gap-4">
+        <h4 className="text-xl leading-[30px] font-medium tracking-[-0.01em]">{s.title}</h4>
+        <Icon
+          name="arrow-up-right"
+          size={22}
+          className="mt-1 shrink-0 opacity-70 transition-transform duration-(--dur) ease-(--ease) group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+        />
       </div>
-      <Icon
-        name="arrow-up-right"
-        size={22}
-        className="col-start-2 row-start-1 mt-1 text-ink-3 transition-colors group-hover:text-accent-text md:col-start-3"
-      />
+      <p className="mt-2 max-w-[560px] text-[15px] leading-6 text-on-panel-2">{s.body}</p>
+      <ul className="mt-4 flex flex-wrap gap-1.5">
+        {s.tags.map((t) => (
+          <li key={t} className="rounded-full bg-panel-lift px-[10px] py-1 text-[13px] text-on-panel-2">
+            {t}
+          </li>
+        ))}
+      </ul>
     </Link>
   );
 }
 
-export function ServiceGroup({ group, letter, last }: { group: string; letter: string; last?: boolean }) {
+function PanelHead({ letter, group, count, size }: { letter: string; group: string; count: string; size: "lg" | "md" }) {
   return (
-    <div
-      className={`grid grid-cols-1 gap-1.5 border-t border-line pt-7 pb-2 md:grid-cols-[280px_1fr] md:gap-12 md:py-9 ${last ? "border-b" : ""}`}
-    >
-      <div>
-        <span className="mono hidden text-ink-3 md:block md:leading-[26px]">{letter}</span>
-        <h3 className="font-serif text-[38px] leading-10 font-normal md:mt-2.5 md:text-[48px] md:leading-[50px]">{group}</h3>
-      </div>
-      <div>
-        {services
-          .filter((s) => s.group === group)
-          .map((s) => (
-            <ServiceRow key={s.slug} s={s} />
-          ))}
-      </div>
+    <div>
+      <span className="mono text-on-panel-2">
+        {letter} · {count} services
+      </span>
+      <h3
+        className={`mt-3 font-serif font-normal tracking-(--tracking-display) ${
+          size === "lg"
+            ? "text-[72px] leading-[68px] md:text-[120px] md:leading-[108px]"
+            : "text-[72px] leading-[68px] md:text-[64px] md:leading-[60px]"
+        }`}
+      >
+        {group}
+      </h3>
     </div>
   );
 }
 
+const forGroup = (g: Service["group"]) => services.filter((s) => s.group === g);
+
+/** Three colour panels: Build (cobalt, wide), Automate (ink), Design (forest), each with an animated SVG scene. */
 export function ServiceList() {
   return (
-    <div>
-      {serviceGroups.map((g, i) => (
-        <ServiceGroup key={g.key} group={g.key} letter={g.letter} last={i === serviceGroups.length - 1} />
-      ))}
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5">
+      {/* Build */}
+      <Spotlight className="rounded-xl bg-panel-cobalt p-6 text-on-panel md:col-span-12 md:p-12">
+        <div className="grid gap-10 md:grid-cols-[5fr_7fr] md:gap-14">
+          <div className="flex flex-col justify-between gap-8">
+            <PanelHead letter="A" group="Build" count="03" size="lg" />
+            <BuildArt className="w-full max-w-[440px] text-on-panel md:-mb-2" />
+          </div>
+          <div>
+            {forGroup("Build").map((s) => (
+              <PanelRow key={s.slug} s={s} />
+            ))}
+          </div>
+        </div>
+      </Spotlight>
+
+      {/* Automate: heading and art share one row on desktop so the whole panel fits a 900 px viewport */}
+      <Spotlight className="flex flex-col gap-6 rounded-xl bg-panel-ink p-6 text-on-panel ring-1 ring-panel-line md:col-span-7 md:gap-5 md:p-9">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-4">
+          <PanelHead letter="B" group="Automate" count="02" size="md" />
+          <AutomateArt className="w-full max-w-[460px] text-on-panel md:max-w-[300px]" />
+        </div>
+        <div>
+          {forGroup("Automate").map((s) => (
+            <PanelRow key={s.slug} s={s} />
+          ))}
+        </div>
+      </Spotlight>
+
+      {/* Design: one service, so the curve gets the space below it */}
+      <Spotlight className="flex flex-col gap-6 rounded-xl bg-panel-forest p-6 text-on-panel md:col-span-5 md:gap-5 md:p-9">
+        <PanelHead letter="C" group="Design" count="01" size="md" />
+        <div>
+          {forGroup("Design").map((s) => (
+            <PanelRow key={s.slug} s={s} />
+          ))}
+        </div>
+        <DesignArt className="mt-auto w-full max-w-[440px] self-center text-on-panel md:max-w-[330px]" />
+      </Spotlight>
     </div>
   );
 }

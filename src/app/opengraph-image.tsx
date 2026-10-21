@@ -1,6 +1,4 @@
 import { ImageResponse } from "next/og";
-import fs from "node:fs/promises";
-import path from "node:path";
 
 export const runtime = "nodejs";
 export const alt = "XenZolve — Software your business runs on";
@@ -11,10 +9,6 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
-  const imagePath = path.join(process.cwd(), "public", "hero-storm-dhaka.jpg");
-  const imageBuffer = await fs.readFile(imagePath);
-  const base64Image = `data:image/jpeg;base64,${imageBuffer.toString("base64")}`;
-
   return new ImageResponse(
     (
       <div
@@ -26,21 +20,21 @@ export default async function Image() {
           backgroundColor: "#121110",
         }}
       >
-        {/* Background photo */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={base64Image}
-          alt=""
+        {/* Cobalt glow + the bolt, drawn with SVG */}
+        <div
           style={{
             position: "absolute",
             top: 0,
             left: 0,
             width: "100%",
             height: "100%",
-            objectFit: "cover",
-            opacity: 0.35,
+            display: "flex",
+            backgroundImage: "radial-gradient(circle at 78% 42%, rgba(47,75,255,0.55), rgba(47,75,255,0) 55%)",
           }}
         />
+        <svg viewBox="-1 -1.4 2 2.8" width="420" height="590" style={{ position: "absolute", right: 90, top: 20 }}>
+          <polygon points="0.05,-1 0.6,-1 0.2,-0.2 0.65,-0.2 -0.3,1 -0.05,0.1 -0.55,0.1" fill="#2F4BFF" stroke="#8C9BFF" strokeWidth="0.1" strokeLinejoin="round" />
+        </svg>
 
         {/* Content container */}
         <div
