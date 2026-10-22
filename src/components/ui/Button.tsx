@@ -7,7 +7,7 @@ const variants: Record<ButtonVariant, string> = {
   primary: "border-transparent bg-ink text-bg hover:bg-ink-2",
   accent: "border-transparent bg-accent text-on-accent hover:bg-accent-hover",
   ghost: "bg-transparent text-ink border-line-strong hover:bg-surface-2",
-  "on-photo": "border-transparent bg-on-photo text-photo-ink",
+  "on-photo": "border-transparent bg-on-photo text-photo-bg font-semibold hover:opacity-90",
   glass: "bg-glass text-on-photo border-glass-line backdrop-blur-[8px]",
   inverse: "border-transparent bg-on-inverse text-inverse",
   "ghost-inverse": "bg-transparent text-on-inverse border-on-inverse-2 hover:bg-on-inverse/10",

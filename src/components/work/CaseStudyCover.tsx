@@ -50,13 +50,13 @@ export function CaseStudyCover({ item }: { item: WorkItem }) {
       </div>
 
       {/* Mobile phone mockup */}
-      <div className="phone md:hidden absolute left-1/2 -translate-x-1/2 top-[60px] w-[170px] h-[330px] rounded-[28px] bg-[#111] p-[7px] shadow-[0_40px_70px_-24px_rgba(0,0,0,0.45)]">
-        <div className="screen w-full h-full rounded-[22px] bg-[#FBFAF6] overflow-hidden flex flex-col text-[#121212]">
+      <div className="phone md:hidden absolute left-1/2 -translate-x-1/2 top-[60px] w-[170px] h-[330px] rounded-[28px] bg-mock-phone p-[7px] shadow-[0_40px_70px_-24px_rgba(0,0,0,0.45)]">
+        <div className="screen w-full h-full rounded-[22px] bg-mock-screen overflow-hidden flex flex-col text-mock-screen-ink">
           <div className="pt-[26px] px-3 pb-0">
             <span className="chip-soft inline-block text-[10px] px-2 py-0.5 rounded-full bg-accent-soft text-accent-text">
               New season
             </span>
-            <div className="serif font-serif text-[26px] leading-7 mt-1.5 text-[#121212]">Everyday carry</div>
+            <div className="serif font-serif text-[26px] leading-7 mt-1.5 text-mock-screen-ink">Everyday carry</div>
           </div>
           <div className="mx-3 my-2.5 h-[110px] rounded-[10px]" style={{ background: `var(--${item.tile})` }} />
         </div>

@@ -1,75 +1,119 @@
-import { Button } from "@/components/ui/Button";
-import { DhakaClock } from "./DhakaClock";
-import { HeroBolt } from "./HeroBolt";
+import Image from "next/image";
 
 /**
- * Home hero (kept the name HeroPhoto for the component map). Ink panel with a cobalt glow and the 3D bolt
- * (see HeroBolt). Text colours use the on-photo tokens, which are light-on-dark in both themes.
+ * Home hero: full-screen edge-to-edge canvas featuring the signature deep cosmic dark navy base,
+ * rich atmospheric violet/purple radial nebula glow, high-tech orthogonal grid, and the illuminated
+ * XenZolve center title framed in a clean neon rectangular line with an open gap for
+ * "Your Vision · Our Innovation", followed by the supporting statements below.
  */
 export function HeroPhoto() {
   return (
     <section
       id="hero"
-      className="hero-photo relative h-[760px] md:h-[min(100svh,900px)] md:min-h-[680px]"
+      className="hero-photo relative h-screen min-h-[100svh] w-full overflow-hidden bg-[#060713]"
     >
-      <div className="absolute inset-2 overflow-hidden rounded-lg bg-panel-ink md:inset-(--frame-inset) md:rounded-xl">
-        {/* cobalt glow behind the object, a softer lavender one off to the side */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(520px 480px at 50% 30%, color-mix(in srgb, var(--panel-cobalt) 55%, transparent), transparent 72%), radial-gradient(420px 360px at 12% 8%, color-mix(in srgb, var(--flash) 14%, transparent), transparent 70%)",
-          }}
-          aria-hidden
-        />
-        <div
-          className="absolute inset-0 hidden md:block"
-          style={{
-            background:
-              "radial-gradient(760px 620px at 69% 44%, color-mix(in srgb, var(--panel-cobalt) 50%, transparent), transparent 70%)",
-          }}
-          aria-hidden
-        />
-        <div className="absolute inset-0 [background:linear-gradient(180deg,transparent_55%,rgba(0,0,0,0.35))]" aria-hidden />
-        <HeroBolt />
-      </div>
+      {/* Primary rich atmospheric violet/purple radial nebula highlighting the center */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 65% 55% at 50% 36%, rgba(135, 65, 255, 0.52) 0%, rgba(95, 40, 205, 0.35) 40%, rgba(45, 20, 115, 0.16) 65%, transparent 80%), radial-gradient(ellipse 100% 85% at 50% 38%, rgba(75, 35, 175, 0.30) 0%, rgba(35, 18, 95, 0.15) 50%, transparent 88%), radial-gradient(560px 400px at 50% 33%, rgba(160, 95, 255, 0.32), transparent 72%)",
+        }}
+        aria-hidden
+      />
 
-      <DhakaClock />
+      {/* High-tech orthogonal purple grid with illuminated stroke and soft perimeter falloff */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(165, 145, 255, 0.20) 1px, transparent 1px), linear-gradient(to bottom, rgba(165, 145, 255, 0.20) 1px, transparent 1px)",
+          backgroundSize: "52px 52px",
+          backgroundPosition: "center center",
+          maskImage:
+            "radial-gradient(ellipse 92% 82% at 50% 38%, black 35%, rgba(0, 0, 0, 0.75) 70%, transparent 98%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 92% 82% at 50% 38%, black 35%, rgba(0, 0, 0, 0.75) 70%, transparent 98%)",
+        }}
+        aria-hidden
+      />
 
-      <p className="pointer-events-none absolute top-[104px] left-1/2 z-[2] -translate-x-1/2 font-mono text-[10px] leading-4 tracking-mono text-on-photo-2 uppercase opacity-70 motion-reduce:hidden md:top-[96px]">
-        <span className="hidden md:inline">Move your cursor · click to spin</span>
-        <span className="md:hidden">Tap to spin</span>
-      </p>
+      {/* Center grid glow enhancement for high-tech studio feel */}
+      <div
+        className="pointer-events-none absolute inset-0 mix-blend-screen opacity-60"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(195, 175, 255, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(195, 175, 255, 0.15) 1px, transparent 1px)",
+          backgroundSize: "52px 52px",
+          backgroundPosition: "center center",
+          maskImage:
+            "radial-gradient(circle 420px at 50% 36%, black 15%, transparent 80%)",
+          WebkitMaskImage:
+            "radial-gradient(circle 420px at 50% 36%, black 15%, transparent 80%)",
+        }}
+        aria-hidden
+      />
 
-      <div className="absolute right-6 bottom-8 left-6 z-[2] grid grid-cols-1 items-end gap-[22px] text-on-photo md:right-(--gutter-d) md:bottom-16 md:left-(--gutter-d) md:grid-cols-[1fr_380px] md:gap-12">
-        <div>
-          <div className="rise font-mono text-xs leading-4 tracking-mono text-on-photo-2 uppercase">
-            Next-gen problems, next-level solutions
+      {/* Soft bottom vignette */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, transparent 55%, rgba(6, 7, 19, 0.4) 80%, rgba(6, 7, 19, 0.9) 100%)",
+        }}
+        aria-hidden
+      />
+
+      {/* Centerpiece Hero Title & Statements */}
+      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-6 text-center">
+        <div className="relative flex flex-col items-center max-w-4xl -translate-y-[10vh]">
+
+          {/* Clean Neon Rectangular Line Frame (Pushed up into freed space) */}
+          <div
+            className="relative inline-flex flex-col items-center transition-transform duration-500 hover:scale-[1.01]"
+            style={{
+              filter: "drop-shadow(0 0 15px rgba(168, 85, 247, 0.4))",
+            }}
+          >
+            {/* Upper Frame: Top + Left + Right borders with rounded top corners */}
+            <div className="relative border-2 border-b-0 border-[#c084fc]/70 rounded-t-2xl md:rounded-t-3xl px-10 pt-8 sm:px-14 sm:pt-10 md:px-20 md:pt-12 pb-6 bg-transparent">
+              <Image
+                src="/logo-paper.png"
+                alt="XenZolve"
+                width={640}
+                height={172}
+                priority
+                loading="eager"
+                className="relative h-16 sm:h-22 md:h-28 lg:h-32 xl:h-36 w-auto select-none"
+              />
+            </div>
+
+            {/* Bottom Frame: Left line + Clean Gap for Text + Right line */}
+            <div className="w-full flex items-end -mt-0.5">
+              <div className="flex-1 h-3.5 border-l-2 border-b-2 border-[#c084fc]/70 rounded-bl-2xl md:rounded-bl-3xl" />
+              <span className="px-4 sm:px-6 translate-y-[8px] sm:translate-y-[9px] font-mono text-[11px] sm:text-xs md:text-sm font-bold tracking-[0.18em] uppercase text-white whitespace-nowrap select-none bg-transparent">
+                Your Vision <span className="mx-2 text-[#c084fc] font-bold">·</span> Our Innovation
+              </span>
+              <div className="flex-1 h-3.5 border-r-2 border-b-2 border-[#c084fc]/70 rounded-br-2xl md:rounded-br-3xl" />
+            </div>
           </div>
-          <h1 className="mt-3 font-serif text-display-hero-m font-normal tracking-display md:mt-4 md:text-display-hero">
-            <span className="rise block" style={{ "--i": 1 } as React.CSSProperties}>
-              Software your <br className="hidden md:block" />
-              business <span className="text-flash italic">runs on.</span>
+
+          {/* Line 1 below the box: Next-Gen Problems, Next-Level Solutions._ */}
+          <div className="mt-8 md:mt-10 flex flex-wrap items-center justify-center font-mono text-xs sm:text-sm md:text-base font-semibold tracking-[0.16em] uppercase text-white max-w-2xl">
+            <span>Next-Gen Problems, Next-Level Solutions.</span>
+            <span className="ml-1 text-[#e879f9] font-bold text-base sm:text-lg animate-pulse">_</span>
+          </div>
+
+          {/* Line 2 below the box: THE LAST AGENCY, YOU'LL NEED TO HIRE! */}
+          <h1 className="mt-3 md:mt-4 font-serif font-bold italic text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight text-white uppercase text-balance">
+            <span className="text-white">The last agency, </span>
+            <span className="text-white">
+              you&apos;ll need to hire
+              <span className="animate-exclamation text-[#f5d0fe] ml-1.5 font-bold not-italic">!</span>
             </span>
           </h1>
         </div>
-        <div className="rise" style={{ "--i": 3 } as React.CSSProperties}>
-          <p className="mb-[18px] text-base leading-[25px] text-on-photo-2 md:mb-[22px] md:text-[17px] md:leading-[27px]">
-            We build powerful websites, intelligent AI systems, and custom software that help startups and businesses
-            scale faster.
-            <span className="hidden md:inline"> From idea to launch — from Dhaka, for anywhere.</span>
-          </p>
-          <div className="flex flex-col gap-[10px] md:flex-row">
-            <Button href="/contact" variant="on-photo" icon="arrow-right" className="w-full md:w-auto">
-              Start a project
-            </Button>
-            <Button href="/work" variant="glass" className="w-full md:w-auto">
-              See the work
-            </Button>
-          </div>
-        </div>
       </div>
-
     </section>
   );
 }

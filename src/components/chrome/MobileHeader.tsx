@@ -10,7 +10,7 @@ export function MobileHeader() {
   const { isHome, pastHero, setMenuOpen } = useChrome();
   const onPhoto = isHome && !pastHero;
   const frame = onPhoto
-    ? "absolute left-2 right-2 top-2 px-4 text-on-photo"
+    ? "absolute inset-x-0 top-0 px-5 text-on-photo"
     : `${isHome ? "fixed inset-x-0 top-0" : "sticky top-0"} px-(--gutter-m) bg-bg/85 backdrop-blur-md border-b border-line text-ink`;
   const pill = onPhoto
     ? "border-glass-line bg-glass backdrop-blur-[8px] text-on-photo"
