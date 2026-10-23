@@ -3,7 +3,9 @@ import { industries } from "@/content/industries";
 export function IndustryList({ index = "07" }: { index?: string }) {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-[280px_1fr] md:gap-12">
-      <div className="mono text-ink-3 md:pt-4">{index} &nbsp; Industries we serve</div>
+      <div className="mono text-accent font-semibold md:pt-4">
+        <span className="font-bold">{index}</span> &nbsp; Industries we serve
+      </div>
       <ul className="flex flex-wrap gap-[10px]">
         {industries.map((name) => (
           <li

@@ -35,11 +35,6 @@ export function SiteHeader() {
               className={`${tone} ${current ? "after:mt-0.5 after:block after:h-[1.5px] after:bg-current" : ""}`}
             >
               {item.label}
-              {"count" in item && (
-                <span className={`ml-0.5 align-super font-mono text-[10px] ${onPhoto ? "text-on-photo-2" : "text-ink-3"}`}>
-                  {item.count}
-                </span>
-              )}
             </Link>
           );
         })}

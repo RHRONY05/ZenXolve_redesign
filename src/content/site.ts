@@ -18,10 +18,10 @@ export const site = {
 
 /** Counts shown as superscripts: Work = published case studies, Stack = number of tools. */
 export const nav = [
-  { label: "Work", href: "/work", count: work.length.toString().padStart(2, "0") },
+  { label: "Work", href: "/work" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
-  { label: "Stack", href: "/stack", count: stack.length.toString().padStart(2, "0") },
+  { label: "Stack", href: "/stack" },
 ] as const;
 
 export const footerStudio = ["Work", "Services", "About", "Stack", "Contact"].map((label) => ({

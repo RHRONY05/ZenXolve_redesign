@@ -24,8 +24,8 @@ export function Faq({ index = "08", hideLead = false }: FaqProps) {
   return (
     <div className="grid grid-cols-1 gap-9 lg:grid-cols-[420px_1fr] lg:gap-20">
       <div className="reveal">
-        <div className="mono mb-3.5 flex gap-[14px] text-ink-3 md:mb-5">
-          {index && <span>{index}</span>}
+        <div className="mono mb-3.5 flex items-center gap-[14px] text-accent font-semibold md:mb-5">
+          {index && <span className="font-bold">{index}</span>}
           <span>FAQ</span>
         </div>
         <h2 className="font-serif text-[46px] leading-[46px] font-normal tracking-display md:text-display-lg md:leading-(--text-display-lg--line-height)">
@@ -48,7 +48,7 @@ export function Faq({ index = "08", hideLead = false }: FaqProps) {
                 aria-expanded={isOpen}
                 className="flex w-full cursor-pointer items-center gap-3 py-5 text-left text-[17px] leading-6 font-medium md:gap-5 md:py-6 md:text-xl md:leading-7 text-ink focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)]"
               >
-                <span className="mono hidden w-7 text-ink-3 md:block">{String(i + 1).padStart(2, "0")}</span>
+                <span className="mono hidden w-7 text-accent font-bold md:block">{String(i + 1).padStart(2, "0")}</span>
                 <span className="flex-1">{item.q}</span>
                 <Icon
                   name="plus"

@@ -61,12 +61,12 @@ export function NeedPicker() {
                   on ? "border-ink bg-ink text-bg" : "border-line bg-surface hover:border-line-strong"
                 }`}
               >
-                <span className={`hidden w-[22px] font-mono text-[11px] md:block ${on ? "text-bg opacity-70" : "text-ink-3"}`}>
+                <span className={`hidden w-[22px] font-mono text-[11px] font-bold md:block ${on ? "text-accent" : "text-accent"}`}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span>
                   <b className="text-[15px] font-medium md:text-lg">{p.title}</b>
-                  <span className={`mt-0.5 hidden text-sm md:block ${on ? "text-bg opacity-70" : "text-ink-3"}`}>{p.desc}</span>
+                  <span className={`mt-0.5 hidden text-sm md:block ${on ? "text-bg opacity-70" : "text-ink-2"}`}>{p.desc}</span>
                 </span>
                 <Icon
                   name="arrow-up-right"

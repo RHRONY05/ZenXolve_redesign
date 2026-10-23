@@ -21,7 +21,7 @@ export function PageHero({
     <section className={`page-hero px-(--gutter-m) md:px-(--gutter-d) pt-10 pb-10 md:pt-[88px] md:pb-[72px] ${className}`}>
       <div className="container mx-auto max-w-(--container)">
         {eyebrow && (
-          <div className="mono text-ink-3 font-mono text-xs tracking-(--tracking-mono) uppercase">
+          <div className="mono text-accent font-semibold font-mono text-xs tracking-(--tracking-mono) uppercase">
             {eyebrow}
           </div>
         )}

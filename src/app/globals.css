@@ -60,14 +60,17 @@
   /* Photo hero & cosmic tokens: Default (Cosmic Ice & Violet) */
   --hero-bg: #060713;
   --hero-frame-stroke: rgba(192, 132, 252, 0.70);
-  --hero-frame-glow: rgba(168, 85, 247, 0.45);
+  --hero-frame-glow: rgba(168, 85, 247, 0.40);
   --hero-grid: rgba(165, 145, 255, 0.20);
   --hero-grid-highlight: rgba(195, 175, 255, 0.15);
-  --hero-nebula-1: rgba(135, 65, 255, 0.52);
-  --hero-nebula-2: rgba(95, 40, 205, 0.35);
-  --hero-nebula-3: rgba(160, 95, 255, 0.32);
-  --hero-vignette-start: rgba(6, 7, 19, 0.4);
-  --hero-vignette: rgba(6, 7, 19, 0.92);
+  --hero-glow-1: rgba(135, 65, 255, 0.52);
+  --hero-glow-2: rgba(95, 40, 205, 0.35);
+  --hero-glow-3: rgba(45, 20, 115, 0.16);
+  --hero-glow-4: rgba(75, 35, 175, 0.30);
+  --hero-glow-5: rgba(35, 18, 95, 0.15);
+  --hero-glow-6: rgba(160, 95, 255, 0.32);
+  --hero-vignette-start: rgba(6, 7, 19, 0.40);
+  --hero-vignette-end: rgba(6, 7, 19, 0.90);
   --hero-cursor: #e879f9;
   --hero-dot: #c084fc;
   --hero-exclamation: #f5d0fe;
@@ -239,20 +242,23 @@
   --panel-forest: #14745b;
   --panel-plum: #5a251a;
 
-  /* Hero Section for Editorial palette */
+  /* Hero Section for Editorial palette: Harmonized with deep green-charcoal background */
   --hero-bg: #151817;
-  --hero-frame-stroke: rgba(255, 120, 87, 0.85);
-  --hero-frame-glow: rgba(255, 120, 87, 0.48);
-  --hero-grid: rgba(255, 120, 87, 0.20);
-  --hero-grid-highlight: rgba(255, 180, 150, 0.22);
-  --hero-nebula-1: rgba(214, 75, 42, 0.54);
-  --hero-nebula-2: rgba(165, 107, 8, 0.38);
-  --hero-nebula-3: rgba(255, 120, 87, 0.30);
-  --hero-vignette-start: rgba(21, 24, 23, 0.4);
-  --hero-vignette: rgba(21, 24, 23, 0.95);
+  --hero-frame-stroke: rgba(89, 199, 166, 0.75);
+  --hero-frame-glow: rgba(89, 199, 166, 0.40);
+  --hero-grid: rgba(89, 199, 166, 0.18);
+  --hero-grid-highlight: rgba(120, 220, 185, 0.15);
+  --hero-glow-1: rgba(20, 116, 91, 0.52);
+  --hero-glow-2: rgba(16, 85, 68, 0.35);
+  --hero-glow-3: rgba(10, 45, 36, 0.16);
+  --hero-glow-4: rgba(28, 125, 98, 0.30);
+  --hero-glow-5: rgba(12, 50, 40, 0.15);
+  --hero-glow-6: rgba(89, 199, 166, 0.32);
+  --hero-vignette-start: rgba(21, 24, 23, 0.40);
+  --hero-vignette-end: rgba(21, 24, 23, 0.90);
   --hero-cursor: #ff7857;
-  --hero-dot: #59c7a6;
-  --hero-exclamation: #ffd5ca;
+  --hero-dot: #ff7857;
+  --hero-exclamation: #ff7857;
 
   --shadow-sm: 0 1px 2px rgba(24, 27, 26, 0.05);
   --shadow-md: 0 12px 28px -12px rgba(24, 27, 26, 0.18), 0 0 0 1px var(--line);
@@ -572,12 +578,10 @@ em.acc,
 /* Exclamation mark smooth pulse/fade */
 @keyframes exclamation-fade {
   0%, 100% {
-    opacity: 0.15;
-    filter: drop-shadow(0 0 0 transparent);
+    opacity: 0.2;
   }
   50% {
     opacity: 1;
-    filter: drop-shadow(0 0 12px rgba(217, 200, 255, 0.9));
   }
 }
 .animate-exclamation {

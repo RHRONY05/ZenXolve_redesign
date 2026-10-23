@@ -85,9 +85,8 @@ export function MobileMenu() {
             onClick={() => setMenuOpen(false)}
             className="flex items-baseline gap-[14px] border-b border-line font-serif text-[52px] leading-16"
           >
-            <span className="mono w-6 text-ink-3">{String(i + 1).padStart(2, "0")}</span>
+            <span className="mono w-6 text-accent font-semibold">{String(i + 1).padStart(2, "0")}</span>
             {l.label}
-            {"count" in l && <span className="font-mono text-xs text-ink-3">{l.count}</span>}
           </Link>
         ))}
       </nav>
