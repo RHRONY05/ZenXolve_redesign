@@ -3,43 +3,31 @@
 import React from "react";
 
 /**
- * Headline flanked by straight glowing horizontal neon lines with margins.
+ * Centerpiece Hero Headline:
+ * "THE LAST AGENCY YOU'LL EVER NEED."
+ * Dual-tone color treatment: crisp luminous white + theme-matched glowing gradient.
+ * Styled in unified IBM Plex Sans bold uppercase.
  */
 export function HeroSuspendedRail() {
   return (
-    <div className="relative w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 select-none flex items-center justify-center">
-      {/* Left Straight Line with side margin */}
-      <div
-        className="flex-1 h-[2px] bg-(--hero-frame-stroke)"
-        style={{
-          boxShadow:
-            "0 0 10px var(--hero-frame-glow), 0 0 20px var(--hero-frame-glow)",
-        }}
-        aria-hidden
-      />
-
-      {/* Centerpiece Headline */}
-      <div className="shrink-0 px-3 sm:px-5 md:px-7">
-        <h1 className="font-serif font-bold italic text-base sm:text-2xl md:text-3xl lg:text-4xl tracking-tight text-white uppercase text-center whitespace-nowrap">
-          <span className="text-white">The last agency, </span>
-          <span className="text-white">
-            you&apos;ll need to hire
-            <span className="animate-exclamation text-(--hero-exclamation) ml-1.5 font-bold not-italic">
-              !
-            </span>
-          </span>
-        </h1>
-      </div>
-
-      {/* Right Straight Line with side margin */}
-      <div
-        className="flex-1 h-[2px] bg-(--hero-frame-stroke)"
-        style={{
-          boxShadow:
-            "0 0 10px var(--hero-frame-glow), 0 0 20px var(--hero-frame-glow)",
-        }}
-        aria-hidden
-      />
+    <div className="relative w-full max-w-6xl mx-auto px-4 select-none flex items-center justify-center">
+      <h1 className="font-sans font-bold text-xl sm:text-3xl md:text-4xl lg:text-[46px] leading-tight tracking-tight uppercase text-center">
+        <span className="text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.25)]">
+          THE LAST AGENCY{" "}
+        </span>
+        <span
+          className="inline-block bg-clip-text text-transparent font-extrabold"
+          style={{
+            backgroundImage:
+              "linear-gradient(90deg, var(--hero-gradient-from) 0%, var(--hero-gradient-via) 50%, var(--hero-gradient-to) 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            filter: "drop-shadow(0 0 24px var(--hero-frame-glow))",
+          }}
+        >
+          YOU&apos;LL EVER NEED.
+        </span>
+      </h1>
     </div>
   );
 }

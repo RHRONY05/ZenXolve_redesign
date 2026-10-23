@@ -5,7 +5,7 @@ import { Logo } from "@/components/ui/Logo";
 
 export function SiteFooter() {
   return (
-    <footer className="px-(--gutter-m) pt-16 pb-7 md:px-(--gutter-d) md:pt-24 md:pb-8">
+    <footer className="px-(--gutter-m) pt-16 pb-28 md:px-(--gutter-d) md:pt-24 md:pb-32">
       <div className="mx-auto max-w-(--container)">
         <div className="grid grid-cols-2 gap-x-5 gap-y-8 md:grid-cols-[1.6fr_1fr_1fr_1fr] md:gap-10">
           <div className="col-span-2 md:col-span-1">
