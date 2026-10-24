@@ -15,11 +15,11 @@ const Step = ({
   children: React.ReactNode;
 }) => (
   <div className={`${className} items-center gap-3 border-b border-white/10 py-2 last:border-b-0 md:py-2.5`}>
-    <span className="grid size-[22px] place-items-center rounded-md bg-[#8b5cf6]/20 border border-[#8b5cf6]/40 font-mono text-[11px] font-bold text-[#c4b5fd] md:size-[26px]">
+    <span className="grid size-[22px] place-items-center rounded-md bg-[var(--picker-badge-bg)] border border-[var(--picker-badge-border)] font-mono text-[11px] font-bold text-[var(--picker-badge-text)] md:size-[26px] transition-colors duration-300">
       {n}
     </span>
     <span className="text-slate-200 text-xs md:text-sm font-medium">{children}</span>
-    <span className="ml-auto font-mono text-[11px] text-emerald-400 font-semibold px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20">
+    <span className="ml-auto font-mono text-[11px] text-[var(--picker-num-text)] font-semibold px-2 py-0.5 rounded bg-[var(--picker-badge-bg)] border border-[var(--picker-badge-border)] transition-colors duration-300">
       {t}
     </span>
   </div>
@@ -111,8 +111,8 @@ function AgentScene({ label }: { label: string }) {
 
       {/* Workflow Architecture Card */}
       <FlowCard className="top-[225px] left-[135px] w-[205px] p-3 text-xs md:top-[90px] md:left-[325px] md:w-[310px] md:p-5 md:text-sm">
-        <div className="font-mono mb-2 text-[10px] uppercase tracking-wider text-[#a78bfa] flex items-center gap-1.5 md:text-xs">
-          <span className="size-1.5 rounded-full bg-[#67e8f9] shadow-[0_0_6px_#67e8f9]" />
+        <div className="font-mono mb-2 text-[10px] uppercase tracking-wider text-[var(--picker-eyebrow)] flex items-center gap-1.5 md:text-xs transition-colors duration-300">
+          <span className="size-1.5 rounded-full bg-[var(--picker-accent-dot)] shadow-[0_0_6px_var(--picker-accent-dot-glow)] transition-colors duration-300" />
           <span>What happened behind it</span>
         </div>
         <Step n="01" t="0.0s">
@@ -131,12 +131,12 @@ function AgentScene({ label }: { label: string }) {
 
       {/* Metric Stat Card */}
       <FlowCard className="top-[385px] left-[345px] hidden w-[270px] md:block p-5">
-        <div className="font-mono text-xs uppercase tracking-wider text-[#a78bfa] flex items-center gap-1.5">
-          <span className="size-1.5 rounded-full bg-[#a78bfa]" />
+        <div className="font-mono text-xs uppercase tracking-wider text-[var(--picker-eyebrow)] flex items-center gap-1.5 transition-colors duration-300">
+          <span className="size-1.5 rounded-full bg-[var(--picker-eyebrow)] transition-colors duration-300" />
           This week
         </div>
         <div className="mt-2 flex items-baseline gap-2">
-          <span className="font-sans text-3xl font-extrabold text-[#67e8f9] tracking-tight">840 orders</span>
+          <span className="font-sans text-3xl font-extrabold text-[var(--picker-num-text)] tracking-tight transition-colors duration-300">840 orders</span>
         </div>
         <p className="mt-1 text-xs text-slate-400">processed without human intervention</p>
       </FlowCard>
@@ -444,21 +444,21 @@ function ErpScene({ label }: { label: string }) {
             <div>
               <div className="flex items-center gap-2 pb-3 border-b border-white/10">
                 {/* Clean 3D stacked cube / layers SaaS icon */}
-                <span className="size-6 rounded-lg bg-gradient-to-tr from-[#8b5cf6] to-[#06b6d4] text-white flex items-center justify-center p-1 shadow-[0_0_10px_rgba(139,92,246,0.5)]">
+                <span className="size-6 rounded-lg bg-[var(--picker-btn-primary)] text-white flex items-center justify-center p-1 shadow-[0_0_10px_var(--picker-badge-shadow)] transition-all">
                   <svg className="size-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
                   </svg>
                 </span>
                 <div>
                   <div className="text-[11px] font-bold text-white leading-tight">OmniStock</div>
-                  <div className="text-[9px] text-[#a78bfa] font-mono">Operations Cloud</div>
+                  <div className="text-[9px] text-[var(--picker-eyebrow)] font-mono transition-colors duration-300">Operations Cloud</div>
                 </div>
               </div>
 
               {/* Navigation Links */}
               <div className="mt-3 space-y-1 text-[11px]">
-                <div className="flex items-center gap-2 px-2 py-1.5 rounded-lg bg-[#8b5cf6]/15 border border-[#8b5cf6]/30 text-[#c4b5fd] font-semibold">
-                  <span className="size-1.5 rounded-full bg-[#67e8f9]" />
+                <div className="flex items-center gap-2 px-2 py-1.5 rounded-lg bg-[var(--picker-badge-bg)] border border-[var(--picker-badge-border)] text-[var(--picker-badge-text)] font-semibold transition-colors duration-300">
+                  <span className="size-1.5 rounded-full bg-[var(--picker-accent-dot)] transition-colors duration-300" />
                   <span>Inventory</span>
                 </div>
                 <div className="flex items-center gap-2 px-2 py-1.5 rounded-lg text-slate-400 hover:text-white">
@@ -487,7 +487,7 @@ function ErpScene({ label }: { label: string }) {
           </div>
 
           {/* Right Main Table Canvas */}
-          <div className="flex-1 flex flex-col overflow-hidden bg-[#0c0e22]">
+          <div className="flex-1 flex flex-col overflow-hidden bg-[var(--picker-cell-bg)] transition-colors duration-500">
             {/* Top Toolbar */}
             <div className="p-3 md:p-4 border-b border-white/10 flex items-center justify-between shrink-0 bg-white/[0.01]">
               <div>
@@ -497,7 +497,7 @@ function ErpScene({ label }: { label: string }) {
                 </h3>
               </div>
               <div className="flex items-center gap-2">
-                <span className="px-2.5 py-1 rounded-md bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed] hover:brightness-110 text-white font-semibold text-[11px] flex items-center gap-1 cursor-pointer shadow-[0_0_12px_rgba(139,92,246,0.3)]">
+                <span className="px-2.5 py-1 rounded-md bg-[var(--picker-btn-primary)] hover:brightness-110 text-white font-semibold text-[11px] flex items-center gap-1 cursor-pointer shadow-[0_0_12px_var(--picker-badge-shadow)] transition-all">
                   + Add item
                 </span>
               </div>
@@ -508,7 +508,7 @@ function ErpScene({ label }: { label: string }) {
               className="px-3 md:px-4 py-2 border-b border-white/5 flex gap-1.5 overflow-x-auto text-[10px] md:text-[11px] shrink-0 bg-white/[0.02]"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
-              <span className="px-2.5 py-0.5 rounded-full bg-[#8b5cf6]/20 border border-[#8b5cf6]/40 text-[#c4b5fd] font-semibold shrink-0">
+              <span className="px-2.5 py-0.5 rounded-full bg-[var(--picker-badge-bg)] border border-[var(--picker-badge-border)] text-[var(--picker-badge-text)] font-semibold shrink-0 transition-colors duration-300">
                 All · 64
               </span>
               <span className="px-2.5 py-0.5 rounded-full bg-white/5 text-slate-400 border border-white/5 shrink-0">

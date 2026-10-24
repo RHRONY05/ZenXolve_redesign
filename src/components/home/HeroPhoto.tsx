@@ -259,7 +259,7 @@ export function HeroPhoto() {
           </div>
 
           {/* 2-Row Live Projects Showcase: Row 1 in Hero Viewport, Row 2 straddles the fold */}
-          <div className="w-full mt-10 sm:mt-14 md:mt-16 pb-16 sm:pb-24 z-20">
+          <div className="w-full mt-10 sm:mt-14 md:mt-16 pb-10 sm:pb-14 z-20">
             <HeroProjectsCarousel />
           </div>
         </div>

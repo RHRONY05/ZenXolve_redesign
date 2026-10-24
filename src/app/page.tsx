@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <HeroPhoto />
 
-      <Section top="first" className="pt-16 sm:pt-24 md:pt-28">
+      <Section top="first" className="pt-8 sm:pt-12 md:pt-14">
         <SectionHead
           index="01"
           label="What do you need built?"

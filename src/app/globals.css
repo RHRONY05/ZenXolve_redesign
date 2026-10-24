@@ -137,6 +137,34 @@
   --mock-checkout-ink: #cbd5e1;
   --mock-shadow: rgba(0, 0, 0, 0.65);
 
+  /* Section 01 / Picker Palette Tokens: Cosmic Violet (Default) */
+  --picker-badge-border: rgba(139, 92, 246, 0.35);
+  --picker-badge-bg: rgba(139, 92, 246, 0.12);
+  --picker-badge-text: #c4b5fd;
+  --picker-badge-shadow: rgba(139, 92, 246, 0.20);
+  --picker-eyebrow: #a78bfa;
+  --picker-accent-dot: #67e8f9;
+  --picker-accent-dot-glow: #67e8f9;
+  --picker-card-active-border: rgba(139, 92, 246, 0.60);
+  --picker-card-active-bg: rgba(255, 255, 255, 0.08);
+  --picker-card-active-glow: rgba(139, 92, 246, 0.20);
+  --picker-num-border: rgba(139, 92, 246, 0.50);
+  --picker-num-bg: rgba(139, 92, 246, 0.20);
+  --picker-num-text: #67e8f9;
+  --picker-stage-from: #0c0e24;
+  --picker-stage-via: #090b1c;
+  --picker-stage-to: #060713;
+  --picker-stage-grid: rgba(165, 145, 255, 0.12);
+  --picker-stage-border: rgba(255, 255, 255, 0.15);
+  --picker-cell-bg: rgba(10, 12, 30, 0.88);
+  --picker-mock-bg: rgba(11, 13, 30, 0.96);
+  --picker-live-badge-border: rgba(139, 92, 246, 0.35);
+  --picker-live-badge-bg: rgba(139, 92, 246, 0.15);
+  --picker-btn-primary: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  --picker-spotlight-0: radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, rgba(139, 92, 246, 0.25) 55%, transparent 80%);
+  --picker-spotlight-1: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(236, 72, 153, 0.25) 55%, transparent 80%);
+  --picker-spotlight-2: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, rgba(16, 185, 129, 0.25) 55%, transparent 80%);
+
   /* Focus + shadows */
   --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
@@ -213,6 +241,34 @@ html[data-palette="editorial"] {
   --hero-tagline-glow: rgba(255, 120, 87, 0.40);
   --hero-exclamation: #ff7857;
 
+  /* Section 01 / Picker Palette Tokens: Warm Editorial */
+  --picker-badge-border: rgba(255, 120, 87, 0.40);
+  --picker-badge-bg: rgba(255, 120, 87, 0.12);
+  --picker-badge-text: #ff9175;
+  --picker-badge-shadow: rgba(255, 120, 87, 0.25);
+  --picker-eyebrow: #59c7a6;
+  --picker-accent-dot: #ff7857;
+  --picker-accent-dot-glow: #ff7857;
+  --picker-card-active-border: rgba(255, 120, 87, 0.65);
+  --picker-card-active-bg: rgba(255, 120, 87, 0.08);
+  --picker-card-active-glow: rgba(255, 120, 87, 0.22);
+  --picker-num-border: rgba(89, 199, 166, 0.50);
+  --picker-num-bg: rgba(89, 199, 166, 0.18);
+  --picker-num-text: #59c7a6;
+  --picker-stage-from: #1e2421;
+  --picker-stage-via: #171a19;
+  --picker-stage-to: #111413;
+  --picker-stage-grid: rgba(89, 199, 166, 0.12);
+  --picker-stage-border: rgba(255, 120, 87, 0.25);
+  --picker-cell-bg: rgba(25, 29, 27, 0.88);
+  --picker-mock-bg: rgba(23, 27, 25, 0.96);
+  --picker-live-badge-border: rgba(89, 199, 166, 0.40);
+  --picker-live-badge-bg: rgba(89, 199, 166, 0.15);
+  --picker-btn-primary: linear-gradient(135deg, #ff7857 0%, #ea580c 100%);
+  --picker-spotlight-0: radial-gradient(circle, rgba(255, 120, 87, 0.4) 0%, rgba(89, 199, 166, 0.25) 55%, transparent 80%);
+  --picker-spotlight-1: radial-gradient(circle, rgba(251, 146, 60, 0.4) 0%, rgba(255, 120, 87, 0.25) 55%, transparent 80%);
+  --picker-spotlight-2: radial-gradient(circle, rgba(89, 199, 166, 0.4) 0%, rgba(234, 179, 8, 0.25) 55%, transparent 80%);
+
   --shadow-md: 0 12px 28px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px var(--line);
   --shadow-lg: 0 34px 64px -22px rgba(0, 0, 0, 0.85), 0 0 0 1px var(--line);
   color-scheme: dark;
@@ -259,7 +315,7 @@ html[data-font="editorial"] {
   --text-display-md: 56px;
   --text-display-md--line-height: 58px;
   --text-display-lg: 80px;
-  --text-display-lg--line-height: 78px;
+  --text-display-lg--line-height: 92px;
   --text-display-xl: 104px;
   --text-display-xl--line-height: 96px;
   --text-display-hero: 132px;
@@ -392,6 +448,10 @@ em.acc,
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+  padding-bottom: 0.22em;
+  margin-bottom: -0.22em;
+  padding-right: 0.1em;
+  margin-right: -0.1em;
 }
 html[data-palette="editorial"] em.acc,
 html[data-palette="editorial"] .acc {

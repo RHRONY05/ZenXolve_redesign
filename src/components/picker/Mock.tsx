@@ -14,7 +14,7 @@ export function MockBrowser({
   return (
     <div
       aria-hidden="true"
-      className={`absolute overflow-hidden rounded-2xl bg-[#0b0d1e]/95 border border-white/15 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] backdrop-blur-md ${className}`}
+      className={`absolute overflow-hidden rounded-2xl bg-[var(--picker-mock-bg)] border border-white/15 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] backdrop-blur-md transition-colors duration-500 ${className}`}
     >
       <div className="flex h-[38px] items-center gap-2 border-b border-white/10 bg-white/[0.02] px-3.5">
         <div className="flex items-center gap-1.5">

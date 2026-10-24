@@ -39,9 +39,9 @@ export function NeedPicker() {
       <div className="lg:col-start-1 lg:row-start-1">
         <p
           id="need-label"
-          className="mb-4 text-xs font-mono uppercase tracking-widest text-[#a78bfa] flex items-center gap-2"
+          className="mb-4 text-xs font-mono uppercase tracking-widest text-[var(--picker-eyebrow)] flex items-center gap-2 transition-colors duration-300"
         >
-          <span className="size-1.5 rounded-full bg-[#67e8f9] shadow-[0_0_8px_#67e8f9]" />
+          <span className="size-1.5 rounded-full bg-[var(--picker-accent-dot)] shadow-[0_0_8px_var(--picker-accent-dot-glow)] transition-colors duration-300" />
           <span>Select a build to preview</span>
         </p>
 
@@ -66,7 +66,7 @@ export function NeedPicker() {
                 onClick={() => setIndex(i)}
                 className={`group flex w-full cursor-pointer items-center gap-4 rounded-xl border px-4 py-3.5 text-left transition-all duration-200 md:rounded-2xl md:px-5 md:py-4.5 ${
                   on
-                    ? "border-[#8b5cf6]/60 bg-white/[0.08] shadow-[0_0_24px_rgba(139,92,246,0.18),inset_0_1px_1px_rgba(255,255,255,0.12)]"
+                    ? "border-[var(--picker-card-active-border)] bg-[var(--picker-card-active-bg)] shadow-[0_0_24px_var(--picker-card-active-glow),inset_0_1px_1px_rgba(255,255,255,0.12)]"
                     : "border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.05]"
                 }`}
               >
@@ -74,7 +74,7 @@ export function NeedPicker() {
                 <span
                   className={`hidden size-8 rounded-lg place-items-center font-mono text-xs font-bold transition-all md:grid ${
                     on
-                      ? "border border-[#8b5cf6]/50 bg-[#8b5cf6]/20 text-[#67e8f9] shadow-[0_0_12px_rgba(6,182,212,0.3)]"
+                      ? "border border-[var(--picker-num-border)] bg-[var(--picker-num-bg)] text-[var(--picker-num-text)] shadow-[0_0_12px_var(--picker-num-bg)]"
                       : "border border-white/10 bg-white/[0.03] text-slate-400 group-hover:text-slate-200"
                   }`}
                 >
@@ -92,7 +92,7 @@ export function NeedPicker() {
                       {p.title}
                     </span>
                     {on && (
-                      <span className="size-1.5 rounded-full bg-[#67e8f9] shadow-[0_0_8px_#67e8f9] animate-pulse" />
+                      <span className="size-1.5 rounded-full bg-[var(--picker-accent-dot)] shadow-[0_0_8px_var(--picker-accent-dot-glow)] animate-pulse transition-colors duration-300" />
                     )}
                   </div>
                   <p
@@ -108,7 +108,7 @@ export function NeedPicker() {
                 <div
                   className={`ml-auto hidden md:flex size-8 rounded-full items-center justify-center transition-all duration-200 ${
                     on
-                      ? "bg-white/10 text-[#67e8f9] shadow-[0_0_12px_rgba(103,232,249,0.3)] translate-x-0.5"
+                      ? "bg-white/10 text-[var(--picker-num-text)] shadow-[0_0_12px_var(--picker-num-bg)] translate-x-0.5"
                       : "text-slate-500 opacity-40 group-hover:opacity-100 group-hover:text-slate-300 group-hover:translate-x-0.5"
                   }`}
                 >
@@ -123,14 +123,14 @@ export function NeedPicker() {
       {/* Right Column: Interactive Live Preview Stage */}
       <div
         aria-live="polite"
-        className="relative h-[480px] overflow-hidden rounded-2xl md:rounded-3xl border border-white/15 bg-gradient-to-b from-[#0c0e24] via-[#090b1c] to-[#060713] shadow-[0_25px_60px_rgba(0,0,0,0.65),inset_0_1px_1px_rgba(255,255,255,0.1)] md:h-[640px] lg:col-start-2 lg:row-span-2 lg:row-start-1"
+        className="relative h-[480px] overflow-hidden rounded-2xl md:rounded-3xl border border-[var(--picker-stage-border)] bg-gradient-to-b from-[var(--picker-stage-from)] via-[var(--picker-stage-via)] to-[var(--picker-stage-to)] shadow-[0_25px_60px_rgba(0,0,0,0.65),inset_0_1px_1px_rgba(255,255,255,0.1)] transition-colors duration-500 md:h-[640px] lg:col-start-2 lg:row-span-2 lg:row-start-1"
       >
         {/* Subtle architectural grid pattern inside stage */}
         <div
           className="pointer-events-none absolute inset-0 opacity-20"
           style={{
             backgroundImage:
-              "linear-gradient(to right, rgba(165,145,255,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(165,145,255,0.12) 1px, transparent 1px)",
+              "linear-gradient(to right, var(--picker-stage-grid) 1px, transparent 1px), linear-gradient(to bottom, var(--picker-stage-grid) 1px, transparent 1px)",
             backgroundSize: "36px 36px",
             maskImage: "radial-gradient(ellipse 85% 75% at 50% 50%, black 25%, transparent 85%)",
             WebkitMaskImage: "radial-gradient(ellipse 85% 75% at 50% 50%, black 25%, transparent 85%)",
@@ -144,10 +144,10 @@ export function NeedPicker() {
           style={{
             background:
               index === 0
-                ? "radial-gradient(circle, rgba(6,182,212,0.4) 0%, rgba(139,92,246,0.25) 55%, transparent 80%)"
+                ? "var(--picker-spotlight-0)"
                 : index === 1
-                ? "radial-gradient(circle, rgba(59,130,246,0.4) 0%, rgba(236,72,153,0.25) 55%, transparent 80%)"
-                : "radial-gradient(circle, rgba(139,92,246,0.4) 0%, rgba(16,185,129,0.25) 55%, transparent 80%)",
+                ? "var(--picker-spotlight-1)"
+                : "var(--picker-spotlight-2)",
           }}
           aria-hidden="true"
         />
@@ -170,18 +170,18 @@ export function NeedPicker() {
       <div className="lg:col-start-1 lg:row-start-2">
         {/* Technical Specs Dual-Cell Card */}
         <div className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-md lg:mt-6">
-          <div className="bg-[#0a0c1e]/85 px-4 py-3.5 sm:px-5 sm:py-4">
-            <span className="font-mono text-[11px] tracking-widest text-[#a78bfa] uppercase flex items-center gap-1.5">
-              <span className="size-1.5 rounded-full bg-[#a78bfa]" />
+          <div className="bg-[var(--picker-cell-bg)] px-4 py-3.5 sm:px-5 sm:py-4 transition-colors duration-300">
+            <span className="font-mono text-[11px] tracking-widest text-[var(--picker-eyebrow)] uppercase flex items-center gap-1.5">
+              <span className="size-1.5 rounded-full bg-[var(--picker-eyebrow)]" />
               Typical timeline
             </span>
             <b className="mt-1 block font-sans text-sm sm:text-base font-semibold tracking-normal text-white">
               {current.time}
             </b>
           </div>
-          <div className="bg-[#0a0c1e]/85 px-4 py-3.5 sm:px-5 sm:py-4 border-l border-white/10">
-            <span className="font-mono text-[11px] tracking-widest text-[#a78bfa] uppercase flex items-center gap-1.5">
-              <span className="size-1.5 rounded-full bg-[#67e8f9]" />
+          <div className="bg-[var(--picker-cell-bg)] px-4 py-3.5 sm:px-5 sm:py-4 border-l border-white/10 transition-colors duration-300">
+            <span className="font-mono text-[11px] tracking-widest text-[var(--picker-eyebrow)] uppercase flex items-center gap-1.5">
+              <span className="size-1.5 rounded-full bg-[var(--picker-accent-dot)]" />
               We&apos;d use
             </span>
             <b className="mt-1 block font-sans text-sm sm:text-base font-semibold tracking-normal text-white truncate">
