@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { FlowCard, Msg, MockBrowser, MockPhone, SceneLabel, SceneNote } from "./Mock";
 import type { PickKey } from "@/content/picker";
 
@@ -25,7 +24,7 @@ const Step = ({
   </div>
 );
 
-/** Tab 1: AI WhatsApp Sales Agent taking real orders */
+/** Tab 1: AI WhatsApp Sales Agent for Apex Athletics (Sports & Performance Footwear) */
 function AgentScene({ label }: { label: string }) {
   return (
     <>
@@ -39,19 +38,19 @@ function AgentScene({ label }: { label: string }) {
           <svg className="size-4 text-slate-300 -ml-0.5 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
           </svg>
-          <div className="size-8 rounded-full bg-gradient-to-tr from-amber-600 via-rose-600 to-amber-400 flex items-center justify-center text-xs font-bold text-white shadow-[0_0_10px_rgba(245,158,11,0.4)]">
-            🔥
+          <div className="size-8 rounded-full bg-gradient-to-tr from-violet-600 via-indigo-600 to-cyan-400 flex items-center justify-center text-xs font-bold text-white shadow-[0_0_10px_rgba(139,92,246,0.5)]">
+            ⚡
           </div>
           <div className="flex-1 min-w-0">
             <div className="text-xs font-semibold text-white truncate flex items-center gap-1">
-              <span>Grill Ghor Bot</span>
+              <span>Apex Athletics</span>
               <svg className="size-3 text-cyan-400 inline" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
               </svg>
             </div>
             <div className="flex items-center gap-1.5 text-[10px] text-emerald-400 font-normal">
               <span className="size-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399] animate-pulse" />
-              AI Assistant · Online
+              AI Concierge · Online
             </div>
           </div>
           <div className="flex items-center gap-2 text-slate-300">
@@ -61,44 +60,44 @@ function AgentScene({ label }: { label: string }) {
           </div>
         </div>
 
-        {/* WhatsApp Chat Bubbles with Live Order Placement */}
-        <div className="flex flex-col gap-2.5 p-3 text-xs leading-[1.4] md:text-[13px] overflow-y-auto">
+        {/* WhatsApp Chat Thread (no scrollbar) */}
+        <div className="flex flex-col gap-2.5 p-3 text-xs leading-[1.4] md:text-[13px] overflow-y-auto no-scrollbar">
           <Msg time="10:24">
-            <span className="md:hidden">Hi! 2 Crispy Chicken and 1 Solo Combo to Dhanmondi?</span>
-            <span className="hidden md:inline">Hi! Can I order 2 Crispy Chicken and 1 Solo Combo to Dhanmondi?</span>
+            <span className="md:hidden">Hi! Got AeroPulse Pro Runner in size 10.5?</span>
+            <span className="hidden md:inline">Hi! Do you have the AeroPulse Pro Runner in size 10.5 in stock?</span>
           </Msg>
 
           <Msg me time="10:24 ✓✓">
             <div>
-              <p className="font-medium text-white mb-1.5">Fresh & ready! Here is your bill:</p>
-              <div className="rounded-lg bg-black/25 border border-white/10 p-2 text-[11px] leading-tight space-y-1 mb-1.5">
+              <p className="font-medium text-white mb-1.5">Hey Alex! 👟 2 pairs left in Carbon Black. Reserved for you:</p>
+              <div className="rounded-lg bg-black/35 border border-white/10 p-2 text-[11px] leading-tight space-y-1 mb-1.5">
                 <div className="flex justify-between text-slate-200">
-                  <span>🍗 2 × Crispy Chicken</span>
-                  <span className="font-mono text-[#67e8f9]">৳480</span>
+                  <span>👟 AeroPulse Pro (US 10.5)</span>
+                  <span className="font-mono text-[#67e8f9]">$185.00</span>
                 </div>
                 <div className="flex justify-between text-slate-200">
-                  <span>🍔 1 × Solo Combo</span>
-                  <span className="font-mono text-[#67e8f9]">৳390</span>
+                  <span>🧦 Carbon Grip Socks</span>
+                  <span className="font-mono text-[#67e8f9]">$25.00</span>
                 </div>
                 <div className="flex justify-between text-slate-300 border-t border-white/10 pt-1">
-                  <span>🛵 Delivery (25 min)</span>
-                  <span className="font-mono text-slate-300">৳60</span>
+                  <span>📦 2-Day Priority Shipping</span>
+                  <span className="font-mono text-emerald-400">Free</span>
                 </div>
                 <div className="flex justify-between text-white font-bold border-t border-white/15 pt-1">
                   <span>Total</span>
-                  <span className="font-mono text-[#67e8f9]">৳930</span>
+                  <span className="font-mono text-[#67e8f9]">$210.00</span>
                 </div>
               </div>
-              <p className="text-slate-200">Confirm with Cash on Delivery or bKash?</p>
+              <p className="text-slate-200">Lock in your pair before it sells out? I can text your Stripe link.</p>
             </div>
           </Msg>
 
           <Msg time="10:25">
-            <span>Cash on delivery please!</span>
+            <span>Yes please, lock it in!</span>
           </Msg>
 
           <Msg me time="10:25 ✓✓">
-            <span>Done ✅ Order #GG-4821 confirmed! Kitchen is preparing your order. Track at grillghor.com/track.</span>
+            <span>Done! ⚡ Inventory reserved. Stripe checkout link sent: pay.apexgear.com/inv_8912</span>
           </Msg>
         </div>
       </MockPhone>
@@ -112,14 +111,14 @@ function AgentScene({ label }: { label: string }) {
         <Step n="01" t="0.0s">
           <span>WhatsApp webhook in</span>
         </Step>
-        <Step n="02" t="0.4s">
-          <span>Menu & stock verified</span>
+        <Step n="02" t="0.3s">
+          <span>Live inventory verified</span>
         </Step>
-        <Step n="03" t="1.1s" className="hidden md:flex">
-          Order created in POS & CRM
+        <Step n="03" t="0.7s" className="hidden md:flex">
+          <span>Customer CRM profile matched</span>
         </Step>
-        <Step n="04" t="1.6s">
-          <span>Kitchen KDS ticket issued</span>
+        <Step n="04" t="1.1s">
+          <span>Stripe checkout link created</span>
         </Step>
       </FlowCard>
 
@@ -129,80 +128,107 @@ function AgentScene({ label }: { label: string }) {
           <span className="size-1.5 rounded-full bg-[#a78bfa]" />
           This week
         </div>
-        <div className="mt-1.5 font-sans text-[44px] leading-[48px] font-bold bg-gradient-to-r from-white via-cyan-200 to-[#67e8f9] bg-clip-text text-transparent">
-          312 orders
+        <div className="mt-2 flex items-baseline gap-2">
+          <span className="font-sans text-3xl font-extrabold text-[#67e8f9] tracking-tight">840 orders</span>
         </div>
-        <div className="text-xs text-slate-400 mt-1">processed without staff intervention</div>
+        <p className="mt-1 text-xs text-slate-400">processed without human intervention</p>
       </FlowCard>
       <SceneNote />
     </>
   );
 }
 
-/** Tab 2: Customer-Facing Online Ordering Store with bKash Checkout */
+/** Tab 2: AeroGear Pro Store with High-Fidelity Stripe Elements Checkout */
 function StoreScene({ label }: { label: string }) {
   const prods = [
-    { n: "Crispy Chicken · 2 pc", bn: "ক্রিস্পি চিকেন - ২ পিস", price: "240", img: "/picker/item-1-chicken.png", tag: "bestseller", time: "~8 min" },
-    { n: "Solo Combo", bn: "সোলো কম্বো", price: "390", img: "/picker/item-2-combo.png", tag: "bestseller", time: "~12 min" },
-    { n: "Classic Beef Burger", bn: "ক্লাসিক বিফ বার্গার", price: "280", img: "/picker/item-5-burger.png", tag: "popular", time: "~10 min" },
+    {
+      n: "AeroSpeed Carbon Helmet",
+      desc: "Matte Obsidian · Size M",
+      price: "140",
+      tag: "Popular",
+      badge: "In Stock",
+      icon: (
+        <svg className="size-9 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L6 20h12l1.03-2.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9zM12 9v6m-4-3h8" />
+        </svg>
+      ),
+    },
+    {
+      n: "Thermal Pro Aero Jersey",
+      desc: "Ventilated Aero Mesh",
+      price: "95",
+      tag: "Bestseller",
+      badge: "In Stock",
+      icon: (
+        <svg className="size-9 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M16 4h3l2 5-3 2v9H6v-9L3 9l2-5h3a4 4 0 0 0 8 0z" />
+        </svg>
+      ),
+    },
+    {
+      n: "Monocoque Carbon Cage",
+      desc: "18g Ultralight Weave",
+      price: "48",
+      tag: "Ultralight",
+      badge: "In Stock",
+      icon: (
+        <svg className="size-9 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2m14 0V9a2 2 0 0 0-2-2M5 11V9a2 2 0 0 1 2-2m0 0V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2M7 7h10" />
+        </svg>
+      ),
+    },
   ];
 
   return (
     <>
       <SceneLabel>{label}</SceneLabel>
+      {/* Background Storefront Browser */}
       <MockBrowser
-        url="order.grillghor.com"
+        url="store.aerogear.io"
         className="top-12 left-[14px] h-[320px] w-[326px] md:top-[64px] md:left-8 md:h-[440px] md:w-[570px]"
       >
         <div className="px-5 pt-4">
           <div className="flex items-center justify-between">
             <div>
               <div className="flex items-center gap-2">
-                <span className="inline-block rounded-full bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 text-[11px] font-medium text-amber-300">
-                  🔥 Open for orders
+                <span className="inline-block rounded-full bg-cyan-500/15 border border-cyan-500/30 px-2 py-0.5 text-[11px] font-medium text-cyan-300">
+                  ⚡ 2026 Collection
                 </span>
-                <span className="text-xs text-slate-400 hidden sm:inline">Dhanmondi Branch</span>
+                <span className="text-xs text-slate-400 hidden sm:inline">Aerospace Cycling Gear</span>
               </div>
-              <div className="mt-1.5 font-sans text-xl md:text-2xl font-bold text-white">
-                Grill Ghor · অনলাইন মেনু
+              <div className="mt-1.5 font-sans text-xl md:text-2xl font-bold text-white tracking-tight">
+                AeroGear Pro Store
               </div>
             </div>
             <span className="font-mono text-xs text-[#67e8f9] px-2.5 py-1 rounded-full bg-[#67e8f9]/10 border border-[#67e8f9]/25 flex items-center gap-1.5">
-              <span>Cart · 3 items</span>
+              <span>Cart · 2 items ($188)</span>
             </span>
           </div>
 
-          {/* Category Pills */}
-          <div className="mt-3 flex gap-2 overflow-x-auto pb-1 text-xs">
-            <span className="px-3 py-1 rounded-full bg-white/10 text-white font-medium">All · 28</span>
-            <span className="px-3 py-1 rounded-full bg-white/[0.04] text-slate-400 hover:text-white border border-white/10">Burgers · 6</span>
-            <span className="px-3 py-1 rounded-full bg-white/[0.04] text-slate-400 hover:text-white border border-white/10">Fried Chicken · 5</span>
-            <span className="px-3 py-1 rounded-full bg-white/[0.04] text-slate-400 hover:text-white border border-white/10">Shawarma · 4</span>
+          {/* Category Filter Pills */}
+          <div className="mt-3 flex gap-2 overflow-x-auto pb-1 text-xs no-scrollbar">
+            <span className="px-3 py-1 rounded-full bg-white/10 text-white font-medium">All · 34</span>
+            <span className="px-3 py-1 rounded-full bg-white/[0.04] text-slate-400 hover:text-white border border-white/10">Helmets · 8</span>
+            <span className="px-3 py-1 rounded-full bg-white/[0.04] text-slate-400 hover:text-white border border-white/10">Apparel · 14</span>
+            <span className="px-3 py-1 rounded-full bg-white/[0.04] text-slate-400 hover:text-white border border-white/10">Components · 12</span>
           </div>
         </div>
 
-        {/* Product Cards with Real Thumbnails */}
+        {/* Product Cards */}
         <div className="grid grid-cols-3 gap-3 p-5 pt-3">
           {prods.map((p) => (
             <div key={p.n} className="rounded-xl border border-white/10 bg-white/[0.03] p-2.5 flex flex-col justify-between hover:border-white/20 transition-all">
-              <div className="relative h-[85px] rounded-lg md:h-[110px] bg-[#141628] overflow-hidden flex items-center justify-center p-2">
-                {/* Real Menu Item Image */}
-                <Image
-                  src={p.img}
-                  alt={p.n}
-                  width={80}
-                  height={80}
-                  className="size-16 md:size-20 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
-                />
+              <div className="relative h-[85px] rounded-lg md:h-[110px] bg-gradient-to-b from-[#161830] to-[#0c0e20] overflow-hidden flex items-center justify-center p-2 border border-white/5">
+                {p.icon}
                 <span className="absolute top-1.5 right-1.5 font-mono text-[9px] px-1.5 py-0.5 rounded bg-black/60 text-slate-300">
-                  {p.time}
+                  {p.tag}
                 </span>
               </div>
               <div className="mt-2">
                 <b className="block text-xs md:text-[13px] font-semibold text-white truncate">{p.n}</b>
-                <span className="text-[10px] text-slate-400 block truncate">{p.bn}</span>
+                <span className="text-[10px] text-slate-400 block truncate">{p.desc}</span>
                 <div className="mt-1.5 flex items-center justify-between">
-                  <span className="font-mono text-xs md:text-sm font-bold text-[#67e8f9]">৳ {p.price}</span>
+                  <span className="font-mono text-xs md:text-sm font-bold text-[#67e8f9]">${p.price}</span>
                   <button type="button" className="px-2 py-0.5 rounded-md bg-white/10 hover:bg-white/20 text-[11px] font-semibold text-white">
                     + Add
                   </button>
@@ -213,100 +239,245 @@ function StoreScene({ label }: { label: string }) {
         </div>
       </MockBrowser>
 
-      {/* Floating Mobile Checkout Sheet */}
-      <MockPhone
-        className="top-[180px] left-[135px] h-[320px] w-[190px] rounded-[32px] p-2 md:top-[115px] md:left-[405px] md:h-[390px] md:w-[230px] md:rounded-[36px] md:p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
-        screenClassName="rounded-[25px] md:rounded-[28px] bg-[#0c0e1e] border border-white/10 text-white flex flex-col justify-between"
+      {/* Floating Stripe Payment Sheet - Coded to match Stripe Elements exactly */}
+      <div
+        className="absolute top-[160px] left-[15px] w-[310px] rounded-2xl border border-white/15 bg-[#0e1022]/95 p-4 shadow-[0_25px_60px_rgba(0,0,0,0.85)] backdrop-blur-xl md:top-[100px] md:left-[365px] md:w-[325px] md:p-5 text-white"
+        style={{ zIndex: 30 }}
       >
-        <div className="px-3.5 pt-6 pb-2 font-semibold text-xs md:text-sm text-white flex items-center justify-between border-b border-white/10">
-          <div className="flex items-center gap-1.5">
-            <span className="size-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]" />
-            <span>Order Checkout</span>
+        {/* Header with Amount */}
+        <div className="flex items-center justify-between pb-3 border-b border-white/10">
+          <div className="flex items-center gap-2">
+            <svg className="size-4 text-slate-400 hover:text-white cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+            <span className="text-xs font-medium text-slate-300">Stripe Checkout</span>
           </div>
-          <span className="text-[10px] font-mono text-slate-400">#GG-4091</span>
+          <span className="font-sans text-lg font-bold text-white tracking-tight">$188.00</span>
         </div>
-        <div className="px-3.5 py-2 text-xs leading-[1.7] text-slate-300 flex-1 flex flex-col justify-center">
-          <div className="flex justify-between py-0.5">
-            <span className="text-slate-300 truncate pr-2">Crispy Chicken × 2</span>
-            <span className="font-mono text-white">৳ 480</span>
+
+        <div className="pt-2 text-[11px] text-slate-400 mb-2.5">
+          Order #AG-8192 · Guaranteed secure 256-bit encryption
+        </div>
+
+        {/* Payment Method Selector Tabs */}
+        <div className="grid grid-cols-4 gap-1.5 mb-3 text-[10px] font-medium">
+          <div className="flex items-center justify-center gap-1 rounded-lg border-2 border-[#635bff] bg-[#635bff]/15 py-1.5 text-white shadow-[0_0_10px_rgba(99,91,255,0.25)]">
+            <span>💳 Card</span>
           </div>
-          <div className="flex justify-between py-0.5">
-            <span className="text-slate-300 truncate pr-2">Solo Combo × 1</span>
-            <span className="font-mono text-white">৳ 390</span>
+          <div className="flex items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] py-1.5 text-slate-400 hover:text-white">
+            <span>G Pay</span>
           </div>
-          <div className="flex justify-between py-0.5 border-b border-white/10 pb-1.5 text-slate-400">
-            <span>Delivery (25 min)</span>
-            <span className="font-mono text-slate-300">৳ 60</span>
+          <div className="flex items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] py-1.5 text-slate-400 hover:text-white">
+            <span>Affirm</span>
           </div>
-          <div className="flex justify-between pt-2 text-xs md:text-sm font-bold text-white">
-            <span>Total</span>
-            <span className="text-[#67e8f9] font-mono text-sm md:text-base">৳ 930</span>
+          <div className="flex items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] py-1.5 text-slate-400 hover:text-white">
+            <span>Cash App</span>
           </div>
         </div>
-        <div className="p-3 pt-0">
-          <div className="rounded-xl bg-[#e2136e] py-2 px-3 text-center text-xs font-semibold text-white shadow-[0_4px_16px_rgba(226,19,110,0.45)] hover:brightness-110 flex items-center justify-center gap-1.5 cursor-pointer">
-            <span>Pay with bKash</span>
+
+        {/* Stripe Elements Card Form */}
+        <div className="space-y-2 text-xs">
+          <div>
+            <label className="block text-[10px] uppercase font-mono text-slate-400 mb-1">Card number</label>
+            <div className="relative flex items-center rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-white">
+              <span className="font-mono text-xs flex-1 tracking-wider text-slate-200">4242 4242 4242 4242</span>
+              <div className="flex items-center gap-1 text-[9px] font-bold">
+                <span className="px-1 py-0.5 rounded bg-[#1a1f71] text-white">VISA</span>
+                <span className="px-1 py-0.5 rounded bg-[#eb001b] text-white">MC</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2">
+            <div>
+              <label className="block text-[10px] uppercase font-mono text-slate-400 mb-1">Expiration</label>
+              <div className="rounded-lg border border-white/15 bg-black/40 px-3 py-1.5 font-mono text-xs text-slate-200">
+                12 / 28
+              </div>
+            </div>
+            <div>
+              <label className="block text-[10px] uppercase font-mono text-slate-400 mb-1">CVC</label>
+              <div className="flex items-center justify-between rounded-lg border border-white/15 bg-black/40 px-3 py-1.5 font-mono text-xs text-slate-200">
+                <span>•••</span>
+                <svg className="size-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <rect width="20" height="14" x="2" y="5" rx="2"/>
+                  <line x1="2" x2="22" y1="10" y2="10"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2">
+            <div>
+              <label className="block text-[10px] uppercase font-mono text-slate-400 mb-1">Country</label>
+              <div className="rounded-lg border border-white/15 bg-black/40 px-3 py-1.5 text-[11px] text-slate-200 flex items-center justify-between">
+                <span>United States</span>
+                <span className="text-[10px] text-slate-400">▾</span>
+              </div>
+            </div>
+            <div>
+              <label className="block text-[10px] uppercase font-mono text-slate-400 mb-1">ZIP</label>
+              <div className="rounded-lg border border-white/15 bg-black/40 px-3 py-1.5 font-mono text-xs text-slate-200">
+                94103
+              </div>
+            </div>
           </div>
         </div>
-      </MockPhone>
+
+        {/* Primary Pay Button */}
+        <div className="mt-3">
+          <button
+            type="button"
+            className="w-full rounded-xl bg-gradient-to-r from-[#635bff] to-[#7c3aed] py-2.5 px-4 text-center text-xs font-semibold text-white shadow-[0_4px_16px_rgba(99,91,255,0.4)] hover:brightness-110 flex items-center justify-center gap-1.5 transition-all"
+          >
+            <span>Pay $188.00</span>
+          </button>
+        </div>
+
+        {/* Stripe Badge Footer */}
+        <div className="mt-2.5 flex items-center justify-center gap-1.5 text-[10px] text-slate-400">
+          <svg className="size-3 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+          </svg>
+          <span>Powered by</span>
+          <span className="font-bold text-white tracking-wide">stripe</span>
+        </div>
+      </div>
       <SceneNote />
     </>
   );
 }
 
-/** Tab 3: The Live Business Management System / Menu & Catalog Admin Dashboard */
+/** Tab 3: The Live Business Management System / OmniStock B2B Inventory SaaS */
 function ErpScene({ label }: { label: string }) {
   const items = [
-    { n: "Crispy Chicken - 2 pc", bn: "ক্রিস্পি চিকেন - ২ পিস", meta: "~8 min · bestseller", price: "240", img: "/picker/item-1-chicken.png" },
-    { n: "Solo Combo", bn: "সোলো কম্বো", meta: "~12 min · bestseller", price: "390", img: "/picker/item-2-combo.png" },
-    { n: "Cookies & Cream Shake", bn: "কুকিজ অ্যান্ড ক্রিম শেক", meta: "~4 min · pairs-well", price: "220", img: "/picker/item-3-shake.png" },
-    { n: "Chicken Shawarma", bn: "চিকেন শাওয়ারমা", meta: "~6 min · bestseller", price: "180", img: "/picker/item-4-shawarma.png" },
-    { n: "Classic Beef Burger", bn: "ক্লাসিক বিফ বার্গার", meta: "~10 min · bestseller", price: "280", img: "/picker/item-5-burger.png" },
-    { n: "Masala Fries", bn: "মসলা ফ্রাইজ", meta: "~4 min · pairs-well", price: "150", img: "/picker/item-7-masala-fries.png" },
+    {
+      n: "AeroPulse Pro Sensor",
+      sku: "SKU: AP-902",
+      meta: "148 units · Fast-mover",
+      price: "240",
+      color: "from-cyan-500/20 to-blue-500/20 text-cyan-300 border-cyan-500/30",
+      icon: (
+        <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      ),
+    },
+    {
+      n: "Titanium Mount Assembly",
+      sku: "SKU: TM-410",
+      meta: "84 units · Bestseller",
+      price: "185",
+      color: "from-violet-500/20 to-purple-500/20 text-violet-300 border-violet-500/30",
+      icon: (
+        <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <rect width="18" height="18" x="3" y="3" rx="2"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      ),
+    },
+    {
+      n: "CoreLogic Node v2",
+      sku: "SKU: CL-108",
+      meta: "210 units · In stock",
+      price: "320",
+      color: "from-emerald-500/20 to-teal-500/20 text-emerald-300 border-emerald-500/30",
+      icon: (
+        <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <rect width="16" height="16" x="4" y="4" rx="2"/>
+          <rect width="6" height="6" x="9" y="9" rx="1"/>
+          <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/>
+        </svg>
+      ),
+    },
+    {
+      n: "UltraSync Gateway",
+      sku: "SKU: UG-550",
+      meta: "62 units · Low stock",
+      price: "145",
+      color: "from-amber-500/20 to-orange-500/20 text-amber-300 border-amber-500/30",
+      icon: (
+        <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/>
+        </svg>
+      ),
+    },
+    {
+      n: "Precision Telemetry Pod",
+      sku: "SKU: PT-304",
+      meta: "95 units · In stock",
+      price: "210",
+      color: "from-fuchsia-500/20 to-pink-500/20 text-fuchsia-300 border-fuchsia-500/30",
+      icon: (
+        <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      ),
+    },
+    {
+      n: "Thermal Shield Module",
+      sku: "SKU: TS-801",
+      meta: "170 units · Active",
+      price: "85",
+      color: "from-blue-500/20 to-indigo-500/20 text-blue-300 border-blue-500/30",
+      icon: (
+        <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+        </svg>
+      ),
+    },
   ];
 
   return (
     <>
       <SceneLabel>{label}</SceneLabel>
       <MockBrowser
-        url="admin.grillghor.com/menu"
+        url="admin.omnistock.io/inventory"
         className="top-10 left-[10px] h-[415px] w-[335px] md:top-[56px] md:left-6 md:h-[530px] md:w-[670px]"
       >
         <div className="flex h-[calc(100%-38px)]">
           {/* Left Mini Sidebar */}
-          <div className="hidden md:flex w-[140px] border-r border-white/10 bg-[#070815] p-3 flex-col justify-between shrink-0">
+          <div className="hidden md:flex w-[150px] border-r border-white/10 bg-[#070815] p-3 flex-col justify-between shrink-0">
             <div>
               <div className="flex items-center gap-2 pb-3 border-b border-white/10">
-                <span className="size-6 rounded bg-amber-500/20 text-amber-300 flex items-center justify-center text-xs font-bold">
-                  🔥
+                <span className="size-6 rounded-lg bg-gradient-to-tr from-[#8b5cf6] to-[#06b6d4] text-white flex items-center justify-center text-xs font-bold shadow-[0_0_10px_rgba(139,92,246,0.5)]">
+                  ⚡
                 </span>
                 <div>
-                  <div className="text-[11px] font-bold text-white leading-tight">গ্রিল ঘর</div>
-                  <div className="text-[9px] text-slate-400">Admin Portal</div>
+                  <div className="text-[11px] font-bold text-white leading-tight">OmniStock</div>
+                  <div className="text-[9px] text-[#a78bfa] font-mono">Operations Cloud</div>
                 </div>
               </div>
 
               {/* Navigation Links */}
               <div className="mt-3 space-y-1 text-[11px]">
-                <div className="flex items-center gap-2 px-2 py-1.5 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-300 font-semibold">
-                  <span>মেনু (Menu)</span>
+                <div className="flex items-center gap-2 px-2 py-1.5 rounded-lg bg-[#8b5cf6]/15 border border-[#8b5cf6]/30 text-[#c4b5fd] font-semibold">
+                  <span className="size-1.5 rounded-full bg-[#67e8f9]" />
+                  <span>Inventory</span>
                 </div>
                 <div className="flex items-center gap-2 px-2 py-1.5 rounded-lg text-slate-400 hover:text-white">
-                  <span>অফার (Offers)</span>
+                  <span>Orders</span>
                 </div>
                 <div className="flex items-center gap-2 px-2 py-1.5 rounded-lg text-slate-400 hover:text-white">
-                  <span>টেবিল ও কিউআর</span>
+                  <span>Warehouses</span>
                 </div>
                 <div className="flex items-center gap-2 px-2 py-1.5 rounded-lg text-slate-400 hover:text-white">
-                  <span>সেটিংস</span>
+                  <span>Integrations</span>
+                </div>
+                <div className="flex items-center gap-2 px-2 py-1.5 rounded-lg text-slate-400 hover:text-white">
+                  <span>Settings</span>
                 </div>
               </div>
             </div>
 
-            {/* Language Switcher */}
-            <div className="flex items-center justify-center gap-1 p-1 rounded-md bg-white/5 border border-white/10 text-[10px] text-slate-400">
-              <span className="px-1.5 py-0.5 rounded bg-white/10 text-white font-bold">EN</span>
-              <span className="px-1.5 py-0.5">বাং</span>
+            {/* Region / Status Indicator */}
+            <div className="flex items-center justify-between p-1.5 rounded-md bg-white/5 border border-white/10 text-[10px] text-slate-300">
+              <span className="flex items-center gap-1.5">
+                <span className="size-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]" />
+                <span>US-East</span>
+              </span>
+              <span className="font-mono text-emerald-400">99.9%</span>
             </div>
           </div>
 
@@ -316,79 +487,79 @@ function ErpScene({ label }: { label: string }) {
             <div className="p-3 md:p-4 border-b border-white/10 flex items-center justify-between shrink-0 bg-white/[0.01]">
               <div>
                 <h3 className="text-sm md:text-base font-bold text-white flex items-center gap-2">
-                  <span>Menu</span>
-                  <span className="text-[10px] font-normal text-slate-400 hidden sm:inline">· Changes show on guest menu immediately</span>
+                  <span>Inventory Catalog</span>
+                  <span className="text-[10px] font-normal text-slate-400 hidden sm:inline">· Syncing live to 4 warehouses & Shopify</span>
                 </h3>
               </div>
               <div className="flex items-center gap-2">
-                <span className="px-2.5 py-1 rounded-md bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold text-[11px] flex items-center gap-1 cursor-pointer shadow-[0_0_12px_rgba(245,158,11,0.3)]">
+                <span className="px-2.5 py-1 rounded-md bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed] hover:brightness-110 text-white font-semibold text-[11px] flex items-center gap-1 cursor-pointer shadow-[0_0_12px_rgba(139,92,246,0.3)]">
                   + Add item
                 </span>
               </div>
             </div>
 
             {/* Category Filter Pills */}
-            <div className="px-3 md:px-4 py-2 border-b border-white/5 flex gap-1.5 overflow-x-auto text-[10px] md:text-[11px] shrink-0 bg-white/[0.02]">
-              <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 font-semibold shrink-0">
-                All · 28
+            <div className="px-3 md:px-4 py-2 border-b border-white/5 flex gap-1.5 overflow-x-auto text-[10px] md:text-[11px] shrink-0 bg-white/[0.02] no-scrollbar">
+              <span className="px-2.5 py-0.5 rounded-full bg-[#8b5cf6]/20 border border-[#8b5cf6]/40 text-[#c4b5fd] font-semibold shrink-0">
+                All · 64
               </span>
               <span className="px-2.5 py-0.5 rounded-full bg-white/5 text-slate-400 border border-white/5 shrink-0">
-                Set meals · 4
+                Hardware · 22
               </span>
               <span className="px-2.5 py-0.5 rounded-full bg-white/5 text-slate-400 border border-white/5 shrink-0">
-                Burgers · 6
+                Electronics · 18
               </span>
               <span className="px-2.5 py-0.5 rounded-full bg-white/5 text-slate-400 border border-white/5 shrink-0">
-                Fried chicken · 5
+                Sensors · 14
               </span>
               <span className="px-2.5 py-0.5 rounded-full bg-white/5 text-slate-400 border border-white/5 shrink-0">
-                Shawarma · 4
+                Accessories · 10
               </span>
             </div>
 
             {/* Item Rows (Close-up, zoomed view) */}
-            <div className="flex-1 overflow-y-auto px-3 md:px-4 divide-y divide-white/5 text-xs">
+            <div className="flex-1 overflow-y-auto px-3 md:px-4 divide-y divide-white/5 text-xs no-scrollbar">
               <div className="py-2 flex items-center justify-between font-mono text-[10px] uppercase text-slate-500 tracking-wider">
                 <span>Item</span>
-                <span>Price · Available</span>
+                <span>Price · In Stock</span>
               </div>
 
               {items.map((it) => (
                 <div key={it.n} className="py-2 flex items-center justify-between gap-3 hover:bg-white/[0.02] rounded px-1 transition-colors">
-                  {/* Left: Thumbnail & Names */}
+                  {/* Left: Icon & Names */}
                   <div className="flex items-center gap-2.5 min-w-0">
-                    <Image
-                      src={it.img}
-                      alt={it.n}
-                      width={32}
-                      height={32}
-                      className="size-7 md:size-8 rounded-lg object-contain bg-[#141628] p-0.5 border border-white/10 shrink-0"
-                    />
+                    <div className={`size-7 md:size-8 rounded-lg bg-gradient-to-tr ${it.color} border p-1.5 flex items-center justify-center shrink-0`}>
+                      {it.icon}
+                    </div>
                     <div className="min-w-0 truncate">
                       <div className="font-semibold text-white truncate text-[11px] md:text-xs">
-                        {it.n} <span className="text-slate-400 font-normal text-[10px] hidden md:inline">· {it.bn}</span>
+                        {it.n}
                       </div>
-                      <div className="text-[10px] text-slate-400 truncate">
-                        {it.meta}
+                      <div className="text-[10px] text-slate-400 flex items-center gap-1.5 truncate">
+                        <span className="font-mono text-slate-500">{it.sku}</span>
+                        <span>·</span>
+                        <span className="text-slate-300">{it.meta}</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Right: Price & Active Green Toggle Switch */}
+                  {/* Right: Price & Active Emerald Toggle */}
                   <div className="flex items-center gap-3 shrink-0">
-                    <span className="font-mono font-bold text-white text-xs md:text-sm">
-                      ৳{it.price}
+                    <span className="font-mono font-bold text-white text-[11px] md:text-xs">
+                      ${it.price}
                     </span>
-
-                    {/* Toggle Switch */}
-                    <div className="w-8 h-4.5 rounded-full bg-emerald-500/90 p-0.5 flex items-center justify-end shadow-[0_0_8px_rgba(16,185,129,0.4)] cursor-pointer">
-                      <div className="size-3.5 rounded-full bg-white shadow-sm" />
-                    </div>
-
-                    {/* Pencil Edit Icon */}
-                    <svg className="size-3.5 text-slate-400 hover:text-white cursor-pointer hidden sm:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-                    </svg>
+                    <span className="relative inline-flex h-4 w-7 md:h-5 md:w-9 items-center rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(52,211,153,0.5)]">
+                      <span className="inline-block size-3 md:size-4 translate-x-3.5 md:translate-x-4 rounded-full bg-white transition" />
+                    </span>
+                    <button
+                      type="button"
+                      aria-label="Edit item"
+                      className="p-1 rounded text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+                    >
+                      <svg className="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                      </svg>
+                    </button>
                   </div>
                 </div>
               ))}
@@ -401,13 +572,22 @@ function ErpScene({ label }: { label: string }) {
   );
 }
 
-export function PickerScene({ name, label, active }: { name: PickKey; label: string; active: boolean }) {
+export function PickerScene({
+  name,
+  active,
+  label,
+}: {
+  name: PickKey;
+  active: boolean;
+  label: string;
+}) {
   return (
     <div
-      className={`scene absolute inset-0 ${active ? "on" : ""}`}
-      data-scene={name}
-      aria-hidden={!active}
-      inert={!active}
+      className={`absolute inset-0 transition-all duration-500 ease-out ${
+        active
+          ? "opacity-100 translate-y-0 pointer-events-auto"
+          : "opacity-0 translate-y-3 pointer-events-none"
+      }`}
     >
       {name === "agent" && <AgentScene label={label} />}
       {name === "store" && <StoreScene label={label} />}
@@ -415,3 +595,6 @@ export function PickerScene({ name, label, active }: { name: PickKey; label: str
     </div>
   );
 }
+
+export const PickerScenes = PickerScene;
+

@@ -49,7 +49,7 @@ export function MockPhone({
       aria-hidden="true"
       className={`absolute rounded-[36px] md:rounded-[42px] border-2 border-white/20 bg-[#070814] p-2 md:p-2.5 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.9)] ring-1 ring-black/90 ${className}`}
     >
-      <div className={`relative flex h-full w-full flex-col overflow-hidden rounded-[26px] md:rounded-[32px] bg-[#0b141a] text-slate-100 ${screenClassName}`}>
+      <div className={`relative flex h-full w-full flex-col overflow-hidden rounded-[26px] md:rounded-[32px] bg-[#0b141a] text-slate-100 no-scrollbar ${screenClassName}`}>
         {/* Modern dynamic island notch */}
         <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-3 rounded-full bg-black/90 z-20 flex items-center justify-end px-2 pointer-events-none">
           <div className="size-1.5 rounded-full bg-slate-900 ring-1 ring-white/10" />

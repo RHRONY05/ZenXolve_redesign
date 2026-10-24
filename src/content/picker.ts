@@ -24,11 +24,11 @@ export const picks: {
   {
     key: "store",
     title: "an online store",
-    desc: "Catalogue, checkout, bKash and card payments, admin",
+    desc: "Catalogue, checkout, Stripe and card payments, admin",
     liveLabel: "Live preview · E-commerce platform",
     liveLabelShort: "Live preview · E-commerce",
     time: "2–4 weeks",
-    stack: "Next.js · Supabase · bKash",
+    stack: "Next.js · Supabase · Stripe",
     service: "web",
   },
   {
