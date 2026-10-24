@@ -106,16 +106,8 @@ export function StudioComparator() {
                 {/* Full horizontal track across Box 2 */}
                 <div className="absolute top-2 left-0 right-0 h-[2px] bg-white/10" />
 
-                {/* Vertical Drop Stem to Box 2 */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[2px] bottom-0 bg-white/10" />
-
-                {/* Center Terminal Node & Sync Badge */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/15 bg-[#121633] shadow-[0_4px_16px_rgba(0,0,0,0.6)] backdrop-blur-md">
-                  <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_#34d399]" />
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-slate-300 font-semibold whitespace-nowrap">
-                    Continuous Studio Loop · 0ms Handoff
-                  </span>
-                </div>
+                {/* Terminal Node 2 (Junction) */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-2.5 rounded-full border border-cyan-400/60 bg-[#121633] shadow-[0_0_8px_rgba(6,182,212,0.4)]" />
               </div>
 
               {/* Column 4: Above Arrow 2 */}
@@ -198,18 +190,19 @@ export function StudioComparator() {
 
               {/* Workflow Connector Arrow 1 -> 2 (Desktop & Mobile) */}
               <div className="flex items-center justify-center py-1 md:py-0 md:px-2 z-20">
-                {/* Desktop horizontal flow with traveling packet */}
-                <div className="hidden md:flex items-center relative">
-                  <div className="relative h-[2px] w-2.5 lg:w-4 bg-gradient-to-r from-violet-500/40 to-cyan-500/50 overflow-visible">
-                    <span className="absolute top-1/2 size-2.5 rounded-full bg-white shadow-[0_0_10px_#67e8f9,0_0_16px_#06b6d4] opacity-0 animate-circuit-arrow1-packet" />
-                  </div>
-                  <div className="flex size-7 lg:size-8 items-center justify-center rounded-full border border-cyan-400/40 bg-[#0e132e] text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.3)] animate-circuit-arrow1-circle transition-all">
+                {/* Desktop horizontal flow with single continuous laser beam streak */}
+                <div className="hidden md:flex items-center justify-center relative w-12 lg:w-16 h-8 overflow-visible">
+                  {/* Continuous horizontal baseline track */}
+                  <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500/40 via-cyan-500/50 to-cyan-500/40" />
+
+                  {/* Single continuous traveling laser beam streak (preserves beam shape from boxes) */}
+                  <div className="absolute top-1/2 -translate-y-1/2 h-[3px] w-7 lg:w-8 rounded-full pointer-events-none opacity-0 animate-circuit-arrow1-beam shadow-[0_0_10px_#22d3ee,0_0_16px_#c084fc] bg-gradient-to-r from-transparent via-violet-400 via-cyan-400 to-white" />
+
+                  {/* Center Arrow Circle Indicator */}
+                  <div className="relative z-10 flex size-7 lg:size-8 items-center justify-center rounded-full border border-cyan-400/40 bg-[#0e132e] text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.3)] animate-circuit-arrow1-circle transition-all">
                     <svg className="size-3.5 lg:size-4" viewBox="0 0 16 16" fill="none">
                       <path d="M5 3L10 8L5 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                  </div>
-                  <div className="relative h-[2px] w-2.5 lg:w-4 bg-gradient-to-r from-cyan-500/50 to-cyan-500/40 overflow-visible">
-                    <span className="absolute top-1/2 size-2.5 rounded-full bg-white shadow-[0_0_10px_#67e8f9,0_0_16px_#06b6d4] opacity-0 animate-circuit-arrow1-packet" />
                   </div>
                 </div>
                 {/* Mobile vertical flow */}
@@ -273,18 +266,19 @@ export function StudioComparator() {
 
               {/* Workflow Connector Arrow 2 -> 3 (Desktop & Mobile) */}
               <div className="flex items-center justify-center py-1 md:py-0 md:px-2 z-20">
-                {/* Desktop horizontal flow with traveling packet */}
-                <div className="hidden md:flex items-center relative">
-                  <div className="relative h-[2px] w-2.5 lg:w-4 bg-gradient-to-r from-cyan-500/40 to-emerald-500/50 overflow-visible">
-                    <span className="absolute top-1/2 size-2.5 rounded-full bg-white shadow-[0_0_10px_#34d399,0_0_16px_#10b981] opacity-0 animate-circuit-arrow2-packet" />
-                  </div>
-                  <div className="flex size-7 lg:size-8 items-center justify-center rounded-full border border-emerald-400/40 bg-[#0e132e] text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.3)] animate-circuit-arrow2-circle transition-all">
+                {/* Desktop horizontal flow with single continuous laser beam streak */}
+                <div className="hidden md:flex items-center justify-center relative w-12 lg:w-16 h-8 overflow-visible">
+                  {/* Continuous horizontal baseline track */}
+                  <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-500/40 via-emerald-500/50 to-emerald-500/40" />
+
+                  {/* Single continuous traveling laser beam streak (preserves beam shape from boxes) */}
+                  <div className="absolute top-1/2 -translate-y-1/2 h-[3px] w-7 lg:w-8 rounded-full pointer-events-none opacity-0 animate-circuit-arrow2-beam shadow-[0_0_10px_#34d399,0_0_16px_#22d3ee] bg-gradient-to-r from-transparent via-cyan-400 via-emerald-400 to-white" />
+
+                  {/* Center Arrow Circle Indicator */}
+                  <div className="relative z-10 flex size-7 lg:size-8 items-center justify-center rounded-full border border-emerald-400/40 bg-[#0e132e] text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.3)] animate-circuit-arrow2-circle transition-all">
                     <svg className="size-3.5 lg:size-4" viewBox="0 0 16 16" fill="none">
                       <path d="M5 3L10 8L5 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                  </div>
-                  <div className="relative h-[2px] w-2.5 lg:w-4 bg-gradient-to-r from-emerald-500/50 to-emerald-500/40 overflow-visible">
-                    <span className="absolute top-1/2 size-2.5 rounded-full bg-white shadow-[0_0_10px_#34d399,0_0_16px_#10b981] opacity-0 animate-circuit-arrow2-packet" />
                   </div>
                 </div>
                 {/* Mobile vertical flow */}
