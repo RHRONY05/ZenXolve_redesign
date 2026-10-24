@@ -6,7 +6,7 @@ export function StudioComparator() {
   const [mode, setMode] = useState<"xenzolve" | "traditional">("xenzolve");
 
   return (
-    <div className="mb-10 sm:mb-14 rounded-2xl border border-white/15 bg-[#0e1228]/95 p-5 sm:p-8 backdrop-blur-xl shadow-[0_24px_60px_rgba(0,0,0,0.7)] transition-all">
+    <div className="mb-10 sm:mb-14 rounded-2xl border border-white/15 bg-[var(--surface)]/95 p-5 sm:p-8 backdrop-blur-xl shadow-[0_24px_60px_rgba(0,0,0,0.65)] transition-all">
       {/* Header & Mode Switcher */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-white/10 pb-6">
         <div>
@@ -55,7 +55,7 @@ export function StudioComparator() {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-4 md:gap-2 items-center">
               
               {/* STAGE 01: Precision UI/UX Design */}
-              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-violet-500/35 border-t-2 border-t-violet-400 bg-[#161738]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
+              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-violet-500/40 border-t-2 border-t-violet-400 bg-[#1a1b44]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
                 <div>
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-mono text-xs font-bold text-violet-300 px-2.5 py-1 rounded-md bg-violet-500/15 border border-violet-500/30">
@@ -90,7 +90,7 @@ export function StudioComparator() {
                 {/* Desktop horizontal flow */}
                 <div className="hidden md:flex items-center">
                   <div className="h-[2px] w-2.5 lg:w-4 bg-gradient-to-r from-violet-500/40 to-cyan-500/50" />
-                  <div className="flex size-7 lg:size-8 items-center justify-center rounded-full border border-cyan-400/40 bg-[#080d22] text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.3)]">
+                  <div className="flex size-7 lg:size-8 items-center justify-center rounded-full border border-cyan-400/40 bg-[#0e132e] text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.3)]">
                     <svg className="size-3.5 lg:size-4" viewBox="0 0 16 16" fill="none">
                       <path d="M5 3L10 8L5 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -100,7 +100,7 @@ export function StudioComparator() {
                 {/* Mobile vertical flow */}
                 <div className="flex md:hidden flex-col items-center">
                   <div className="w-[2px] h-3 bg-violet-500/40" />
-                  <div className="flex size-7 items-center justify-center rounded-full border border-cyan-400/40 bg-[#080d22] text-cyan-300 shadow-[0_0_10px_rgba(6,182,212,0.3)]">
+                  <div className="flex size-7 items-center justify-center rounded-full border border-cyan-400/40 bg-[#0e132e] text-cyan-300 shadow-[0_0_10px_rgba(6,182,212,0.3)]">
                     <svg className="size-3.5" viewBox="0 0 16 16" fill="none">
                       <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -110,7 +110,7 @@ export function StudioComparator() {
               </div>
 
               {/* STAGE 02: Full-Stack Cloud Engineering */}
-              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-cyan-500/35 border-t-2 border-t-cyan-400 bg-[#0c1f38]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
+              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-cyan-500/40 border-t-2 border-t-cyan-400 bg-[#0f2444]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
                 <div>
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-mono text-xs font-bold text-cyan-300 px-2.5 py-1 rounded-md bg-cyan-500/15 border border-cyan-500/30">
@@ -145,7 +145,7 @@ export function StudioComparator() {
                 {/* Desktop horizontal flow */}
                 <div className="hidden md:flex items-center">
                   <div className="h-[2px] w-2.5 lg:w-4 bg-gradient-to-r from-cyan-500/40 to-emerald-500/50" />
-                  <div className="flex size-7 lg:size-8 items-center justify-center rounded-full border border-emerald-400/40 bg-[#080d22] text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.3)]">
+                  <div className="flex size-7 lg:size-8 items-center justify-center rounded-full border border-emerald-400/40 bg-[#0e132e] text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.3)]">
                     <svg className="size-3.5 lg:size-4" viewBox="0 0 16 16" fill="none">
                       <path d="M5 3L10 8L5 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -155,7 +155,7 @@ export function StudioComparator() {
                 {/* Mobile vertical flow */}
                 <div className="flex md:hidden flex-col items-center">
                   <div className="w-[2px] h-3 bg-cyan-500/40" />
-                  <div className="flex size-7 items-center justify-center rounded-full border border-emerald-400/40 bg-[#080d22] text-emerald-300 shadow-[0_0_10px_rgba(16,185,129,0.3)]">
+                  <div className="flex size-7 items-center justify-center rounded-full border border-emerald-400/40 bg-[#0e132e] text-emerald-300 shadow-[0_0_10px_rgba(16,185,129,0.3)]">
                     <svg className="size-3.5" viewBox="0 0 16 16" fill="none">
                       <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -165,7 +165,7 @@ export function StudioComparator() {
               </div>
 
               {/* STAGE 03: Autonomous AI & Workflows */}
-              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-emerald-500/35 border-t-2 border-t-emerald-400 bg-[#0b2724]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
+              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-emerald-500/40 border-t-2 border-t-emerald-400 bg-[#0d2e2b]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
                 <div>
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-mono text-xs font-bold text-emerald-300 px-2.5 py-1 rounded-md bg-emerald-500/15 border border-emerald-500/30">
@@ -223,7 +223,7 @@ export function StudioComparator() {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-4 md:gap-2 items-center">
               
               {/* Silo 1: UI/UX Agency */}
-              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-rose-500/35 border-t-2 border-t-rose-500/60 bg-[#221217]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
+              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-rose-500/40 border-t-2 border-t-rose-500/80 bg-[#2c151c]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
                 <div>
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-mono text-xs font-bold text-rose-300 px-2.5 py-1 rounded-md bg-rose-500/15 border border-rose-500/30">
@@ -279,7 +279,7 @@ export function StudioComparator() {
               </div>
 
               {/* Silo 2: Dev Shop */}
-              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-rose-500/35 border-t-2 border-t-rose-500/60 bg-[#221217]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
+              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-rose-500/40 border-t-2 border-t-rose-500/80 bg-[#2c151c]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
                 <div>
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-mono text-xs font-bold text-rose-300 px-2.5 py-1 rounded-md bg-rose-500/15 border border-rose-500/30">
@@ -335,7 +335,7 @@ export function StudioComparator() {
               </div>
 
               {/* Silo 3: Bot Freelancer */}
-              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-rose-500/35 border-t-2 border-t-rose-500/60 bg-[#221217]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
+              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-rose-500/40 border-t-2 border-t-rose-500/80 bg-[#2c151c]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
                 <div>
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-mono text-xs font-bold text-rose-300 px-2.5 py-1 rounded-md bg-rose-500/15 border border-rose-500/30">

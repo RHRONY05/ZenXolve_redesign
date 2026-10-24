@@ -13,7 +13,7 @@ const line = {
 /** Build: Full-Stack Cloud Architecture Console with Edge runtime & database health */
 export function BuildArt({ className = "" }: { className?: string }) {
   return (
-    <div className={`relative overflow-hidden rounded-xl border border-white/10 bg-black/40 p-3 sm:p-4 text-xs font-mono select-none ${className}`}>
+    <div className={`relative overflow-hidden rounded-xl border border-cyan-500/25 bg-[#071325]/90 p-3 sm:p-4 text-xs font-mono select-none ${className}`}>
       {/* Titlebar */}
       <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-3">
         <div className="flex items-center gap-1.5">
@@ -31,14 +31,14 @@ export function BuildArt({ className = "" }: { className?: string }) {
       {/* Architecture Visual Grid */}
       <div className="space-y-2">
         {/* Layer 1: Next.js Server Components */}
-        <div className="rounded-lg border border-white/10 bg-white/[0.03] p-2.5 flex items-center justify-between">
+        <div className="rounded-lg border border-cyan-500/20 bg-white/[0.05] p-2.5 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="size-5 rounded-md bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 flex items-center justify-center font-bold text-[10px]">
               FE
             </span>
             <div>
               <div className="text-white font-semibold text-[11px]">Next.js 15 Server Layer</div>
-              <div className="text-slate-400 text-[9.5px]">Edge SSR · Zero Client Waterfall</div>
+              <div className="text-slate-300 text-[9.5px]">Edge SSR · Zero Client Waterfall</div>
             </div>
           </div>
           <span className="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[10px] text-emerald-300 font-semibold">
@@ -47,14 +47,14 @@ export function BuildArt({ className = "" }: { className?: string }) {
         </div>
 
         {/* Layer 2: API & Data Mesh */}
-        <div className="rounded-lg border border-white/10 bg-white/[0.03] p-2.5 flex items-center justify-between">
+        <div className="rounded-lg border border-violet-500/20 bg-white/[0.05] p-2.5 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="size-5 rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30 flex items-center justify-center font-bold text-[10px]">
               BE
             </span>
             <div>
               <div className="text-white font-semibold text-[11px]">PostgreSQL & Realtime Mesh</div>
-              <div className="text-slate-400 text-[9.5px]">Row-Level Security · Sub-10ms Queries</div>
+              <div className="text-slate-300 text-[9.5px]">Row-Level Security · Sub-10ms Queries</div>
             </div>
           </div>
           <span className="font-mono text-[10px] text-cyan-400">Pool: 48/50</span>
@@ -76,7 +76,7 @@ export function AutomateArt({ className = "" }: { className?: string }) {
   const p2 = "M 175 40 L 250 40";
 
   return (
-    <div className={`relative overflow-hidden rounded-xl border border-white/10 bg-black/40 p-3 sm:p-4 select-none ${className}`}>
+    <div className={`relative overflow-hidden rounded-xl border border-emerald-500/25 bg-[#071a17]/90 p-3 sm:p-4 select-none ${className}`}>
       {/* Top Telemetry */}
       <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-3 font-mono text-[10.5px]">
         <div className="flex items-center gap-1.5 text-slate-400">
@@ -143,7 +143,7 @@ export function AutomateArt({ className = "" }: { className?: string }) {
 /** Design: Figma Token & Component Studio showing design-to-code alignment */
 export function DesignArt({ className = "" }: { className?: string }) {
   return (
-    <div className={`relative overflow-hidden rounded-xl border border-white/10 bg-black/40 p-3 sm:p-4 text-xs font-mono select-none ${className}`}>
+    <div className={`relative overflow-hidden rounded-xl border border-violet-500/25 bg-[#10112c]/90 p-3 sm:p-4 text-xs font-mono select-none ${className}`}>
       {/* Top Bar */}
       <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-3">
         <div className="flex items-center gap-1.5 text-slate-400 text-[10.5px]">
@@ -158,14 +158,14 @@ export function DesignArt({ className = "" }: { className?: string }) {
       {/* Token Matrix */}
       <div className="space-y-2">
         {/* Token 01: Typography */}
-        <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5">
-          <span className="text-slate-400 text-[10px]">Type Scale</span>
+        <div className="flex items-center justify-between rounded-lg border border-violet-500/20 bg-white/[0.05] px-2.5 py-1.5">
+          <span className="text-slate-300 text-[10px]">Type Scale</span>
           <span className="font-serif text-[11px] text-white italic">Display 80px / 92px</span>
         </div>
 
         {/* Token 02: Color Tokens */}
-        <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5">
-          <span className="text-slate-400 text-[10px]">Palette Tokens</span>
+        <div className="flex items-center justify-between rounded-lg border border-violet-500/20 bg-white/[0.05] px-2.5 py-1.5">
+          <span className="text-slate-300 text-[10px]">Palette Tokens</span>
           <div className="flex items-center gap-1.5">
             <span className="size-3 rounded-full bg-[#8b5cf6] border border-white/20" title="Violet" />
             <span className="size-3 rounded-full bg-[#06b6d4] border border-white/20" title="Cyan" />
@@ -175,8 +175,8 @@ export function DesignArt({ className = "" }: { className?: string }) {
         </div>
 
         {/* Token 03: Spec Calipers */}
-        <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5">
-          <span className="text-slate-400 text-[10px]">Zero Handoff Loss</span>
+        <div className="flex items-center justify-between rounded-lg border border-violet-500/20 bg-white/[0.05] px-2.5 py-1.5">
+          <span className="text-slate-300 text-[10px]">Zero Handoff Loss</span>
           <span className="text-[10.5px] text-emerald-400 font-bold">1:1 In Production</span>
         </div>
       </div>
