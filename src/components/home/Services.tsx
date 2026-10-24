@@ -29,7 +29,7 @@ function PanelRow({ s }: { s: Service }) {
         {s.tags.map((t) => (
           <li
             key={t}
-            className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[12px] text-slate-300 transition-colors group-hover:border-white/20 group-hover:text-white"
+            className="rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1 text-[12px] text-slate-200 transition-colors group-hover:border-white/30 group-hover:text-white"
           >
             {t}
           </li>
@@ -86,7 +86,7 @@ export function ServiceList() {
       {/* The 3 Connected Pillar Cards: Design -> Build -> Automate */}
       <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-6">
         {/* Pillar A: Design (5-col card) */}
-        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-[#0c0e22]/90 p-6 md:col-span-5 md:p-9 shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all flex flex-col justify-between gap-6">
+        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-violet-500/30 border-t-2 border-t-violet-400/80 bg-[#121332]/95 p-6 md:col-span-5 md:p-9 shadow-[0_25px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl transition-all flex flex-col justify-between gap-6">
           {/* Ambient Violet Glow */}
           <div
             className="pointer-events-none absolute -bottom-24 -right-24 size-[400px] rounded-full blur-[100px] opacity-25"
@@ -114,7 +114,7 @@ export function ServiceList() {
         </div>
 
         {/* Pillar B: Build (7-col card) */}
-        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-[#0c0e22]/90 p-6 md:col-span-7 md:p-9 shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all flex flex-col justify-between gap-6">
+        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-cyan-500/30 border-t-2 border-t-cyan-400/80 bg-[#0c1c36]/95 p-6 md:col-span-7 md:p-9 shadow-[0_25px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl transition-all flex flex-col justify-between gap-6">
           {/* Ambient Indigo Glow */}
           <div
             className="pointer-events-none absolute -top-24 -left-24 size-[400px] rounded-full blur-[100px] opacity-25"
@@ -142,7 +142,7 @@ export function ServiceList() {
         </div>
 
         {/* Pillar C: Automate (Wide 12-col card) */}
-        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-[#0c0e22]/90 p-6 md:col-span-12 md:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all">
+        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-emerald-500/30 border-t-2 border-t-emerald-400/80 bg-[#0c2222]/95 p-6 md:col-span-12 md:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl transition-all">
           {/* Ambient Emerald Glow */}
           <div
             className="pointer-events-none absolute -top-24 -right-24 size-[500px] rounded-full blur-[110px] opacity-20"
@@ -173,7 +173,7 @@ export function ServiceList() {
       </div>
 
       {/* Studio Guarantee Bottom Ribbon */}
-      <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 md:p-6 backdrop-blur-md flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div className="rounded-2xl border border-white/15 bg-[#0e1228]/95 p-5 md:p-6 backdrop-blur-md shadow-[0_12px_32px_rgba(0,0,0,0.5)] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs md:text-sm text-slate-300 font-mono">
           <span className="flex items-center gap-1.5 text-white">
             <span className="size-1.5 rounded-full bg-violet-400" />

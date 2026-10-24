@@ -67,7 +67,7 @@ export function NeedPicker() {
                 className={`group flex w-full cursor-pointer items-center gap-4 rounded-xl border px-4 py-3.5 text-left transition-all duration-200 md:rounded-2xl md:px-5 md:py-4.5 ${
                   on
                     ? "border-[var(--picker-card-active-border)] bg-[var(--picker-card-active-bg)] shadow-[0_0_24px_var(--picker-card-active-glow),inset_0_1px_1px_rgba(255,255,255,0.12)]"
-                    : "border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.05]"
+                    : "border-[var(--picker-card-unselected-border)] bg-[var(--picker-card-unselected-bg)] hover:border-white/30 hover:bg-[var(--surface-3)] shadow-[0_4px_16px_rgba(0,0,0,0.3)] backdrop-blur-md"
                 }`}
               >
                 {/* Numeric Monospace Pill */}
@@ -75,7 +75,7 @@ export function NeedPicker() {
                   className={`hidden size-8 rounded-lg place-items-center font-mono text-xs font-bold transition-all md:grid ${
                     on
                       ? "border border-[var(--picker-num-border)] bg-[var(--picker-num-bg)] text-[var(--picker-num-text)] shadow-[0_0_12px_var(--picker-num-bg)]"
-                      : "border border-white/10 bg-white/[0.03] text-slate-400 group-hover:text-slate-200"
+                      : "border border-white/15 bg-white/[0.08] text-slate-300 group-hover:text-white"
                   }`}
                 >
                   {String(i + 1).padStart(2, "0")}
@@ -86,7 +86,7 @@ export function NeedPicker() {
                   <div className="flex items-center gap-2">
                     <span
                       className={`text-[15px] md:text-base font-semibold tracking-tight transition-colors ${
-                        on ? "text-white" : "text-slate-200 group-hover:text-white"
+                        on ? "text-white" : "text-slate-100 group-hover:text-white"
                       }`}
                     >
                       {p.title}
@@ -97,7 +97,7 @@ export function NeedPicker() {
                   </div>
                   <p
                     className={`mt-1 hidden text-xs md:text-[13px] leading-relaxed transition-colors md:block ${
-                      on ? "text-slate-300" : "text-slate-400 group-hover:text-slate-300"
+                      on ? "text-slate-300" : "text-slate-400 group-hover:text-slate-200"
                     }`}
                   >
                     {p.desc}
@@ -109,7 +109,7 @@ export function NeedPicker() {
                   className={`ml-auto hidden md:flex size-8 rounded-full items-center justify-center transition-all duration-200 ${
                     on
                       ? "bg-white/10 text-[var(--picker-num-text)] shadow-[0_0_12px_var(--picker-num-bg)] translate-x-0.5"
-                      : "text-slate-500 opacity-40 group-hover:opacity-100 group-hover:text-slate-300 group-hover:translate-x-0.5"
+                      : "text-slate-400 bg-white/[0.04] opacity-60 group-hover:opacity-100 group-hover:text-white group-hover:translate-x-0.5"
                   }`}
                 >
                   <Icon name="arrow-up-right" size={16} />
@@ -169,7 +169,7 @@ export function NeedPicker() {
       {/* Left Column Bottom: Technical Specs & CTA */}
       <div className="lg:col-start-1 lg:row-start-2">
         {/* Technical Specs Dual-Cell Card */}
-        <div className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-md lg:mt-6">
+        <div className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/15 bg-white/[0.08] shadow-[0_8px_30px_rgba(0,0,0,0.45)] backdrop-blur-md lg:mt-6">
           <div className="bg-[var(--picker-cell-bg)] px-4 py-3.5 sm:px-5 sm:py-4 transition-colors duration-300">
             <span className="font-mono text-[11px] tracking-widest text-[var(--picker-eyebrow)] uppercase flex items-center gap-1.5">
               <span className="size-1.5 rounded-full bg-[var(--picker-eyebrow)]" />
