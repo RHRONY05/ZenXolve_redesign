@@ -16,18 +16,19 @@ export function MockBrowser({
       aria-hidden="true"
       className={`absolute overflow-hidden rounded-2xl bg-[#0b0d1e]/95 border border-white/15 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] backdrop-blur-md ${className}`}
     >
-      <div className="flex h-[38px] items-center gap-2 border-b border-white/10 bg-white/[0.03] px-3.5">
+      <div className="flex h-[38px] items-center gap-2 border-b border-white/10 bg-white/[0.02] px-3.5">
         <div className="flex items-center gap-1.5">
           <span className="size-2.5 rounded-full bg-rose-500/80 shadow-[0_0_6px_rgba(244,63,94,0.4)]" />
           <span className="size-2.5 rounded-full bg-amber-500/80 shadow-[0_0_6px_rgba(251,191,36,0.4)]" />
           <span className="size-2.5 rounded-full bg-emerald-500/80 shadow-[0_0_6px_rgba(52,211,153,0.4)]" />
         </div>
-        <div className="ml-2 flex items-center gap-1.5 rounded-full bg-white/[0.05] border border-white/10 px-3 py-1 font-mono text-[11px] text-slate-300">
-          <svg className="size-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+        {/* URL directly on bar without capsule wrapper */}
+        <div className="ml-3 flex items-center gap-1.5 font-mono text-[11px] text-slate-400 select-none">
+          <svg className="size-3 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
             <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
           </svg>
-          <span>{url}</span>
+          <span className="text-slate-300 font-medium">{url}</span>
         </div>
       </div>
       {children}
@@ -75,20 +76,30 @@ export function FlowCard({ className = "", children }: { className?: string; chi
   );
 }
 
-export function Msg({ me, time, children }: { me?: boolean; time: string; children: React.ReactNode }) {
+export function Msg({
+  me,
+  time,
+  children,
+  className = "",
+}: {
+  me?: boolean;
+  time: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
   const isRead = time.includes("✓✓");
   const cleanTime = time.replace(" ✓✓", "");
 
   return (
     <div
-      className={`max-w-[86%] rounded-2xl px-3.5 py-2.5 text-[12px] md:text-[13px] leading-relaxed shadow-[0_2px_8px_rgba(0,0,0,0.3)] ${
+      className={`max-w-[82%] rounded-2xl px-3 py-2 text-[11.5px] md:text-[12px] leading-snug shadow-[0_2px_8px_rgba(0,0,0,0.35)] transition-all ${
         me
-          ? "self-end bg-[#005c4b] text-white border border-[#005c4b]/60 rounded-tr-xs"
-          : "self-start bg-[#202c33] text-slate-100 border border-white/10 rounded-tl-xs"
-      }`}
+          ? "ml-auto self-end bg-[#005c4b] text-white border border-[#005c4b]/80 rounded-tr-xs"
+          : "mr-auto self-start bg-[#202c33] text-slate-100 border border-white/10 rounded-tl-xs"
+      } ${className}`}
     >
       {children}
-      <div className="mt-1 flex items-center justify-end gap-1 font-mono text-[10px] text-slate-400">
+      <div className="mt-1 flex items-center justify-end gap-1 font-mono text-[9px] text-slate-300/80">
         <span>{cleanTime}</span>
         {isRead && <span className="text-[#53bdeb] font-bold">✓✓</span>}
       </div>

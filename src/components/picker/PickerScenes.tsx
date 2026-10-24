@@ -64,50 +64,48 @@ function AgentScene({ label }: { label: string }) {
           </div>
         </div>
 
-        {/* WhatsApp Chat Thread: overflow-hidden ensures NO scrollbar can ever appear */}
+        {/* WhatsApp Chat Thread: 2-sided conversation UI (Left / Right) */}
         <div
-          className="flex flex-col justify-between p-2.5 md:p-3 text-xs leading-[1.35] md:text-[12.5px] overflow-hidden flex-1 select-none"
+          className="flex flex-col gap-2 p-2.5 md:p-3 text-xs leading-snug md:text-[12px] overflow-hidden select-none"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          <div className="space-y-2">
-            <Msg time="10:24">
-              <span className="md:hidden">Hi! Got AeroPulse Pro Runner in size 10.5?</span>
-              <span className="hidden md:inline">Hi! Do you have the AeroPulse Pro Runner in size 10.5 in stock?</span>
-            </Msg>
+          {/* 01: Customer message (Left, Incoming from customer) */}
+          <Msg time="10:24">
+            <span className="md:hidden">Hi! Got AeroPulse Pro in size 10.5?</span>
+            <span className="hidden md:inline">Hi! Do you have the AeroPulse Pro Runner in size 10.5 in stock?</span>
+          </Msg>
 
-            <Msg me time="10:24 ✓✓">
-              <div>
-                <p className="font-medium text-white mb-1.5">Hey Alex! 👟 2 pairs left in Volt White. Reserved for you:</p>
-                <div className="rounded-lg bg-black/35 border border-white/10 p-2 text-[11px] leading-tight space-y-1 mb-1.5">
-                  <div className="flex justify-between text-slate-200">
-                    <span>👟 AeroPulse Pro (US 10.5)</span>
-                    <span className="font-mono text-[#67e8f9]">$185.00</span>
-                  </div>
-                  <div className="flex justify-between text-slate-200">
-                    <span>🧦 Carbon Grip Socks</span>
-                    <span className="font-mono text-[#67e8f9]">$25.00</span>
-                  </div>
-                  <div className="flex justify-between text-slate-300 border-t border-white/10 pt-1">
-                    <span>📦 2-Day Priority Shipping</span>
-                    <span className="font-mono text-emerald-400">Free</span>
-                  </div>
-                  <div className="flex justify-between text-white font-bold border-t border-white/15 pt-1">
-                    <span>Total</span>
-                    <span className="font-mono text-[#67e8f9]">$210.00</span>
-                  </div>
+          {/* 02: AI Concierge reply (Right, Outgoing response with card) */}
+          <Msg me time="10:24 ✓✓">
+            <div>
+              <p className="font-medium text-white mb-1">Hey Alex! 👟 2 pairs left in Volt White. Reserved:</p>
+              <div className="rounded-lg bg-black/40 border border-white/10 p-1.5 text-[10.5px] leading-tight space-y-0.5 mb-1">
+                <div className="flex justify-between text-slate-200">
+                  <span>👟 AeroPulse Pro (US 10.5)</span>
+                  <span className="font-mono text-[#67e8f9]">$185</span>
                 </div>
-                <p className="text-slate-200">Lock in your pair before it sells out? I can text your Stripe link.</p>
+                <div className="flex justify-between text-slate-200">
+                  <span>🧦 Carbon Grip Socks</span>
+                  <span className="font-mono text-[#67e8f9]">$25</span>
+                </div>
+                <div className="flex justify-between text-white font-bold border-t border-white/15 pt-0.5">
+                  <span>Total (Free Shipping)</span>
+                  <span className="font-mono text-[#67e8f9]">$210</span>
+                </div>
               </div>
-            </Msg>
+              <p className="text-slate-200">Lock in your pair before it sells out?</p>
+            </div>
+          </Msg>
 
-            <Msg time="10:25">
-              <span>Yes please, lock it in!</span>
-            </Msg>
+          {/* 03: Customer confirmation (Left, Incoming from customer) */}
+          <Msg time="10:25">
+            <span>Yes please, lock it in!</span>
+          </Msg>
 
-            <Msg me time="10:25 ✓✓">
-              <span>Done! ✅ Inventory reserved for 15 mins. Stripe checkout link sent: pay.apexgear.com/inv_8912</span>
-            </Msg>
-          </div>
+          {/* 04: AI Concierge confirmation (Right, Outgoing confirmation) */}
+          <Msg me time="10:25 ✓✓">
+            <span>Done! ✅ Reserved 15m. Stripe link: pay.apexgear.com/inv_8912</span>
+          </Msg>
         </div>
       </MockPhone>
 
