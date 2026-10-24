@@ -1,7 +1,7 @@
 export type Service = {
   slug: string;
   title: string;
-  group: "Build" | "Automate" | "Design";
+  group: "Design" | "Build" | "Automate";
   body: string;
   tags: string[];
   timeline: string;
@@ -11,12 +11,23 @@ export type Service = {
 };
 
 export const serviceGroups = [
-  { key: "Build", letter: "A", count: "03" },
-  { key: "Automate", letter: "B", count: "02" },
-  { key: "Design", letter: "C", count: "01" },
+  { key: "Design", letter: "A", count: "01" },
+  { key: "Build", letter: "B", count: "03" },
+  { key: "Automate", letter: "C", count: "02" },
 ] as const;
 
 export const services: Service[] = [
+  {
+    slug: "ui-ux-design",
+    title: "UI/UX Design",
+    group: "Design",
+    body: "User-centered design that converts visitors into customers. Beautiful, intuitive interfaces backed by research and industry best practices.",
+    tags: ["User Research", "Wireframing & Prototyping", "Visual Design", "Design Systems"],
+    timeline: "[timeline]",
+    timelinePlaceholder: true,
+    tools: "Figma",
+    serviceQuery: "web",
+  },
   {
     slug: "web-development",
     title: "Full Stack Web Development",
@@ -71,16 +82,5 @@ export const services: Service[] = [
     timelinePlaceholder: true,
     tools: "WhatsApp API · Telegram · n8n",
     serviceQuery: "ai",
-  },
-  {
-    slug: "ui-ux-design",
-    title: "UI/UX Design",
-    group: "Design",
-    body: "User-centered design that converts visitors into customers. Beautiful, intuitive interfaces backed by research and industry best practices.",
-    tags: ["User Research", "Wireframing & Prototyping", "Visual Design", "Design Systems"],
-    timeline: "[timeline]",
-    timelinePlaceholder: true,
-    tools: "Figma",
-    serviceQuery: "web",
   },
 ];

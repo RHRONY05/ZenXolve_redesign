@@ -76,76 +76,16 @@ function PanelHead({
 
 const forGroup = (g: Service["group"]) => services.filter((s) => s.group === g);
 
-/** Single-Studio Services Suite: 3 Luxury Obsidian Glass Engine Panels */
+/** Single-Studio Services Suite: Design -> Build -> Automate */
 export function ServiceList() {
   return (
     <div className="space-y-6">
       {/* Narrative Interactive Studio Comparator */}
       <StudioComparator />
 
-      {/* The 3 Connected Pillar Cards */}
+      {/* The 3 Connected Pillar Cards: Design -> Build -> Automate */}
       <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-6">
-        {/* Pillar A: Build (Wide 12-col card) */}
-        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-[#0c0e22]/90 p-6 md:col-span-12 md:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all">
-          {/* Ambient Indigo Glow */}
-          <div
-            className="pointer-events-none absolute -top-24 -left-24 size-[500px] rounded-full blur-[110px] opacity-25"
-            style={{
-              background: "radial-gradient(circle, rgba(99,102,241,0.5) 0%, rgba(6,182,212,0.3) 50%, transparent 75%)",
-            }}
-            aria-hidden="true"
-          />
-
-          <div className="relative z-10 grid gap-8 md:grid-cols-[5fr_7fr] md:gap-12">
-            <div className="flex flex-col justify-between gap-6">
-              <PanelHead
-                letter="A"
-                group="Build"
-                count="03"
-                size="lg"
-                tagline="Full-Stack Web, Native Mobile & Scalable Business Cloud Architecture"
-              />
-              <BuildArt className="w-full max-w-[440px]" />
-            </div>
-            <div>
-              {forGroup("Build").map((s) => (
-                <PanelRow key={s.slug} s={s} />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Pillar B: Automate (7-col card) */}
-        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-[#0c0e22]/90 p-6 md:col-span-7 md:p-9 shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all flex flex-col justify-between gap-6">
-          {/* Ambient Emerald Glow */}
-          <div
-            className="pointer-events-none absolute -top-24 -right-24 size-[400px] rounded-full blur-[100px] opacity-20"
-            style={{
-              background: "radial-gradient(circle, rgba(16,185,129,0.5) 0%, rgba(6,182,212,0.3) 50%, transparent 75%)",
-            }}
-            aria-hidden="true"
-          />
-
-          <div className="relative z-10 space-y-6">
-            <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-              <PanelHead
-                letter="B"
-                group="Automate"
-                count="02"
-                size="md"
-                tagline="Autonomous AI Agents & Messaging Workflows"
-              />
-            </div>
-            <AutomateArt className="w-full" />
-            <div className="pt-2">
-              {forGroup("Automate").map((s) => (
-                <PanelRow key={s.slug} s={s} />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Pillar C: Design (5-col card) */}
+        {/* Pillar A: Design (5-col card) */}
         <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-[#0c0e22]/90 p-6 md:col-span-5 md:p-9 shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all flex flex-col justify-between gap-6">
           {/* Ambient Violet Glow */}
           <div
@@ -158,7 +98,7 @@ export function ServiceList() {
 
           <div className="relative z-10 space-y-6">
             <PanelHead
-              letter="C"
+              letter="A"
               group="Design"
               count="01"
               size="md"
@@ -172,24 +112,82 @@ export function ServiceList() {
             <DesignArt className="w-full mt-auto" />
           </div>
         </div>
+
+        {/* Pillar B: Build (7-col card) */}
+        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-[#0c0e22]/90 p-6 md:col-span-7 md:p-9 shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all flex flex-col justify-between gap-6">
+          {/* Ambient Indigo Glow */}
+          <div
+            className="pointer-events-none absolute -top-24 -left-24 size-[400px] rounded-full blur-[100px] opacity-25"
+            style={{
+              background: "radial-gradient(circle, rgba(99,102,241,0.5) 0%, rgba(6,182,212,0.3) 50%, transparent 75%)",
+            }}
+            aria-hidden="true"
+          />
+
+          <div className="relative z-10 space-y-6">
+            <PanelHead
+              letter="B"
+              group="Build"
+              count="03"
+              size="md"
+              tagline="Full-Stack Web, Native Mobile & Scalable Business Cloud Architecture"
+            />
+            <BuildArt className="w-full" />
+            <div className="pt-2">
+              {forGroup("Build").map((s) => (
+                <PanelRow key={s.slug} s={s} />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Pillar C: Automate (Wide 12-col card) */}
+        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-[#0c0e22]/90 p-6 md:col-span-12 md:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all">
+          {/* Ambient Emerald Glow */}
+          <div
+            className="pointer-events-none absolute -top-24 -right-24 size-[500px] rounded-full blur-[110px] opacity-20"
+            style={{
+              background: "radial-gradient(circle, rgba(16,185,129,0.5) 0%, rgba(6,182,212,0.3) 50%, transparent 75%)",
+            }}
+            aria-hidden="true"
+          />
+
+          <div className="relative z-10 grid gap-8 md:grid-cols-[5fr_7fr] md:gap-12">
+            <div className="flex flex-col justify-between gap-6">
+              <PanelHead
+                letter="C"
+                group="Automate"
+                count="02"
+                size="lg"
+                tagline="Autonomous AI Agents & Messaging Workflows"
+              />
+              <AutomateArt className="w-full max-w-[440px]" />
+            </div>
+            <div>
+              {forGroup("Automate").map((s) => (
+                <PanelRow key={s.slug} s={s} />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Studio Guarantee Bottom Ribbon */}
       <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 md:p-6 backdrop-blur-md flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs md:text-sm text-slate-300 font-mono">
           <span className="flex items-center gap-1.5 text-white">
-            <span className="size-1.5 rounded-full bg-emerald-400" />
-            3 Disciplines
+            <span className="size-1.5 rounded-full bg-violet-400" />
+            01 Design
           </span>
           <span className="text-slate-600">/</span>
           <span className="flex items-center gap-1.5 text-white">
             <span className="size-1.5 rounded-full bg-cyan-400" />
-            1 Dedicated Studio
+            02 Build
           </span>
           <span className="text-slate-600">/</span>
           <span className="flex items-center gap-1.5 text-white">
-            <span className="size-1.5 rounded-full bg-violet-400" />
-            0 Handoff Friction
+            <span className="size-1.5 rounded-full bg-emerald-400" />
+            03 Automate
           </span>
         </div>
 
