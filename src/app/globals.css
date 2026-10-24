@@ -125,17 +125,17 @@
   --panel-line: rgba(165, 145, 255, 0.18);
   --panel-lift: rgba(255, 255, 255, 0.08);
 
-  /* Picker illustrations */
-  --mock-phone: #0b0c16;
-  --mock-screen: #ffffff;
-  --mock-screen-ink: #080914;
-  --mock-msg: #ffffff;
-  --mock-msg-me: #e0f2fe;
-  --mock-wa: #1f5f4a;
-  --mock-muted: #6b7280;
-  --mock-checkout: #f8f9fc;
-  --mock-checkout-ink: #474d66;
-  --mock-shadow: rgba(15, 23, 42, 0.15);
+  /* Picker illustrations: luxury dark mode */
+  --mock-phone: #090a16;
+  --mock-screen: #0b141a;
+  --mock-screen-ink: #f1f5f9;
+  --mock-msg: #202c33;
+  --mock-msg-me: #005c4b;
+  --mock-wa: #1f2c34;
+  --mock-muted: #94a3b8;
+  --mock-checkout: #0f1122;
+  --mock-checkout-ink: #cbd5e1;
+  --mock-shadow: rgba(0, 0, 0, 0.65);
 
   /* Focus + shadows */
   --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
@@ -388,7 +388,16 @@ html[data-font="editorial"] {
 em.acc,
 .acc {
   font-style: italic;
-  color: var(--accent);
+  background: linear-gradient(135deg, #c084fc 0%, #e879f9 45%, #67e8f9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+html[data-palette="editorial"] em.acc,
+html[data-palette="editorial"] .acc {
+  background: linear-gradient(135deg, #59c7a6 0%, #ff7857 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* ---- Hero photo: drift + flash (off with reduced motion) ---- */
