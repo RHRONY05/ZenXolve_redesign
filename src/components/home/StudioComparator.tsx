@@ -189,14 +189,14 @@ export function StudioComparator() {
               </div>
 
               {/* Workflow Connector Arrow 1 -> 2 (Desktop & Mobile) */}
-              <div className="flex items-center justify-center py-1 md:py-0 md:px-2 z-20">
+              <div className="flex items-center justify-center py-1 md:py-0 z-20 relative">
                 {/* Desktop horizontal flow with single continuous laser beam streak */}
-                <div className="hidden md:flex items-center justify-center relative w-12 lg:w-16 h-8 overflow-visible">
-                  {/* Continuous horizontal baseline track */}
-                  <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500/40 via-cyan-500/50 to-cyan-500/40" />
+                <div className="hidden md:flex items-center justify-center relative w-16 lg:w-20 h-8 -mx-2 overflow-visible">
+                  {/* Continuous horizontal baseline track spanning gap-to-gap (-left-2 to -right-2) */}
+                  <div className="absolute top-1/2 -translate-y-1/2 -left-2 -right-2 h-[2px] bg-gradient-to-r from-violet-500/40 via-cyan-500/50 to-cyan-500/40" />
 
                   {/* Single continuous traveling laser beam streak (preserves beam shape from boxes) */}
-                  <div className="absolute top-1/2 -translate-y-1/2 h-[3px] w-7 lg:w-8 rounded-full pointer-events-none opacity-0 animate-circuit-arrow1-beam shadow-[0_0_10px_#22d3ee,0_0_16px_#c084fc] bg-gradient-to-r from-transparent via-violet-400 via-cyan-400 to-white" />
+                  <div className="absolute top-1/2 -translate-y-1/2 h-[3px] w-8 rounded-full pointer-events-none opacity-0 animate-circuit-arrow1-beam shadow-[0_0_10px_#22d3ee,0_0_16px_#c084fc] bg-gradient-to-r from-transparent via-violet-400 via-cyan-400 to-white" />
 
                   {/* Center Arrow Circle Indicator */}
                   <div className="relative z-10 flex size-7 lg:size-8 items-center justify-center rounded-full border border-cyan-400/40 bg-[#0e132e] text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.3)] animate-circuit-arrow1-circle transition-all">
@@ -265,14 +265,14 @@ export function StudioComparator() {
               </div>
 
               {/* Workflow Connector Arrow 2 -> 3 (Desktop & Mobile) */}
-              <div className="flex items-center justify-center py-1 md:py-0 md:px-2 z-20">
+              <div className="flex items-center justify-center py-1 md:py-0 z-20 relative">
                 {/* Desktop horizontal flow with single continuous laser beam streak */}
-                <div className="hidden md:flex items-center justify-center relative w-12 lg:w-16 h-8 overflow-visible">
-                  {/* Continuous horizontal baseline track */}
-                  <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-500/40 via-emerald-500/50 to-emerald-500/40" />
+                <div className="hidden md:flex items-center justify-center relative w-16 lg:w-20 h-8 -mx-2 overflow-visible">
+                  {/* Continuous horizontal baseline track spanning gap-to-gap (-left-2 to -right-2) */}
+                  <div className="absolute top-1/2 -translate-y-1/2 -left-2 -right-2 h-[2px] bg-gradient-to-r from-cyan-500/40 via-emerald-500/50 to-emerald-500/40" />
 
                   {/* Single continuous traveling laser beam streak (preserves beam shape from boxes) */}
-                  <div className="absolute top-1/2 -translate-y-1/2 h-[3px] w-7 lg:w-8 rounded-full pointer-events-none opacity-0 animate-circuit-arrow2-beam shadow-[0_0_10px_#34d399,0_0_16px_#22d3ee] bg-gradient-to-r from-transparent via-cyan-400 via-emerald-400 to-white" />
+                  <div className="absolute top-1/2 -translate-y-1/2 h-[3px] w-8 rounded-full pointer-events-none opacity-0 animate-circuit-arrow2-beam shadow-[0_0_10px_#34d399,0_0_16px_#22d3ee] bg-gradient-to-r from-transparent via-cyan-400 via-emerald-400 to-white" />
 
                   {/* Center Arrow Circle Indicator */}
                   <div className="relative z-10 flex size-7 lg:size-8 items-center justify-center rounded-full border border-emerald-400/40 bg-[#0e132e] text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.3)] animate-circuit-arrow2-circle transition-all">

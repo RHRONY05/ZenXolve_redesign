@@ -800,37 +800,34 @@ html[data-palette="editorial"] .acc {
 }
 
 /* ==========================================================================
-   Studio Circuit Continuous Traveling Lightning Engine (Calibrated 8s loop)
-   Active on Tablet & Desktop (md: screens)
+   Studio Circuit Continuous Traveling Lightning Engine (Calibrated 8.5s loop)
+   Active on Tablet & Desktop (md: screens) - STRICT ZERO-OVERLAP SEQUENCING
    ========================================================================== */
 
-/* Stage 01 Perimeter Beam (0% - 24%) */
+/* Stage 01 Perimeter Beam (0% - 22%) */
 @keyframes circuit-stage1-beam {
   0% {
     stroke-dasharray: 22 100;
     stroke-dashoffset: 22;
-    opacity: 0;
-  }
-  1% {
     opacity: 1;
   }
-  23% {
+  21.9% {
     stroke-dashoffset: -100;
     opacity: 1;
   }
-  24%, 100% {
+  22%, 100% {
     stroke-dashoffset: -100;
     opacity: 0;
   }
 }
 
-/* Stage 01 Glow & Elevation (0% - 24%) */
+/* Stage 01 Card Elevation (0% - 22%) */
 @keyframes circuit-stage1-glow {
-  0%, 24% {
+  0%, 22% {
     box-shadow: 0 0 36px rgba(168, 85, 247, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     border-color: rgba(192, 132, 252, 0.85);
   }
-  25%, 98% {
+  22.1%, 99.9% {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     border-color: rgba(139, 92, 246, 0.4);
   }
@@ -840,255 +837,265 @@ html[data-palette="editorial"] .acc {
   }
 }
 
-/* Arrow 1 Continuous Laser Beam Streak (24% - 34%) */
+/* Arrow 1 Continuous Laser Beam Streak (22% - 32%) */
 @keyframes circuit-arrow1-beam {
-  0%, 23% {
-    left: -32px;
+  0%, 21.9% {
+    left: -24px;
     opacity: 0;
   }
-  24% {
-    left: -32px;
+  22% {
+    left: -24px;
     opacity: 1;
   }
-  33% {
-    left: 100%;
+  31.9% {
+    left: calc(100% - 8px);
     opacity: 1;
   }
-  34%, 100% {
-    left: 100%;
+  32%, 100% {
+    left: calc(100% - 8px);
     opacity: 0;
   }
 }
 
+/* Arrow 1 Center Circle Pulse (25% - 29%) */
 @keyframes circuit-arrow1-circle {
-  0%, 24% {
+  0%, 24.9% {
     border-color: rgba(6, 182, 212, 0.4);
     box-shadow: 0 0 12px rgba(6, 182, 212, 0.3);
     transform: scale(1);
   }
-  27%, 32% {
+  26%, 28% {
     border-color: rgba(6, 182, 212, 0.95);
     background-color: rgba(6, 182, 212, 0.3);
     box-shadow: 0 0 24px rgba(6, 182, 212, 0.85);
     color: #ffffff;
     transform: scale(1.12);
   }
-  35%, 100% {
+  29.5%, 100% {
     border-color: rgba(6, 182, 212, 0.4);
     box-shadow: 0 0 12px rgba(6, 182, 212, 0.3);
     transform: scale(1);
   }
 }
 
-/* Stage 02 Perimeter Beam (34% - 58%) */
+/* Stage 02 Perimeter Beam (32% - 54%) - Starts exactly at arrow entry (offset: 34) */
 @keyframes circuit-stage2-beam {
-  0%, 33% {
+  0%, 31.9% {
     stroke-dasharray: 22 100;
-    stroke-dashoffset: 22;
+    stroke-dashoffset: 34;
     opacity: 0;
   }
-  34% {
+  32% {
+    stroke-dasharray: 22 100;
+    stroke-dashoffset: 34;
     opacity: 1;
   }
-  57% {
-    stroke-dashoffset: -100;
+  53.9% {
+    stroke-dashoffset: -88;
     opacity: 1;
   }
-  58%, 100% {
-    stroke-dashoffset: -100;
+  54%, 100% {
+    stroke-dashoffset: -88;
     opacity: 0;
   }
 }
 
-/* Stage 02 Glow & Elevation (34% - 58%) */
+/* Stage 02 Card Elevation (32% - 54%) */
 @keyframes circuit-stage2-glow {
-  0%, 33% {
+  0%, 31.9% {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     border-color: rgba(6, 182, 212, 0.4);
   }
-  34%, 58% {
+  32%, 54% {
     box-shadow: 0 0 36px rgba(6, 182, 212, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     border-color: rgba(34, 211, 238, 0.85);
   }
-  59%, 100% {
+  54.1%, 100% {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     border-color: rgba(6, 182, 212, 0.4);
   }
 }
 
-/* Arrow 2 Continuous Laser Beam Streak (58% - 68%) */
+/* Arrow 2 Continuous Laser Beam Streak (54% - 64%) */
 @keyframes circuit-arrow2-beam {
-  0%, 57% {
-    left: -32px;
+  0%, 53.9% {
+    left: -24px;
     opacity: 0;
   }
-  58% {
-    left: -32px;
+  54% {
+    left: -24px;
     opacity: 1;
   }
-  67% {
-    left: 100%;
+  63.9% {
+    left: calc(100% - 8px);
     opacity: 1;
   }
-  68%, 100% {
-    left: 100%;
+  64%, 100% {
+    left: calc(100% - 8px);
     opacity: 0;
   }
 }
 
+/* Arrow 2 Center Circle Pulse (57% - 61%) */
 @keyframes circuit-arrow2-circle {
-  0%, 58% {
+  0%, 56.9% {
     border-color: rgba(16, 185, 129, 0.4);
     box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
     transform: scale(1);
   }
-  61%, 66% {
+  58%, 60% {
     border-color: rgba(16, 185, 129, 0.95);
     background-color: rgba(16, 185, 129, 0.3);
     box-shadow: 0 0 24px rgba(16, 185, 129, 0.85);
     color: #ffffff;
     transform: scale(1.12);
   }
-  69%, 100% {
+  61.5%, 100% {
     border-color: rgba(16, 185, 129, 0.4);
     box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
     transform: scale(1);
   }
 }
 
-/* Stage 03 Perimeter Beam (68% - 88%) */
+/* Stage 03 Perimeter Beam (64% - 84%) - Starts exactly at arrow entry (offset: 34) */
 @keyframes circuit-stage3-beam {
-  0%, 67% {
+  0%, 63.9% {
     stroke-dasharray: 22 100;
-    stroke-dashoffset: 22;
+    stroke-dashoffset: 34;
     opacity: 0;
   }
-  68% {
+  64% {
+    stroke-dasharray: 22 100;
+    stroke-dashoffset: 34;
     opacity: 1;
   }
-  87% {
-    stroke-dashoffset: -100;
+  83.9% {
+    stroke-dashoffset: -88;
     opacity: 1;
   }
-  88%, 100% {
-    stroke-dashoffset: -100;
+  84%, 100% {
+    stroke-dashoffset: -88;
     opacity: 0;
   }
 }
 
-/* Stage 03 Glow & Elevation (68% - 88%) */
+/* Stage 03 Card Elevation (64% - 84%) */
 @keyframes circuit-stage3-glow {
-  0%, 67% {
+  0%, 63.9% {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     border-color: rgba(16, 185, 129, 0.4);
   }
-  68%, 88% {
+  64%, 84% {
     box-shadow: 0 0 36px rgba(16, 185, 129, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     border-color: rgba(52, 211, 153, 0.85);
   }
-  89%, 100% {
+  84.1%, 100% {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     border-color: rgba(16, 185, 129, 0.4);
   }
 }
 
-/* Overhead Return Stem 3 (Ascent: 88% - 91%) */
+/* Overhead Return Stem 3 (Ascent: 84% - 88%) */
 @keyframes circuit-stem3-packet {
-  0%, 87% {
+  0%, 83.9% {
     bottom: 0%;
     opacity: 0;
   }
-  88% {
+  84% {
     bottom: 0%;
     opacity: 1;
   }
-  91% {
+  87.9% {
     bottom: 100%;
     opacity: 1;
   }
-  92%, 100% {
+  88%, 100% {
     bottom: 100%;
     opacity: 0;
   }
 }
 
-/* Overhead Return Horizontal Track (East -> West: 91% - 97%) */
+/* Overhead Return Horizontal Track (East -> West: 88% - 96%) */
 @keyframes circuit-overhead-track {
-  0%, 90% {
+  0%, 87.9% {
     right: 0%;
     opacity: 0;
     width: 0%;
   }
-  91% {
+  88% {
     right: 0%;
     opacity: 1;
     width: 140px;
   }
-  96% {
+  95.9% {
     right: calc(100% - 140px);
     opacity: 1;
     width: 140px;
   }
-  97%, 100% {
+  96%, 100% {
     right: 100%;
     opacity: 0;
     width: 0%;
   }
 }
 
-/* Overhead Return Stem 1 (Descent: 97% - 100%) */
+/* Overhead Return Stem 1 (Descent: 96% - 100%) */
 @keyframes circuit-stem1-packet {
-  0%, 96% {
+  0%, 95.9% {
     top: 0%;
     opacity: 0;
   }
-  97% {
+  96% {
     top: 0%;
+    opacity: 1;
+  }
+  99.9% {
+    top: 100%;
     opacity: 1;
   }
   100% {
     top: 100%;
-    opacity: 1;
+    opacity: 0;
   }
 }
 
-/* Applied Animation Classes (8-second synchronized cycle) */
+/* Applied Animation Classes (8.5-second synchronized cycle with LINEAR timing) */
 .animate-circuit-stage1-beam {
-  animation: circuit-stage1-beam 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: circuit-stage1-beam 8.5s linear infinite;
 }
 .animate-circuit-stage1-glow {
-  animation: circuit-stage1-glow 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: circuit-stage1-glow 8.5s linear infinite;
 }
 .animate-circuit-arrow1-beam {
-  animation: circuit-arrow1-beam 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: circuit-arrow1-beam 8.5s linear infinite;
 }
 .animate-circuit-arrow1-circle {
-  animation: circuit-arrow1-circle 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: circuit-arrow1-circle 8.5s linear infinite;
 }
 .animate-circuit-stage2-beam {
-  animation: circuit-stage2-beam 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: circuit-stage2-beam 8.5s linear infinite;
 }
 .animate-circuit-stage2-glow {
-  animation: circuit-stage2-glow 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: circuit-stage2-glow 8.5s linear infinite;
 }
 .animate-circuit-arrow2-beam {
-  animation: circuit-arrow2-beam 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: circuit-arrow2-beam 8.5s linear infinite;
 }
 .animate-circuit-arrow2-circle {
-  animation: circuit-arrow2-circle 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: circuit-arrow2-circle 8.5s linear infinite;
 }
 .animate-circuit-stage3-beam {
-  animation: circuit-stage3-beam 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: circuit-stage3-beam 8.5s linear infinite;
 }
 .animate-circuit-stage3-glow {
-  animation: circuit-stage3-glow 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: circuit-stage3-glow 8.5s linear infinite;
 }
 .animate-circuit-stem3-packet {
-  animation: circuit-stem3-packet 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: circuit-stem3-packet 8.5s linear infinite;
 }
 .animate-circuit-overhead-track {
-  animation: circuit-overhead-track 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: circuit-overhead-track 8.5s linear infinite;
 }
 .animate-circuit-stem1-packet {
-  animation: circuit-stem1-packet 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: circuit-stem1-packet 8.5s linear infinite;
 }
