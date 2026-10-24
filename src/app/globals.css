@@ -67,6 +67,11 @@
   --hero-frame-glow: rgba(168, 85, 247, 0.40);
   --hero-grid: rgba(165, 145, 255, 0.20);
   --hero-grid-highlight: rgba(195, 175, 255, 0.15);
+  --grid-line-minor: rgba(165, 145, 255, 0.08);
+  --grid-line-major: rgba(196, 181, 253, 0.16);
+  --grid-crosshair-minor: rgba(167, 139, 250, 0.22);
+  --grid-crosshair-major: rgba(103, 232, 249, 0.35);
+  --grid-dot-glow: rgba(196, 181, 253, 0.30);
   --hero-glow-1: rgba(135, 65, 255, 0.52);
   --hero-glow-2: rgba(95, 40, 205, 0.35);
   --hero-glow-3: rgba(45, 20, 115, 0.16);
@@ -190,6 +195,11 @@ html[data-palette="editorial"] {
   --hero-frame-glow: rgba(89, 199, 166, 0.40);
   --hero-grid: rgba(89, 199, 166, 0.18);
   --hero-grid-highlight: rgba(120, 220, 185, 0.15);
+  --grid-line-minor: rgba(89, 199, 166, 0.08);
+  --grid-line-major: rgba(120, 220, 185, 0.16);
+  --grid-crosshair-minor: rgba(89, 199, 166, 0.22);
+  --grid-crosshair-major: rgba(255, 120, 87, 0.35);
+  --grid-dot-glow: rgba(89, 199, 166, 0.30);
   --hero-glow-1: rgba(20, 116, 91, 0.52);
   --hero-glow-2: rgba(16, 85, 68, 0.35);
   --hero-glow-3: rgba(10, 45, 36, 0.16);

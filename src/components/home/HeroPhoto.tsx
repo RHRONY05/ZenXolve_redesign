@@ -4,6 +4,7 @@ import { site } from "@/content/site";
 import { HeroSuspendedRail } from "@/components/home/HeroSuspendedRail";
 import { HeroProjectsCarousel } from "@/components/home/HeroProjectsCarousel";
 import { HeroStarfield } from "@/components/home/HeroStarfield";
+import { HeroArchitecturalGrid } from "@/components/home/HeroArchitecturalGrid";
 
 /**
  * Home hero: full-screen edge-to-edge canvas featuring the signature deep cosmic dark navy base,
@@ -17,47 +18,28 @@ export function HeroPhoto() {
       id="hero"
       className="hero-photo relative min-h-[100svh] w-full overflow-x-clip overflow-y-visible bg-(--hero-bg) flex flex-col justify-start items-center px-4 sm:px-6 pt-12 sm:pt-10 md:pt-12 pb-0"
     >
-      {/* 1. Atmospheric radial glow highlighting the elevated XenZolve title */}
+      {/* 1. Atmospheric radial glow: focused on center column, keeping outer margins deep and moody */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 65% 50% at 50% 18%, var(--hero-glow-1) 0%, var(--hero-glow-2) 42%, var(--hero-glow-3) 68%, transparent 85%), radial-gradient(ellipse 95% 75% at 50% 24%, var(--hero-glow-4) 0%, var(--hero-glow-5) 50%, transparent 88%), radial-gradient(540px 360px at 50% 16%, var(--hero-glow-6), transparent 72%)",
+            "radial-gradient(ellipse 52% 48% at 50% 16%, var(--hero-glow-1) 0%, var(--hero-glow-2) 42%, var(--hero-glow-3) 68%, transparent 85%), radial-gradient(ellipse 65% 58% at 50% 22%, var(--hero-glow-4) 0%, var(--hero-glow-5) 45%, transparent 82%), radial-gradient(480px 320px at 50% 15%, var(--hero-glow-6), transparent 72%)",
         }}
         aria-hidden
       />
 
-      {/* 3. Micro-starfield texture sitting directly underneath the CSS grid lines */}
+      {/* 2. Micro-starfield texture sitting directly underneath the grid lines */}
       <HeroStarfield />
 
-      {/* 4. High-tech orthogonal grid with illuminated stroke and soft perimeter falloff */}
+      {/* 3. Precision Architectural Micro-Grid with Refined Whisper Crosshairs */}
+      <HeroArchitecturalGrid />
+
+      {/* 4. Bilateral side darkening vignette: gently fades left & right flanks into deep cosmic dark */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage:
-            "linear-gradient(to right, var(--hero-grid) 1px, transparent 1px), linear-gradient(to bottom, var(--hero-grid) 1px, transparent 1px)",
-          backgroundSize: "52px 52px",
-          backgroundPosition: "center center",
-          maskImage:
-            "radial-gradient(ellipse 92% 82% at 50% 28%, black 35%, rgba(0, 0, 0, 0.75) 70%, transparent 98%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 92% 82% at 50% 28%, black 35%, rgba(0, 0, 0, 0.75) 70%, transparent 98%)",
-        }}
-        aria-hidden
-      />
-
-      {/* 5. Center grid glow enhancement for high-tech HUD feel directly under the elevated title */}
-      <div
-        className="pointer-events-none absolute inset-0 mix-blend-screen opacity-60"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, var(--hero-grid-highlight) 1px, transparent 1px), linear-gradient(to bottom, var(--hero-grid-highlight) 1px, transparent 1px)",
-          backgroundSize: "52px 52px",
-          backgroundPosition: "center center",
-          maskImage:
-            "radial-gradient(circle 440px at 50% 18%, black 20%, transparent 80%)",
-          WebkitMaskImage:
-            "radial-gradient(circle 440px at 50% 18%, black 20%, transparent 80%)",
+          background:
+            "linear-gradient(90deg, var(--hero-bg) 0%, color-mix(in srgb, var(--hero-bg) 95%, transparent) 8%, color-mix(in srgb, var(--hero-bg) 55%, transparent) 22%, transparent 36%, transparent 64%, color-mix(in srgb, var(--hero-bg) 55%, transparent) 78%, color-mix(in srgb, var(--hero-bg) 95%, transparent) 92%, var(--hero-bg) 100%)",
         }}
         aria-hidden
       />
