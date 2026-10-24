@@ -49,14 +49,125 @@ export function StudioComparator() {
 
       {/* Main Workflow Comparison Canvas */}
       <div className="mt-8">
+        {/* Circuit Lightning Gradients for SVG beams */}
+        <svg className="absolute size-0 overflow-hidden" aria-hidden="true">
+          <defs>
+            <linearGradient id="lightning-stage1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="25%" stopColor="#c084fc" />
+              <stop offset="65%" stopColor="#8b5cf6" />
+              <stop offset="100%" stopColor="transparent" />
+            </linearGradient>
+
+            <linearGradient id="lightning-stage2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="25%" stopColor="#22d3ee" />
+              <stop offset="65%" stopColor="#06b6d4" />
+              <stop offset="100%" stopColor="transparent" />
+            </linearGradient>
+
+            <linearGradient id="lightning-stage3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="25%" stopColor="#34d399" />
+              <stop offset="65%" stopColor="#10b981" />
+              <stop offset="100%" stopColor="transparent" />
+            </linearGradient>
+          </defs>
+        </svg>
+
         {mode === "xenzolve" ? (
           <div className="space-y-6 animate-fadeIn">
+            {/* Overhead Studio Synchronization Loop Rail (Active on Desktop & Tablet) */}
+            <div className="hidden md:grid grid-cols-[1fr_auto_1fr_auto_1fr] gap-4 md:gap-2 items-end h-10 mb-[-2px] relative z-20 pointer-events-none select-none">
+              {/* Column 1: Above Stage 01 (Design) */}
+              <div className="relative h-full flex flex-col justify-end">
+                {/* Top horizontal rail (center to right edge) */}
+                <div className="absolute top-2 left-1/2 right-0 h-[2px] bg-white/10" />
+
+                {/* Vertical Stem 1 dropping from top-2 to card top */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[2px] bottom-0 bg-white/10" />
+
+                {/* Stem 1 descent packet (97% - 100%) */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[2px] bottom-0 overflow-hidden">
+                  <div className="absolute left-0 right-0 h-4 bg-gradient-to-b from-transparent to-violet-300 opacity-0 animate-circuit-stem1-packet shadow-[0_0_8px_#c084fc]" />
+                </div>
+
+                {/* Terminal Node 1 */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-2.5 rounded-full border border-violet-400/60 bg-[#121633] shadow-[0_0_8px_rgba(168,85,247,0.4)]" />
+              </div>
+
+              {/* Column 2: Above Arrow 1 */}
+              <div className="relative h-full flex items-start">
+                <div className="absolute top-2 left-0 right-0 h-[2px] bg-white/10" />
+              </div>
+
+              {/* Column 3: Above Stage 02 (Build) */}
+              <div className="relative h-full flex flex-col justify-end">
+                {/* Full horizontal track across Box 2 */}
+                <div className="absolute top-2 left-0 right-0 h-[2px] bg-white/10" />
+
+                {/* Vertical Drop Stem to Box 2 */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[2px] bottom-0 bg-white/10" />
+
+                {/* Center Terminal Node & Sync Badge */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/15 bg-[#121633] shadow-[0_4px_16px_rgba(0,0,0,0.6)] backdrop-blur-md">
+                  <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_#34d399]" />
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-slate-300 font-semibold whitespace-nowrap">
+                    Continuous Studio Loop · 0ms Handoff
+                  </span>
+                </div>
+              </div>
+
+              {/* Column 4: Above Arrow 2 */}
+              <div className="relative h-full flex items-start">
+                <div className="absolute top-2 left-0 right-0 h-[2px] bg-white/10" />
+              </div>
+
+              {/* Column 5: Above Stage 03 (Automate) */}
+              <div className="relative h-full flex flex-col justify-end">
+                {/* Horizontal track from left to center */}
+                <div className="absolute top-2 left-0 right-1/2 h-[2px] bg-white/10" />
+
+                {/* Vertical Stem 3 from card top to rail */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[2px] bottom-0 bg-white/10" />
+
+                {/* Stem 3 ascent packet (86% - 89%) */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[2px] bottom-0 overflow-hidden">
+                  <div className="absolute left-0 right-0 h-4 bg-gradient-to-t from-transparent to-emerald-300 opacity-0 animate-circuit-stem3-packet shadow-[0_0_8px_#34d399]" />
+                </div>
+
+                {/* Terminal Node 3 */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-2.5 rounded-full border border-emerald-400/60 bg-[#121633] shadow-[0_0_8px_rgba(16,185,129,0.4)]" />
+              </div>
+
+              {/* Overhead Return Flying Packet (East -> West across entire width) */}
+              <div className="absolute top-2 left-[15%] right-[15%] h-[2px] overflow-visible pointer-events-none">
+                <div className="absolute top-1/2 -translate-y-1/2 h-1 rounded-full bg-gradient-to-l from-emerald-300 via-cyan-200 to-white opacity-0 animate-circuit-overhead-track shadow-[0_0_14px_#67e8f9,0_0_24px_rgba(168,85,247,0.8)]" />
+              </div>
+            </div>
+
             {/* 3-Stage Connected Workflow Grid (Desktop: 1fr auto 1fr auto 1fr) */}
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-4 md:gap-2 items-center">
               
               {/* STAGE 01: Precision UI/UX Design */}
-              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-violet-500/40 border-t-2 border-t-violet-400 bg-[#1a1b44]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
-                <div>
+              <div className="relative overflow-hidden flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-violet-500/40 border-t-2 border-t-violet-400 bg-[#1a1b44]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)] transition-all animate-circuit-stage1-glow">
+                {/* Traveling Lightning Perimeter Beam (Tablet/Desktop) */}
+                <svg className="pointer-events-none absolute inset-0 size-full overflow-hidden rounded-2xl z-20 hidden md:block" fill="none">
+                  <rect
+                    x="1"
+                    y="1"
+                    width="calc(100% - 2px)"
+                    height="calc(100% - 2px)"
+                    rx="15"
+                    stroke="url(#lightning-stage1)"
+                    strokeWidth="3"
+                    pathLength="100"
+                    className="animate-circuit-stage1-beam"
+                    style={{ filter: "drop-shadow(0 0 6px #c084fc)" }}
+                  />
+                </svg>
+
+                <div className="relative z-10">
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-mono text-xs font-bold text-violet-300 px-2.5 py-1 rounded-md bg-violet-500/15 border border-violet-500/30">
                       STAGE 01
@@ -73,7 +184,7 @@ export function StudioComparator() {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/[0.08] flex flex-col gap-2 font-mono text-xs text-slate-300">
+                <div className="relative z-10 mt-6 pt-4 border-t border-white/[0.08] flex flex-col gap-2 font-mono text-xs text-slate-300">
                   <div className="flex items-center gap-2">
                     <span className="text-violet-400 font-bold">✓</span>
                     <span>Tokens sync straight to GitHub</span>
@@ -87,15 +198,19 @@ export function StudioComparator() {
 
               {/* Workflow Connector Arrow 1 -> 2 (Desktop & Mobile) */}
               <div className="flex items-center justify-center py-1 md:py-0 md:px-2 z-20">
-                {/* Desktop horizontal flow */}
-                <div className="hidden md:flex items-center">
-                  <div className="h-[2px] w-2.5 lg:w-4 bg-gradient-to-r from-violet-500/40 to-cyan-500/50" />
-                  <div className="flex size-7 lg:size-8 items-center justify-center rounded-full border border-cyan-400/40 bg-[#0e132e] text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.3)]">
+                {/* Desktop horizontal flow with traveling packet */}
+                <div className="hidden md:flex items-center relative">
+                  <div className="relative h-[2px] w-2.5 lg:w-4 bg-gradient-to-r from-violet-500/40 to-cyan-500/50 overflow-visible">
+                    <span className="absolute top-1/2 size-2.5 rounded-full bg-white shadow-[0_0_10px_#67e8f9,0_0_16px_#06b6d4] opacity-0 animate-circuit-arrow1-packet" />
+                  </div>
+                  <div className="flex size-7 lg:size-8 items-center justify-center rounded-full border border-cyan-400/40 bg-[#0e132e] text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.3)] animate-circuit-arrow1-circle transition-all">
                     <svg className="size-3.5 lg:size-4" viewBox="0 0 16 16" fill="none">
                       <path d="M5 3L10 8L5 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <div className="h-[2px] w-2.5 lg:w-4 bg-gradient-to-r from-cyan-500/50 to-cyan-500/40" />
+                  <div className="relative h-[2px] w-2.5 lg:w-4 bg-gradient-to-r from-cyan-500/50 to-cyan-500/40 overflow-visible">
+                    <span className="absolute top-1/2 size-2.5 rounded-full bg-white shadow-[0_0_10px_#67e8f9,0_0_16px_#06b6d4] opacity-0 animate-circuit-arrow1-packet" />
+                  </div>
                 </div>
                 {/* Mobile vertical flow */}
                 <div className="flex md:hidden flex-col items-center">
@@ -110,8 +225,24 @@ export function StudioComparator() {
               </div>
 
               {/* STAGE 02: Full-Stack Cloud Engineering */}
-              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-cyan-500/40 border-t-2 border-t-cyan-400 bg-[#0f2444]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
-                <div>
+              <div className="relative overflow-hidden flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-cyan-500/40 border-t-2 border-t-cyan-400 bg-[#0f2444]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)] transition-all animate-circuit-stage2-glow">
+                {/* Traveling Lightning Perimeter Beam (Tablet/Desktop) */}
+                <svg className="pointer-events-none absolute inset-0 size-full overflow-hidden rounded-2xl z-20 hidden md:block" fill="none">
+                  <rect
+                    x="1"
+                    y="1"
+                    width="calc(100% - 2px)"
+                    height="calc(100% - 2px)"
+                    rx="15"
+                    stroke="url(#lightning-stage2)"
+                    strokeWidth="3"
+                    pathLength="100"
+                    className="animate-circuit-stage2-beam"
+                    style={{ filter: "drop-shadow(0 0 6px #22d3ee)" }}
+                  />
+                </svg>
+
+                <div className="relative z-10">
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-mono text-xs font-bold text-cyan-300 px-2.5 py-1 rounded-md bg-cyan-500/15 border border-cyan-500/30">
                       STAGE 02
@@ -128,7 +259,7 @@ export function StudioComparator() {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/[0.08] flex flex-col gap-2 font-mono text-xs text-slate-300">
+                <div className="relative z-10 mt-6 pt-4 border-t border-white/[0.08] flex flex-col gap-2 font-mono text-xs text-slate-300">
                   <div className="flex items-center gap-2">
                     <span className="text-cyan-400 font-bold">✓</span>
                     <span>Type-safe Next.js + Postgres</span>
@@ -142,15 +273,19 @@ export function StudioComparator() {
 
               {/* Workflow Connector Arrow 2 -> 3 (Desktop & Mobile) */}
               <div className="flex items-center justify-center py-1 md:py-0 md:px-2 z-20">
-                {/* Desktop horizontal flow */}
-                <div className="hidden md:flex items-center">
-                  <div className="h-[2px] w-2.5 lg:w-4 bg-gradient-to-r from-cyan-500/40 to-emerald-500/50" />
-                  <div className="flex size-7 lg:size-8 items-center justify-center rounded-full border border-emerald-400/40 bg-[#0e132e] text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.3)]">
+                {/* Desktop horizontal flow with traveling packet */}
+                <div className="hidden md:flex items-center relative">
+                  <div className="relative h-[2px] w-2.5 lg:w-4 bg-gradient-to-r from-cyan-500/40 to-emerald-500/50 overflow-visible">
+                    <span className="absolute top-1/2 size-2.5 rounded-full bg-white shadow-[0_0_10px_#34d399,0_0_16px_#10b981] opacity-0 animate-circuit-arrow2-packet" />
+                  </div>
+                  <div className="flex size-7 lg:size-8 items-center justify-center rounded-full border border-emerald-400/40 bg-[#0e132e] text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.3)] animate-circuit-arrow2-circle transition-all">
                     <svg className="size-3.5 lg:size-4" viewBox="0 0 16 16" fill="none">
                       <path d="M5 3L10 8L5 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <div className="h-[2px] w-2.5 lg:w-4 bg-gradient-to-r from-emerald-500/50 to-emerald-500/40" />
+                  <div className="relative h-[2px] w-2.5 lg:w-4 bg-gradient-to-r from-emerald-500/50 to-emerald-500/40 overflow-visible">
+                    <span className="absolute top-1/2 size-2.5 rounded-full bg-white shadow-[0_0_10px_#34d399,0_0_16px_#10b981] opacity-0 animate-circuit-arrow2-packet" />
+                  </div>
                 </div>
                 {/* Mobile vertical flow */}
                 <div className="flex md:hidden flex-col items-center">
@@ -165,8 +300,24 @@ export function StudioComparator() {
               </div>
 
               {/* STAGE 03: Autonomous AI & Workflows */}
-              <div className="flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-emerald-500/40 border-t-2 border-t-emerald-400 bg-[#0d2e2b]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)] transition-all">
-                <div>
+              <div className="relative overflow-hidden flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-emerald-500/40 border-t-2 border-t-emerald-400 bg-[#0d2e2b]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)] transition-all animate-circuit-stage3-glow">
+                {/* Traveling Lightning Perimeter Beam (Tablet/Desktop) */}
+                <svg className="pointer-events-none absolute inset-0 size-full overflow-hidden rounded-2xl z-20 hidden md:block" fill="none">
+                  <rect
+                    x="1"
+                    y="1"
+                    width="calc(100% - 2px)"
+                    height="calc(100% - 2px)"
+                    rx="15"
+                    stroke="url(#lightning-stage3)"
+                    strokeWidth="3"
+                    pathLength="100"
+                    className="animate-circuit-stage3-beam"
+                    style={{ filter: "drop-shadow(0 0 6px #34d399)" }}
+                  />
+                </svg>
+
+                <div className="relative z-10">
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-mono text-xs font-bold text-emerald-300 px-2.5 py-1 rounded-md bg-emerald-500/15 border border-emerald-500/30">
                       STAGE 03
@@ -183,7 +334,7 @@ export function StudioComparator() {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/[0.08] flex flex-col gap-2 font-mono text-xs text-slate-300">
+                <div className="relative z-10 mt-6 pt-4 border-t border-white/[0.08] flex flex-col gap-2 font-mono text-xs text-slate-300">
                   <div className="flex items-center gap-2">
                     <span className="text-emerald-400 font-bold">✓</span>
                     <span>Event-driven WhatsApp / CRM agents</span>
