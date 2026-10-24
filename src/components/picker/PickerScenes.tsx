@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { FlowCard, Msg, MockBrowser, MockPhone, SceneLabel, SceneNote } from "./Mock";
 import type { PickKey } from "@/content/picker";
 
@@ -31,15 +32,18 @@ function AgentScene({ label }: { label: string }) {
       <SceneLabel>{label}</SceneLabel>
       <MockPhone
         className="top-12 left-[18px] h-[370px] w-[210px] rounded-[32px] p-2 md:top-[64px] md:left-10 md:h-[530px] md:w-[265px] md:rounded-[38px] md:p-2.5"
-        screenClassName="rounded-[26px] md:rounded-[32px] bg-[#0b141a]"
+        screenClassName="rounded-[26px] md:rounded-[32px] bg-[#0b141a] overflow-hidden"
       >
         {/* WhatsApp Real Mobile Header */}
-        <div className="bg-[#1f2c34] px-3.5 pt-7 pb-2.5 border-b border-white/10 flex items-center gap-2.5">
+        <div className="bg-[#1f2c34] px-3.5 pt-7 pb-2.5 border-b border-white/10 flex items-center gap-2.5 shrink-0">
           <svg className="size-4 text-slate-300 -ml-0.5 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
           </svg>
-          <div className="size-8 rounded-full bg-gradient-to-tr from-violet-600 via-indigo-600 to-cyan-400 flex items-center justify-center text-xs font-bold text-white shadow-[0_0_10px_rgba(139,92,246,0.5)]">
-            ⚡
+          {/* Elegant geometric performance star brand mark */}
+          <div className="size-8 rounded-full bg-gradient-to-tr from-violet-600 via-indigo-600 to-cyan-400 flex items-center justify-center shadow-[0_0_12px_rgba(139,92,246,0.5)]">
+            <svg className="size-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6Z" />
+            </svg>
           </div>
           <div className="flex-1 min-w-0">
             <div className="text-xs font-semibold text-white truncate flex items-center gap-1">
@@ -60,45 +64,50 @@ function AgentScene({ label }: { label: string }) {
           </div>
         </div>
 
-        {/* WhatsApp Chat Thread (no scrollbar) */}
-        <div className="flex flex-col gap-2.5 p-3 text-xs leading-[1.4] md:text-[13px] overflow-y-auto no-scrollbar">
-          <Msg time="10:24">
-            <span className="md:hidden">Hi! Got AeroPulse Pro Runner in size 10.5?</span>
-            <span className="hidden md:inline">Hi! Do you have the AeroPulse Pro Runner in size 10.5 in stock?</span>
-          </Msg>
+        {/* WhatsApp Chat Thread: overflow-hidden ensures NO scrollbar can ever appear */}
+        <div
+          className="flex flex-col justify-between p-2.5 md:p-3 text-xs leading-[1.35] md:text-[12.5px] overflow-hidden flex-1 select-none"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          <div className="space-y-2">
+            <Msg time="10:24">
+              <span className="md:hidden">Hi! Got AeroPulse Pro Runner in size 10.5?</span>
+              <span className="hidden md:inline">Hi! Do you have the AeroPulse Pro Runner in size 10.5 in stock?</span>
+            </Msg>
 
-          <Msg me time="10:24 ✓✓">
-            <div>
-              <p className="font-medium text-white mb-1.5">Hey Alex! 👟 2 pairs left in Carbon Black. Reserved for you:</p>
-              <div className="rounded-lg bg-black/35 border border-white/10 p-2 text-[11px] leading-tight space-y-1 mb-1.5">
-                <div className="flex justify-between text-slate-200">
-                  <span>👟 AeroPulse Pro (US 10.5)</span>
-                  <span className="font-mono text-[#67e8f9]">$185.00</span>
+            <Msg me time="10:24 ✓✓">
+              <div>
+                <p className="font-medium text-white mb-1.5">Hey Alex! 👟 2 pairs left in Volt White. Reserved for you:</p>
+                <div className="rounded-lg bg-black/35 border border-white/10 p-2 text-[11px] leading-tight space-y-1 mb-1.5">
+                  <div className="flex justify-between text-slate-200">
+                    <span>👟 AeroPulse Pro (US 10.5)</span>
+                    <span className="font-mono text-[#67e8f9]">$185.00</span>
+                  </div>
+                  <div className="flex justify-between text-slate-200">
+                    <span>🧦 Carbon Grip Socks</span>
+                    <span className="font-mono text-[#67e8f9]">$25.00</span>
+                  </div>
+                  <div className="flex justify-between text-slate-300 border-t border-white/10 pt-1">
+                    <span>📦 2-Day Priority Shipping</span>
+                    <span className="font-mono text-emerald-400">Free</span>
+                  </div>
+                  <div className="flex justify-between text-white font-bold border-t border-white/15 pt-1">
+                    <span>Total</span>
+                    <span className="font-mono text-[#67e8f9]">$210.00</span>
+                  </div>
                 </div>
-                <div className="flex justify-between text-slate-200">
-                  <span>🧦 Carbon Grip Socks</span>
-                  <span className="font-mono text-[#67e8f9]">$25.00</span>
-                </div>
-                <div className="flex justify-between text-slate-300 border-t border-white/10 pt-1">
-                  <span>📦 2-Day Priority Shipping</span>
-                  <span className="font-mono text-emerald-400">Free</span>
-                </div>
-                <div className="flex justify-between text-white font-bold border-t border-white/15 pt-1">
-                  <span>Total</span>
-                  <span className="font-mono text-[#67e8f9]">$210.00</span>
-                </div>
+                <p className="text-slate-200">Lock in your pair before it sells out? I can text your Stripe link.</p>
               </div>
-              <p className="text-slate-200">Lock in your pair before it sells out? I can text your Stripe link.</p>
-            </div>
-          </Msg>
+            </Msg>
 
-          <Msg time="10:25">
-            <span>Yes please, lock it in!</span>
-          </Msg>
+            <Msg time="10:25">
+              <span>Yes please, lock it in!</span>
+            </Msg>
 
-          <Msg me time="10:25 ✓✓">
-            <span>Done! ⚡ Inventory reserved. Stripe checkout link sent: pay.apexgear.com/inv_8912</span>
-          </Msg>
+            <Msg me time="10:25 ✓✓">
+              <span>Done! ✅ Inventory reserved for 15 mins. Stripe checkout link sent: pay.apexgear.com/inv_8912</span>
+            </Msg>
+          </div>
         </div>
       </MockPhone>
 
@@ -138,44 +147,29 @@ function AgentScene({ label }: { label: string }) {
   );
 }
 
-/** Tab 2: AeroGear Pro Store with High-Fidelity Stripe Elements Checkout */
+/** Tab 2: AeroGear Pro Store with REAL Product Images & High-Fidelity Stripe Checkout */
 function StoreScene({ label }: { label: string }) {
   const prods = [
     {
-      n: "AeroSpeed Carbon Helmet",
-      desc: "Matte Obsidian · Size M",
-      price: "140",
-      tag: "Popular",
-      badge: "In Stock",
-      icon: (
-        <svg className="size-9 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L6 20h12l1.03-2.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9zM12 9v6m-4-3h8" />
-        </svg>
-      ),
-    },
-    {
-      n: "Thermal Pro Aero Jersey",
-      desc: "Ventilated Aero Mesh",
-      price: "95",
+      n: "AeroPulse Runner",
+      desc: "Carbon Plate · Volt White",
+      price: "185",
       tag: "Bestseller",
-      badge: "In Stock",
-      icon: (
-        <svg className="size-9 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M16 4h3l2 5-3 2v9H6v-9L3 9l2-5h3a4 4 0 0 0 8 0z" />
-        </svg>
-      ),
+      img: "/store/product-shoe-side.jpg",
     },
     {
-      n: "Monocoque Carbon Cage",
-      desc: "18g Ultralight Weave",
-      price: "48",
-      tag: "Ultralight",
-      badge: "In Stock",
-      icon: (
-        <svg className="size-9 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2m14 0V9a2 2 0 0 0-2-2M5 11V9a2 2 0 0 1 2-2m0 0V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2M7 7h10" />
-        </svg>
-      ),
+      n: "Apex Watch Ultra",
+      desc: "Biometric GPS · Obsidian",
+      price: "240",
+      tag: "Popular",
+      img: "/store/product-smartwatch.jpg",
+    },
+    {
+      n: "Polarized Eyewear",
+      desc: "UV400 · Ultralight Frame",
+      price: "140",
+      tag: "New",
+      img: "/store/product-4-eyewear.jpg",
     },
   ];
 
@@ -191,10 +185,11 @@ function StoreScene({ label }: { label: string }) {
           <div className="flex items-center justify-between">
             <div>
               <div className="flex items-center gap-2">
-                <span className="inline-block rounded-full bg-cyan-500/15 border border-cyan-500/30 px-2 py-0.5 text-[11px] font-medium text-cyan-300">
-                  ⚡ 2026 Collection
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 px-2.5 py-0.5 text-[11px] font-medium text-cyan-300">
+                  <span className="size-1.5 rounded-full bg-cyan-400 shadow-[0_0_6px_#22d3ee]" />
+                  <span>2026 Performance Lab</span>
                 </span>
-                <span className="text-xs text-slate-400 hidden sm:inline">Aerospace Cycling Gear</span>
+                <span className="text-xs text-slate-400 hidden sm:inline">Aerospace Gear</span>
               </div>
               <div className="mt-1.5 font-sans text-xl md:text-2xl font-bold text-white tracking-tight">
                 AeroGear Pro Store
@@ -206,21 +201,30 @@ function StoreScene({ label }: { label: string }) {
           </div>
 
           {/* Category Filter Pills */}
-          <div className="mt-3 flex gap-2 overflow-x-auto pb-1 text-xs no-scrollbar">
+          <div
+            className="mt-3 flex gap-2 overflow-x-auto pb-1 text-xs"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
             <span className="px-3 py-1 rounded-full bg-white/10 text-white font-medium">All · 34</span>
-            <span className="px-3 py-1 rounded-full bg-white/[0.04] text-slate-400 hover:text-white border border-white/10">Helmets · 8</span>
-            <span className="px-3 py-1 rounded-full bg-white/[0.04] text-slate-400 hover:text-white border border-white/10">Apparel · 14</span>
-            <span className="px-3 py-1 rounded-full bg-white/[0.04] text-slate-400 hover:text-white border border-white/10">Components · 12</span>
+            <span className="px-3 py-1 rounded-full bg-white/[0.04] text-slate-400 hover:text-white border border-white/10">Footwear · 14</span>
+            <span className="px-3 py-1 rounded-full bg-white/[0.04] text-slate-400 hover:text-white border border-white/10">Wearables · 8</span>
+            <span className="px-3 py-1 rounded-full bg-white/[0.04] text-slate-400 hover:text-white border border-white/10">Eyewear · 12</span>
           </div>
         </div>
 
-        {/* Product Cards */}
+        {/* Real Product Cards with Studio Images */}
         <div className="grid grid-cols-3 gap-3 p-5 pt-3">
           {prods.map((p) => (
             <div key={p.n} className="rounded-xl border border-white/10 bg-white/[0.03] p-2.5 flex flex-col justify-between hover:border-white/20 transition-all">
-              <div className="relative h-[85px] rounded-lg md:h-[110px] bg-gradient-to-b from-[#161830] to-[#0c0e20] overflow-hidden flex items-center justify-center p-2 border border-white/5">
-                {p.icon}
-                <span className="absolute top-1.5 right-1.5 font-mono text-[9px] px-1.5 py-0.5 rounded bg-black/60 text-slate-300">
+              <div className="relative h-[85px] rounded-lg md:h-[110px] bg-[#111322] overflow-hidden flex items-center justify-center p-1.5 border border-white/5">
+                <Image
+                  src={p.img}
+                  alt={p.n}
+                  width={140}
+                  height={140}
+                  className="h-full w-full object-contain rounded-md"
+                />
+                <span className="absolute top-1.5 right-1.5 font-mono text-[9px] px-1.5 py-0.5 rounded bg-black/75 text-slate-200 backdrop-blur-sm border border-white/10">
                   {p.tag}
                 </span>
               </div>
@@ -441,8 +445,11 @@ function ErpScene({ label }: { label: string }) {
           <div className="hidden md:flex w-[150px] border-r border-white/10 bg-[#070815] p-3 flex-col justify-between shrink-0">
             <div>
               <div className="flex items-center gap-2 pb-3 border-b border-white/10">
-                <span className="size-6 rounded-lg bg-gradient-to-tr from-[#8b5cf6] to-[#06b6d4] text-white flex items-center justify-center text-xs font-bold shadow-[0_0_10px_rgba(139,92,246,0.5)]">
-                  ⚡
+                {/* Clean 3D stacked cube / layers SaaS icon */}
+                <span className="size-6 rounded-lg bg-gradient-to-tr from-[#8b5cf6] to-[#06b6d4] text-white flex items-center justify-center p-1 shadow-[0_0_10px_rgba(139,92,246,0.5)]">
+                  <svg className="size-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                  </svg>
                 </span>
                 <div>
                   <div className="text-[11px] font-bold text-white leading-tight">OmniStock</div>
@@ -499,7 +506,10 @@ function ErpScene({ label }: { label: string }) {
             </div>
 
             {/* Category Filter Pills */}
-            <div className="px-3 md:px-4 py-2 border-b border-white/5 flex gap-1.5 overflow-x-auto text-[10px] md:text-[11px] shrink-0 bg-white/[0.02] no-scrollbar">
+            <div
+              className="px-3 md:px-4 py-2 border-b border-white/5 flex gap-1.5 overflow-x-auto text-[10px] md:text-[11px] shrink-0 bg-white/[0.02]"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
               <span className="px-2.5 py-0.5 rounded-full bg-[#8b5cf6]/20 border border-[#8b5cf6]/40 text-[#c4b5fd] font-semibold shrink-0">
                 All · 64
               </span>
@@ -518,7 +528,10 @@ function ErpScene({ label }: { label: string }) {
             </div>
 
             {/* Item Rows (Close-up, zoomed view) */}
-            <div className="flex-1 overflow-y-auto px-3 md:px-4 divide-y divide-white/5 text-xs no-scrollbar">
+            <div
+              className="flex-1 overflow-y-auto px-3 md:px-4 divide-y divide-white/5 text-xs"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
               <div className="py-2 flex items-center justify-between font-mono text-[10px] uppercase text-slate-500 tracking-wider">
                 <span>Item</span>
                 <span>Price · In Stock</span>
@@ -597,4 +610,3 @@ export function PickerScene({
 }
 
 export const PickerScenes = PickerScene;
-
