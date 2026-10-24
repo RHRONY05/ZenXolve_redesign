@@ -24,12 +24,11 @@ function readPalette(): PaletteId {
 export function FloatingBottomNav() {
   const pathname = usePathname();
   const currentPalette = useSyncExternalStore(subscribePalette, readPalette, () => "cosmic");
-  const [, setMounted] = useState(false);
   const mobileNavRef = useRef<HTMLDivElement>(null);
   const [dockWidth, setDockWidth] = useState(360);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     if (!mobileNavRef.current) return;
     const updateWidth = () => {
       if (mobileNavRef.current) {
@@ -40,6 +39,15 @@ export function FloatingBottomNav() {
     const observer = new ResizeObserver(updateWidth);
     observer.observe(mobileNavRef.current);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY >= 320);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const togglePalette = () => {
@@ -124,11 +132,11 @@ export function FloatingBottomNav() {
             {/* Body of the dock */}
             <path
               d={cradlePath}
-              fill="#090b16"
-              fillOpacity="0.95"
-              stroke="rgba(255, 255, 255, 0.12)"
+              fill="#0f0a2a"
+              fillOpacity="0.88"
+              stroke="rgba(196, 181, 253, 0.22)"
               strokeWidth="1"
-              className="drop-shadow-[0_16px_36px_rgba(0,0,0,0.85)]"
+              className="drop-shadow-[0_16px_36px_rgba(4,2,12,0.85)]"
             />
 
             {/* Neon glowing top edge + cradle scoop */}
@@ -280,7 +288,7 @@ export function FloatingBottomNav() {
         aria-label="Desktop Navigation Dock"
         className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden md:flex select-none pointer-events-auto"
       >
-        <div className="relative flex items-center gap-2 p-2 px-3 rounded-full bg-[#0a0c1a]/85 border border-white/20 backdrop-blur-2xl shadow-[0_16px_50px_rgba(0,0,0,0.85),0_0_28px_rgba(168,85,247,0.24)] ring-1 ring-white/10">
+        <div className="relative flex items-center gap-2 p-2 px-3 rounded-full bg-[#0f0a2a]/75 border border-[#c4b5fd]/25 backdrop-blur-2xl shadow-[0_16px_45px_rgba(4,2,12,0.85),0_0_28px_rgba(139,92,246,0.20)] ring-1 ring-white/10">
           {navLinks.map((item) => {
             if (item.isCta) {
               return (
@@ -288,10 +296,10 @@ export function FloatingBottomNav() {
                   key={item.href}
                   href={item.href}
                   aria-label="Let's Talk"
-                  className={`group relative inline-flex items-center justify-center gap-2 font-sans font-bold text-[15px] tracking-wide rounded-full transition-all duration-200 px-5.5 py-2.5 whitespace-nowrap cursor-pointer ${
-                    isContactActive
-                      ? "bg-white text-neutral-950 shadow-[0_0_28px_rgba(255,255,255,0.75)] scale-105"
-                      : "bg-white text-neutral-950 shadow-[0_0_20px_rgba(255,255,255,0.45)] hover:shadow-[0_0_30px_rgba(255,255,255,0.7)] hover:scale-105 active:scale-95"
+                  className={`group relative inline-flex items-center justify-center gap-2 font-sans font-bold text-[15px] tracking-wide rounded-full transition-all duration-300 px-5.5 py-2.5 whitespace-nowrap cursor-pointer ${
+                    isContactActive || isScrolled
+                      ? "bg-white text-neutral-950 shadow-[0_0_24px_rgba(255,255,255,0.7)] hover:shadow-[0_0_32px_rgba(255,255,255,0.85)] hover:scale-105 active:scale-95"
+                      : "bg-[#8b5cf6]/18 border border-[#c084fc]/40 text-[#f3e8ff] hover:bg-[#8b5cf6]/28 hover:border-[#c084fc]/70 hover:text-white shadow-[0_0_18px_rgba(139,92,246,0.22)] hover:scale-105 active:scale-95"
                   }`}
                 >
                   <span>{item.label}</span>

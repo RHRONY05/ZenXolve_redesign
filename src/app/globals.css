@@ -77,6 +77,7 @@
   --hero-vignette-end: rgba(6, 7, 19, 0.90);
   --hero-cursor: #e879f9;
   --hero-dot: #c084fc;
+  --hero-tagline-glow: rgba(192, 132, 252, 0.40);
   --hero-exclamation: #f5d0fe;
 
   --photo-bg: #060713;
@@ -199,6 +200,7 @@ html[data-palette="editorial"] {
   --hero-vignette-end: rgba(21, 24, 23, 0.90);
   --hero-cursor: #ff7857;
   --hero-dot: #ff7857;
+  --hero-tagline-glow: rgba(255, 120, 87, 0.40);
   --hero-exclamation: #ff7857;
 
   --shadow-md: 0 12px 28px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px var(--line);
