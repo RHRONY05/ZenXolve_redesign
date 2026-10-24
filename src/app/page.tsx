@@ -34,18 +34,20 @@ export default function Home() {
       <Section top="full" id="services">
         <SectionHead
           index="02"
-          label="Services"
+          label="The Single-Studio Advantage"
           title={
             <>
-              One studio, <em className="acc">end to end.</em>
+              Stop managing 3 agencies. <em className="acc">Run on one studio.</em>
             </>
           }
           lead={
             <>
-              <span className="md:hidden">End-to-end digital solutions tailored to accelerate your business growth.</span>
+              <span className="md:hidden">
+                We eliminate the multi-agency mess: UI/UX design, full-stack code, and AI automation delivered by one team with zero handoff loss.
+              </span>
               <span className="hidden md:inline">
-                End-to-end digital solutions tailored to accelerate your business growth: we design it, build it, automate it
-                and keep it running.
+                Why hire three separate agencies when you can run on one synchronized studio? We design your interface, engineer your codebase,
+                and automate your business operations under one roof with zero handoff friction.
               </span>
             </>
           }

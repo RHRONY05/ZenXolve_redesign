@@ -1,109 +1,185 @@
-/**
- * Decorative SVG illustrations for the three service panels. All colours come from tokens (currentColor =
- * the panel's on-panel colour). Animations live in globals.css and are off with prefers-reduced-motion.
- */
-const line = { fill: "none", stroke: "currentColor", strokeWidth: 1.5, strokeLinecap: "round", strokeLinejoin: "round" } as const;
+"use client";
 
-/** Build: a wireframe browser whose blocks slot into place. */
+import React from "react";
+
+const line = {
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.5,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+};
+
+/** Build: Full-Stack Cloud Architecture Console with Edge runtime & database health */
 export function BuildArt({ className = "" }: { className?: string }) {
-  const block = (x: number, y: number, w: number, h: number, d: number, fillOpacity = 0.14) => (
-    <rect key={`${x}-${y}`} className="art-block" style={{ "--d": d } as React.CSSProperties} x={x} y={y} width={w} height={h} rx="8" fill="currentColor" fillOpacity={fillOpacity} stroke="currentColor" strokeOpacity="0.55" strokeWidth="1.2" />
-  );
   return (
-    <svg viewBox="0 0 440 320" role="img" aria-label="Illustration: a website wireframe being assembled" className={className}>
-      <rect x="8" y="8" width="424" height="304" rx="18" {...line} strokeOpacity="0.6" />
-      <path d="M8 46H432" {...line} strokeOpacity="0.4" />
-      <circle cx="30" cy="27" r="4" fill="currentColor" fillOpacity="0.5" />
-      <circle cx="46" cy="27" r="4" fill="currentColor" fillOpacity="0.5" />
-      <circle cx="62" cy="27" r="4" fill="currentColor" fillOpacity="0.5" />
-      <rect x="120" y="19" width="200" height="16" rx="8" fill="currentColor" fillOpacity="0.14" />
-      {block(28, 66, 250, 96, 0, 0.22)}
-      {block(292, 66, 120, 96, 1)}
-      {block(28, 178, 120, 112, 2)}
-      {block(160, 178, 120, 112, 3)}
-      {block(292, 178, 120, 52, 4)}
-      {block(292, 242, 120, 48, 5, 0.3)}
-      <path className="art-block" style={{ "--d": 6 } as React.CSSProperties} d="M46 102h140M46 124h96" {...line} strokeOpacity="0.8" />
-    </svg>
+    <div className={`relative overflow-hidden rounded-xl border border-white/10 bg-black/40 p-3 sm:p-4 text-xs font-mono select-none ${className}`}>
+      {/* Titlebar */}
+      <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-3">
+        <div className="flex items-center gap-1.5">
+          <span className="size-2 rounded-full bg-rose-500/80" />
+          <span className="size-2 rounded-full bg-amber-500/80" />
+          <span className="size-2 rounded-full bg-emerald-500/80" />
+          <span className="ml-2 text-[10.5px] text-slate-400">api.xenzolve.io/cluster</span>
+        </div>
+        <div className="flex items-center gap-1.5 text-[10px] text-emerald-400">
+          <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_#34d399]" />
+          <span>Edge Live · 34ms</span>
+        </div>
+      </div>
+
+      {/* Architecture Visual Grid */}
+      <div className="space-y-2">
+        {/* Layer 1: Next.js Server Components */}
+        <div className="rounded-lg border border-white/10 bg-white/[0.03] p-2.5 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="size-5 rounded-md bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 flex items-center justify-center font-bold text-[10px]">
+              FE
+            </span>
+            <div>
+              <div className="text-white font-semibold text-[11px]">Next.js 15 Server Layer</div>
+              <div className="text-slate-400 text-[9.5px]">Edge SSR · Zero Client Waterfall</div>
+            </div>
+          </div>
+          <span className="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[10px] text-emerald-300 font-semibold">
+            200 OK
+          </span>
+        </div>
+
+        {/* Layer 2: API & Data Mesh */}
+        <div className="rounded-lg border border-white/10 bg-white/[0.03] p-2.5 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="size-5 rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30 flex items-center justify-center font-bold text-[10px]">
+              BE
+            </span>
+            <div>
+              <div className="text-white font-semibold text-[11px]">PostgreSQL & Realtime Mesh</div>
+              <div className="text-slate-400 text-[9.5px]">Row-Level Security · Sub-10ms Queries</div>
+            </div>
+          </div>
+          <span className="font-mono text-[10px] text-cyan-400">Pool: 48/50</span>
+        </div>
+
+        {/* Micro Telemetry Bar */}
+        <div className="pt-1 flex items-center justify-between text-[9.5px] text-slate-400 border-t border-white/5">
+          <span>Global CDN · 18 Regions</span>
+          <span className="text-slate-300">Scale: 100k+ req/sec</span>
+        </div>
+      </div>
+    </div>
   );
 }
 
-/** Automate: a message flows through an agent into the CRM. */
+/** Automate: Autonomous AI Pipeline connecting Webhooks to Intelligence to Database */
 export function AutomateArt({ className = "" }: { className?: string }) {
-  const node = (x: number, y: number, label: string, glyph: React.ReactNode) => (
-    <g key={label} transform={`translate(${x} ${y})`}>
-      <rect width="96" height="96" rx="22" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeOpacity="0.6" strokeWidth="1.2" />
-      <g transform="translate(24 20)" {...line}>
-        {glyph}
-      </g>
-      <text x="48" y="80" textAnchor="middle" fill="currentColor" fillOpacity="0.8" style={{ font: "500 10px var(--font-mono)", letterSpacing: "0.06em" }}>
-        {label}
-      </text>
-    </g>
-  );
-  const p1 = "M118 144 C 150 144, 150 144, 182 144";
-  const p2 = "M278 144 C 310 144, 310 144, 342 144";
+  const p1 = "M 40 40 L 115 40";
+  const p2 = "M 175 40 L 250 40";
+
   return (
-    <svg viewBox="0 0 440 288" role="img" aria-label="Illustration: a customer message handled by an AI agent and saved to a CRM" className={className}>
-      {node(22, 96, "MESSAGE", <path d="M2 4h44v26H18l-10 10V30H2z" transform="scale(.9)" />)}
-      {node(172, 96, "AI AGENT", (
-        <>
-          <circle cx="24" cy="22" r="14" />
-          <path d="M24 2v6M24 36v6M4 22h6M38 22h6M10 8l4 4M34 32l4 4M38 8l-4 4M14 32l-4 4" />
-        </>
-      ))}
-      {node(322, 96, "CRM", (
-        <>
-          <rect x="2" y="4" width="44" height="34" rx="4" />
-          <path d="M2 16h44M16 16v22" />
-        </>
-      ))}
-      <path d={p1} {...line} className="art-flow" strokeOpacity="0.75" />
-      <path d={p2} {...line} className="art-flow" strokeOpacity="0.75" />
-      <circle r="5" fill="currentColor" className="art-pulse" style={{ offsetPath: `path("${p1}")`, ["--d" as string]: 0 }} />
-      <circle r="5" fill="currentColor" className="art-pulse" style={{ offsetPath: `path("${p2}")`, ["--d" as string]: 0.9 }} />
-      <text x="22" y="232" fill="currentColor" fillOpacity="0.6" style={{ font: "400 11px var(--font-mono)", letterSpacing: "0.04em" }}>
-        0.0s → 2.4s · NO HUMAN IN THE LOOP
-      </text>
-    </svg>
+    <div className={`relative overflow-hidden rounded-xl border border-white/10 bg-black/40 p-3 sm:p-4 select-none ${className}`}>
+      {/* Top Telemetry */}
+      <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-3 font-mono text-[10.5px]">
+        <div className="flex items-center gap-1.5 text-slate-400">
+          <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_#34d399]" />
+          <span>Workflow Orchestrator</span>
+        </div>
+        <span className="text-emerald-400 font-semibold">0.4s Latency</span>
+      </div>
+
+      {/* SVG Connected Nodes */}
+      <div className="relative py-1">
+        <svg viewBox="0 0 290 80" className="w-full h-auto" role="img" aria-label="Autonomous AI Pipeline">
+          {/* Connector Paths */}
+          <path d={p1} {...line} stroke="rgba(255,255,255,0.2)" strokeDasharray="3 3" />
+          <path d={p2} {...line} stroke="rgba(255,255,255,0.2)" strokeDasharray="3 3" />
+
+          {/* Animated Flow Packets */}
+          <circle r="3.5" fill="#67e8f9" className="art-pulse" style={{ offsetPath: `path("${p1}")` }} />
+          <circle r="3.5" fill="#34d399" className="art-pulse" style={{ offsetPath: `path("${p2}")`, ["--d" as string]: 0.8 }} />
+
+          {/* Node 1: Webhook Ingress */}
+          <g transform="translate(5, 12)">
+            <rect width="65" height="56" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+            <text x="32" y="26" textAnchor="middle" fill="#94a3b8" style={{ font: "600 8.5px var(--font-mono)" }}>
+              WEBHOOK
+            </text>
+            <text x="32" y="42" textAnchor="middle" fill="#ffffff" style={{ font: "700 9.5px var(--font-sans)" }}>
+              WhatsApp
+            </text>
+          </g>
+
+          {/* Node 2: AI Reasoning Core */}
+          <g transform="translate(115, 12)">
+            <rect width="70" height="56" rx="10" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.5)" strokeWidth="1.2" />
+            <text x="35" y="26" textAnchor="middle" fill="#c4b5fd" style={{ font: "600 8.5px var(--font-mono)" }}>
+              AI AGENT
+            </text>
+            <text x="35" y="42" textAnchor="middle" fill="#ffffff" style={{ font: "700 9.5px var(--font-sans)" }}>
+              Reasoning
+            </text>
+          </g>
+
+          {/* Node 3: CRM / Database Sync */}
+          <g transform="translate(225, 12)">
+            <rect width="60" height="56" rx="10" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.4)" strokeWidth="1" />
+            <text x="30" y="26" textAnchor="middle" fill="#6ee7b7" style={{ font: "600 8.5px var(--font-mono)" }}>
+              SYNC
+            </text>
+            <text x="30" y="42" textAnchor="middle" fill="#ffffff" style={{ font: "700 9.5px var(--font-sans)" }}>
+              DB & Stripe
+            </text>
+          </g>
+        </svg>
+      </div>
+
+      <div className="pt-2 border-t border-white/5 flex items-center justify-between font-mono text-[9.5px] text-slate-400">
+        <span>Autonomous Execution</span>
+        <span className="text-emerald-400">Zero Human Overhead</span>
+      </div>
+    </div>
   );
 }
 
-/** Design: a bezier curve drawing itself, with anchors and handles. */
+/** Design: Figma Token & Component Studio showing design-to-code alignment */
 export function DesignArt({ className = "" }: { className?: string }) {
-  const anchors: [number, number][] = [
-    [40, 220],
-    [160, 70],
-    [300, 190],
-    [400, 60],
-  ];
   return (
-    <svg viewBox="0 0 440 280" role="img" aria-label="Illustration: a vector curve with anchor points and handles" className={className}>
-      <g stroke="currentColor" strokeOpacity="0.14">
-        {[56, 112, 168, 224].map((y) => (
-          <path key={y} d={`M16 ${y}H424`} />
-        ))}
-        {[88, 176, 264, 352].map((x) => (
-          <path key={x} d={`M${x} 16V264`} />
-        ))}
-      </g>
-      <path className="art-draw" pathLength={1} d="M40 220 C 80 220, 110 70, 160 70 S 260 190, 300 190 S 360 60, 400 60" {...line} strokeWidth={2.5} />
-      <g {...line} strokeOpacity="0.5" strokeWidth={1}>
-        <path d="M160 70L110 70M160 70L210 70M300 190L260 190M300 190L340 190" strokeDasharray="3 4" />
-      </g>
-      {anchors.map(([x, y], i) => (
-        <g key={i} className="art-anchor" style={{ "--d": i } as React.CSSProperties}>
-          <rect x={x - 6} y={y - 6} width="12" height="12" rx="2" fill="var(--panel-forest)" stroke="currentColor" strokeWidth="1.5" />
-        </g>
-      ))}
-      {[
-        [110, 70],
-        [210, 70],
-        [260, 190],
-        [340, 190],
-      ].map(([x, y]) => (
-        <circle key={`${x}-${y}`} cx={x} cy={y} r="3.5" fill="currentColor" fillOpacity="0.7" />
-      ))}
-    </svg>
+    <div className={`relative overflow-hidden rounded-xl border border-white/10 bg-black/40 p-3 sm:p-4 text-xs font-mono select-none ${className}`}>
+      {/* Top Bar */}
+      <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-3">
+        <div className="flex items-center gap-1.5 text-slate-400 text-[10.5px]">
+          <span className="size-2 rounded-full bg-violet-400 shadow-[0_0_6px_rgba(167,139,250,0.8)]" />
+          <span>Figma Studio Tokens</span>
+        </div>
+        <span className="text-[10px] text-violet-300 font-semibold px-2 py-0.5 rounded bg-violet-500/10 border border-violet-500/20">
+          WCAG AAA
+        </span>
+      </div>
+
+      {/* Token Matrix */}
+      <div className="space-y-2">
+        {/* Token 01: Typography */}
+        <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5">
+          <span className="text-slate-400 text-[10px]">Type Scale</span>
+          <span className="font-serif text-[11px] text-white italic">Display 80px / 92px</span>
+        </div>
+
+        {/* Token 02: Color Tokens */}
+        <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5">
+          <span className="text-slate-400 text-[10px]">Palette Tokens</span>
+          <div className="flex items-center gap-1.5">
+            <span className="size-3 rounded-full bg-[#8b5cf6] border border-white/20" title="Violet" />
+            <span className="size-3 rounded-full bg-[#06b6d4] border border-white/20" title="Cyan" />
+            <span className="size-3 rounded-full bg-[#ff7857] border border-white/20" title="Burnt Orange" />
+            <span className="size-3 rounded-full bg-[#59c7a6] border border-white/20" title="Mint" />
+          </div>
+        </div>
+
+        {/* Token 03: Spec Calipers */}
+        <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5">
+          <span className="text-slate-400 text-[10px]">Zero Handoff Loss</span>
+          <span className="text-[10.5px] text-emerald-400 font-bold">1:1 In Production</span>
+        </div>
+      </div>
+    </div>
   );
 }
