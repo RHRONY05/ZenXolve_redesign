@@ -192,8 +192,8 @@ export function StudioComparator() {
               <div className="flex items-center justify-center py-1 md:py-0 z-20 relative">
                 {/* Desktop horizontal flow with single continuous laser beam streak */}
                 <div className="hidden md:flex items-center justify-center relative w-16 lg:w-20 h-8 -mx-2 overflow-visible">
-                  {/* Continuous horizontal baseline track spanning gap-to-gap (-left-2 to -right-2) */}
-                  <div className="absolute top-1/2 -translate-y-1/2 -left-2 -right-2 h-[2px] bg-gradient-to-r from-violet-500/40 via-cyan-500/50 to-cyan-500/40" />
+                  {/* Continuous horizontal baseline track spanning gap-to-gap (flush with card borders) */}
+                  <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500/40 via-cyan-500/50 to-cyan-500/40" />
 
                   {/* Single continuous traveling laser beam streak (preserves beam shape from boxes) */}
                   <div className="absolute top-1/2 -translate-y-1/2 h-[3px] w-8 rounded-full pointer-events-none opacity-0 animate-circuit-arrow1-beam shadow-[0_0_10px_#22d3ee,0_0_16px_#c084fc] bg-gradient-to-r from-transparent via-violet-400 via-cyan-400 to-white" />
@@ -268,8 +268,8 @@ export function StudioComparator() {
               <div className="flex items-center justify-center py-1 md:py-0 z-20 relative">
                 {/* Desktop horizontal flow with single continuous laser beam streak */}
                 <div className="hidden md:flex items-center justify-center relative w-16 lg:w-20 h-8 -mx-2 overflow-visible">
-                  {/* Continuous horizontal baseline track spanning gap-to-gap (-left-2 to -right-2) */}
-                  <div className="absolute top-1/2 -translate-y-1/2 -left-2 -right-2 h-[2px] bg-gradient-to-r from-cyan-500/40 via-emerald-500/50 to-emerald-500/40" />
+                  {/* Continuous horizontal baseline track spanning gap-to-gap (flush with card borders) */}
+                  <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-500/40 via-emerald-500/50 to-emerald-500/40" />
 
                   {/* Single continuous traveling laser beam streak (preserves beam shape from boxes) */}
                   <div className="absolute top-1/2 -translate-y-1/2 h-[3px] w-8 rounded-full pointer-events-none opacity-0 animate-circuit-arrow2-beam shadow-[0_0_10px_#34d399,0_0_16px_#22d3ee] bg-gradient-to-r from-transparent via-cyan-400 via-emerald-400 to-white" />

@@ -840,19 +840,19 @@ html[data-palette="editorial"] .acc {
 /* Arrow 1 Continuous Laser Beam Streak (22% - 32%) */
 @keyframes circuit-arrow1-beam {
   0%, 21.9% {
-    left: -24px;
+    left: -32px;
     opacity: 0;
   }
   22% {
-    left: -24px;
+    left: -32px;
     opacity: 1;
   }
   31.9% {
-    left: calc(100% - 8px);
+    left: calc(100% - 32px);
     opacity: 1;
   }
   32%, 100% {
-    left: calc(100% - 8px);
+    left: calc(100% - 32px);
     opacity: 0;
   }
 }
@@ -919,19 +919,19 @@ html[data-palette="editorial"] .acc {
 /* Arrow 2 Continuous Laser Beam Streak (54% - 64%) */
 @keyframes circuit-arrow2-beam {
   0%, 53.9% {
-    left: -24px;
+    left: -32px;
     opacity: 0;
   }
   54% {
-    left: -24px;
+    left: -32px;
     opacity: 1;
   }
   63.9% {
-    left: calc(100% - 8px);
+    left: calc(100% - 32px);
     opacity: 1;
   }
   64%, 100% {
-    left: calc(100% - 8px);
+    left: calc(100% - 32px);
     opacity: 0;
   }
 }
