@@ -10,7 +10,7 @@ interface NebulaShaderProps {
 
 export function NebulaShader({
   className = "",
-  speed = 0.03,
+  speed = 0.04,
   opacity = 0.38,
 }: NebulaShaderProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -20,14 +20,7 @@ export function NebulaShader({
     if (!canvas) return;
 
     const gl =
-      canvas.getContext("webgl", {
-        alpha: false,
-        antialias: false,
-        depth: false,
-        stencil: false,
-        preserveDrawingBuffer: false,
-        powerPreference: "low-power",
-      }) ||
+      canvas.getContext("webgl", { alpha: true, antialias: false, powerPreference: "low-power" }) ||
       (canvas.getContext("experimental-webgl") as WebGLRenderingContext | null);
 
     if (!gl) return;
@@ -40,7 +33,7 @@ export function NebulaShader({
       }
     `;
 
-    // Fragment Shader: Optimized lightweight procedural GLSL Cosmic Nebula
+    // Fragment Shader: Pure procedural WebGL GLSL Cosmic Nebula
     const fsSource = `
       precision mediump float;
       uniform vec2 u_resolution;
@@ -63,13 +56,12 @@ export function NebulaShader({
         return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
       }
 
-      // 3 octaves is visually identical for diffuse background smoke and 40% faster than 5 octaves
       float fbm(vec2 p) {
         float v = 0.0;
-        float a = 0.55;
+        float a = 0.5;
         vec2 shift = vec2(100.0);
-        mat2 rot = mat2(0.877, 0.479, -0.479, 0.877);
-        for (int i = 0; i < 3; ++i) {
+        mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.5));
+        for (int i = 0; i < 5; ++i) {
           v += a * noise(p);
           p = rot * p * 2.0 + shift;
           a *= 0.5;
@@ -81,12 +73,12 @@ export function NebulaShader({
         vec2 uv = gl_FragCoord.xy / u_resolution.xy;
         vec2 p = (gl_FragCoord.xy * 2.0 - u_resolution.xy) / min(u_resolution.x, u_resolution.y);
 
-        float t = u_time * 0.025;
+        float t = u_time * 0.035;
 
-        // Domain Warping for fluid organic nebula clouds
-        vec2 q = vec2(fbm(p + vec2(0.0, t * 0.15)), fbm(p + vec2(5.2, 1.3 - t * 0.12)));
-        vec2 r = vec2(fbm(p + 3.0 * q + vec2(1.7, 9.2 + t * 0.2)), fbm(p + 3.0 * q + vec2(8.3, 2.8 - t * 0.15)));
-        float f = fbm(p + 3.0 * r);
+        // Domain Warping for majestic organic nebula clouds
+        vec2 q = vec2(fbm(p + vec2(0.0, t * 0.2)), fbm(p + vec2(5.2, 1.3 - t * 0.15)));
+        vec2 r = vec2(fbm(p + 3.5 * q + vec2(1.7, 9.2 + t * 0.25)), fbm(p + 3.5 * q + vec2(8.3, 2.8 - t * 0.18)));
+        float f = fbm(p + 3.5 * r);
 
         // Muted, fully synchronized cosmic backdrop palette (melts seamlessly into #060713)
         vec3 bgCol = vec3(0.024, 0.027, 0.075);       // #060713 site background
@@ -118,7 +110,7 @@ export function NebulaShader({
         float flare3 = 0.01 / (d3 * d3 + 0.025);
         col += starSoft * flare3 * 0.1;
 
-        // Subtle dark vignette at edges
+        // Subtle dark vignette at edges for composition depth
         float vignette = smoothstep(1.8, 0.4, length(uv - 0.5) * 1.6);
         col *= vignette;
 
@@ -177,35 +169,27 @@ export function NebulaShader({
     let startTime = performance.now();
     let lastRenderTime = 0;
 
-    /**
-     * CRITICAL PERFORMANCE OPTIMIZATION:
-     * - Fixed, lightweight internal buffer resolution (max 384x768).
-     * - Reduced pixel count from ~10,000,000 pixels down to ~290,000 pixels (97% reduction!).
-     * - Runs ONLY on resize events, NEVER on every frame (zero layout reflows / DOM thrashing).
-     */
     function resize() {
       if (!canvas || !gl) return;
-      // Fixed lightweight internal canvas buffer for diffuse smoke
-      const targetWidth = Math.min(Math.round(window.innerWidth * 0.25), 384);
-      const targetHeight = Math.min(Math.round(window.innerHeight * 0.35), 768);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.0);
+      const width = Math.min(Math.floor(canvas.clientWidth * dpr), 1024);
+      const height = Math.min(Math.floor(canvas.clientHeight * dpr), 1800);
 
-      if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
-        canvas.width = targetWidth;
-        canvas.height = targetHeight;
-        gl.viewport(0, 0, targetWidth, targetHeight);
+      if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width;
+        canvas.height = height;
+        gl.viewport(0, 0, width, height);
       }
     }
 
-    // Initial resize once on mount
     resize();
 
     function render(currentTime: number) {
       if (!isVisible) return;
 
-      // Throttle rendering to ~30fps for silky smooth CPU & battery efficiency (cuts GPU cost in half)
-      if (currentTime - lastRenderTime >= 32) {
+      // Throttle rendering to ~35fps for zero lag & 100% smooth scrolling
+      if (currentTime - lastRenderTime >= 28) {
         lastRenderTime = currentTime;
-
         if (gl && resolutionLocation && timeLocation) {
           gl.uniform2f(resolutionLocation, canvas!.width, canvas!.height);
           gl.uniform1f(timeLocation, (currentTime - startTime) * 0.001);
@@ -228,16 +212,15 @@ export function NebulaShader({
           }
         });
       },
-      { threshold: 0.02 }
+      { threshold: 0.05 }
     );
 
     observer.observe(canvas);
 
-    // Passive resize listener with debounce
     let resizeTimeout: NodeJS.Timeout;
     function onResize() {
       clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(resize, 150);
+      resizeTimeout = setTimeout(resize, 100);
     }
 
     window.addEventListener("resize", onResize, { passive: true });
@@ -263,10 +246,7 @@ export function NebulaShader({
       style={{ opacity }}
       aria-hidden="true"
     >
-      <canvas
-        ref={canvasRef}
-        className="size-full object-cover blur-[12px] transform-gpu will-change-transform"
-      />
+      <canvas ref={canvasRef} className="size-full object-cover" />
     </div>
   );
 }
