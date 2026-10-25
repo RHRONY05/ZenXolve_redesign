@@ -93,3 +93,22 @@ Create your `.env.production` or configure in your deployment provider (Vercel, 
 | `CONTACT_TO_EMAIL` | No (defaults to hello@xenzolve.com) | The recipient inbox for contact form submissions. | `hello@xenzolve.com` |
 | `STRICT_CONTENT` | Optional (CI/CD) | Set to `1` in deployment pipeline to prevent build if any `placeholder: true` remains. | `1` |
 
+
+
+---
+
+## 4. V2 Home Page Redesign: Status & Decisions Log
+
+### Locked Components & Taste Directives
+- **Background Shader (`NebulaShader.tsx`)**: **LOCKED 🔒**
+  - WebGL GLSL procedural cosmic nebula canvas spanning Sections 01, 02, and 03.
+  - Synchronized with brand `#060713`: midnight navy, cosmic slate, muted cyan mist, and soft starlight at `opacity: 0.38`.
+  - Zero glassmorphism/blur filters on canvas. Zero lag: debounced resize, 35fps throttle, and IntersectionObserver pausing.
+- **Section 02 (The Single-Studio Advantage - `StudioComparator.tsx`)**: **APPROVED & LOCKED 🔒**
+  - Interactive comparative engine (XenZolve Studio vs. 3 Separate Agencies) with sequential circuit pulses.
+  - Solid architectural shell (`bg-[var(--surface)]/95`) with no heavy frosted glass distortion.
+- **Section 01 (What We Build - `ServicesGrid.tsx`)**: **IN PROGRESS ⏳**
+  - 6 dedicated custom isometric technical line-art illustrations in `public/hero/`.
+  - Next step: slightly refine layout as requested by client.
+- **Section 03 (How We Work - `ProcessSteps.tsx`)**: **QUEUED NEXT ⏳**
+  - Planned to start immediately following Section 01 layout refinement.
