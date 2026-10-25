@@ -36,7 +36,7 @@ export default function Home() {
       {/* SECTION 02: The Single-Studio Advantage (The Comparison) */}
       <div className="relative overflow-hidden">
         {/* Procedural WebGL GLSL Cosmic Nebula Shader (100% Code, Zero Grid) */}
-        <NebulaShader opacity={0.88} />
+        <NebulaShader opacity={0.65} />
 
         {/* Soft edge-only fades so it blends smoothly into adjacent sections */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[var(--bg)] to-transparent z-0" />

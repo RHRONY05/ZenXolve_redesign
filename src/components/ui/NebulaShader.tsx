@@ -80,32 +80,35 @@ export function NebulaShader({
         vec2 r = vec2(fbm(p + 3.5 * q + vec2(1.7, 9.2 + t * 0.25)), fbm(p + 3.5 * q + vec2(8.3, 2.8 - t * 0.18)));
         float f = fbm(p + 3.5 * r);
 
-        // Cosmic Deep Palette (deep nocturnal base, vivid purple/magenta cloud cores)
-        vec3 bgCol = vec3(0.025, 0.028, 0.065);      // deep cosmic space (#060713)
-        vec3 darkPurple = vec3(0.24, 0.04, 0.44);  // deep royal violet
-        vec3 brightMagenta = vec3(0.68, 0.14, 0.95); // glowing vivid purple/magenta
-        vec3 orchidGlow = vec3(0.88, 0.45, 1.0);   // radiant light orchid
-        vec3 starWhite = vec3(1.0, 0.95, 1.0);     // celestial star cores
+        // Synchronized UI Palette: Deep Cosmic Navy, Indigo, Electric Cyan & Ice Starlight
+        vec3 bgCol = vec3(0.024, 0.027, 0.075);       // #060713 site background
+        vec3 deepNavy = vec3(0.055, 0.08, 0.22);      // #0e1438 midnight navy
+        vec3 cosmicIndigo = vec3(0.16, 0.12, 0.34);   // #291f57 subtle cosmic indigo
+        vec3 electricCyan = vec3(0.03, 0.52, 0.72);   // #0885b8 signature XenZolve cyan
+        vec3 iceCyanGlow = vec3(0.38, 0.78, 0.94);    // #61c7f0 glowing cyan/ice crest
+        vec3 starWhite = vec3(0.92, 0.98, 1.0);       // celestial ice star flares
 
-        vec3 col = mix(bgCol, darkPurple, clamp(f * f * 2.4, 0.0, 1.0));
-        col = mix(col, brightMagenta, clamp(length(q) * 1.3 * f, 0.0, 1.0));
-        col = mix(col, orchidGlow, clamp(length(r.x) * f * f * 1.6, 0.0, 1.0));
+        // Fluid atmospheric blending matching site UI
+        vec3 col = mix(bgCol, deepNavy, clamp(f * 1.6, 0.0, 1.0));
+        col = mix(col, cosmicIndigo, clamp(length(q) * f * 1.1, 0.0, 1.0));
+        col = mix(col, electricCyan, clamp(length(r.x) * f * f * 1.3, 0.0, 1.0));
+        col = mix(col, iceCyanGlow, clamp(pow(f, 3.2) * 1.4, 0.0, 1.0));
 
-        // Celestial glowing energy points (star flares as seen in screenshot)
-        vec2 star1 = vec2(0.55, 0.25);
+        // Soft celestial glowing star flares (ice-cyan starlight)
+        vec2 star1 = vec2(0.55, 0.22);
         float d1 = length(p - star1);
-        float flare1 = 0.035 / (d1 * d1 + 0.03);
-        col += starWhite * flare1 * 0.45;
+        float flare1 = 0.025 / (d1 * d1 + 0.025);
+        col += starWhite * flare1 * 0.35;
 
-        vec2 star2 = vec2(-0.48, -0.3);
+        vec2 star2 = vec2(-0.52, -0.25);
         float d2 = length(p - star2);
-        float flare2 = 0.028 / (d2 * d2 + 0.025);
-        col += starWhite * flare2 * 0.35;
+        float flare2 = 0.02 / (d2 * d2 + 0.02);
+        col += starWhite * flare2 * 0.25;
 
-        vec2 star3 = vec2(0.15, -0.15);
+        vec2 star3 = vec2(0.12, -0.12);
         float d3 = length(p - star3);
-        float flare3 = 0.015 / (d3 * d3 + 0.02);
-        col += starWhite * flare3 * 0.25;
+        float flare3 = 0.012 / (d3 * d3 + 0.018);
+        col += starWhite * flare3 * 0.2;
 
         // Subtle dark vignette at edges for composition depth
         float vignette = smoothstep(1.8, 0.4, length(uv - 0.5) * 1.6);
