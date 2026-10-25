@@ -7,6 +7,7 @@ import { Quotes } from "@/components/home/Quotes";
 import { Reasons } from "@/components/home/Reasons";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { StudioComparator } from "@/components/home/StudioComparator";
+import { NebulaShader } from "@/components/ui/NebulaShader";
 import { PlaceholderTag } from "@/components/ui/Placeholder";
 import { Section } from "@/components/ui/Section";
 import { SectionHead } from "@/components/ui/SectionHead";
@@ -33,21 +34,30 @@ export default function Home() {
       </Section>
 
       {/* SECTION 02: The Single-Studio Advantage (The Comparison) */}
-      <Section top="flow" id="advantage" className="pt-4 md:pt-6">
-        <SectionHead
-          index="02"
-          label="The Single-Studio Advantage"
-          layout="stacked"
-          title={
-            <>
-              Stop managing 3 agencies. <em className="acc">Run on one studio.</em>
-            </>
-          }
-          lead="Why hire three separate agencies when you can run on one synchronized studio? We design your interface, engineer your codebase, and automate your business operations under one roof with zero handoff friction."
-          leadOnMobile
-        />
-        <StudioComparator />
-      </Section>
+      <div className="relative overflow-hidden">
+        {/* Procedural WebGL GLSL Cosmic Nebula Shader (100% Code, Zero Grid) */}
+        <NebulaShader opacity={0.88} />
+
+        {/* Soft edge-only fades so it blends smoothly into adjacent sections */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[var(--bg)] to-transparent z-0" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[var(--bg)] to-transparent z-0" />
+
+        <Section top="flow" id="advantage" className="relative z-10 pt-4 md:pt-6">
+          <SectionHead
+            index="02"
+            label="The Single-Studio Advantage"
+            layout="stacked"
+            title={
+              <>
+                Stop managing 3 agencies. <em className="acc">Run on one studio.</em>
+              </>
+            }
+            lead="Why hire three separate agencies when you can run on one synchronized studio? We design your interface, engineer your codebase, and automate your business operations under one roof with zero handoff friction."
+            leadOnMobile
+          />
+          <StudioComparator />
+        </Section>
+      </div>
 
       {/* SECTION 03: How We Work (4 Steps) */}
       <Section>
