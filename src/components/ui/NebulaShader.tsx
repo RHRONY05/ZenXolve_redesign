@@ -11,7 +11,7 @@ interface NebulaShaderProps {
 export function NebulaShader({
   className = "",
   speed = 0.04,
-  opacity = 0.85,
+  opacity = 0.38,
 }: NebulaShaderProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -80,35 +80,35 @@ export function NebulaShader({
         vec2 r = vec2(fbm(p + 3.5 * q + vec2(1.7, 9.2 + t * 0.25)), fbm(p + 3.5 * q + vec2(8.3, 2.8 - t * 0.18)));
         float f = fbm(p + 3.5 * r);
 
-        // Synchronized UI Palette: Deep Cosmic Navy, Indigo, Electric Cyan & Ice Starlight
+        // Muted, fully synchronized cosmic backdrop palette (melts seamlessly into #060713)
         vec3 bgCol = vec3(0.024, 0.027, 0.075);       // #060713 site background
-        vec3 deepNavy = vec3(0.055, 0.08, 0.22);      // #0e1438 midnight navy
-        vec3 cosmicIndigo = vec3(0.16, 0.12, 0.34);   // #291f57 subtle cosmic indigo
-        vec3 electricCyan = vec3(0.03, 0.52, 0.72);   // #0885b8 signature XenZolve cyan
-        vec3 iceCyanGlow = vec3(0.38, 0.78, 0.94);    // #61c7f0 glowing cyan/ice crest
-        vec3 starWhite = vec3(0.92, 0.98, 1.0);       // celestial ice star flares
+        vec3 deepNavy = vec3(0.04, 0.055, 0.14);      // #0a0e24 soft midnight navy
+        vec3 cosmicSlate = vec3(0.07, 0.08, 0.19);    // #121430 deep slate indigo
+        vec3 mutedCyan = vec3(0.05, 0.24, 0.38);      // #0d3d61 subtle cyan/teal mist
+        vec3 softIceGlow = vec3(0.18, 0.45, 0.62);    // #2e739e soft ice crest
+        vec3 starSoft = vec3(0.65, 0.78, 0.88);       // diffuse celestial stardust
 
-        // Fluid atmospheric blending matching site UI
-        vec3 col = mix(bgCol, deepNavy, clamp(f * 1.6, 0.0, 1.0));
-        col = mix(col, cosmicIndigo, clamp(length(q) * f * 1.1, 0.0, 1.0));
-        col = mix(col, electricCyan, clamp(length(r.x) * f * f * 1.3, 0.0, 1.0));
-        col = mix(col, iceCyanGlow, clamp(pow(f, 3.2) * 1.4, 0.0, 1.0));
+        // Velvety atmospheric blending, gentle and low-contrast
+        vec3 col = mix(bgCol, deepNavy, clamp(f * 1.5, 0.0, 1.0));
+        col = mix(col, cosmicSlate, clamp(length(q) * f * 0.9, 0.0, 1.0));
+        col = mix(col, mutedCyan, clamp(length(r.x) * f * f * 1.0, 0.0, 1.0));
+        col = mix(col, softIceGlow, clamp(pow(f, 3.5) * 1.1, 0.0, 1.0));
 
-        // Soft celestial glowing star flares (ice-cyan starlight)
+        // Subtle, diffuse celestial starlight (low glare)
         vec2 star1 = vec2(0.55, 0.22);
         float d1 = length(p - star1);
-        float flare1 = 0.025 / (d1 * d1 + 0.025);
-        col += starWhite * flare1 * 0.35;
+        float flare1 = 0.02 / (d1 * d1 + 0.035);
+        col += starSoft * flare1 * 0.18;
 
         vec2 star2 = vec2(-0.52, -0.25);
         float d2 = length(p - star2);
-        float flare2 = 0.02 / (d2 * d2 + 0.02);
-        col += starWhite * flare2 * 0.25;
+        float flare2 = 0.015 / (d2 * d2 + 0.03);
+        col += starSoft * flare2 * 0.12;
 
         vec2 star3 = vec2(0.12, -0.12);
         float d3 = length(p - star3);
-        float flare3 = 0.012 / (d3 * d3 + 0.018);
-        col += starWhite * flare3 * 0.2;
+        float flare3 = 0.01 / (d3 * d3 + 0.025);
+        col += starSoft * flare3 * 0.1;
 
         // Subtle dark vignette at edges for composition depth
         float vignette = smoothstep(1.8, 0.4, length(uv - 0.5) * 1.6);

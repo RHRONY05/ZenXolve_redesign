@@ -18,14 +18,14 @@ export default function Home() {
     <>
       <HeroPhoto />
 
-      {/* SECTIONS 01 & 02: Unified Cosmic Studio Canvas (Capabilities + Single-Studio Advantage) */}
+      {/* SECTIONS 01, 02 & 03: Unified Subtle Cosmic Nebula Canvas */}
       <div className="relative overflow-hidden">
-        {/* Procedural WebGL GLSL Cosmic Nebula Shader (100% Code, Zero Grid) */}
-        <NebulaShader opacity={0.65} />
+        {/* Procedural WebGL GLSL Cosmic Nebula Shader (Muted & Synchronized with #060713) */}
+        <NebulaShader opacity={0.38} />
 
-        {/* Soft edge-only fades so it blends smoothly into hero and section 3 */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[var(--bg)] to-transparent z-0" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[var(--bg)] to-transparent z-0" />
+        {/* Soft edge-only fades so it blends seamlessly into hero above and section 04 below */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[var(--bg)] to-transparent z-0" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--bg)] to-transparent z-0" />
 
         {/* SECTION 01: What We Build (The 6 Services) */}
         <Section top="first" id="services" className="relative z-10 pt-8 sm:pt-12 md:pt-14 !pb-10 md:!pb-12">
@@ -58,22 +58,22 @@ export default function Home() {
           />
           <StudioComparator />
         </Section>
-      </div>
 
-      {/* SECTION 03: How We Work (4 Steps) */}
-      <Section>
-        <SectionHead
-          index="03"
-          label="How we work"
-          title={
-            <>
-              Four steps, <em className="acc">no surprises.</em>
-            </>
-          }
-          lead="A proven 4-step methodology that delivers results. You see progress every week and know what's next."
-        />
-        <ProcessSteps />
-      </Section>
+        {/* SECTION 03: How We Work (4 Steps) */}
+        <Section className="relative z-10">
+          <SectionHead
+            index="03"
+            label="How we work"
+            title={
+              <>
+                Four steps, <em className="acc">no surprises.</em>
+              </>
+            }
+            lead="A proven 4-step methodology that delivers results. You see progress every week and know what's next."
+          />
+          <ProcessSteps />
+        </Section>
+      </div>
 
       <Section>
         <SectionHead
