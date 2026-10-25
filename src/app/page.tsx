@@ -5,8 +5,8 @@ import { IndustryList } from "@/components/home/IndustryList";
 import { ProcessSteps } from "@/components/home/ProcessSteps";
 import { Quotes } from "@/components/home/Quotes";
 import { Reasons } from "@/components/home/Reasons";
-import { ServiceList } from "@/components/home/Services";
-import { NeedPicker } from "@/components/picker/NeedPicker";
+import { ServicesGrid } from "@/components/home/ServicesGrid";
+import { StudioComparator } from "@/components/home/StudioComparator";
 import { PlaceholderTag } from "@/components/ui/Placeholder";
 import { Section } from "@/components/ui/Section";
 import { SectionHead } from "@/components/ui/SectionHead";
@@ -17,21 +17,23 @@ export default function Home() {
     <>
       <HeroPhoto />
 
-      <Section top="first" className="pt-8 sm:pt-12 md:pt-14 !pb-10 md:!pb-12">
+      {/* SECTION 01: What We Build (The 6 Services) */}
+      <Section top="first" id="services" className="pt-8 sm:pt-12 md:pt-14 !pb-10 md:!pb-12">
         <SectionHead
           index="01"
-          label="What do you need built?"
+          label="Capabilities & Services"
           title={
             <>
-              Pick one. <em className="acc">See it running.</em>
+              What we build. <em className="acc">Engineered to scale.</em>
             </>
           }
-          lead="Every business we work with needs something different. Here's what three of our most-asked-for builds look like when they're live."
+          lead="From high-conversion web platforms and native mobile apps to autonomous AI agents and custom business systems — everything your business runs on."
         />
-        <NeedPicker />
+        <ServicesGrid />
       </Section>
 
-      <Section top="flow" id="services" className="pt-4 md:pt-6">
+      {/* SECTION 02: The Single-Studio Advantage (The Comparison) */}
+      <Section top="flow" id="advantage" className="pt-4 md:pt-6">
         <SectionHead
           index="02"
           label="The Single-Studio Advantage"
@@ -44,9 +46,10 @@ export default function Home() {
           lead="Why hire three separate agencies when you can run on one synchronized studio? We design your interface, engineer your codebase, and automate your business operations under one roof with zero handoff friction."
           leadOnMobile
         />
-        <ServiceList />
+        <StudioComparator />
       </Section>
 
+      {/* SECTION 03: How We Work (4 Steps) */}
       <Section>
         <SectionHead
           index="03"
