@@ -18,30 +18,31 @@ export default function Home() {
     <>
       <HeroPhoto />
 
-      {/* SECTION 01: What We Build (The 6 Services) */}
-      <Section top="first" id="services" className="pt-8 sm:pt-12 md:pt-14 !pb-10 md:!pb-12">
-        <SectionHead
-          index="01"
-          label="Capabilities & Services"
-          title={
-            <>
-              What we build. <em className="acc">Engineered to scale.</em>
-            </>
-          }
-          lead="From high-conversion web platforms and native mobile apps to autonomous AI agents and custom business systems — everything your business runs on."
-        />
-        <ServicesGrid />
-      </Section>
-
-      {/* SECTION 02: The Single-Studio Advantage (The Comparison) */}
+      {/* SECTIONS 01 & 02: Unified Cosmic Studio Canvas (Capabilities + Single-Studio Advantage) */}
       <div className="relative overflow-hidden">
         {/* Procedural WebGL GLSL Cosmic Nebula Shader (100% Code, Zero Grid) */}
         <NebulaShader opacity={0.65} />
 
-        {/* Soft edge-only fades so it blends smoothly into adjacent sections */}
+        {/* Soft edge-only fades so it blends smoothly into hero and section 3 */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[var(--bg)] to-transparent z-0" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[var(--bg)] to-transparent z-0" />
 
+        {/* SECTION 01: What We Build (The 6 Services) */}
+        <Section top="first" id="services" className="relative z-10 pt-8 sm:pt-12 md:pt-14 !pb-10 md:!pb-12">
+          <SectionHead
+            index="01"
+            label="Capabilities & Services"
+            title={
+              <>
+                What we build. <em className="acc">Engineered to scale.</em>
+              </>
+            }
+            lead="From high-conversion web platforms and native mobile apps to autonomous AI agents and custom business systems — everything your business runs on."
+          />
+          <ServicesGrid />
+        </Section>
+
+        {/* SECTION 02: The Single-Studio Advantage (The Comparison) */}
         <Section top="flow" id="advantage" className="relative z-10 pt-4 md:pt-6">
           <SectionHead
             index="02"
