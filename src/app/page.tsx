@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <HeroPhoto />
 
-      <Section top="first" className="pt-8 sm:pt-12 md:pt-14">
+      <Section top="first" className="pt-8 sm:pt-12 md:pt-14 !pb-10 md:!pb-12">
         <SectionHead
           index="01"
           label="What do you need built?"
@@ -31,7 +31,7 @@ export default function Home() {
         <NeedPicker />
       </Section>
 
-      <Section top="full" id="services">
+      <Section top="flow" id="services" className="pt-4 md:pt-6">
         <SectionHead
           index="02"
           label="The Single-Studio Advantage"
