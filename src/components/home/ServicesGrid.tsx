@@ -23,7 +23,7 @@ const serviceMetaMap: Record<string, ServiceMeta> = {
     glowColor: "rgba(6, 182, 212, 0.22)",
     checkColor: "text-cyan-400",
     dotColor: "bg-cyan-400",
-    image: "/hero/service-web.jpg",
+    image: "/hero/service-web-isometric.jpg",
   },
   "ui-ux-design": {
     badge: "DESIGN",
@@ -32,7 +32,7 @@ const serviceMetaMap: Record<string, ServiceMeta> = {
     glowColor: "rgba(168, 85, 247, 0.22)",
     checkColor: "text-violet-400",
     dotColor: "bg-violet-400",
-    image: "/hero/service-design.jpg",
+    image: "/hero/service-design-isometric.jpg",
   },
   "web-mobile-apps": {
     badge: "BUILD",
@@ -41,7 +41,7 @@ const serviceMetaMap: Record<string, ServiceMeta> = {
     glowColor: "rgba(56, 189, 248, 0.22)",
     checkColor: "text-sky-400",
     dotColor: "bg-sky-400",
-    image: "/hero/service-mobile.jpg",
+    image: "/hero/service-mobile-isometric.jpg",
   },
   "ai-automation": {
     badge: "AUTOMATE",
@@ -50,7 +50,7 @@ const serviceMetaMap: Record<string, ServiceMeta> = {
     glowColor: "rgba(16, 185, 129, 0.22)",
     checkColor: "text-emerald-400",
     dotColor: "bg-emerald-400",
-    image: "/hero/service-ai.jpg",
+    image: "/hero/service-ai-isometric.jpg",
   },
   bots: {
     badge: "AUTOMATE",
@@ -59,7 +59,7 @@ const serviceMetaMap: Record<string, ServiceMeta> = {
     glowColor: "rgba(20, 184, 166, 0.22)",
     checkColor: "text-teal-400",
     dotColor: "bg-teal-400",
-    image: "/hero/service-bot.jpg",
+    image: "/hero/service-bot-isometric.jpg",
   },
   "business-systems": {
     badge: "BUILD",
@@ -68,7 +68,7 @@ const serviceMetaMap: Record<string, ServiceMeta> = {
     glowColor: "rgba(99, 102, 241, 0.22)",
     checkColor: "text-indigo-400",
     dotColor: "bg-indigo-400",
-    image: "/hero/service-cloud.jpg",
+    image: "/hero/service-cloud-isometric.jpg",
   },
 };
 
