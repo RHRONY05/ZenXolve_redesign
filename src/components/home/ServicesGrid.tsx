@@ -1,73 +1,74 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { Icon, type IconName } from "@/components/ui/Icon";
+import { Icon } from "@/components/ui/Icon";
 import { services, type Service } from "@/content/services";
 
 type ServiceMeta = {
-  icon: IconName;
   badge: string;
   themeColor: string;
   borderColor: string;
   glowColor: string;
-  iconBg: string;
   checkColor: string;
+  dotColor: string;
+  image: string;
 };
 
 const serviceMetaMap: Record<string, ServiceMeta> = {
   "web-development": {
-    icon: "globe",
     badge: "BUILD",
     themeColor: "text-cyan-400",
-    borderColor: "hover:border-cyan-500/40",
-    glowColor: "rgba(6, 182, 212, 0.15)",
-    iconBg: "bg-cyan-500/15 border-cyan-500/30 text-cyan-300",
+    borderColor: "hover:border-cyan-500/50",
+    glowColor: "rgba(6, 182, 212, 0.22)",
     checkColor: "text-cyan-400",
+    dotColor: "bg-cyan-400",
+    image: "/hero/service-web.jpg",
   },
   "ui-ux-design": {
-    icon: "palette",
     badge: "DESIGN",
     themeColor: "text-violet-400",
-    borderColor: "hover:border-violet-500/40",
-    glowColor: "rgba(168, 85, 247, 0.15)",
-    iconBg: "bg-violet-500/15 border-violet-500/30 text-violet-300",
+    borderColor: "hover:border-violet-500/50",
+    glowColor: "rgba(168, 85, 247, 0.22)",
     checkColor: "text-violet-400",
+    dotColor: "bg-violet-400",
+    image: "/hero/service-design.jpg",
   },
   "web-mobile-apps": {
-    icon: "smartphone",
     badge: "BUILD",
     themeColor: "text-sky-400",
-    borderColor: "hover:border-sky-500/40",
-    glowColor: "rgba(56, 189, 248, 0.15)",
-    iconBg: "bg-sky-500/15 border-sky-500/30 text-sky-300",
+    borderColor: "hover:border-sky-500/50",
+    glowColor: "rgba(56, 189, 248, 0.22)",
     checkColor: "text-sky-400",
+    dotColor: "bg-sky-400",
+    image: "/hero/service-mobile.jpg",
   },
   "ai-automation": {
-    icon: "bot",
     badge: "AUTOMATE",
     themeColor: "text-emerald-400",
-    borderColor: "hover:border-emerald-500/40",
-    glowColor: "rgba(16, 185, 129, 0.15)",
-    iconBg: "bg-emerald-500/15 border-emerald-500/30 text-emerald-300",
+    borderColor: "hover:border-emerald-500/50",
+    glowColor: "rgba(16, 185, 129, 0.22)",
     checkColor: "text-emerald-400",
+    dotColor: "bg-emerald-400",
+    image: "/hero/service-ai.jpg",
   },
   bots: {
-    icon: "message-square",
     badge: "AUTOMATE",
     themeColor: "text-teal-400",
-    borderColor: "hover:border-teal-500/40",
-    glowColor: "rgba(20, 184, 166, 0.15)",
-    iconBg: "bg-teal-500/15 border-teal-500/30 text-teal-300",
+    borderColor: "hover:border-teal-500/50",
+    glowColor: "rgba(20, 184, 166, 0.22)",
     checkColor: "text-teal-400",
+    dotColor: "bg-teal-400",
+    image: "/hero/service-bot.jpg",
   },
   "business-systems": {
-    icon: "layers",
     badge: "BUILD",
     themeColor: "text-indigo-400",
-    borderColor: "hover:border-indigo-500/40",
-    glowColor: "rgba(99, 102, 241, 0.15)",
-    iconBg: "bg-indigo-500/15 border-indigo-500/30 text-indigo-300",
+    borderColor: "hover:border-indigo-500/50",
+    glowColor: "rgba(99, 102, 241, 0.22)",
     checkColor: "text-indigo-400",
+    dotColor: "bg-indigo-400",
+    image: "/hero/service-cloud.jpg",
   },
 };
 
@@ -81,49 +82,68 @@ const serviceOrder = [
   "business-systems",
 ];
 
-function ServiceCard({ s }: { s: Service }) {
+function ServiceCard({ s, index }: { s: Service; index: number }) {
   const meta = serviceMetaMap[s.slug] || {
-    icon: "code",
     badge: s.group.toUpperCase(),
     themeColor: "text-cyan-400",
-    borderColor: "hover:border-cyan-500/40",
-    glowColor: "rgba(6, 182, 212, 0.15)",
-    iconBg: "bg-cyan-500/15 border-cyan-500/30 text-cyan-300",
+    borderColor: "hover:border-cyan-500/50",
+    glowColor: "rgba(6, 182, 212, 0.2)",
     checkColor: "text-cyan-400",
+    dotColor: "bg-cyan-400",
+    image: "/hero/service-web.jpg",
   };
+
+  const indexStr = String(index + 1).padStart(2, "0");
 
   return (
     <Link
       href={`/services#${s.slug}`}
-      className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/12 bg-[var(--surface)]/95 p-6 sm:p-7 backdrop-blur-xl shadow-[0_16px_36px_rgba(0,0,0,0.55)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(0,0,0,0.7)] ${meta.borderColor}`}
+      className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#080914]/80 p-6 sm:p-7 backdrop-blur-xl shadow-[0_16px_36px_rgba(0,0,0,0.55)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(0,0,0,0.75)] ${meta.borderColor}`}
     >
+      {/* Background Image with Glassmorphism Overlay */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <Image
+          src={meta.image}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover object-center opacity-40 sm:opacity-35 group-hover:opacity-60 group-hover:scale-108 transition-all duration-700 ease-out"
+        />
+        {/* Glassmorphic dark gradient wash: transparent/airy at top to showcase the 3D art, smooth dark fade down for pristine text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#080914] via-[#080914]/80 to-[#080914]/25 backdrop-blur-[2px]" />
+      </div>
+
       {/* Corner Ambient Glow */}
       <div
-        className="pointer-events-none absolute -top-16 -right-16 size-44 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="pointer-events-none absolute -top-16 -right-16 size-48 rounded-full blur-[65px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"
         style={{ background: meta.glowColor }}
         aria-hidden="true"
       />
 
-      <div className="relative z-10 space-y-4">
-        {/* Top Header: Icon & Category Badge */}
-        <div className="flex items-center justify-between gap-3">
-          <div
-            className={`flex size-12 items-center justify-center rounded-xl border shadow-inner ${meta.iconBg}`}
-          >
-            <Icon name={meta.icon} size={22} strokeWidth={1.8} />
-          </div>
+      {/* Inner Card Rim Light */}
+      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 group-hover:ring-white/20 transition-all duration-300 z-0" />
 
+      {/* Main Content (Elevated on z-10) */}
+      <div className="relative z-10 space-y-4">
+        {/* Top Header: Index, Category Badge, and Interactive Arrow Link (No icons!) */}
+        <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <span className="font-mono text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full border border-white/10 bg-white/[0.04] text-slate-400 group-hover:text-white transition-colors">
+            <span className="font-mono text-[10px] font-bold tracking-widest text-slate-400 group-hover:text-slate-300 transition-colors">
+              {indexStr}
+            </span>
+            <span className="text-slate-600">/</span>
+            <span className="inline-flex items-center gap-1.5 font-mono text-[10.5px] font-bold tracking-wider px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-slate-300 group-hover:text-white group-hover:border-white/20 transition-all">
+              <span className={`size-1.5 rounded-full ${meta.dotColor} shadow-[0_0_8px_currentColor]`} />
               {meta.badge}
             </span>
-            <div className="size-7 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center text-slate-400 group-hover:text-white group-hover:border-white/30 group-hover:bg-white/[0.08] transition-all duration-200">
-              <Icon
-                name="arrow-up-right"
-                size={14}
-                className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              />
-            </div>
+          </div>
+
+          <div className="size-8 rounded-full border border-white/10 bg-white/[0.04] flex items-center justify-center text-slate-400 group-hover:text-white group-hover:border-white/30 group-hover:bg-white/[0.12] group-hover:scale-105 transition-all duration-200">
+            <Icon
+              name="arrow-up-right"
+              size={15}
+              className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
           </div>
         </div>
 
@@ -132,18 +152,18 @@ function ServiceCard({ s }: { s: Service }) {
           <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white group-hover:text-white transition-colors">
             {s.title}
           </h3>
-          <p className="mt-2 text-xs sm:text-[13.5px] leading-relaxed text-slate-300">
+          <p className="mt-2 text-xs sm:text-[13.5px] leading-relaxed text-slate-300/90 font-sans">
             {s.body}
           </p>
         </div>
 
         {/* Concrete Deliverables Checklist */}
-        <div className="pt-3 border-t border-white/[0.08]">
+        <div className="pt-3.5 border-t border-white/[0.08]">
           <ul className="space-y-2 font-mono text-xs text-slate-300">
             {s.tags.map((t) => (
               <li key={t} className="flex items-center gap-2">
                 <span className={`font-bold ${meta.checkColor}`}>✓</span>
-                <span className="text-slate-300 group-hover:text-slate-200 transition-colors">
+                <span className="text-slate-300 group-hover:text-white transition-colors">
                   {t}
                 </span>
               </li>
@@ -174,8 +194,8 @@ export function ServicesGrid() {
     <div className="space-y-6">
       {/* 6-Card Responsive Grid (1 col mobile, 2 col tablet, 3 col desktop) */}
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
-        {ordered.map((s) => (
-          <ServiceCard key={s.slug} s={s} />
+        {ordered.map((s, idx) => (
+          <ServiceCard key={s.slug} s={s} index={idx} />
         ))}
       </div>
 
