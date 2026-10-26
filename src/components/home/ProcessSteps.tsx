@@ -117,26 +117,27 @@ export function ProcessSteps() {
             </div>
 
             {/* Main Split Layout: Left Info & Highlighted Deliverables vs Right Orbital Constellation */}
-            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1.15fr] gap-6 lg:gap-8 items-start">
-              {/* Left Column: Heading, Description & Deliverables (Pushed up with NO empty space) */}
-              <div className="flex flex-col justify-start space-y-4">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1.15fr] gap-5 sm:gap-6 lg:gap-8 items-start">
+              {/* Left Column: Heading, Description & Deliverables */}
+              <div className="flex flex-col justify-start space-y-3 sm:space-y-4">
                 <div>
                   <h3
-                    className={`font-serif text-xl sm:text-2xl md:text-[26px] font-bold leading-snug tracking-tight ${s.theme.text}`}
+                    className={`font-serif text-lg sm:text-2xl md:text-[26px] font-bold leading-snug tracking-tight ${s.theme.text}`}
                   >
                     {s.headline}
                   </h3>
+                  {/* Descriptive paragraph hidden on mobile/smaller devices to keep card height compact */}
                   <p
-                    className={`mt-2 text-xs sm:text-[13.5px] md:text-sm leading-relaxed font-sans ${s.theme.subtext}`}
+                    className={`mt-2 text-xs sm:text-[13.5px] md:text-sm leading-relaxed font-sans hidden sm:block ${s.theme.subtext}`}
                   >
                     {s.body}
                   </p>
                 </div>
 
                 {/* Scope & Deliverables: Highlighted Bold Key Terms + ▶ Marker */}
-                <ul className="space-y-3 pt-3 border-t border-black/10">
+                <ul className="space-y-2 sm:space-y-3 pt-2.5 sm:pt-3 border-t border-black/10">
                   {s.deliverables.map((d, dIdx) => (
-                    <li key={dIdx} className="flex items-start gap-2.5">
+                    <li key={dIdx} className="flex items-start gap-2 sm:gap-2.5">
                       <span
                         className={`text-xs shrink-0 mt-0.5 ${s.theme.bulletColor}`}
                         aria-hidden="true"
@@ -148,9 +149,9 @@ export function ProcessSteps() {
                           className={`font-bold tracking-tight ${s.theme.text}`}
                         >
                           {d.highlight}
-                        </strong>{" "}
-                        <span className={`font-medium ${s.theme.subtext}`}>
-                          — {d.detail}
+                        </strong>
+                        <span className={`font-medium ${s.theme.subtext} hidden sm:inline`}>
+                          {" "}— {d.detail}
                         </span>
                       </p>
                     </li>

@@ -52,6 +52,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Interactive scroll-stacking deck of cards (sticky tab offsets mimicking the client reference).
   - 4 distinct colored cards: Sky Blue (Discovery), Fresh Mint (Design), Soft Lavender (Engineering), Warm Peach (Deployment).
   - Left column: Step title, display headline, process description, and bold highlighted key deliverables with ▶ bullet points.
+  - Mobile Optimization (`< sm`): Descriptive paragraph hidden and bullet points streamlined to bold key deliverable highlights without secondary descriptions, reducing mobile card height by 275px (from 938px to 662px) so cards fit cleanly within the viewport. Full text preserved on desktop (`sm:` and above).
   - Right column: Full-height Orbital Constellation with central core hubs (Brain, Pen, CPU, Globe) and continuous, seamless flowing circuit connections with large brand tool icons.
 - **Section 04 (Why Xenzolve - `src/components/home/Reasons.tsx`)**: **APPROVED & LOCKED 🔒**
   - Unified with Section 01's architectural Light Canvas layout (dark outer frame + dark window header + light dotted grid floor).
