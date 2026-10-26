@@ -18,7 +18,7 @@ export function PhotoBand() {
 
       <div className="absolute bottom-6 left-6 z-[2] text-on-photo md:bottom-10 md:left-(--gutter-d)">
         <span className="mono text-on-photo-2">Dhaka · 23.81°N 90.41°E</span>
-        <b className="mt-1 block font-serif text-[26px] leading-[30px] font-normal italic md:text-[40px] md:leading-[44px]">
+        <b className="mt-1 block font-serif text-[26px] leading-[30px] font-normal md:text-[40px] md:leading-[44px]">
           Where we build.
         </b>
       </div>

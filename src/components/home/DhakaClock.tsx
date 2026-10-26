@@ -24,7 +24,7 @@ export function DhakaClock() {
     <div className="absolute top-[86px] left-6 z-[2] text-left font-mono text-xs leading-4 tracking-mono text-on-photo-2 uppercase md:top-[120px] md:right-(--gutter-d) md:left-auto md:text-right">
       <span className="hidden md:inline">Dhaka · 23.81°N 90.41°E</span>
       <span className="md:hidden">Dhaka · {time || " "}</span>
-      <b className="mt-1 block font-serif text-[21px] leading-[26px] font-normal tracking-normal text-on-photo normal-case italic md:text-[26px] md:leading-[30px]">
+      <b className="mt-1 block font-serif text-[21px] leading-[26px] font-normal tracking-normal text-on-photo normal-case md:text-[26px] md:leading-[30px]">
         <span className="hidden md:inline">{time ? `${time}, still building.` : "Still building."}</span>
         <span className="md:hidden">Still building.</span>
       </b>

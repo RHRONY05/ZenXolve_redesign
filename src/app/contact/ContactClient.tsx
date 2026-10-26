@@ -21,7 +21,7 @@ export function ContactClient() {
         title={
           <>
             Have a project in mind?{" "}
-            <em className="italic text-[var(--accent)]">
+            <em className="not-italic text-[var(--accent)]">
               <span className="hidden md:inline">Let&apos;s bring your vision to life.</span>
               <span className="md:hidden">Let&apos;s talk.</span>
             </em>

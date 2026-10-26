@@ -106,7 +106,7 @@ export default async function Image() {
               }}
             >
               <span>Software your business&nbsp;</span>
-              <span style={{ color: "#2F4BFF", fontStyle: "italic" }}>runs on.</span>
+              <span style={{ color: "#2F4BFF", fontStyle: "normal" }}>runs on.</span>
             </div>
             <div
               style={{

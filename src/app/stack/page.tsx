@@ -17,7 +17,7 @@ export default function StackPage() {
         eyebrow={`Tech stack · ${stack.length} tools & more`}
         title={
           <>
-            Technologies <em className="italic text-[var(--accent)]">we use.</em>
+            Technologies <em className="not-italic text-[var(--accent)]">we use.</em>
           </>
         }
         lead={

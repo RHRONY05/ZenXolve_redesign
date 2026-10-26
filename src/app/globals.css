@@ -533,9 +533,12 @@ html[data-font="editorial"] {
   font-weight: 400;
   letter-spacing: var(--tracking-display);
 }
+em {
+  font-style: normal;
+}
 em.acc,
 .acc {
-  font-style: italic;
+  font-style: normal;
   background: linear-gradient(135deg, #c084fc 0%, #e879f9 45%, #67e8f9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

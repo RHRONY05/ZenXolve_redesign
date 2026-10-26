@@ -160,7 +160,7 @@ export function DesignArt({ className = "" }: { className?: string }) {
         {/* Token 01: Typography */}
         <div className="flex items-center justify-between rounded-lg border border-violet-500/20 bg-white/[0.05] px-2.5 py-1.5">
           <span className="text-slate-300 text-[10px]">Type Scale</span>
-          <span className="font-serif text-[11px] text-white italic">Display 80px / 92px</span>
+          <span className="font-serif text-[11px] text-white">Display 80px / 92px</span>
         </div>
 
         {/* Token 02: Color Tokens */}

@@ -102,7 +102,7 @@ export function ProcessSteps() {
             <div className="flex items-center justify-between pb-3 sm:pb-3.5 mb-4 border-b border-black/10">
               <div className="flex items-center gap-2 sm:gap-3">
                 <span
-                  className={`font-serif italic text-base sm:text-lg md:text-xl font-bold tracking-tight ${s.theme.text}`}
+                  className={`font-serif text-base sm:text-lg md:text-xl font-bold tracking-tight ${s.theme.text}`}
                 >
                   Step {s.step} — {s.tab}
                 </span>

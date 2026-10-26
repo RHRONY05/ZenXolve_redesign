@@ -323,7 +323,7 @@ export function ThemeCustomizerModal({
                       <span className="font-medium text-ink">{f.monoFont}</span>
                     </div>
                   </div>
-                  <div className="mt-3 rounded-lg border border-line bg-surface px-3 py-2 text-xs italic text-ink-2">
+                  <div className="mt-3 rounded-lg border border-line bg-surface px-3 py-2 text-xs text-ink-2">
                     &ldquo;{f.preview}&rdquo;
                   </div>
                 </button>

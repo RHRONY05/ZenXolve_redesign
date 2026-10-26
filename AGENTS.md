@@ -60,8 +60,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Mobile View (`< md`): Shorter height containing 1 reason card at a time with continuous 4.5s auto-advance, touch drag gestures, pause on interaction, 6 progress indicator pills, and bottom custom circular arrow control buttons.
   - Integrated 4-pillar trust stats (98% Client Retention, 10+ Delivered Projects, < 2h Direct Engineer SLA, 100% IP & Code Ownership) kept permanently fixed on the canvas floor across all mobile & desktop viewports with full dotted grid floor transparency.
   - Vertical spacing normalized between Section 2 -> 3 and Section 3 -> 4.
-- **Global Section Headers**: **STANDARDIZED & UNIFIED ✨**
+- **Global Section Headers & Typography**: **STANDARDIZED & UNIFIED ✨**
   - All sections (01, 02, 03, 04, 05, 06) now use the Section 04 inline format: Heading + accent followed immediately by the subtext separated by an em dash (`—`).
+  - Italic font styling completely removed everywhere across all headings, accent spans, and sub-elements (`em.acc, .acc` set to `font-style: normal`), providing a clean, cohesive, upright architectural font appearance.
 - **Section 05 (Client Words / Testimonials - `src/components/home/Quotes.tsx` & `src/content/testimonials.ts`)**: **APPROVED & LOCKED 🔒**
   - Infinite moving marquee running at 60fps GPU-accelerated speed with pause-on-hover.
   - Left & right soft gradient masks for smooth fade-in / fade-out.
