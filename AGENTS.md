@@ -54,15 +54,14 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - 4 distinct colored cards: Sky Blue (Discovery), Fresh Mint (Design), Soft Lavender (Engineering), Warm Peach (Deployment).
   - Left column: Step title, display headline, process description, and bold highlighted key deliverables with ▶ bullet points.
   - Right column: Full-height Orbital Constellation with central core hubs (Brain, Pen, CPU, Globe) and continuous, seamless flowing circuit connections with large brand tool icons.
-- **Section 04 (Why Xenzolve - `src/components/home/Reasons.tsx`)**: **UPDATED & UNDER REVIEW ⏳**
+- **Section 04 (Why Xenzolve - `src/components/home/Reasons.tsx`)**: **APPROVED & LOCKED 🔒**
   - Unified with Section 01's architectural Light Canvas layout (dark outer frame + dark window header + light dotted grid floor).
   - Compact, shorter height tailored to concise copy without unnecessary vertical padding.
   - Divided into 6 contiguous boxes via 2 vertical + 1 horizontal divider lines.
   - Authentic Icons8 color icons (`target`, `speed`, `secure`, `innovative`, `support`, `pricing`) inline with titles.
   - Integrated 4-pillar trust stats directly inside the canvas with full dotted grid floor transparency and updated "10+ Delivered Projects".
+  - Vertical spacing normalized between Section 2 -> 3 and Section 3 -> 4.
 
 ## 3. Active Next Steps
-1. Review Section 04 layout and storytelling with user.
-2. Proceed to Section 05 (Client Words / Testimonials).
-3. Continue sequentially down the page (Industries, FAQ, and CTA Band).
-3. Continue sequentially down the page (Section 05 Client Words, Industries, FAQ, and CTA Band).
+1. Section 05 (Client Words / Testimonials - `src/components/home/Quotes.tsx` & `src/content/testimonials.ts`).
+2. Continue sequentially down the page (Industries, FAQ, and CTA Band).

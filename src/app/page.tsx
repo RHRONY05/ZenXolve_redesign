@@ -45,7 +45,7 @@ export default function Home() {
         </Section>
 
         {/* SECTION 02: The Single-Studio Advantage (The Comparison) */}
-        <Section top="flow" id="advantage" className="relative z-10 pt-4 md:pt-6">
+        <Section top="flow" id="advantage" className="relative z-10 pt-4 md:pt-6 !pb-8 md:!pb-12">
           <SectionHead
             index="02"
             label="The Single-Studio Advantage"
@@ -62,7 +62,7 @@ export default function Home() {
         </Section>
 
         {/* SECTION 03: How We Work (4 Steps) */}
-        <Section className="relative z-10">
+        <Section top="flow" className="relative z-10 !pt-2 md:!pt-4 !pb-6 md:!pb-10">
           <SectionHead
             index="03"
             label="How we work"
@@ -77,7 +77,7 @@ export default function Home() {
         </Section>
       </div>
 
-      <Section>
+      <Section top="flow" className="!pt-2 md:!pt-4">
         <SectionHead
           index="04"
           label="Why Xenzolve"

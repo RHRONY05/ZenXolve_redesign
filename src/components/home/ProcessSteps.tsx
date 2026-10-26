@@ -58,7 +58,7 @@ const fourNodeCoords = [
 
 export function ProcessSteps() {
   return (
-    <div className="relative pb-24 md:pb-32">
+    <div className="relative pb-6 md:pb-8">
       {/* 
         Seamless Infinite Flow Keyframe:
         Pattern period = 5px dash + 5px gap = 10px.
