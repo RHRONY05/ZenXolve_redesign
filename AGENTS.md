@@ -75,7 +75,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - 3-row bi-directional continuous infinite moving marquee (Row 1 Left, Row 2 Right, Row 3 Left at varied speeds) with pause-on-hover.
   - Luminous light brand marks styled with theme soft-violet accents (`#c4b5fd`), light slate typography (`text-slate-200` hover `text-white`), and crisp SVG icons.
   - Soft left & right bilateral edge masks (`mask-image: linear-gradient`) for a seamless infinite horizon.
-- **Section 07 (Frequently Asked Questions - `src/components/home/Faq.tsx` & `src/content/faq.ts`)**: **UPDATED & UNDER REVIEW ⏳**
+- **Section 07 (Frequently Asked Questions - `src/components/home/Faq.tsx` & `src/content/faq.ts`)**: **APPROVED & LOCKED 🔒**
   - Unified SectionHead (Index `07`, Eyebrow `Frequently Asked Questions`, inline headline + em dash subtext).
   - Constrained to an optimal centered reading width (`max-w-4xl mx-auto`) so concise questions and answers feel comfortable and tightly aligned with the plus indicators.
   - High-contrast interactive rows with numeric mono indicators (`01`-`05`), illuminated plus badges, and smooth grid-template-rows expansion.
@@ -83,5 +83,5 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Custom thin 6px scrollbar synchronized with the brand: `#060713` cosmic dark track + soft violet thumb (`rgba(139, 92, 246, 0.45)`, hover `rgba(167, 139, 250, 0.8)`), supported across all modern browsers (WebKit + Firefox).
 
 ## 3. Active Next Steps
-1. Review Section 07 (Full-Width FAQ) with user.
-2. Proceed to Section 08 (Final CTA Band - `src/components/home/CtaBand.tsx`).
+1. Section 08 (Final CTA Band - `src/components/home/CtaBand.tsx`).
+2. Global Footer review & full homepage pre-flight check.
