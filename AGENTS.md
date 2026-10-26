@@ -58,7 +58,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Unified with Section 01's architectural Light Canvas layout (dark outer frame + dark window header + light dotted grid floor).
   - Compact, shorter height tailored to concise copy without unnecessary vertical padding.
   - Divided into 6 contiguous boxes via 2 vertical + 1 horizontal divider lines.
-  - Authentic Icons8 color icons (`target`, `speed`, `secure`, `innovative`, `support`, `pricing`) replacing emojis.
+  - Authentic Icons8 color icons (`target`, `speed`, `secure`, `innovative`, `support`, `pricing`) inline with titles.
+  - Integrated 4-pillar trust stats directly inside the canvas with full dotted grid floor transparency and updated "10+ Delivered Projects".
 
 ## 3. Active Next Steps
 1. Review Section 04 layout and storytelling with user.
