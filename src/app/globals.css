@@ -1119,3 +1119,12 @@ html[data-palette="editorial"] .acc {
 .animate-circuit-stem1-packet {
   animation: circuit-stem1-packet 8.5s linear infinite;
 }
+
+@keyframes strokeDraw {
+  0% {
+    stroke-dashoffset: 1200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

@@ -1,5 +1,4 @@
 import ContactWithGlobe from "@/components/home/ContactWithGlobe";
-import { CtaBand } from "@/components/home/CtaBand";
 import { Faq } from "@/components/home/Faq";
 import { HeroPhoto } from "@/components/home/HeroPhoto";
 import { IndustryList } from "@/components/home/IndustryList";
@@ -142,8 +141,6 @@ export default function Home() {
       <Section top="flow" id="contact" className="!pt-6 sm:!pt-10 md:!pt-12 !pb-12 md:!pb-16">
         <ContactWithGlobe />
       </Section>
-
-      <CtaBand />
     </>
   );
 }

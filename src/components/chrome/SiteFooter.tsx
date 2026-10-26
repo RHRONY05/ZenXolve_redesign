@@ -2,11 +2,14 @@ import Link from "next/link";
 import { footerServices, footerStudio, site } from "@/content/site";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { Logo } from "@/components/ui/Logo";
+import { TextHoverEffect, FooterBackgroundGradient } from "@/components/ui/TextHoverEffect";
 
 export function SiteFooter() {
   return (
-    <footer className="px-(--gutter-m) pt-10 pb-20 md:px-(--gutter-d) md:pt-14 md:pb-20">
-      <div className="mx-auto max-w-(--container)">
+    <footer className="relative overflow-hidden px-(--gutter-m) pt-10 pb-16 md:px-(--gutter-d) md:pt-14 md:pb-24 border-t border-white/5">
+      <FooterBackgroundGradient />
+
+      <div className="relative z-10 mx-auto max-w-(--container)">
         <div className="grid grid-cols-2 gap-x-6 gap-y-7 md:grid-cols-[1.5fr_1fr_1.1fr_1fr] md:gap-8">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
@@ -65,9 +68,8 @@ export function SiteFooter() {
           </div>
         </div>
 
-        {/* Bottom Bar: Compact & Balanced */}
-        <div className="mt-8 md:mt-10 flex flex-col-reverse items-start gap-4 border-t border-white/10 pt-5 text-xs sm:text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
-          <span>© 2026 XenZolve. All rights reserved.</span>
+        {/* Divider with Socials & Copyright (matching reference) */}
+        <div className="mt-8 md:mt-12 flex flex-col-reverse items-start gap-4 border-t border-white/10 pt-5 text-xs sm:text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
           <div className="flex gap-2">
             {site.socials.map((s) => (
               <a
@@ -82,6 +84,12 @@ export function SiteFooter() {
               </a>
             ))}
           </div>
+          <span>© 2026 XenZolve. All rights reserved.</span>
+        </div>
+
+        {/* Giant Outlined Brand Display Wordmark */}
+        <div className="mt-4 md:mt-6 w-full h-24 sm:h-32 md:h-44 lg:h-52 flex items-center justify-center">
+          <TextHoverEffect text="XENZOLVE" className="w-full h-full" />
         </div>
       </div>
     </footer>
