@@ -110,10 +110,10 @@ export default function Home() {
           index="06"
           label="Industries We Serve"
           layout="stacked"
-          leadOnMobile
+          className="!mb-6 sm:!mb-8 md:!mb-10"
           title={
             <>
-              Domains we empower. <em className="acc">Engineered for depth.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— Deep domain experience across high-growth sectors, from compliant FinTech and health systems to autonomous AI and global commerce.</span>
+              Domains we empower. <em className="acc">Engineered for depth.</em>
             </>
           }
         />

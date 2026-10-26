@@ -6,6 +6,7 @@ export function SectionHead({
   lead,
   leadOnMobile = false,
   layout = "split",
+  className = "",
 }: {
   index: string;
   label: string;
@@ -13,10 +14,11 @@ export function SectionHead({
   lead?: React.ReactNode;
   leadOnMobile?: boolean;
   layout?: "split" | "stacked";
+  className?: string;
 }) {
   if (layout === "stacked") {
     return (
-      <div className="reveal mb-10 md:mb-14">
+      <div className={`reveal mb-10 md:mb-14 ${className}`}>
         <div className="mb-3.5 flex items-center gap-3 font-mono md:mb-5">
           <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-md border border-[var(--picker-badge-border)] bg-[var(--picker-badge-bg)] text-xs font-bold text-[var(--picker-badge-text)] shadow-[0_0_10px_var(--picker-badge-shadow)] transition-colors duration-300">
             {index}

@@ -398,7 +398,27 @@ html[data-font="editorial"] {
 @layer base {
   html {
     background: var(--bg);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(139, 92, 246, 0.5) #060713;
   }
+
+  /* Custom Thin Theme Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #060713;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.45);
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(167, 139, 250, 0.8);
+  }
+
   body {
     background: var(--bg);
     color: var(--ink);

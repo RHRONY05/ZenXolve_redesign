@@ -70,11 +70,13 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - 4 optimized square avatars (`avatar-1.webp` through `avatar-4.webp` in `public/testimonials/`, 5-9KB each).
   - Placeholder instruction texts and dashed dev outlines removed.
 - **Section 06 (Industries We Serve - `src/components/home/IndustryList.tsx` & `src/content/industries.ts`)**: **UPDATED & UNDER REVIEW ⏳**
-  - Unified SectionHead (Index `06`, Eyebrow `Industries We Serve`, inline display title + em dash subtext).
+  - SectionHead streamlined to single bold headline: `Domains we empower. Engineered for depth.` (subtext removed per client instruction for clean visual balance with the marquee).
   - Open, container-free layout floating directly across the section (no bounding box, no card border).
   - 3-row bi-directional continuous infinite moving marquee (Row 1 Left, Row 2 Right, Row 3 Left at varied speeds) with pause-on-hover.
   - Luminous light brand marks styled with theme soft-violet accents (`#c4b5fd`), light slate typography (`text-slate-200` hover `text-white`), and crisp SVG icons.
   - Soft left & right bilateral edge masks (`mask-image: linear-gradient`) for a seamless infinite horizon.
+- **Global Theme Scrollbar**: **IMPLEMENTED ✨**
+  - Custom thin 6px scrollbar synchronized with the brand: `#060713` cosmic dark track + soft violet thumb (`rgba(139, 92, 246, 0.45)`, hover `rgba(167, 139, 250, 0.8)`), supported across all modern browsers (WebKit + Firefox).
 
 ## 3. Active Next Steps
 1. Review Section 06 (Industries Brand Mark Cloud) with user.
