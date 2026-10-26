@@ -105,7 +105,18 @@ export default function Home() {
         <Quotes items={testimonials} />
       </Section>
 
-      <Section>
+      <Section top="flow" className="!pt-4 md:!pt-6">
+        <SectionHead
+          index="06"
+          label="Industries We Serve"
+          layout="stacked"
+          leadOnMobile
+          title={
+            <>
+              Domains we empower. <em className="acc">Engineered for depth.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— Deep domain experience across high-growth sectors, from compliant FinTech and health systems to autonomous AI and global commerce.</span>
+            </>
+          }
+        />
         <IndustryList />
       </Section>
 

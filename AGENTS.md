@@ -62,15 +62,20 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Integrated 4-pillar trust stats directly inside the canvas with full dotted grid floor transparency and updated "10+ Delivered Projects".
   - Vertical spacing normalized between Section 2 -> 3 and Section 3 -> 4.
 - **Global Section Headers**: **STANDARDIZED & UNIFIED ✨**
-  - All sections (01, 02, 03, 04, 05) now use the Section 04 inline format: Heading + accent followed immediately by the subtext separated by an em dash (`—`).
+  - All sections (01, 02, 03, 04, 05, 06) now use the Section 04 inline format: Heading + accent followed immediately by the subtext separated by an em dash (`—`).
 - **Section 05 (Client Words / Testimonials - `src/components/home/Quotes.tsx` & `src/content/testimonials.ts`)**: **APPROVED & LOCKED 🔒**
   - Infinite moving marquee running at 60fps GPU-accelerated speed with pause-on-hover.
   - Left & right soft gradient masks for smooth fade-in / fade-out.
   - Lighter card color (`bg-[#1b2248]` hover `bg-[#222a58]`) with crisp rim light and high-contrast readability against the dark background.
   - 4 optimized square avatars (`avatar-1.webp` through `avatar-4.webp` in `public/testimonials/`, 5-9KB each).
   - Placeholder instruction texts and dashed dev outlines removed.
+- **Section 06 (Industries We Serve - `src/components/home/IndustryList.tsx` & `src/content/industries.ts`)**: **UPDATED & UNDER REVIEW ⏳**
+  - Unified SectionHead (Index `06`, Eyebrow `Industries We Serve`, inline display title + em dash subtext).
+  - Clean brand mark cloud layout (matching client reference screenshot) arranged in 3 balanced staggered rows.
+  - 12 comprehensive domain specializations with custom SVG monochrome marks and subtle focus area sub-tags.
+  - Soft left & right bilateral edge masks (`mask-image: linear-gradient`) and interactive hover glow.
 
 ## 3. Active Next Steps
-1. Section 06 (Industries We Serve - `src/components/home/IndustryList.tsx` & `src/content/industries.ts`).
-2. Section 07 (Frequently Asked Questions - `src/components/home/Faq.tsx`).
-3. Section 08 (Final CTA Band - `src/components/home/CtaBand.tsx`).
+1. Review Section 06 (Industries Brand Mark Cloud) with user.
+2. Proceed to Section 07 (Frequently Asked Questions - `src/components/home/Faq.tsx`).
+3. Proceed to Section 08 (Final CTA Band - `src/components/home/CtaBand.tsx`).
