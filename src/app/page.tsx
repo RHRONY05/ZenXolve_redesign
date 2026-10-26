@@ -20,7 +20,7 @@ export default function Home() {
       <HeroPhoto />
 
       {/* SECTIONS 01, 02 & 03: Unified Subtle Cosmic Nebula Canvas */}
-      <div className="relative overflow-hidden">
+      <div className="relative">
         {/* Procedural WebGL GLSL Cosmic Nebula Shader (Muted & Synchronized with #060713) */}
         <NebulaShader opacity={0.38} />
 

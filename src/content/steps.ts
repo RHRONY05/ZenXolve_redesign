@@ -1,7 +1,6 @@
 export type StepTool = {
   name: string;
-  role: string;
-  icon: string;
+  iconFile: string;
 };
 
 export type StepMetric = {
@@ -23,10 +22,6 @@ export type StepItem = {
     border: string;
     tagBg: string;
     tagText: string;
-    toolCardBg: string;
-    toolCardBorder: string;
-    toolNameColor: string;
-    toolRoleColor: string;
     tabAccent: string;
   };
 };
@@ -44,11 +39,11 @@ export const stepsData: StepItem[] = [
       { label: "Focus", value: "Zero Guesswork Scoping" },
     ],
     tools: [
-      { name: "Notion", role: "PRDs & Roadmaps", icon: "notion" },
-      { name: "Claude", role: "Logic & Spec Synthesis", icon: "claude" },
-      { name: "ChatGPT", role: "Persona & Scenario Modeling", icon: "chatgpt" },
-      { name: "Excalidraw", role: "Logic Diagrams & Flows", icon: "excalidraw" },
-      { name: "Loom", role: "Async Alignment Demos", icon: "loom" },
+      { name: "Notion", iconFile: "notion.png" },
+      { name: "Claude", iconFile: "claude.svg" },
+      { name: "ChatGPT", iconFile: "chatgpt.png" },
+      { name: "Excalidraw", iconFile: "excalidraw.png" },
+      { name: "Loom", iconFile: "loom.svg" },
     ],
     theme: {
       bg: "bg-[#7fd0f7]",
@@ -57,10 +52,6 @@ export const stepsData: StepItem[] = [
       border: "border-[#60bdec]",
       tagBg: "bg-[#081a30]/10",
       tagText: "text-[#081a30]",
-      toolCardBg: "bg-white/85 hover:bg-white",
-      toolCardBorder: "border-[#081a30]/15 hover:border-[#081a30]/35",
-      toolNameColor: "text-[#081a30]",
-      toolRoleColor: "text-[#234970]",
       tabAccent: "bg-[#081a30]",
     },
   },
@@ -76,10 +67,10 @@ export const stepsData: StepItem[] = [
       { label: "Handoff", value: "1:1 Developer Alignment" },
     ],
     tools: [
-      { name: "Figma", role: "Design Systems & UI Kit", icon: "figma" },
-      { name: "Stitch", role: "Screen & Component Generation", icon: "stitch" },
-      { name: "Canva", role: "Brand & Visual Collateral", icon: "canva" },
-      { name: "Framer", role: "Interactive Micro-Prototypes", icon: "framer" },
+      { name: "Figma", iconFile: "figma.png" },
+      { name: "Stitch", iconFile: "stitch.png" },
+      { name: "Canva", iconFile: "canva.png" },
+      { name: "Framer", iconFile: "framer.svg" },
     ],
     theme: {
       bg: "bg-[#9ef0c2]",
@@ -88,10 +79,6 @@ export const stepsData: StepItem[] = [
       border: "border-[#7ee0ab]",
       tagBg: "bg-[#062916]/10",
       tagText: "text-[#062916]",
-      toolCardBg: "bg-white/85 hover:bg-white",
-      toolCardBorder: "border-[#062916]/15 hover:border-[#062916]/35",
-      toolNameColor: "text-[#062916]",
-      toolRoleColor: "text-[#175c35]",
       tabAccent: "bg-[#062916]",
     },
   },
@@ -107,11 +94,11 @@ export const stepsData: StepItem[] = [
       { label: "Code Quality", value: "CI/CD & Unit Coverage" },
     ],
     tools: [
-      { name: "Next.js", role: "High-Speed Web Framework", icon: "nextjs" },
-      { name: "TypeScript", role: "Strict Static Type Safety", icon: "typescript" },
-      { name: "Supabase", role: "PostgreSQL & Vector Auth", icon: "supabase" },
-      { name: "n8n", role: "Autonomous Pipeline Automation", icon: "n8n" },
-      { name: "GitHub", role: "CI/CD & Version Control", icon: "github" },
+      { name: "Next.js", iconFile: "nextjs.png" },
+      { name: "TypeScript", iconFile: "typescript.png" },
+      { name: "Supabase", iconFile: "supabase.png" },
+      { name: "n8n", iconFile: "n8n.svg" },
+      { name: "GitHub", iconFile: "github.png" },
     ],
     theme: {
       bg: "bg-[#c6bafc]",
@@ -120,10 +107,6 @@ export const stepsData: StepItem[] = [
       border: "border-[#b09ff8]",
       tagBg: "bg-[#170e33]/10",
       tagText: "text-[#170e33]",
-      toolCardBg: "bg-white/85 hover:bg-white",
-      toolCardBorder: "border-[#170e33]/15 hover:border-[#170e33]/35",
-      toolNameColor: "text-[#170e33]",
-      toolRoleColor: "text-[#3f287e]",
       tabAccent: "bg-[#170e33]",
     },
   },
@@ -139,11 +122,11 @@ export const stepsData: StepItem[] = [
       { label: "Support", value: "Direct Telegram & WhatsApp" },
     ],
     tools: [
-      { name: "Vercel", role: "Edge Deployment & Previews", icon: "vercel" },
-      { name: "Cloudflare", role: "Global DNS & DDoS Shield", icon: "cloudflare" },
-      { name: "Docker", role: "Containerized Workloads", icon: "docker" },
-      { name: "Sentry", role: "Live Error & Health Telemetry", icon: "sentry" },
-      { name: "Telegram", role: "24/7 Direct Client Support", icon: "telegram" },
+      { name: "Vercel", iconFile: "vercel.svg" },
+      { name: "Cloudflare", iconFile: "cloudflare.png" },
+      { name: "Docker", iconFile: "docker.png" },
+      { name: "Sentry", iconFile: "sentry.svg" },
+      { name: "Telegram", iconFile: "telegram.png" },
     ],
     theme: {
       bg: "bg-[#fed093]",
@@ -152,10 +135,6 @@ export const stepsData: StepItem[] = [
       border: "border-[#fbc173]",
       tagBg: "bg-[#2c1303]/10",
       tagText: "text-[#2c1303]",
-      toolCardBg: "bg-white/85 hover:bg-white",
-      toolCardBorder: "border-[#2c1303]/15 hover:border-[#2c1303]/35",
-      toolNameColor: "text-[#2c1303]",
-      toolRoleColor: "text-[#69340e]",
       tabAccent: "bg-[#2c1303]",
     },
   },
