@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 /** Inverse colours (ink in light, paper in dark), giant faint bolt bottom-right. On every page except Contact. */
 export function CtaBand() {
   return (
-    <section className="inverse-surface relative mx-2 overflow-hidden rounded-lg bg-inverse px-6 pt-16 pb-14 text-on-inverse md:mx-(--frame-inset) md:rounded-xl md:px-(--gutter-d) md:pt-[110px] md:pb-24">
+    <section id="contact" className="inverse-surface relative mx-2 overflow-hidden rounded-lg bg-inverse px-6 pt-16 pb-14 text-on-inverse md:mx-(--frame-inset) md:rounded-xl md:px-(--gutter-d) md:pt-[110px] md:pb-24">
       <svg
         viewBox="0 0 100 60"
         aria-hidden="true"
@@ -24,7 +24,7 @@ export function CtaBand() {
           <Button href="/contact" size="lg" variant="inverse" icon="arrow-right" className="w-full md:w-auto">
             Start a project
           </Button>
-          <Button href={site.whatsapp} external size="lg" variant="ghost-inverse" iconLeft="message-circle" className="w-full md:w-auto">
+          <Button href={site.whatsapp} external size="lg" variant="ghost-inverse" iconLeft="whatsapp" className="w-full md:w-auto">
             Chat on WhatsApp
           </Button>
         </div>

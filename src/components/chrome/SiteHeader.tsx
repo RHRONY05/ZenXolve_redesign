@@ -42,7 +42,7 @@ export function SiteHeader() {
           <ThemeToggle />
           <ThemeCustomizerTrigger />
         </div>
-        <Button href="/contact" variant={onPhoto ? "on-photo" : "primary"}>
+        <Button href="/#contact" variant={onPhoto ? "on-photo" : "primary"}>
           Start a project
         </Button>
       </nav>

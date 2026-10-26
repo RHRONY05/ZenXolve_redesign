@@ -12,20 +12,33 @@ export const site = {
     { label: "Facebook", href: "https://facebook.com/xenzolve", icon: "facebook" },
     { label: "Instagram", href: "https://instagram.com/xenzolve", icon: "instagram" },
     { label: "LinkedIn", href: "https://linkedin.com/company/xenzolve", icon: "linkedin" },
-    { label: "WhatsApp", href: "https://wa.me/8801633707780", icon: "message-circle" },
+    { label: "WhatsApp", href: "https://wa.me/8801633707780", icon: "whatsapp" },
   ],
 } as const;
 
-/** Counts shown as superscripts: Work = published case studies, Stack = number of tools. */
+/** Navigation items linking directly to individual homepage sections */
 export const nav = [
-  { label: "Work", href: "/work" },
-  { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
-  { label: "Stack", href: "/stack" },
+  { label: "Services", href: "/#services" },
+  { label: "Advantage", href: "/#advantage" },
+  { label: "Process", href: "/#process" },
+  { label: "Why Us", href: "/#why-us" },
+  { label: "Reviews", href: "/#reviews" },
+  { label: "FAQ", href: "/#faq" },
 ] as const;
 
-export const footerStudio = ["Work", "Services", "About", "Stack", "Contact"].map((label) => ({
-  label,
-  href: `/${label.toLowerCase()}`,
-}));
-export const footerServices = ["Web Development", "UI/UX Design", "AI & Automation", "App Development"];
+export const footerStudio = [
+  { label: "Capabilities & Services", href: "/#services" },
+  { label: "The Studio Advantage", href: "/#advantage" },
+  { label: "How We Work (4 Steps)", href: "/#process" },
+  { label: "Why Clients Stay", href: "/#why-us" },
+  { label: "Client Reviews", href: "/#reviews" },
+  { label: "Frequently Asked Questions", href: "/#faq" },
+];
+
+export const footerServices = [
+  { label: "High-Conversion Web Platforms", href: "/#services" },
+  { label: "Native iOS & Android Apps", href: "/#services" },
+  { label: "Autonomous AI Agents & Bots", href: "/#services" },
+  { label: "Custom Business Systems & ERP", href: "/#services" },
+  { label: "Design Systems & UI/UX", href: "/#services" },
+];

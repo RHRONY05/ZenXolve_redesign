@@ -59,7 +59,7 @@ export default function Home() {
         </Section>
 
         {/* SECTION 03: How We Work (4 Steps) */}
-        <Section top="flow" className="relative z-10 !pt-2 md:!pt-4 !pb-6 md:!pb-10">
+        <Section top="flow" id="process" className="relative z-10 !pt-2 md:!pt-4 !pb-6 md:!pb-10">
           <SectionHead
             index="03"
             label="How we work"
@@ -75,7 +75,7 @@ export default function Home() {
         </Section>
       </div>
 
-      <Section top="flow" className="!pt-2 md:!pt-4">
+      <Section top="flow" id="why-us" className="!pt-2 md:!pt-4">
         <SectionHead
           index="04"
           label="Why Xenzolve"
@@ -90,7 +90,7 @@ export default function Home() {
         <Reasons />
       </Section>
 
-      <Section top="flow" className="!pt-4 md:!pt-6">
+      <Section top="flow" id="reviews" className="!pt-4 md:!pt-6">
         <SectionHead
           index="05"
           label="Client words"
@@ -105,7 +105,7 @@ export default function Home() {
         <Quotes items={testimonials} />
       </Section>
 
-      <Section top="flow" className="!pt-4 md:!pt-6">
+      <Section top="flow" id="industries" className="!pt-4 md:!pt-6">
         <SectionHead
           index="06"
           label="Industries We Serve"
@@ -120,7 +120,7 @@ export default function Home() {
         <IndustryList />
       </Section>
 
-      <Section top="flow" className="!pt-6 md:!pt-10">
+      <Section top="flow" id="faq" className="!pt-6 md:!pt-10">
         <div className="max-w-4xl mx-auto">
           <SectionHead
             index="07"

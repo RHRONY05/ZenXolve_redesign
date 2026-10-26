@@ -10,7 +10,7 @@ import { Icon } from "@/components/ui/Icon";
 import { Logo } from "@/components/ui/Logo";
 import { useChrome } from "./ChromeProvider";
 
-const links = [...nav, { label: "Contact", href: "/contact" } as const];
+const links = [...nav, { label: "Contact", href: "/#contact" } as const];
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 /** Full-screen sheet for < 768px. Focus is trapped while open; Esc closes; focus returns to the opener. */

@@ -61,11 +61,11 @@ export function FloatingBottomNav() {
   };
 
   const navLinks = [
-    { label: "Work", href: "/work", icon: Briefcase },
-    { label: "Services", href: "/services", icon: Puzzle },
-    { label: "Let's Talk", href: "/contact", isCta: true },
-    { label: "About", href: "/about", icon: Users },
-    { label: "Stack", href: "/stack", icon: Cpu },
+    { label: "Services", href: "/#services", icon: Puzzle },
+    { label: "Advantage", href: "/#advantage", icon: Briefcase },
+    { label: "Let's Talk", href: "/#contact", isCta: true },
+    { label: "Process", href: "/#process", icon: Cpu },
+    { label: "Why Us", href: "/#why-us", icon: Users },
   ];
 
   const isContactActive = pathname === "/contact";
