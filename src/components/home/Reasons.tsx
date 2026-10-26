@@ -95,9 +95,9 @@ export function Reasons() {
           })}
         </div>
 
-        {/* Integrated Big & Clear Trust Stats (Inside the Canvas Window) */}
-        <div className="relative z-10 border-t border-slate-300/80 bg-white/80 backdrop-blur-xs p-5 sm:p-7 md:p-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-200">
+        {/* Integrated Big & Clear Trust Stats (Inside the Canvas Window with Dotted Grid Background) */}
+        <div className="relative z-10 border-t border-slate-300/80 bg-transparent p-5 sm:p-7 md:p-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-300/70">
             {/* Stat 01 */}
             <div className="flex flex-col items-center sm:items-start sm:px-4 lg:px-6 first:pl-0">
               <span className="font-serif text-3xl sm:text-4xl md:text-[44px] lg:text-5xl font-normal tracking-tight text-slate-950 leading-none">
@@ -114,10 +114,10 @@ export function Reasons() {
             {/* Stat 02 */}
             <div className="flex flex-col items-center sm:items-start sm:px-4 lg:px-6">
               <span className="font-serif text-3xl sm:text-4xl md:text-[44px] lg:text-5xl font-normal tracking-tight text-slate-950 leading-none">
-                40<span className="text-cyan-600 font-sans font-bold text-2xl sm:text-3xl ml-0.5">+</span>
+                10<span className="text-cyan-600 font-sans font-bold text-2xl sm:text-3xl ml-0.5">+</span>
               </span>
               <span className="mt-2 font-mono text-[11.5px] sm:text-xs font-bold uppercase tracking-wider text-slate-800">
-                Production Launches
+                Delivered Projects
               </span>
               <span className="mt-1 text-[11.5px] text-slate-500 font-sans hidden sm:block">
                 Web, mobile &amp; autonomous AI
