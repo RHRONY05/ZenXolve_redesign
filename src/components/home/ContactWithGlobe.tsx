@@ -887,7 +887,7 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
                   minLength={20}
                   placeholder="Tell us about what you want to build (timeline, tech requirements, scope)..."
                   rows={4}
-                  className="w-full bg-[#080b1a] border border-white/10 rounded-xl px-4 py-2.5 sm:py-3 text-sm text-white placeholder:text-slate-500 outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 resize-none transition-all duration-200"
+                  className="w-full bg-[var(--bg)]/90 border border-white/12 rounded-xl px-4 py-2.5 sm:py-3 text-sm text-white placeholder:text-slate-500 outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-soft)] resize-none transition-all duration-200"
                 />
                 {fieldErrors.message && (
                   <span className="text-xs text-rose-400">{fieldErrors.message}</span>

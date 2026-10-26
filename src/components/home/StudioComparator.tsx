@@ -1,9 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function StudioComparator() {
   const [mode, setMode] = useState<"xenzolve" | "traditional">("xenzolve");
+  const [isEditorial, setIsEditorial] = useState(false);
+
+  useEffect(() => {
+    const update = () => {
+      setIsEditorial(document.documentElement.dataset.palette === "editorial");
+    };
+    update();
+    const observer = new MutationObserver(update);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-palette"],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="mb-10 sm:mb-14 rounded-2xl border border-white/15 bg-[var(--surface)]/95 p-5 sm:p-8 backdrop-blur-xl shadow-[0_24px_60px_rgba(0,0,0,0.65)] transition-all">
@@ -54,22 +68,22 @@ export function StudioComparator() {
           <defs>
             <linearGradient id="lightning-stage1" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="25%" stopColor="#c084fc" />
-              <stop offset="65%" stopColor="#8b5cf6" />
+              <stop offset="25%" stopColor={isEditorial ? "#fb923c" : "#c084fc"} />
+              <stop offset="65%" stopColor={isEditorial ? "#ff7857" : "#8b5cf6"} />
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
             <linearGradient id="lightning-stage2" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="25%" stopColor="#22d3ee" />
-              <stop offset="65%" stopColor="#06b6d4" />
+              <stop offset="25%" stopColor={isEditorial ? "#fde047" : "#22d3ee"} />
+              <stop offset="65%" stopColor={isEditorial ? "#fb923c" : "#06b6d4"} />
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
             <linearGradient id="lightning-stage3" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="25%" stopColor="#34d399" />
-              <stop offset="65%" stopColor="#10b981" />
+              <stop offset="25%" stopColor={isEditorial ? "#86efac" : "#34d399"} />
+              <stop offset="65%" stopColor={isEditorial ? "#59c7a6" : "#10b981"} />
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
           </defs>
@@ -89,11 +103,11 @@ export function StudioComparator() {
 
                 {/* Stem 1 descent packet (97% - 100%) */}
                 <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[2px] bottom-0 overflow-hidden">
-                  <div className="absolute left-0 right-0 h-4 bg-gradient-to-b from-transparent to-violet-300 opacity-0 animate-circuit-stem1-packet shadow-[0_0_8px_#c084fc]" />
+                  <div className={`absolute left-0 right-0 h-4 bg-gradient-to-b from-transparent ${isEditorial ? "to-[#ff9175] shadow-[0_0_8px_#ff7857]" : "to-violet-300 shadow-[0_0_8px_#c084fc]"} opacity-0 animate-circuit-stem1-packet`} />
                 </div>
 
                 {/* Terminal Node 1 */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-2.5 rounded-full border border-violet-400/60 bg-[#121633] shadow-[0_0_8px_rgba(168,85,247,0.4)]" />
+                <div className={`absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-2.5 rounded-full border ${isEditorial ? "border-[#ff7857]/60 bg-[#222926] shadow-[0_0_8px_rgba(255,120,87,0.4)]" : "border-violet-400/60 bg-[#121633] shadow-[0_0_8px_rgba(168,85,247,0.4)]"}`} />
               </div>
 
               {/* Column 2: Above Arrow 1 */}
@@ -107,7 +121,7 @@ export function StudioComparator() {
                 <div className="absolute top-2 left-0 right-0 h-[2px] bg-white/10" />
 
                 {/* Terminal Node 2 (Junction) */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-2.5 rounded-full border border-cyan-400/60 bg-[#121633] shadow-[0_0_8px_rgba(6,182,212,0.4)]" />
+                <div className={`absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-2.5 rounded-full border ${isEditorial ? "border-[#facc15]/60 bg-[#222926] shadow-[0_0_8px_rgba(250,204,21,0.4)]" : "border-cyan-400/60 bg-[#121633] shadow-[0_0_8px_rgba(6,182,212,0.4)]"}`} />
               </div>
 
               {/* Column 4: Above Arrow 2 */}
@@ -125,16 +139,16 @@ export function StudioComparator() {
 
                 {/* Stem 3 ascent packet (86% - 89%) */}
                 <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[2px] bottom-0 overflow-hidden">
-                  <div className="absolute left-0 right-0 h-4 bg-gradient-to-t from-transparent to-emerald-300 opacity-0 animate-circuit-stem3-packet shadow-[0_0_8px_#34d399]" />
+                  <div className={`absolute left-0 right-0 h-4 bg-gradient-to-t from-transparent ${isEditorial ? "to-[#86efac] shadow-[0_0_8px_#59c7a6]" : "to-emerald-300 shadow-[0_0_8px_#34d399]"} opacity-0 animate-circuit-stem3-packet`} />
                 </div>
 
                 {/* Terminal Node 3 */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-2.5 rounded-full border border-emerald-400/60 bg-[#121633] shadow-[0_0_8px_rgba(16,185,129,0.4)]" />
+                <div className={`absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-2.5 rounded-full border ${isEditorial ? "border-[#59c7a6]/60 bg-[#222926] shadow-[0_0_8px_rgba(89,199,166,0.4)]" : "border-emerald-400/60 bg-[#121633] shadow-[0_0_8px_rgba(16,185,129,0.4)]"}`} />
               </div>
 
               {/* Overhead Return Flying Packet (East -> West across entire width) */}
               <div className="absolute top-2 left-[15%] right-[15%] h-[2px] overflow-visible pointer-events-none">
-                <div className="absolute top-1/2 -translate-y-1/2 h-1 rounded-full bg-gradient-to-l from-emerald-300 via-cyan-200 to-white opacity-0 animate-circuit-overhead-track shadow-[0_0_14px_#67e8f9,0_0_24px_rgba(168,85,247,0.8)]" />
+                <div className={`absolute top-1/2 -translate-y-1/2 h-1 rounded-full ${isEditorial ? "bg-gradient-to-l from-[#59c7a6] via-[#facc15] to-[#ff7857] shadow-[0_0_14px_#facc15,0_0_24px_rgba(255,120,87,0.8)]" : "bg-gradient-to-l from-emerald-300 via-cyan-200 to-white shadow-[0_0_14px_#67e8f9,0_0_24px_rgba(168,85,247,0.8)]"} opacity-0 animate-circuit-overhead-track`} />
               </div>
             </div>
 
@@ -142,7 +156,7 @@ export function StudioComparator() {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-4 md:gap-2 items-center">
               
               {/* STAGE 01: Precision UI/UX Design */}
-              <div className="relative overflow-hidden flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-violet-500/40 border-t-2 border-t-violet-400 bg-[#1a1b44]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)] transition-all animate-circuit-stage1-glow">
+              <div className={`relative overflow-hidden flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border transition-all animate-circuit-stage1-glow p-6 sm:p-7 ${isEditorial ? "border-[#ff7857]/45 border-t-2 border-t-[#ff7857] bg-[#29201c]/95 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),_0_12px_32px_rgba(0,0,0,0.55)]" : "border-violet-500/40 border-t-2 border-t-violet-400 bg-[#1a1b44]/95 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)]"}`}>
                 {/* Traveling Lightning Perimeter Beam (Tablet/Desktop) */}
                 <svg className="pointer-events-none absolute inset-0 size-full overflow-hidden rounded-2xl z-20 hidden md:block" fill="none">
                   <rect
@@ -155,16 +169,16 @@ export function StudioComparator() {
                     strokeWidth="3"
                     pathLength="100"
                     className="animate-circuit-stage1-beam"
-                    style={{ filter: "drop-shadow(0 0 6px #c084fc)" }}
+                    style={{ filter: isEditorial ? "drop-shadow(0 0 6px #ff7857)" : "drop-shadow(0 0 6px #c084fc)" }}
                   />
                 </svg>
 
                 <div className="relative z-10">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="font-mono text-xs font-bold text-violet-300 px-2.5 py-1 rounded-md bg-violet-500/15 border border-violet-500/30">
+                    <span className={`font-mono text-xs font-bold px-2.5 py-1 rounded-md border ${isEditorial ? "text-[#ff9f86] bg-[#ff7857]/15 border-[#ff7857]/35" : "text-violet-300 bg-violet-500/15 border-violet-500/30"}`}>
                       STAGE 01
                     </span>
-                    <span className="text-[11px] font-mono font-medium text-violet-300/80">
+                    <span className={`text-[11px] font-mono font-medium ${isEditorial ? "text-[#ff9f86]/80" : "text-violet-300/80"}`}>
                       Tokens In Repo
                     </span>
                   </div>
@@ -178,11 +192,11 @@ export function StudioComparator() {
 
                 <div className="relative z-10 mt-6 pt-4 border-t border-white/[0.08] flex flex-col gap-2 font-mono text-xs text-slate-300">
                   <div className="flex items-center gap-2">
-                    <span className="text-violet-400 font-bold">✓</span>
+                    <span className={`${isEditorial ? "text-[#ff7857]" : "text-violet-400"} font-bold`}>✓</span>
                     <span>Tokens sync straight to GitHub</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-violet-400 font-bold">✓</span>
+                    <span className={`${isEditorial ? "text-[#ff7857]" : "text-violet-400"} font-bold`}>✓</span>
                     <span>Component architecture spec</span>
                   </div>
                 </div>
@@ -193,13 +207,13 @@ export function StudioComparator() {
                 {/* Desktop horizontal flow with single continuous laser beam streak */}
                 <div className="hidden md:flex items-center justify-center relative w-16 lg:w-20 h-8 -mx-2 overflow-visible">
                   {/* Continuous horizontal baseline track spanning gap-to-gap (flush with card borders) */}
-                  <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500/40 via-cyan-500/50 to-cyan-500/40" />
+                  <div className={`absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px] bg-gradient-to-r ${isEditorial ? "from-[#ff7857]/40 via-[#facc15]/50 to-[#facc15]/40" : "from-violet-500/40 via-cyan-500/50 to-cyan-500/40"}`} />
 
                   {/* Single continuous traveling laser beam streak (preserves beam shape from boxes) */}
-                  <div className="absolute top-1/2 -translate-y-1/2 h-[3px] w-8 rounded-full pointer-events-none opacity-0 animate-circuit-arrow1-beam shadow-[0_0_10px_#22d3ee,0_0_16px_#c084fc] bg-gradient-to-r from-transparent via-violet-400 via-cyan-400 to-white" />
+                  <div className={`absolute top-1/2 -translate-y-1/2 h-[3px] w-8 rounded-full pointer-events-none opacity-0 animate-circuit-arrow1-beam ${isEditorial ? "shadow-[0_0_10px_#facc15,0_0_16px_#ff7857] bg-gradient-to-r from-transparent via-[#ff7857] via-[#facc15] to-white" : "shadow-[0_0_10px_#22d3ee,0_0_16px_#c084fc] bg-gradient-to-r from-transparent via-violet-400 via-cyan-400 to-white"}`} />
 
                   {/* Center Arrow Circle Indicator */}
-                  <div className="relative z-10 flex size-7 lg:size-8 items-center justify-center rounded-full border border-cyan-400/40 bg-[#0e132e] text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.3)] animate-circuit-arrow1-circle transition-all">
+                  <div className={`relative z-10 flex size-7 lg:size-8 items-center justify-center rounded-full border ${isEditorial ? "border-[#facc15]/40 bg-[#1e2320] text-[#fde047] shadow-[0_0_12px_rgba(250,204,21,0.3)]" : "border-cyan-400/40 bg-[#0e132e] text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.3)]"} animate-circuit-arrow1-circle transition-all`}>
                     <svg className="size-3.5 lg:size-4" viewBox="0 0 16 16" fill="none">
                       <path d="M5 3L10 8L5 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -207,18 +221,18 @@ export function StudioComparator() {
                 </div>
                 {/* Mobile vertical flow */}
                 <div className="flex md:hidden flex-col items-center">
-                  <div className="w-[2px] h-3 bg-violet-500/40" />
-                  <div className="flex size-7 items-center justify-center rounded-full border border-cyan-400/40 bg-[#0e132e] text-cyan-300 shadow-[0_0_10px_rgba(6,182,212,0.3)]">
+                  <div className={`w-[2px] h-3 ${isEditorial ? "bg-[#ff7857]/40" : "bg-violet-500/40"}`} />
+                  <div className={`flex size-7 items-center justify-center rounded-full border ${isEditorial ? "border-[#facc15]/40 bg-[#1e2320] text-[#fde047] shadow-[0_0_10px_rgba(250,204,21,0.3)]" : "border-cyan-400/40 bg-[#0e132e] text-cyan-300 shadow-[0_0_10px_rgba(6,182,212,0.3)]"}`}>
                     <svg className="size-3.5" viewBox="0 0 16 16" fill="none">
                       <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <div className="w-[2px] h-3 bg-cyan-500/40" />
+                  <div className={`w-[2px] h-3 ${isEditorial ? "bg-[#facc15]/40" : "bg-cyan-500/40"}`} />
                 </div>
               </div>
 
               {/* STAGE 02: Full-Stack Cloud Engineering */}
-              <div className="relative overflow-hidden flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-cyan-500/40 border-t-2 border-t-cyan-400 bg-[#0f2444]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)] transition-all animate-circuit-stage2-glow">
+              <div className={`relative overflow-hidden flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border transition-all animate-circuit-stage2-glow p-6 sm:p-7 ${isEditorial ? "border-[#facc15]/45 border-t-2 border-t-[#facc15] bg-[#272317]/95 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),_0_12px_32px_rgba(0,0,0,0.55)]" : "border-cyan-500/40 border-t-2 border-t-cyan-400 bg-[#0f2444]/95 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)]"}`}>
                 {/* Traveling Lightning Perimeter Beam (Tablet/Desktop) */}
                 <svg className="pointer-events-none absolute inset-0 size-full overflow-hidden rounded-2xl z-20 hidden md:block" fill="none">
                   <rect
@@ -231,16 +245,16 @@ export function StudioComparator() {
                     strokeWidth="3"
                     pathLength="100"
                     className="animate-circuit-stage2-beam"
-                    style={{ filter: "drop-shadow(0 0 6px #22d3ee)" }}
+                    style={{ filter: isEditorial ? "drop-shadow(0 0 6px #facc15)" : "drop-shadow(0 0 6px #22d3ee)" }}
                   />
                 </svg>
 
                 <div className="relative z-10">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="font-mono text-xs font-bold text-cyan-300 px-2.5 py-1 rounded-md bg-cyan-500/15 border border-cyan-500/30">
+                    <span className={`font-mono text-xs font-bold px-2.5 py-1 rounded-md border ${isEditorial ? "text-[#fde047] bg-[#facc15]/15 border-[#facc15]/35" : "text-cyan-300 bg-cyan-500/15 border-cyan-500/30"}`}>
                       STAGE 02
                     </span>
-                    <span className="text-[11px] font-mono font-medium text-cyan-300/80">
+                    <span className={`text-[11px] font-mono font-medium ${isEditorial ? "text-[#fde047]/80" : "text-cyan-300/80"}`}>
                       1:1 Implementation
                     </span>
                   </div>
@@ -254,11 +268,11 @@ export function StudioComparator() {
 
                 <div className="relative z-10 mt-6 pt-4 border-t border-white/[0.08] flex flex-col gap-2 font-mono text-xs text-slate-300">
                   <div className="flex items-center gap-2">
-                    <span className="text-cyan-400 font-bold">✓</span>
+                    <span className={`${isEditorial ? "text-[#facc15]" : "text-cyan-400"} font-bold`}>✓</span>
                     <span>Type-safe Next.js + Postgres</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-cyan-400 font-bold">✓</span>
+                    <span className={`${isEditorial ? "text-[#facc15]" : "text-cyan-400"} font-bold`}>✓</span>
                     <span>Pixel-perfect responsive layout</span>
                   </div>
                 </div>
@@ -269,13 +283,13 @@ export function StudioComparator() {
                 {/* Desktop horizontal flow with single continuous laser beam streak */}
                 <div className="hidden md:flex items-center justify-center relative w-16 lg:w-20 h-8 -mx-2 overflow-visible">
                   {/* Continuous horizontal baseline track spanning gap-to-gap (flush with card borders) */}
-                  <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-500/40 via-emerald-500/50 to-emerald-500/40" />
+                  <div className={`absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px] bg-gradient-to-r ${isEditorial ? "from-[#facc15]/40 via-[#59c7a6]/50 to-[#59c7a6]/40" : "from-cyan-500/40 via-emerald-500/50 to-emerald-500/40"}`} />
 
                   {/* Single continuous traveling laser beam streak (preserves beam shape from boxes) */}
-                  <div className="absolute top-1/2 -translate-y-1/2 h-[3px] w-8 rounded-full pointer-events-none opacity-0 animate-circuit-arrow2-beam shadow-[0_0_10px_#34d399,0_0_16px_#22d3ee] bg-gradient-to-r from-transparent via-cyan-400 via-emerald-400 to-white" />
+                  <div className={`absolute top-1/2 -translate-y-1/2 h-[3px] w-8 rounded-full pointer-events-none opacity-0 animate-circuit-arrow2-beam ${isEditorial ? "shadow-[0_0_10px_#59c7a6,0_0_16px_#facc15] bg-gradient-to-r from-transparent via-[#facc15] via-[#59c7a6] to-white" : "shadow-[0_0_10px_#34d399,0_0_16px_#22d3ee] bg-gradient-to-r from-transparent via-cyan-400 via-emerald-400 to-white"}`} />
 
                   {/* Center Arrow Circle Indicator */}
-                  <div className="relative z-10 flex size-7 lg:size-8 items-center justify-center rounded-full border border-emerald-400/40 bg-[#0e132e] text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.3)] animate-circuit-arrow2-circle transition-all">
+                  <div className={`relative z-10 flex size-7 lg:size-8 items-center justify-center rounded-full border ${isEditorial ? "border-[#59c7a6]/40 bg-[#1e2320] text-[#86efac] shadow-[0_0_12px_rgba(89,199,166,0.3)]" : "border-emerald-400/40 bg-[#0e132e] text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.3)]"} animate-circuit-arrow2-circle transition-all`}>
                     <svg className="size-3.5 lg:size-4" viewBox="0 0 16 16" fill="none">
                       <path d="M5 3L10 8L5 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -283,18 +297,18 @@ export function StudioComparator() {
                 </div>
                 {/* Mobile vertical flow */}
                 <div className="flex md:hidden flex-col items-center">
-                  <div className="w-[2px] h-3 bg-cyan-500/40" />
-                  <div className="flex size-7 items-center justify-center rounded-full border border-emerald-400/40 bg-[#0e132e] text-emerald-300 shadow-[0_0_10px_rgba(16,185,129,0.3)]">
+                  <div className={`w-[2px] h-3 ${isEditorial ? "bg-[#facc15]/40" : "bg-cyan-500/40"}`} />
+                  <div className={`flex size-7 items-center justify-center rounded-full border ${isEditorial ? "border-[#59c7a6]/40 bg-[#1e2320] text-[#86efac] shadow-[0_0_10px_rgba(89,199,166,0.3)]" : "border-emerald-400/40 bg-[#0e132e] text-emerald-300 shadow-[0_0_10px_rgba(16,185,129,0.3)]"}`}>
                     <svg className="size-3.5" viewBox="0 0 16 16" fill="none">
                       <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <div className="w-[2px] h-3 bg-emerald-500/40" />
+                  <div className={`w-[2px] h-3 ${isEditorial ? "bg-[#59c7a6]/40" : "bg-emerald-500/40"}`} />
                 </div>
               </div>
 
               {/* STAGE 03: Autonomous AI & Workflows */}
-              <div className="relative overflow-hidden flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border border-emerald-500/40 border-t-2 border-t-emerald-400 bg-[#0d2e2b]/95 p-6 sm:p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)] transition-all animate-circuit-stage3-glow">
+              <div className={`relative overflow-hidden flex flex-col justify-between h-full min-h-[260px] sm:min-h-[280px] rounded-2xl border transition-all animate-circuit-stage3-glow p-6 sm:p-7 ${isEditorial ? "border-[#59c7a6]/45 border-t-2 border-t-[#59c7a6] bg-[#1a2822]/95 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),_0_12px_32px_rgba(0,0,0,0.55)]" : "border-emerald-500/40 border-t-2 border-t-emerald-400 bg-[#0d2e2b]/95 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.45)]"}`}>
                 {/* Traveling Lightning Perimeter Beam (Tablet/Desktop) */}
                 <svg className="pointer-events-none absolute inset-0 size-full overflow-hidden rounded-2xl z-20 hidden md:block" fill="none">
                   <rect
@@ -307,16 +321,16 @@ export function StudioComparator() {
                     strokeWidth="3"
                     pathLength="100"
                     className="animate-circuit-stage3-beam"
-                    style={{ filter: "drop-shadow(0 0 6px #34d399)" }}
+                    style={{ filter: isEditorial ? "drop-shadow(0 0 6px #59c7a6)" : "drop-shadow(0 0 6px #34d399)" }}
                   />
                 </svg>
 
                 <div className="relative z-10">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="font-mono text-xs font-bold text-emerald-300 px-2.5 py-1 rounded-md bg-emerald-500/15 border border-emerald-500/30">
+                    <span className={`font-mono text-xs font-bold px-2.5 py-1 rounded-md border ${isEditorial ? "text-[#86efac] bg-[#59c7a6]/15 border-[#59c7a6]/35" : "text-emerald-300 bg-emerald-500/15 border-emerald-500/30"}`}>
                       STAGE 03
                     </span>
-                    <span className="text-[11px] font-mono font-medium text-emerald-300/80">
+                    <span className={`text-[11px] font-mono font-medium ${isEditorial ? "text-[#86efac]/80" : "text-emerald-300/80"}`}>
                       Native APIs
                     </span>
                   </div>
@@ -330,11 +344,11 @@ export function StudioComparator() {
 
                 <div className="relative z-10 mt-6 pt-4 border-t border-white/[0.08] flex flex-col gap-2 font-mono text-xs text-slate-300">
                   <div className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">✓</span>
+                    <span className={`${isEditorial ? "text-[#59c7a6]" : "text-emerald-400"} font-bold`}>✓</span>
                     <span>Event-driven WhatsApp / CRM agents</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-bold">✓</span>
+                    <span className={`${isEditorial ? "text-[#59c7a6]" : "text-emerald-400"} font-bold`}>✓</span>
                     <span>Direct core DB read/write actions</span>
                   </div>
                 </div>
