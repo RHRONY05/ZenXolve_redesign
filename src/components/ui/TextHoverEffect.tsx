@@ -4,10 +4,14 @@ import React, { useRef, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface TextHoverEffectProps {
-  text?: string;
   duration?: number;
   className?: string;
 }
+
+// Authentic XenZolve geometric lightning-chevron 'X' emblem path
+// Precision-vectorized from the brand identity mark
+const X_EMBLEM_PATH =
+  "M 102.1 24.0 L 116.2 24.6 L 62.2 32.0 L 134.0 97.0 L 15.0 116.0 L 88.0 72.5 L 59.2 100.1 L 113.2 91.4 L 42.6 27.0 L 102.1 24.6 Z M 156.0 24.0 L 157.3 41.2 L 122.4 60.2 L 151.2 34.4 L 97.8 41.8 L 157.3 98.8 L 157.3 108.0 L 94.1 108.6 L 146.3 101.9 L 76.9 35.7 L 156.0 24.6 Z";
 
 export const TextHoverEffect = ({
   duration = 0.2,
@@ -38,7 +42,7 @@ export const TextHoverEffect = ({
       ref={svgRef}
       width="100%"
       height="100%"
-      viewBox="0 0 1000 150"
+      viewBox="0 0 1010 140"
       xmlns="http://www.w3.org/2000/svg"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => {
@@ -46,10 +50,10 @@ export const TextHoverEffect = ({
         setCursor({ x: null, y: null });
       }}
       onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
-      className={cn("w-full h-full select-none uppercase cursor-pointer overflow-visible", className)}
+      className={cn("w-full h-full select-none cursor-pointer overflow-visible", className)}
     >
       <defs>
-        {/* Multi-color iridescent neon gradient on hover */}
+        {/* Multi-color iridescent neon gradient revealed on hover */}
         <linearGradient
           id="xenzolveTextGradient"
           gradientUnits="userSpaceOnUse"
@@ -58,18 +62,18 @@ export const TextHoverEffect = ({
           x2="100%"
           y2="0%"
         >
-          <stop offset="0%" stopColor="#c084fc" />
-          <stop offset="18%" stopColor="#818cf8" />
-          <stop offset="38%" stopColor="#38bdf8" />
-          <stop offset="60%" stopColor="#80eeb4" />
-          <stop offset="82%" stopColor="#06b6d4" />
-          <stop offset="100%" stopColor="#a78bfa" />
+          <stop offset="0%" stopColor="#38bdf8" />
+          <stop offset="20%" stopColor="#818cf8" />
+          <stop offset="42%" stopColor="#c084fc" />
+          <stop offset="65%" stopColor="#38bdf8" />
+          <stop offset="85%" stopColor="#80eeb4" />
+          <stop offset="100%" stopColor="#06b6d4" />
         </linearGradient>
 
         <radialGradient
           id="revealMask"
           gradientUnits="userSpaceOnUse"
-          r="22%"
+          r="25%"
           cx={maskPosition.cx}
           cy={maskPosition.cy}
           style={{
@@ -91,77 +95,88 @@ export const TextHoverEffect = ({
         </mask>
       </defs>
 
-      {/* Layer 1: Background subtle white/gray stroke for ambient structure */}
-      <text
-        x="500"
-        y="80"
-        textAnchor="middle"
-        dominantBaseline="central"
-        textLength="980"
-        lengthAdjust="spacing"
-        strokeWidth="0.4"
-        className="fill-transparent stroke-white/10 font-sans text-[118px] font-black tracking-[0.18em]"
-        style={{ opacity: hovered ? 0.5 : 0.18 }}
+      {/* Layer 1: Ambient background outline (faint stroke for structure) */}
+      <g
+        fill="none"
+        strokeWidth="0.5"
+        className="stroke-white/10"
+        style={{ opacity: hovered ? 0.45 : 0.18 }}
       >
-        <tspan className="stroke-white/15">X</tspan>
-        <tspan>ENZOLVE</tspan>
-      </text>
+        {/* Custom stylized XenZolve 'X' emblem */}
+        <path d={X_EMBLEM_PATH} />
+        {/* 'ENZOLVE' letters covering the rest of the footer length */}
+        <text
+          x="180"
+          y="72"
+          textAnchor="start"
+          dominantBaseline="central"
+          textLength="815"
+          lengthAdjust="spacing"
+          className="font-sans text-[96px] font-black uppercase tracking-[0.16em]"
+        >
+          ENZOLVE
+        </text>
+      </g>
 
-      {/* Layer 2: Main illuminated brand stroke */}
-      {/* 'X' is customized in signature home-screen theme violet (#c4b5fd / #a78bfa) */}
-      {/* 'ENZOLVE' is illuminated in brand cyan (#3ca2fa) */}
-      <text
-        x="500"
-        y="80"
-        textAnchor="middle"
-        dominantBaseline="central"
-        textLength="980"
-        lengthAdjust="spacing"
-        strokeWidth="0.65"
-        className="fill-transparent font-sans text-[118px] font-black tracking-[0.18em] transition-all duration-300"
+      {/* Layer 2: Main illuminated stroke (#3ca2fa / ice cyan) */}
+      <g
+        fill="none"
+        stroke="#3ca2fa"
+        strokeWidth="0.75"
+        className="transition-all duration-300"
         style={{
-          strokeDasharray: 2000,
+          strokeDasharray: 2400,
           strokeDashoffset: 0,
           animation: "strokeDraw 3.5s cubic-bezier(0.25, 1, 0.5, 1) forwards",
+          opacity: 0.75,
         }}
       >
-        {/* Customized 'X' with signature home-screen theme accent and subtle neon bloom */}
-        <tspan
-          className="stroke-[#c4b5fd] hover:stroke-[#e9d5ff]"
+        {/* Custom stylized XenZolve 'X' emblem with subtle bloom */}
+        <path
+          d={X_EMBLEM_PATH}
           style={{
-            filter: "drop-shadow(0 0 14px rgba(196, 181, 253, 0.55))",
+            filter: "drop-shadow(0 0 10px rgba(60, 162, 250, 0.4))",
           }}
-        >
-          X
-        </tspan>
-        {/* 'ENZOLVE' letters in crisp cyan */}
-        <tspan
-          className="stroke-[#3ca2fa]/65 hover:stroke-[#3ca2fa]/95"
+        />
+        {/* 'ENZOLVE' letters */}
+        <text
+          x="180"
+          y="72"
+          textAnchor="start"
+          dominantBaseline="central"
+          textLength="815"
+          lengthAdjust="spacing"
+          className="font-sans text-[96px] font-black uppercase tracking-[0.16em]"
           style={{
             filter: "drop-shadow(0 0 10px rgba(60, 162, 250, 0.35))",
           }}
         >
           ENZOLVE
-        </tspan>
-      </text>
+        </text>
+      </g>
 
-      {/* Layer 3: Interactive cursor reveal mask: reveals vibrant gradient under mouse */}
-      <text
-        x="500"
-        y="80"
-        textAnchor="middle"
-        dominantBaseline="central"
-        textLength="980"
-        lengthAdjust="spacing"
+      {/* Layer 3: Interactive cursor reveal mask: illuminates vibrant gradient under mouse */}
+      <g
+        fill="none"
         stroke="url(#xenzolveTextGradient)"
-        strokeWidth="0.9"
+        strokeWidth="1.1"
         mask="url(#textMask)"
-        className="fill-transparent font-sans text-[118px] font-black tracking-[0.18em] pointer-events-none transition-opacity duration-150"
+        className="pointer-events-none transition-opacity duration-150"
         style={{ opacity: hovered ? 1 : 0 }}
       >
-        <tspan>X</tspan>
-        <tspan>ENZOLVE</tspan>
-      </text>
+        <path d={X_EMBLEM_PATH} />
+        <text
+          x="180"
+          y="72"
+          textAnchor="start"
+          dominantBaseline="central"
+          textLength="815"
+          lengthAdjust="spacing"
+          className="font-sans text-[96px] font-black uppercase tracking-[0.16em]"
+        >
+          ENZOLVE
+        </text>
+      </g>
     </svg>
   );
 };

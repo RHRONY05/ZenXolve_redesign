@@ -92,9 +92,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Removed "Ready to transform your business?" CTA card to let the page flow cleanly from Section 08 (Interactive Contact Section) directly into the footer.
 - **Global Footer & Brand Display (`SiteFooter.tsx` & `TextHoverEffect.tsx`)**: **APPROVED & LOCKED 🔒**
   - Integrated massive outlined typographic brand display **"XENZOLVE"** (`TextHoverEffect.tsx`) spanning edge-to-edge across the full content length of the footer section (underneath social icons to copyright).
-  - Increased font height and width with generous letter gaps (`textLength="980"` across `viewBox="0 0 1000 150"`, `tracking-[0.18em]`).
-  - Customized the **"X"** with the signature home-screen theme violet accent (`#c4b5fd` with glowing bloom drop-shadow) followed by brand cyan `#3ca2fa` illumination for **"ENZOLVE"**.
-  - Interactive cursor-following radial mask reveals a vibrant neon iridescent gradient beam on hover, with initial SVG stroke animation.
+  - Increased font height and width with generous letter gaps (`textLength="815"` for `ENZOLVE` across `viewBox="0 0 1010 140"`).
+  - Customized the **"X"** with the authentic geometric dual-chevron cybernetic XenZolve brand logo emblem path matching the home-screen mark.
+  - Interactive cursor-following radial mask reveals a vibrant neon iridescent gradient beam across both the custom "X" emblem and "ENZOLVE" on hover, with initial SVG stroke animation and brand cyan `#3ca2fa` illumination.
   - Ambient cosmic glow (`FooterBackgroundGradient`) rising softly from the footer bottom edge.
 - **Back to Home Navigation (`BackToHome.tsx` & Navigation Bars)**: **IMPLEMENTED ✨**
   - Global floating **Back to Home** button with upward arrow and theme violet glow preserved at the bottom-right corner, appearing smoothly when scrolled down past 350px.
