@@ -104,5 +104,19 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Clean anchor navigation:
     - `About Us` (`/#advantage`), `Services` (`/#services`), `Process` (`/#process`), `Why Us` (`/#why-us`), `FAQ` (`/#faq`), and `Start a project` (`/#contact`).
 
-## 3. Active Next Steps
-1. Client final review of full homepage and navigation flow.
+## 3. Active Next Steps (For Next Session)
+1. **Mobile Responsiveness Audit & Optimization**:
+   - Comprehensive viewport audit (360px, 390px, 412px, 768px, 1024px) across all 8 homepage sections.
+   - Verify layout stacking, typography scale, touch targets, and mobile performance for:
+     - Hero centerpiece and project carousel
+     - Section 01 Services Grid (architectural frame and cards on mobile)
+     - Section 02 Studio Comparator (mode toggle and circuit cards)
+     - Section 03 How We Work (stacking deck + orbital constellation on small screens)
+     - Section 04 Why XenZolve (6 boxes + trust pillars)
+     - Section 05 & 06 Marquees (touch pause-on-hover & smooth 60fps translation)
+     - Section 07 FAQ accordion touch targets
+     - Section 08 Contact & Rotating Wireframe Globe (form inputs, dropdown, and globe scaling)
+     - Global Footer & Brand Display ("XENZOLVE" SVG scaling without horizontal overflow)
+2. **Multi-Theme Audit & Calibration (Cosmic Dark vs. Editorial / Light Mode)**:
+   - Check if both themes (`data-palette="cosmic"` vs `data-palette="editorial"`) render properly across all new components.
+   - Audit CSS custom properties (`var(--surface)`, `var(--ink)`, `var(--line)`) to ensure high contrast, zero unreadable text, and cohesive surfaces in both palettes.
