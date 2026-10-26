@@ -1,4 +1,4 @@
-import ContactWithGlobe from "@/components/home/ContactWithGlobe";
+import dynamic from "next/dynamic";
 import { Faq } from "@/components/home/Faq";
 import { HeroPhoto } from "@/components/home/HeroPhoto";
 import { IndustryList } from "@/components/home/IndustryList";
@@ -7,10 +7,17 @@ import { Quotes } from "@/components/home/Quotes";
 import { Reasons } from "@/components/home/Reasons";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { StudioComparator } from "@/components/home/StudioComparator";
-import { NebulaShader } from "@/components/ui/NebulaShader";
 import { Section } from "@/components/ui/Section";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { testimonials } from "@/content/testimonials";
+
+const ContactWithGlobe = dynamic(
+  () => import("@/components/home/ContactWithGlobe")
+);
+
+const NebulaShader = dynamic(
+  () => import("@/components/ui/NebulaShader").then((m) => m.NebulaShader)
+);
 
 export default function Home() {
   return (

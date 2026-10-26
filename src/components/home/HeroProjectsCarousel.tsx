@@ -104,7 +104,7 @@ export const row2Projects: ProjectCardItem[] = [
   },
 ];
 
-function ProjectCard({ project }: { project: ProjectCardItem }) {
+function ProjectCard({ project, isPriority = false }: { project: ProjectCardItem; isPriority?: boolean }) {
   const cardWidth = project.isWide
     ? "w-[380px] sm:w-[440px] md:w-[480px]"
     : "w-[280px] sm:w-[320px] md:w-[350px]";
@@ -139,6 +139,7 @@ function ProjectCard({ project }: { project: ProjectCardItem }) {
           src={project.image}
           alt={project.title}
           fill
+          priority={isPriority}
           sizes="(max-width: 768px) 350px, 480px"
           className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
         />
@@ -215,7 +216,7 @@ export function HeroProjectsCarousel() {
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_3%,black_97%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_3%,black_97%,transparent)]">
           <div className="hero-track-left flex gap-4 sm:gap-5 py-1">
             {row1Duplicated.map((project, idx) => (
-              <ProjectCard key={`row1-${project.id}-${idx}`} project={project} />
+              <ProjectCard key={`row1-${project.id}-${idx}`} project={project} isPriority={idx < 2} />
             ))}
           </div>
         </div>
@@ -224,7 +225,7 @@ export function HeroProjectsCarousel() {
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_3%,black_97%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_3%,black_97%,transparent)]">
           <div className="hero-track-right flex gap-4 sm:gap-5 py-1">
             {row2Duplicated.map((project, idx) => (
-              <ProjectCard key={`row2-${project.id}-${idx}`} project={project} />
+              <ProjectCard key={`row2-${project.id}-${idx}`} project={project} isPriority={idx < 2} />
             ))}
           </div>
         </div>

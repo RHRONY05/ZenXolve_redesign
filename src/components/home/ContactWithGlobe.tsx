@@ -239,8 +239,9 @@ export function GlobeWireframe({
     };
   }, [useResponsive]);
 
-  // Load world atlas (first from local fast cache, fallback to CDN)
+  // Load world atlas on demand when section enters viewport
   useEffect(() => {
+    if (!isVisible && !worldData) return;
     let isCancelled = false;
 
     const loadWorldData = async () => {

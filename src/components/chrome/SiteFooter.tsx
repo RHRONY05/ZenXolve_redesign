@@ -1,10 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { footerServices, footerStudio, site } from "@/content/site";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { Logo } from "@/components/ui/Logo";
-import { TextHoverEffect, FooterBackgroundGradient } from "@/components/ui/TextHoverEffect";
+import { FooterBackgroundGradient } from "@/components/ui/TextHoverEffect";
+
+const TextHoverEffect = dynamic(
+  () => import("@/components/ui/TextHoverEffect").then((m) => m.TextHoverEffect),
+  { ssr: false }
+);
 
 export function SiteFooter() {
   return (
