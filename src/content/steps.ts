@@ -8,12 +8,20 @@ export type StepMetric = {
   value: string;
 };
 
+export type StepHub = {
+  type: "brain" | "pen" | "cpu" | "globe";
+  title: string;
+  badge: string;
+  glowColor: string;
+};
+
 export type StepItem = {
   step: string;
   tab: string;
   headline: string;
   body: string;
   metrics: StepMetric[];
+  hub: StepHub;
   tools: StepTool[];
   theme: {
     bg: string;
@@ -23,6 +31,8 @@ export type StepItem = {
     tagBg: string;
     tagText: string;
     tabAccent: string;
+    lineColor: string;
+    hubBg: string;
   };
 };
 
@@ -38,6 +48,12 @@ export const stepsData: StepItem[] = [
       { label: "Visibility", value: "Async Loom & Notion Hub" },
       { label: "Focus", value: "Zero Guesswork Scoping" },
     ],
+    hub: {
+      type: "brain",
+      title: "Strategic AI Core",
+      badge: "SYNTHESIS",
+      glowColor: "rgba(14, 165, 233, 0.45)",
+    },
     tools: [
       { name: "Notion", iconFile: "notion.png" },
       { name: "Claude", iconFile: "claude.svg" },
@@ -53,6 +69,8 @@ export const stepsData: StepItem[] = [
       tagBg: "bg-[#081a30]/10",
       tagText: "text-[#081a30]",
       tabAccent: "bg-[#081a30]",
+      lineColor: "#0284c7",
+      hubBg: "bg-sky-500",
     },
   },
   {
@@ -66,6 +84,12 @@ export const stepsData: StepItem[] = [
       { label: "Components", value: "Tokens, Auto-layout & States" },
       { label: "Handoff", value: "1:1 Developer Alignment" },
     ],
+    hub: {
+      type: "pen",
+      title: "Design System Core",
+      badge: "EXPERIENCE",
+      glowColor: "rgba(16, 185, 129, 0.45)",
+    },
     tools: [
       { name: "Figma", iconFile: "figma.png" },
       { name: "Stitch", iconFile: "stitch.png" },
@@ -80,6 +104,8 @@ export const stepsData: StepItem[] = [
       tagBg: "bg-[#062916]/10",
       tagText: "text-[#062916]",
       tabAccent: "bg-[#062916]",
+      lineColor: "#059669",
+      hubBg: "bg-emerald-500",
     },
   },
   {
@@ -93,6 +119,12 @@ export const stepsData: StepItem[] = [
       { label: "Automations", value: "n8n Autonomous Workflows" },
       { label: "Code Quality", value: "CI/CD & Unit Coverage" },
     ],
+    hub: {
+      type: "cpu",
+      title: "Full-Stack Engine",
+      badge: "ARCHITECTURE",
+      glowColor: "rgba(139, 92, 246, 0.45)",
+    },
     tools: [
       { name: "Next.js", iconFile: "nextjs.png" },
       { name: "TypeScript", iconFile: "typescript.png" },
@@ -108,6 +140,8 @@ export const stepsData: StepItem[] = [
       tagBg: "bg-[#170e33]/10",
       tagText: "text-[#170e33]",
       tabAccent: "bg-[#170e33]",
+      lineColor: "#7c3aed",
+      hubBg: "bg-purple-600",
     },
   },
   {
@@ -121,6 +155,12 @@ export const stepsData: StepItem[] = [
       { label: "Telemetry", value: "Real-time Error Tracking" },
       { label: "Support", value: "Direct Telegram & WhatsApp" },
     ],
+    hub: {
+      type: "globe",
+      title: "Global Edge Cloud",
+      badge: "OPERATIONS",
+      glowColor: "rgba(249, 115, 22, 0.45)",
+    },
     tools: [
       { name: "Vercel", iconFile: "vercel.svg" },
       { name: "Cloudflare", iconFile: "cloudflare.png" },
@@ -136,6 +176,8 @@ export const stepsData: StepItem[] = [
       tagBg: "bg-[#2c1303]/10",
       tagText: "text-[#2c1303]",
       tabAccent: "bg-[#2c1303]",
+      lineColor: "#ea580c",
+      hubBg: "bg-amber-600",
     },
   },
 ];
