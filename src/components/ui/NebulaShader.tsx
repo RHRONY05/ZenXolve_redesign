@@ -38,6 +38,7 @@ export function NebulaShader({
       precision mediump float;
       uniform vec2 u_resolution;
       uniform float u_time;
+      uniform float u_palette;
 
       float hash(vec2 p) {
         p = fract(p * vec2(123.34, 456.21));
@@ -80,13 +81,29 @@ export function NebulaShader({
         vec2 r = vec2(fbm(p + 3.5 * q + vec2(1.7, 9.2 + t * 0.25)), fbm(p + 3.5 * q + vec2(8.3, 2.8 - t * 0.18)));
         float f = fbm(p + 3.5 * r);
 
-        // Muted, fully synchronized cosmic backdrop palette (melts seamlessly into #060713)
-        vec3 bgCol = vec3(0.024, 0.027, 0.075);       // #060713 site background
-        vec3 deepNavy = vec3(0.04, 0.055, 0.14);      // #0a0e24 soft midnight navy
-        vec3 cosmicSlate = vec3(0.07, 0.08, 0.19);    // #121430 deep slate indigo
-        vec3 mutedCyan = vec3(0.05, 0.24, 0.38);      // #0d3d61 subtle cyan/teal mist
-        vec3 softIceGlow = vec3(0.18, 0.45, 0.62);    // #2e739e soft ice crest
-        vec3 starSoft = vec3(0.65, 0.78, 0.88);       // diffuse celestial stardust
+        // Palette 1: Cosmic Violet (melts seamlessly into #060713)
+        vec3 bgCosmic = vec3(0.024, 0.027, 0.075);       // #060713 site background
+        vec3 navyCosmic = vec3(0.04, 0.055, 0.14);      // #0a0e24 soft midnight navy
+        vec3 slateCosmic = vec3(0.07, 0.08, 0.19);    // #121430 deep slate indigo
+        vec3 cyanCosmic = vec3(0.05, 0.24, 0.38);      // #0d3d61 subtle cyan/teal mist
+        vec3 iceCosmic = vec3(0.18, 0.45, 0.62);    // #2e739e soft ice crest
+        vec3 starCosmic = vec3(0.65, 0.78, 0.88);       // diffuse celestial stardust
+
+        // Palette 2: Warm Editorial (melts seamlessly into #151817)
+        vec3 bgEditorial = vec3(0.082, 0.094, 0.090);       // #151817 site background
+        vec3 navyEditorial = vec3(0.11, 0.14, 0.125);      // #1c2320 warm charcoal surface
+        vec3 slateEditorial = vec3(0.16, 0.16, 0.14);      // #292824 warm slate umber
+        vec3 cyanEditorial = vec3(0.28, 0.16, 0.12);       // #47291f muted burnt terracotta
+        vec3 iceEditorial = vec3(0.70, 0.35, 0.22);        // #b35938 warm amber/orange crest
+        vec3 starEditorial = vec3(0.92, 0.82, 0.70);       // soft warm starlight
+
+        // Dynamic theme interpolation
+        vec3 bgCol = mix(bgCosmic, bgEditorial, u_palette);
+        vec3 deepNavy = mix(navyCosmic, navyEditorial, u_palette);
+        vec3 cosmicSlate = mix(slateCosmic, slateEditorial, u_palette);
+        vec3 mutedCyan = mix(cyanCosmic, cyanEditorial, u_palette);
+        vec3 softIceGlow = mix(iceCosmic, iceEditorial, u_palette);
+        vec3 starSoft = mix(starCosmic, starEditorial, u_palette);
 
         // Velvety atmospheric blending, gentle and low-contrast
         vec3 col = mix(bgCol, deepNavy, clamp(f * 1.5, 0.0, 1.0));
@@ -163,6 +180,10 @@ export function NebulaShader({
 
     const resolutionLocation = gl.getUniformLocation(program, "u_resolution");
     const timeLocation = gl.getUniformLocation(program, "u_time");
+    const paletteLocation = gl.getUniformLocation(program, "u_palette");
+
+    let targetPalette = typeof document !== "undefined" && document.documentElement.dataset.palette === "editorial" ? 1.0 : 0.0;
+    let currentPalette = targetPalette;
 
     let animationFrameId: number;
     let isVisible = true;
@@ -193,6 +214,10 @@ export function NebulaShader({
         if (gl && resolutionLocation && timeLocation) {
           gl.uniform2f(resolutionLocation, canvas!.width, canvas!.height);
           gl.uniform1f(timeLocation, (currentTime - startTime) * 0.001);
+          currentPalette += (targetPalette - currentPalette) * 0.08;
+          if (paletteLocation) {
+            gl.uniform1f(paletteLocation, currentPalette);
+          }
           gl.drawArrays(gl.TRIANGLES, 0, 6);
         }
       }
@@ -217,6 +242,15 @@ export function NebulaShader({
 
     observer.observe(canvas);
 
+    // Watch for live theme/palette switching
+    const paletteObserver = new MutationObserver(() => {
+      targetPalette = document.documentElement.dataset.palette === "editorial" ? 1.0 : 0.0;
+    });
+    paletteObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-palette"],
+    });
+
     let resizeTimeout: NodeJS.Timeout;
     function onResize() {
       clearTimeout(resizeTimeout);
@@ -228,6 +262,7 @@ export function NebulaShader({
 
     return () => {
       observer.disconnect();
+      paletteObserver.disconnect();
       clearTimeout(resizeTimeout);
       window.removeEventListener("resize", onResize);
       cancelAnimationFrame(animationFrameId);

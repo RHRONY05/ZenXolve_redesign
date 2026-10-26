@@ -723,8 +723,8 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="group flex items-center gap-3.5 w-fit text-sm text-slate-400 hover:text-white transition-colors duration-200"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-[#141a3a] border border-white/10 group-hover:border-violet-400/40 group-hover:bg-violet-500/10 flex items-center justify-center shrink-0 transition-all duration-200">
-                    <Icon className="w-3.5 h-3.5 text-slate-400 group-hover:text-violet-300 transition-colors duration-200" />
+                  <div className="w-8 h-8 rounded-lg bg-[var(--surface-2)] border border-white/10 group-hover:border-[var(--accent)]/40 group-hover:bg-[var(--accent-soft)] flex items-center justify-center shrink-0 transition-all duration-200">
+                    <Icon className="w-3.5 h-3.5 text-slate-400 group-hover:text-[var(--accent-text)] transition-colors duration-200" />
                   </div>
                   <span className="font-normal text-slate-300 group-hover:text-white transition-colors duration-200">
                     {label}
@@ -749,12 +749,12 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
               enableInteraction={true}
             />
             {/* Soft fade mask blending into the cosmic page background */}
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#060713] via-[#060713]/80 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[var(--bg)] via-[var(--bg)]/80 to-transparent" />
           </div>
         </div>
 
         {/* Right Column: Architectural Form Card matching the screenshot (NO budget field) */}
-        <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0d122b] p-6 sm:p-8 flex flex-col gap-4 sm:gap-5 shadow-[0_24px_60px_rgba(0,0,0,0.65)] relative">
+        <div className="rounded-2xl sm:rounded-3xl border border-white/12 bg-[var(--surface)] p-6 sm:p-8 flex flex-col gap-4 sm:gap-5 shadow-[0_24px_60px_rgba(0,0,0,0.65)] relative">
           <div>
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-1 tracking-tight">
               Send a message
@@ -780,7 +780,7 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
               <button
                 type="button"
                 onClick={() => setResult(null)}
-                className="mt-2 text-xs font-semibold text-violet-400 hover:text-violet-300 underline underline-offset-4 cursor-pointer"
+                className="mt-2 text-xs font-semibold text-[var(--accent-text)] hover:text-white underline underline-offset-4 cursor-pointer"
               >
                 Send another message
               </button>
@@ -801,14 +801,14 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[11px] font-semibold tracking-widest uppercase text-slate-400">
-                    Full Name <span className="text-violet-400">*</span>
+                    Full Name <span className="text-[var(--accent)]">*</span>
                   </label>
                   <input
                     type="text"
                     name="name"
                     required
                     placeholder="Alex Chen"
-                    className="w-full bg-[#080b1a] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-500 outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 transition-all duration-200"
+                    className="w-full bg-[var(--bg)]/90 border border-white/12 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-500 outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-soft)] transition-all duration-200"
                   />
                   {fieldErrors.name && (
                     <span className="text-xs text-rose-400">{fieldErrors.name}</span>
@@ -817,37 +817,37 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
 
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[11px] font-semibold tracking-widest uppercase text-slate-400">
-                    Service Type <span className="text-violet-400">*</span>
+                    Service Type <span className="text-[var(--accent)]">*</span>
                   </label>
                   <div className="relative">
                     <select
                       name="service"
                       required
                       defaultValue=""
-                      className="w-full appearance-none bg-[#080b1a] border border-white/10 rounded-xl px-4 py-2.5 pr-10 text-sm text-white outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 transition-all duration-200 cursor-pointer"
+                      className="w-full appearance-none bg-[var(--bg)]/90 border border-white/12 rounded-xl px-4 py-2.5 pr-10 text-sm text-white outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-soft)] transition-all duration-200 cursor-pointer"
                     >
-                      <option value="" disabled className="bg-[#0d122b] text-slate-500">
+                      <option value="" disabled className="bg-[var(--surface)] text-slate-500">
                         Select a service...
                       </option>
-                      <option value="Full Stack Web Development" className="bg-[#0d122b] text-white">
+                      <option value="Full Stack Web Development" className="bg-[var(--surface)] text-white">
                         Full Stack Web Development
                       </option>
-                      <option value="Web & Mobile Applications" className="bg-[#0d122b] text-white">
+                      <option value="Web & Mobile Applications" className="bg-[var(--surface)] text-white">
                         Web & Mobile Applications
                       </option>
-                      <option value="UI/UX & Product Design" className="bg-[#0d122b] text-white">
+                      <option value="UI/UX & Product Design" className="bg-[var(--surface)] text-white">
                         UI/UX & Product Design
                       </option>
-                      <option value="Business Management Systems (ERP/CRM)" className="bg-[#0d122b] text-white">
+                      <option value="Business Management Systems (ERP/CRM)" className="bg-[var(--surface)] text-white">
                         Business Management Systems (ERP/CRM)
                       </option>
-                      <option value="AI Agents & Workflow Automation" className="bg-[#0d122b] text-white">
+                      <option value="AI Agents & Workflow Automation" className="bg-[var(--surface)] text-white">
                         AI Agents & Workflow Automation
                       </option>
-                      <option value="Custom Bots (WhatsApp / Telegram)" className="bg-[#0d122b] text-white">
+                      <option value="Custom Bots (WhatsApp / Telegram)" className="bg-[var(--surface)] text-white">
                         Custom Bots (WhatsApp / Telegram)
                       </option>
-                      <option value="General Architecture Consultation" className="bg-[#0d122b] text-white">
+                      <option value="General Architecture Consultation" className="bg-[var(--surface)] text-white">
                         General Consultation / Other
                       </option>
                     </select>
@@ -862,14 +862,14 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
               {/* Row 2: Email Address (full width) */}
               <div className="flex flex-col gap-1.5">
                 <label className="text-[11px] font-semibold tracking-widest uppercase text-slate-400">
-                  Email Address <span className="text-violet-400">*</span>
+                  Email Address <span className="text-[var(--accent)]">*</span>
                 </label>
                 <input
                   type="email"
                   name="email"
                   required
                   placeholder="alex@company.com"
-                  className="w-full bg-[#080b1a] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-500 outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 transition-all duration-200"
+                  className="w-full bg-[var(--bg)]/90 border border-white/12 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-500 outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-soft)] transition-all duration-200"
                 />
                 {fieldErrors.email && (
                   <span className="text-xs text-rose-400">{fieldErrors.email}</span>
@@ -879,7 +879,7 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
               {/* Row 3: Message (textarea, full width) */}
               <div className="flex flex-col gap-1.5">
                 <label className="text-[11px] font-semibold tracking-widest uppercase text-slate-400">
-                  Message <span className="text-violet-400">*</span>
+                  Message <span className="text-[var(--accent)]">*</span>
                 </label>
                 <textarea
                   name="message"

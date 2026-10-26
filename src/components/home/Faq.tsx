@@ -56,11 +56,11 @@ export function Faq({ index = "07", hideLead = false, hideHeader = true }: FaqPr
                 type="button"
                 onClick={() => toggle(i)}
                 aria-expanded={isOpen}
-                className="group flex w-full cursor-pointer items-center justify-between gap-4 py-5 sm:py-6 md:py-7 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+                className="group flex w-full cursor-pointer items-center justify-between gap-4 py-5 sm:py-6 md:py-7 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
               >
                 {/* Index & Question */}
                 <div className="flex items-start sm:items-center gap-3 sm:gap-5 flex-1 min-w-0 pr-3">
-                  <span className="font-mono text-xs sm:text-sm md:text-base font-bold text-[#c4b5fd] group-hover:text-white transition-colors duration-200 shrink-0 pt-1 sm:pt-0">
+                  <span className="font-mono text-xs sm:text-sm md:text-base font-bold text-[var(--accent-text)] group-hover:text-white transition-colors duration-200 shrink-0 pt-1 sm:pt-0">
                     {numStr}
                   </span>
                   <span className="font-sans font-semibold text-base sm:text-lg md:text-xl lg:text-[21px] tracking-tight text-slate-100 group-hover:text-white transition-colors duration-200 leading-snug">
@@ -72,7 +72,7 @@ export function Faq({ index = "07", hideLead = false, hideHeader = true }: FaqPr
                 <div
                   className={`size-8 sm:size-9 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ${
                     isOpen
-                      ? "border-violet-400/50 bg-violet-500/15 text-violet-300"
+                      ? "border-[var(--accent)]/50 bg-[var(--accent-soft)] text-[var(--accent-text)]"
                       : "border-white/15 bg-white/[0.04] text-slate-400 group-hover:border-white/30 group-hover:bg-white/[0.08] group-hover:text-white"
                   }`}
                   aria-hidden="true"

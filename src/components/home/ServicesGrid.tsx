@@ -67,9 +67,9 @@ export function ServicesGrid() {
   return (
     <div className="space-y-6">
       {/* Outer Dark Frame / Border (housing the light canvas inside a dark environment, per design spec) */}
-      <div className="relative rounded-2xl sm:rounded-3xl lg:rounded-[32px] border border-white/12 bg-[#090b1e] p-2.5 sm:p-4 md:p-6 lg:p-7 shadow-[0_30px_90px_rgba(0,0,0,0.75)]">
+      <div className="relative rounded-2xl sm:rounded-3xl lg:rounded-[32px] border border-white/12 bg-[var(--surface-2)] p-2.5 sm:p-4 md:p-6 lg:p-7 shadow-[0_30px_90px_rgba(0,0,0,0.75)]">
         {/* Inner Light Architecture Canvas Window (Border blended seamlessly with dark titlebar) */}
-        <div className="relative rounded-xl sm:rounded-2xl lg:rounded-[20px] border border-[#121634] ring-1 ring-white/10 bg-[#f8fafc] text-slate-900 overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
+        <div className="relative rounded-xl sm:rounded-2xl lg:rounded-[20px] border border-[var(--line)] ring-1 ring-white/10 bg-[#f8fafc] text-slate-900 overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
           {/* Subtle n8n-style Dotted Grid Floor */}
           <div
             className="pointer-events-none absolute inset-0 z-0"
@@ -84,7 +84,7 @@ export function ServicesGrid() {
           />
 
           {/* Canvas Window Header: macOS Traffic Lights & Canvas Identity (Darker theme, slightly lighter than outer border) */}
-          <div className="relative z-10 flex items-center justify-between px-5 py-3 sm:px-6 sm:py-3.5 border-b border-white/10 bg-[#121634]">
+          <div className="relative z-10 flex items-center justify-between px-5 py-3 sm:px-6 sm:py-3.5 border-b border-white/10 bg-[var(--surface)]">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5" aria-hidden="true">
                 <span className="size-2.5 rounded-full bg-[#ff5f56]" />

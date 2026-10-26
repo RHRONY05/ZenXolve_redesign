@@ -117,6 +117,33 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
      - Section 07 FAQ accordion touch targets
      - Section 08 Contact & Rotating Wireframe Globe (form inputs, dropdown, and globe scaling)
      - Global Footer & Brand Display ("XENZOLVE" SVG scaling without horizontal overflow)
-2. **Multi-Theme Audit & Calibration (Cosmic Dark vs. Editorial / Light Mode)**:
-   - Check if both themes (`data-palette="cosmic"` vs `data-palette="editorial"`) render properly across all new components.
-   - Audit CSS custom properties (`var(--surface)`, `var(--ink)`, `var(--line)`) to ensure high contrast, zero unreadable text, and cohesive surfaces in both palettes.
+- **Dual-Palette Multi-Theme Calibration (`cosmic` vs `editorial`)**: **APPROVED & VERIFIED ✨**
+  - **WebGL Shader Canvas (`NebulaShader.tsx`)**: Upgraded to dynamically interpolate between Cosmic Violet (`#060713`, midnight navy, cyan mist, soft ice crests) and Warm Editorial (`#151817`, deep warm charcoal, umber slate, burnt terracotta, and warm amber crests) via live `u_palette` uniform with smooth 60fps lerp transitions.
+  - **Architectural Frames (Sections 01 & 04 - `ServicesGrid.tsx` & `Reasons.tsx`)**: Replaced hardcoded `#090b1e` and `#121634` with `bg-[var(--surface-2)]`, `bg-[var(--surface)]`, and `border-[var(--line)]`, harmonizing with both cosmic navy and warm charcoal surfaces.
+  - **Client Words Marquee (Section 05 - `Quotes.tsx`)**: Replaced hardcoded `#1b2248` with `bg-[var(--surface-2)]` (hover `bg-[var(--surface-3)]`).
+  - **Industry Marquee (Section 06 - `IndustryList.tsx`)**: Replaced hardcoded `#c4b5fd` with `text-[var(--accent-text)]` (hover `group-hover:text-[var(--accent-text)]`), rendering theme-matched soft peach in Editorial and soft violet in Cosmic.
+  - **FAQ Accordion (Section 07 - `Faq.tsx`)**: Replaced hardcoded violet with `text-[var(--accent-text)]`, `border-[var(--accent)]/50`, and `bg-[var(--accent-soft)]`.
+  - **Contact & Wireframe Globe (Section 08 - `ContactWithGlobe.tsx`)**:
+    - Globe bottom gradient fade updated to `from-[var(--bg)]` to eliminate hardcoded dark seams.
+    - Architectural form card updated to `bg-[var(--surface)]` and inputs to `bg-[var(--bg)]/90`.
+    - Submit button wired to `bg-(--picker-btn-primary)` (violet gradient in Cosmic, burnt orange in Editorial).
+  - **Footer Wordmark & Atmosphere (`SiteFooter.tsx` & `TextHoverEffect.tsx`)**:
+    - Ambient rise updated to `var(--accent-soft)` for sunset glow in Editorial and celestial cyan glow in Cosmic.
+    - Wordmark Layer 2 illuminated stroke and cursor hover gradient dynamically switch between cosmic iridescent beams and warm terracotta/amber/gold beams.
+  - **Floating Dock & Custom Scrollbar (`FloatingBottomNav.tsx` & `globals.css`)**:
+    - Dock body and mobile SVG path synchronized to `var(--surface)` and `var(--line-strong)`.
+    - Scrollbar thumb and track synchronized to `var(--accent)` and `var(--bg)`.
+
+## 3. Active Next Steps (For Next Session)
+1. **Mobile Responsiveness Audit & Optimization**:
+   - Comprehensive viewport audit (360px, 390px, 412px, 768px, 1024px) across all 8 homepage sections.
+   - Verify layout stacking, typography scale, touch targets, and mobile performance for:
+     - Hero centerpiece and project carousel
+     - Section 01 Services Grid (architectural frame and cards on mobile)
+     - Section 02 Studio Comparator (mode toggle and circuit cards)
+     - Section 03 How We Work (stacking deck + orbital constellation on small screens)
+     - Section 04 Why XenZolve (6 boxes + trust pillars)
+     - Section 05 & 06 Marquees (touch pause-on-hover & smooth 60fps translation)
+     - Section 07 FAQ accordion touch targets
+     - Section 08 Contact & Rotating Wireframe Globe (form inputs, dropdown, and globe scaling)
+     - Global Footer & Brand Display ("XENZOLVE" SVG scaling without horizontal overflow)

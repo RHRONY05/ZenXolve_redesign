@@ -12,7 +12,7 @@ export function QuoteCard({
 }) {
   return (
     <figure
-      className={`m-0 flex w-[320px] sm:w-[380px] md:w-[420px] shrink-0 flex-col justify-between rounded-xl sm:rounded-2xl border border-white/15 bg-[#1b2248] p-5 sm:p-6 md:p-7 shadow-[0_16px_40px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-[#222a58] hover:shadow-[0_20px_48px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.18)] ${className}`}
+      className={`m-0 flex w-[320px] sm:w-[380px] md:w-[420px] shrink-0 flex-col justify-between rounded-xl sm:rounded-2xl border border-white/15 bg-[var(--surface-2)] p-5 sm:p-6 md:p-7 shadow-[0_16px_40px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-[var(--surface-3)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.18)] ${className}`}
     >
       {/* Quote text */}
       <blockquote className="m-0 font-serif text-[17px] sm:text-[19px] md:text-[21px] font-normal leading-snug sm:leading-relaxed text-white">

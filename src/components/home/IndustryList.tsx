@@ -102,7 +102,7 @@ function IndustryBrandMark({ item }: { item: IndustryItem }) {
   return (
     <div className="group flex items-center gap-3.5 sm:gap-4 shrink-0 px-3 py-2 transition-all duration-200 cursor-default select-none">
       {/* Brand Icon Mark with subtle glow on hover */}
-      <div className="text-[#c4b5fd] group-hover:text-white group-hover:scale-110 transition-all duration-200 shrink-0">
+      <div className="text-[var(--accent-text)] group-hover:text-white group-hover:scale-110 transition-all duration-200 shrink-0">
         <IndustryIcon icon={item.icon} />
       </div>
 
@@ -111,7 +111,7 @@ function IndustryBrandMark({ item }: { item: IndustryItem }) {
         <span className="font-sans font-bold text-base sm:text-lg md:text-[19px] tracking-tight text-slate-200 group-hover:text-white transition-colors duration-150">
           {item.name}
         </span>
-        <span className="font-mono text-[10px] sm:text-[11px] font-medium tracking-wide text-slate-400 group-hover:text-[#c4b5fd] transition-colors duration-150">
+        <span className="font-mono text-[10px] sm:text-[11px] font-medium tracking-wide text-slate-400 group-hover:text-[var(--accent-text)] transition-colors duration-150">
           {item.tagline}
         </span>
       </div>

@@ -24,6 +24,20 @@ export const TextHoverEffect = ({
   });
   const [hovered, setHovered] = useState(false);
   const [maskPosition, setMaskPosition] = useState({ cx: "50%", cy: "50%" });
+  const [isEditorial, setIsEditorial] = useState(false);
+
+  useEffect(() => {
+    const update = () => {
+      setIsEditorial(document.documentElement.dataset.palette === "editorial");
+    };
+    update();
+    const observer = new MutationObserver(update);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-palette"],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (svgRef.current && cursor.x !== null && cursor.y !== null) {
@@ -62,12 +76,24 @@ export const TextHoverEffect = ({
           x2="100%"
           y2="0%"
         >
-          <stop offset="0%" stopColor="#38bdf8" />
-          <stop offset="20%" stopColor="#818cf8" />
-          <stop offset="42%" stopColor="#c084fc" />
-          <stop offset="65%" stopColor="#38bdf8" />
-          <stop offset="85%" stopColor="#80eeb4" />
-          <stop offset="100%" stopColor="#06b6d4" />
+          {isEditorial ? (
+            <>
+              <stop offset="0%" stopColor="#ff7857" />
+              <stop offset="25%" stopColor="#fb923c" />
+              <stop offset="50%" stopColor="#facc15" />
+              <stop offset="75%" stopColor="#59c7a6" />
+              <stop offset="100%" stopColor="#ff7857" />
+            </>
+          ) : (
+            <>
+              <stop offset="0%" stopColor="#38bdf8" />
+              <stop offset="20%" stopColor="#818cf8" />
+              <stop offset="42%" stopColor="#c084fc" />
+              <stop offset="65%" stopColor="#38bdf8" />
+              <stop offset="85%" stopColor="#80eeb4" />
+              <stop offset="100%" stopColor="#06b6d4" />
+            </>
+          )}
         </linearGradient>
 
         <radialGradient
@@ -121,7 +147,7 @@ export const TextHoverEffect = ({
       {/* Layer 2: Main illuminated stroke (#3ca2fa / ice cyan) */}
       <g
         fill="none"
-        stroke="#3ca2fa"
+        stroke={isEditorial ? "#ff7857" : "#3ca2fa"}
         strokeWidth="0.75"
         className="transition-all duration-300"
         style={{
@@ -135,7 +161,7 @@ export const TextHoverEffect = ({
         <path
           d={X_EMBLEM_PATH}
           style={{
-            filter: "drop-shadow(0 0 10px rgba(60, 162, 250, 0.4))",
+            filter: isEditorial ? "drop-shadow(0 0 10px rgba(255, 120, 87, 0.45))" : "drop-shadow(0 0 10px rgba(60, 162, 250, 0.4))",
           }}
         />
         {/* 'ENZOLVE' letters */}
@@ -187,7 +213,7 @@ export const FooterBackgroundGradient = () => {
       className="absolute inset-0 pointer-events-none z-0"
       style={{
         background:
-          "radial-gradient(130% 120% at 50% 100%, rgba(13, 61, 97, 0.22) 0%, rgba(6, 7, 19, 0) 70%)",
+          "radial-gradient(130% 120% at 50% 100%, var(--accent-soft) 0%, transparent 70%)",
       }}
     />
   );

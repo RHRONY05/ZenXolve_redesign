@@ -132,9 +132,9 @@ export function FloatingBottomNav() {
             {/* Body of the dock */}
             <path
               d={cradlePath}
-              fill="#0f0a2a"
+              fill="var(--surface)"
               fillOpacity="0.88"
-              stroke="rgba(196, 181, 253, 0.22)"
+              stroke="var(--line-strong)"
               strokeWidth="1"
               className="drop-shadow-[0_16px_36px_rgba(4,2,12,0.85)]"
             />
@@ -276,7 +276,7 @@ export function FloatingBottomNav() {
         onClick={togglePalette}
         title={`Active theme: ${currentPalette === "cosmic" ? "Cosmic Violet" : "Warm Editorial"}. Click to switch theme.`}
         aria-label={`Toggle theme palette, currently ${currentPalette}`}
-        className="fixed top-4 right-4 z-50 flex md:hidden size-10 rounded-full bg-[#0a0c1a]/85 border border-white/20 backdrop-blur-xl items-center justify-center text-white/80 hover:text-white shadow-[0_4px_16px_rgba(0,0,0,0.6)] active:scale-95 transition-all cursor-pointer"
+        className="fixed top-4 right-4 z-50 flex md:hidden size-10 rounded-full bg-[var(--surface)]/90 border border-white/20 backdrop-blur-xl items-center justify-center text-white/80 hover:text-white shadow-[0_4px_16px_rgba(0,0,0,0.6)] active:scale-95 transition-all cursor-pointer"
       >
         <Sun className="size-4.5 transition-transform duration-300 hover:rotate-45" />
       </button>
@@ -288,7 +288,7 @@ export function FloatingBottomNav() {
         aria-label="Desktop Navigation Dock"
         className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden md:flex select-none pointer-events-auto"
       >
-        <div className="relative flex items-center gap-2 p-2 px-3 rounded-full bg-[#0f0a2a]/75 border border-[#c4b5fd]/25 backdrop-blur-2xl shadow-[0_16px_45px_rgba(4,2,12,0.85),0_0_28px_rgba(139,92,246,0.20)] ring-1 ring-white/10">
+        <div className="relative flex items-center gap-2 p-2 px-3 rounded-full bg-[var(--surface)]/85 border border-[var(--line-strong)] backdrop-blur-2xl shadow-[0_16px_45px_rgba(0,0,0,0.85),0_0_28px_var(--accent-soft)] ring-1 ring-white/10">
           {navLinks.map((item) => {
             if (item.isCta) {
               return (
@@ -299,7 +299,7 @@ export function FloatingBottomNav() {
                   className={`group relative inline-flex items-center justify-center gap-2 font-sans font-bold text-[15px] tracking-wide rounded-full transition-all duration-300 px-5.5 py-2.5 whitespace-nowrap cursor-pointer ${
                     isContactActive || isScrolled
                       ? "bg-white text-neutral-950 shadow-[0_0_24px_rgba(255,255,255,0.7)] hover:shadow-[0_0_32px_rgba(255,255,255,0.85)] hover:scale-105 active:scale-95"
-                      : "bg-[#8b5cf6]/18 border border-[#c084fc]/40 text-[#f3e8ff] hover:bg-[#8b5cf6]/28 hover:border-[#c084fc]/70 hover:text-white shadow-[0_0_18px_rgba(139,92,246,0.22)] hover:scale-105 active:scale-95"
+                      : "bg-[var(--accent)]/18 border border-[var(--accent)]/40 text-[var(--ink)] hover:bg-[var(--accent)]/28 hover:border-[var(--accent)]/70 hover:text-white shadow-[0_0_18px_var(--accent-soft)] hover:scale-105 active:scale-95"
                   }`}
                 >
                   <span>{item.label}</span>
