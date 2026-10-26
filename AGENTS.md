@@ -138,6 +138,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
       - Unhovered outline stroke is theme-matched: signature `#3ca2fa` cyan with neon bloom in Cosmic Violet, and `#ff7857` burnt orange with warm glow in Warm Editorial.
       - Hover reveal lightning beam is locked to the default vibrant multi-color iridescent neon beam (`#38bdf8` → `#818cf8` → `#c084fc` → `#38bdf8` → `#80eeb4` → `#06b6d4`) across both themes per client preference ("the default color that looks better").
     - **Floating Dock & Custom Scrollbar (`FloatingBottomNav.tsx`, `MobileMenu.tsx` & `globals.css`)**:
+      - Mobile navigation bar attached edge-to-edge to the bottom and side borders (`bottom: 0`, `inset-x: 0`, full width, zero floating margins) like a native mobile phone app bar, with safe-area padding for home-indicator screens.
+      - Full-width SVG path contour with centered scooped cradle and continuous neon-glowing top rim spanning from left screen edge to right screen edge.
       - Dock body and mobile SVG path synchronized to `var(--surface)` and `var(--line-strong)`.
       - Mobile action button background synchronized to `from-[var(--surface-2)] to-[var(--surface)]`.
       - Scrollbar thumb and track synchronized to `var(--accent)` and `var(--bg)`.

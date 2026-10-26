@@ -26,7 +26,7 @@ export function BackToHome() {
       type="button"
       onClick={scrollToHome}
       aria-label="Navigate to home screen"
-      className={`fixed bottom-24 right-5 sm:bottom-8 sm:right-8 z-40 flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-full border border-white/15 bg-[var(--surface-2)]/95 text-slate-200 shadow-[0_12px_36px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-300 hover:border-[var(--accent)]/60 hover:bg-[var(--surface-3)] hover:text-white hover:scale-105 active:scale-95 group ${
+      className={`fixed bottom-20 right-4 sm:bottom-8 sm:right-8 z-40 flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-full border border-white/15 bg-[var(--surface-2)]/95 text-slate-200 shadow-[0_12px_36px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-300 hover:border-[var(--accent)]/60 hover:bg-[var(--surface-3)] hover:text-white hover:scale-105 active:scale-95 group ${
         visible
           ? "opacity-100 translate-y-0 pointer-events-auto"
           : "opacity-0 translate-y-4 pointer-events-none"

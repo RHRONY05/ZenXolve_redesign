@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { Briefcase, Puzzle, Users, Cpu, Sun, Home } from "lucide-react";
+import { Briefcase, Puzzle, Users, Cpu, Sun } from "lucide-react";
 
 type PaletteId = "cosmic" | "editorial";
 
@@ -25,7 +25,7 @@ export function FloatingBottomNav() {
   const pathname = usePathname();
   const currentPalette = useSyncExternalStore(subscribePalette, readPalette, () => "cosmic");
   const mobileNavRef = useRef<HTMLDivElement>(null);
-  const [dockWidth, setDockWidth] = useState(360);
+  const [dockWidth, setDockWidth] = useState(390);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -38,7 +38,11 @@ export function FloatingBottomNav() {
     updateWidth();
     const observer = new ResizeObserver(updateWidth);
     observer.observe(mobileNavRef.current);
-    return () => observer.disconnect();
+    window.addEventListener("resize", updateWidth, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateWidth);
+    };
   }, []);
 
   useEffect(() => {
@@ -73,50 +77,42 @@ export function FloatingBottomNav() {
   // Responsive notched dock dimensions
   const W = Math.max(dockWidth, 320);
   const H = 66;
-  const R = 24; // outer corner radius
   const C = W / 2; // cradle center
 
-  // Refined Cradle cutout geometry matching reference
+  // Full-width Edge-to-Edge Cradle cutout geometry attached to phone sides and bottom
   const cradlePath = `
-    M ${R} 0
+    M 0 0
     L ${C - 46} 0
     C ${C - 35} 0, ${C - 35} 42, ${C - 28} 42
     L ${C + 28} 42
     C ${C + 35} 42, ${C + 35} 0, ${C + 46} 0
-    L ${W - R} 0
-    A ${R} ${R} 0 0 1 ${W} ${R}
-    L ${W} ${H - R}
-    A ${R} ${R} 0 0 1 ${W - R} ${H}
-    L ${R} ${H}
-    A ${R} ${R} 0 0 1 0 ${H - R}
-    L 0 ${R}
-    A ${R} ${R} 0 0 1 ${R} 0
+    L ${W} 0
+    L ${W} ${H + 60}
+    L 0 ${H + 60}
     Z
   `;
 
-  // Neon glowing top contour
+  // Neon glowing top contour spanning edge-to-edge
   const glowTopPath = `
-    M 0 ${R + 4}
-    A ${R} ${R} 0 0 1 ${R} 0
+    M 0 0
     L ${C - 46} 0
     C ${C - 35} 0, ${C - 35} 42, ${C - 28} 42
     L ${C + 28} 42
     C ${C + 35} 42, ${C + 35} 0, ${C + 46} 0
-    L ${W - R} 0
-    A ${R} ${R} 0 0 1 ${W} ${R + 4}
+    L ${W} 0
   `;
 
   return (
     <>
       {/* =========================================================================
-          1. MOBILE NAVIGATION DOCK (< 768px): Modeled after reference layout
-          - Curved floating bottom bar with smooth scooped notch
+          1. MOBILE NAVIGATION DOCK (< 768px): Native Mobile App Bar
+          - Attached edge-to-edge to sides and bottom (zero floating margin/padding)
+          - Curved glowing cradle scoop for centered floating action button
           - 4 tab items (Work, Services, About, Stack)
-          - Elevated central floating action button nestled into the glowing cradle
           ========================================================================= */}
       <nav
         aria-label="Mobile Navigation Dock"
-        className="fixed bottom-3 inset-x-4 z-50 flex md:hidden max-w-[370px] mx-auto select-none pointer-events-auto justify-center"
+        className="fixed bottom-0 inset-x-0 z-50 flex md:hidden w-full select-none pointer-events-auto justify-center pb-[env(safe-area-inset-bottom,0px)]"
       >
         <div
           ref={mobileNavRef}
@@ -125,7 +121,7 @@ export function FloatingBottomNav() {
           {/* SVG shaped background with blur and shadow */}
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
-            width={W}
+            width="100%"
             height={H}
             viewBox={`0 0 ${W} ${H}`}
           >
@@ -133,13 +129,13 @@ export function FloatingBottomNav() {
             <path
               d={cradlePath}
               fill="var(--surface)"
-              fillOpacity="0.88"
+              fillOpacity="0.96"
               stroke="var(--line-strong)"
               strokeWidth="1"
-              className="drop-shadow-[0_16px_36px_rgba(4,2,12,0.85)]"
+              className="drop-shadow-[0_-6px_20px_rgba(0,0,0,0.55)]"
             />
 
-            {/* Neon glowing top edge + cradle scoop */}
+            {/* Neon glowing top edge + cradle scoop across full width */}
             <path
               d={glowTopPath}
               fill="none"
@@ -151,6 +147,9 @@ export function FloatingBottomNav() {
               }}
             />
           </svg>
+
+          {/* Under-dock safe-area background filler (for iPhones with home gesture bar) */}
+          <div className="absolute inset-x-0 top-full h-12 bg-[var(--surface)] -mt-px pointer-events-none" />
 
           {/* Absolute mathematically centered Action Button */}
           <div className="absolute left-1/2 -translate-x-1/2 -top-3.5 z-20 pointer-events-auto">
@@ -183,7 +182,7 @@ export function FloatingBottomNav() {
           {/* Nav Items (Left 2 + Right 2) */}
           <div className="relative z-10 w-full h-full flex items-center justify-between">
             {/* Left 2 items */}
-            <div className="w-[calc(50%-38px)] h-full flex items-center justify-around pl-3 pr-1 pt-1">
+            <div className="w-[calc(50%-44px)] h-full flex items-center justify-around pl-2 pr-1 pt-1.5">
               {/* 1. Work */}
               {(() => {
                 const active = pathname === "/work" || pathname.startsWith("/work/");
@@ -224,10 +223,10 @@ export function FloatingBottomNav() {
             </div>
 
             {/* Empty Center spacer for the cradle */}
-            <div className="w-[76px] h-full pointer-events-none" aria-hidden />
+            <div className="w-[88px] h-full pointer-events-none" aria-hidden />
 
             {/* Right 2 items */}
-            <div className="w-[calc(50%-38px)] h-full flex items-center justify-around pl-1 pr-3 pt-1">
+            <div className="w-[calc(50%-44px)] h-full flex items-center justify-around pl-1 pr-2 pt-1.5">
               {/* 3. About */}
               {(() => {
                 const active = pathname === "/about" || pathname.startsWith("/about/");
