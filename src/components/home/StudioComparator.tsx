@@ -6,7 +6,7 @@ export function StudioComparator() {
   const [mode, setMode] = useState<"xenzolve" | "traditional">("xenzolve");
 
   return (
-    <div className="mb-10 sm:mb-14 rounded-2xl border border-white/15 bg-[var(--surface)]/95 p-5 sm:p-8 backdrop-blur-xl shadow-[0_24px_60px_rgba(0,0,0,0.65)] transition-all">
+    <div className="mb-6 sm:mb-8 rounded-2xl border border-white/15 bg-[var(--surface)]/95 p-5 sm:p-8 backdrop-blur-xl shadow-[0_24px_60px_rgba(0,0,0,0.65)] transition-all">
       {/* Header & Mode Switcher */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-white/10 pb-6">
         <div>

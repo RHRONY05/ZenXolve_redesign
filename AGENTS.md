@@ -35,17 +35,21 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Spans Sections 01, 02, and 03 in `src/app/page.tsx` with soft edge fades.
   - Opacity is locked at `0.38`.
   - Do NOT modify its shader formulas, palette tokens, or canvas styling without explicit user instruction.
+- **Section 01 (Capabilities & Services - `src/components/home/ServicesGrid.tsx`)**: **APPROVED & LOCKED 🔒**
+  - Light Architecture Workflow Canvas wrapped in an outer dark environment frame/border per client markup.
+  - Header converted to stacked 2-row layout with full-width title like Section 02.
+  - Top row of each box displays the service title directly + interactive arrow link.
+  - 6 services organized via 2 vertical + 1 horizontal divider lines on n8n-style dotted grid floor.
+  - Redundant bottom banner removed and relocated to Section 02.
+  - Backup preserved at `src/components/home/ServicesGrid.backup.tsx`.
 - **Section 02 (The Single-Studio Advantage - `src/components/home/StudioComparator.tsx`)**: **APPROVED & LOCKED 🔒**
   - Sequential interactive 3-stage circuit architecture (Design → Code → Automated Operations) vs. traditional 3-agency handoff friction.
   - Interactive mode switch ("XenZolve Studio" vs. "3 Separate Agencies").
   - Clean solid shell styling (`bg-[var(--surface)]/95 p-5 sm:p-8 backdrop-blur-xl shadow-[0_24px_60px_rgba(0,0,0,0.65)]`).
-- **Section 01 (Capabilities & Services - `src/components/home/ServicesGrid.tsx`)**: **IN PROGRESS ⏳**
-  - Features all 6 dedicated custom isometric technical line-art illustrations in `public/hero/` (`service-web-isometric.jpg`, `service-design-isometric.jpg`, `service-mobile-isometric.jpg`, `service-ai-isometric.jpg`, `service-bot-isometric.jpg`, `service-cloud-isometric.jpg`).
-  - Next immediate step: Refine the layout of Section 01 slightly based on user feedback.
-- **Section 03 (How We Work - `src/components/home/ProcessSteps.tsx`)**: **NEXT IN QUEUE ⏳**
-  - Will be tackled immediately after Section 01 layout refinement is completed.
+  - Anchored at bottom with `StudioCtaBanner.tsx` ("01 Design / 02 Build / 03 Automate -> Discuss Your Entire Project").
+- **Section 03 (How We Work - `src/components/home/ProcessSteps.tsx`)**: **ACTIVE FOCUS ⏳**
+  - Next in queue for enhancement and alignment.
 
 ## 3. Active Next Steps
-1. Refine Section 01 layout slightly as requested by the user.
-2. Proceed to review and enhance Section 03 (How We Work - 4 steps).
-3. Continue sequentially down the page (Section 04 Why Xenzolve, Section 05 Client Words, Industries, FAQ, and CTA Band).
+1. Review and enhance Section 03 (How We Work - 4 steps).
+2. Continue sequentially down the page (Section 04 Why Xenzolve, Section 05 Client Words, Industries, FAQ, and CTA Band).

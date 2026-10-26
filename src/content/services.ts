@@ -25,7 +25,7 @@ export const services: Service[] = [
     tags: ["User Research", "Wireframing & Prototyping", "Visual Design", "Design Systems"],
     timeline: "[timeline]",
     timelinePlaceholder: true,
-    tools: "Figma",
+    tools: "Figma · Stitch · Canva",
     serviceQuery: "web",
   },
   {

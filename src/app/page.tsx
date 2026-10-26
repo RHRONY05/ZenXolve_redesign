@@ -7,6 +7,7 @@ import { Quotes } from "@/components/home/Quotes";
 import { Reasons } from "@/components/home/Reasons";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { StudioComparator } from "@/components/home/StudioComparator";
+import { StudioCtaBanner } from "@/components/home/StudioCtaBanner";
 import { NebulaShader } from "@/components/ui/NebulaShader";
 import { PlaceholderTag } from "@/components/ui/Placeholder";
 import { Section } from "@/components/ui/Section";
@@ -32,6 +33,8 @@ export default function Home() {
           <SectionHead
             index="01"
             label="Capabilities & Services"
+            layout="stacked"
+            leadOnMobile
             title={
               <>
                 What we build. <em className="acc">Engineered to scale.</em>
@@ -57,6 +60,7 @@ export default function Home() {
             leadOnMobile
           />
           <StudioComparator />
+          <StudioCtaBanner />
         </Section>
 
         {/* SECTION 03: How We Work (4 Steps) */}
