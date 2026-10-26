@@ -55,10 +55,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Right column: Full-height Orbital Constellation with central core hubs (Brain, Pen, CPU, Globe) and continuous, seamless flowing circuit connections with large brand tool icons.
 - **Section 04 (Why Xenzolve - `src/components/home/Reasons.tsx`)**: **APPROVED & LOCKED 🔒**
   - Unified with Section 01's architectural Light Canvas layout (dark outer frame + dark window header + light dotted grid floor).
-  - Compact, shorter height tailored to concise copy without unnecessary vertical padding.
-  - Divided into 6 contiguous boxes via 2 vertical + 1 horizontal divider lines.
-  - Authentic Icons8 color icons (`target`, `speed`, `secure`, `innovative`, `support`, `pricing`) inline with titles.
-  - Integrated 4-pillar trust stats directly inside the canvas with full dotted grid floor transparency and updated "10+ Delivered Projects".
+  - Desktop View (`md:` and above): 6 contiguous boxes divided via 2 vertical + 1 horizontal divider lines with inline Icons8 color icons (`target`, `speed`, `secure`, `innovative`, `support`, `pricing`).
+  - Mobile View (`< md`): Shorter height containing 1 reason card at a time with continuous 4.5s auto-advance, touch drag gestures, pause on interaction, 6 progress indicator pills, and bottom custom circular arrow control buttons.
+  - Integrated 4-pillar trust stats (98% Client Retention, 10+ Delivered Projects, < 2h Direct Engineer SLA, 100% IP & Code Ownership) kept permanently fixed on the canvas floor across all mobile & desktop viewports with full dotted grid floor transparency.
   - Vertical spacing normalized between Section 2 -> 3 and Section 3 -> 4.
 - **Global Section Headers**: **STANDARDIZED & UNIFIED ✨**
   - All sections (01, 02, 03, 04, 05, 06) now use the Section 04 inline format: Heading + accent followed immediately by the subtext separated by an em dash (`—`).
