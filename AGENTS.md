@@ -82,10 +82,12 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - **Global Theme Scrollbar**: **IMPLEMENTED ✨**
   - Custom thin 6px scrollbar synchronized with the brand: `#060713` cosmic dark track + soft violet thumb (`rgba(139, 92, 246, 0.45)`, hover `rgba(167, 139, 250, 0.8)`), supported across all modern browsers (WebKit + Firefox).
 
-- **Section 08 (Interactive Contact Section - `ContactForm.tsx` & `ContactChannels.tsx`)**: **IMPLEMENTED ✨**
-  - Integrated directly onto the homepage under unified SectionHead (Index `08`, Eyebrow `Get In Touch`, display headline + em dash subtext).
-  - 2-column layout: Direct channels on left (WhatsApp, email, phone, location, 2-hour response SLA) + fully functional interactive project inquiry form on right.
-  - Anchored to `id="contact"` so all "Start a project" and contact buttons across the site land directly here.
+- **Section 08 (Interactive Contact Section with Rotating Wireframe Globe - `ContactWithGlobe.tsx`)**: **APPROVED & LOCKED 🔒**
+  - Viewport-fitted 2-column layout matching 21st.dev reference.
+  - Left column: Unified Index `08` + Eyebrow `Get In Touch`, display heading, direct channels (Email `hello@xenzolve.com`, Phone/WhatsApp `+880 1633-707780`, Location), and continuously auto-rotating D3 TopoJSON wireframe globe with soft bottom gradient fade and pause-on-offscreen performance discipline.
+  - Right column: Clean architectural form card (`bg-[#0d122b]`, `border-white/10`, `shadow-[0_24px_60px_rgba(0,0,0,0.65)]`) with Full Name & Company (2-col), Email Address (full width), Message (textarea), honeypot anti-spam, and responsive submit button.
+  - Budget selector completely removed per client directive.
+  - Anchored to `id="contact"` so all "Start a project" / "Let's Talk" buttons across the site navigate directly here.
 - **Section 09 (Final CTA Band - `src/components/home/CtaBand.tsx`)**: **APPROVED & LOCKED 🔒**
   - Authentic WhatsApp brand icon added to the "Chat on WhatsApp" action button.
 - **Back to Home Navigation (`BackToHome.tsx` & Navigation Bars)**: **IMPLEMENTED ✨**
