@@ -12,17 +12,17 @@ export function QuoteCard({
 }) {
   return (
     <figure
-      className={`m-0 flex w-[320px] sm:w-[380px] md:w-[420px] shrink-0 flex-col justify-between rounded-xl sm:rounded-2xl border border-white/10 bg-[#0e122b]/90 p-5 sm:p-6 md:p-7 shadow-[0_16px_40px_rgba(0,0,0,0.45)] backdrop-blur-sm transition-all duration-300 hover:border-white/25 hover:bg-[#121634] ${className}`}
+      className={`m-0 flex w-[320px] sm:w-[380px] md:w-[420px] shrink-0 flex-col justify-between rounded-xl sm:rounded-2xl border border-white/15 bg-[#1b2248] p-5 sm:p-6 md:p-7 shadow-[0_16px_40px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-[#222a58] hover:shadow-[0_20px_48px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.18)] ${className}`}
     >
       {/* Quote text */}
-      <blockquote className="m-0 font-serif text-[17px] sm:text-[19px] md:text-[21px] font-normal leading-snug sm:leading-relaxed text-slate-100">
+      <blockquote className="m-0 font-serif text-[17px] sm:text-[19px] md:text-[21px] font-normal leading-snug sm:leading-relaxed text-white">
         “{t.quote}”
       </blockquote>
 
       {/* Author Figcaption */}
-      <figcaption className="mt-6 sm:mt-8 flex items-center gap-3.5 pt-4 sm:pt-5 border-t border-white/10">
+      <figcaption className="mt-6 sm:mt-8 flex items-center gap-3.5 pt-4 sm:pt-5 border-t border-white/15">
         {t.avatar ? (
-          <div className="relative size-11 sm:size-12 rounded-full overflow-hidden shrink-0 border border-white/15 ring-2 ring-white/10 bg-slate-800">
+          <div className="relative size-11 sm:size-12 rounded-full overflow-hidden shrink-0 border border-white/25 ring-2 ring-white/15 bg-slate-800 shadow-sm">
             <Image
               src={t.avatar}
               alt={t.name}
@@ -32,7 +32,7 @@ export function QuoteCard({
             />
           </div>
         ) : (
-          <span className="grid size-11 sm:size-12 flex-none place-items-center rounded-full bg-white/10 font-mono font-bold text-slate-300">
+          <span className="grid size-11 sm:size-12 flex-none place-items-center rounded-full bg-white/15 font-mono font-bold text-white">
             {t.initials}
           </span>
         )}
@@ -41,7 +41,7 @@ export function QuoteCard({
           <span className="font-semibold text-white text-sm sm:text-base tracking-tight truncate">
             {t.name}
           </span>
-          <span className="text-slate-400 font-sans text-xs sm:text-[13px] truncate">
+          <span className="text-slate-300 font-sans text-xs sm:text-[13px] truncate">
             {t.role}
           </span>
         </div>

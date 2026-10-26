@@ -35,10 +35,9 @@ export default function Home() {
             leadOnMobile
             title={
               <>
-                What we build. <em className="acc">Engineered to scale.</em>
+                What we build. <em className="acc">Engineered to scale.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— From high-conversion web platforms and native mobile apps to autonomous AI agents and custom business systems — everything your business runs on.</span>
               </>
             }
-            lead="From high-conversion web platforms and native mobile apps to autonomous AI agents and custom business systems â€” everything your business runs on."
           />
           <ServicesGrid />
         </Section>
@@ -49,13 +48,12 @@ export default function Home() {
             index="02"
             label="The Single-Studio Advantage"
             layout="stacked"
+            leadOnMobile
             title={
               <>
-                Stop managing 3 agencies. <em className="acc">Run on one studio.</em>
+                Stop managing 3 agencies. <em className="acc">Run on one studio.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— Why hire three separate agencies when you can run on one synchronized studio? We design your interface, engineer your codebase, and automate your operations with zero handoff friction.</span>
               </>
             }
-            lead="Why hire three separate agencies when you can run on one synchronized studio? We design your interface, engineer your codebase, and automate your business operations under one roof with zero handoff friction."
-            leadOnMobile
           />
           <StudioComparator />
         </Section>
@@ -65,12 +63,13 @@ export default function Home() {
           <SectionHead
             index="03"
             label="How we work"
+            layout="stacked"
+            leadOnMobile
             title={
               <>
-                Four steps, <em className="acc">no surprises.</em>
+                Four steps, <em className="acc">no surprises.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— A proven 4-step methodology that delivers results. You see progress every week and know exactly what's next.</span>
               </>
             }
-            lead="A proven 4-step methodology that delivers results. You see progress every week and know what's next."
           />
           <ProcessSteps />
         </Section>
@@ -87,7 +86,6 @@ export default function Home() {
               Why clients <em className="acc">stay.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— We aim to be the last agency you'll need to hire: one team that builds it, supports it and grows it with you.</span>
             </>
           }
-          
         />
         <Reasons />
       </Section>
@@ -96,13 +94,13 @@ export default function Home() {
         <SectionHead
           index="05"
           label="Client words"
+          layout="stacked"
+          leadOnMobile
           title={
             <>
-              In their <em className="acc">words.</em>
+              In their <em className="acc">words.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— Direct feedback from founders and engineering leaders we've built, deployed, and scaled with.</span>
             </>
           }
-          lead="Direct feedback from founders and engineering leaders we've built, deployed, and scaled with."
-          leadOnMobile
         />
         <Quotes items={testimonials} />
       </Section>

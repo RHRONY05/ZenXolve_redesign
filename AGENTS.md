@@ -61,9 +61,12 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Authentic Icons8 color icons (`target`, `speed`, `secure`, `innovative`, `support`, `pricing`) inline with titles.
   - Integrated 4-pillar trust stats directly inside the canvas with full dotted grid floor transparency and updated "10+ Delivered Projects".
   - Vertical spacing normalized between Section 2 -> 3 and Section 3 -> 4.
+- **Global Section Headers**: **STANDARDIZED & UNIFIED ✨**
+  - All sections (01, 02, 03, 04, 05) now use the Section 04 inline format: Heading + accent followed immediately by the subtext separated by an em dash (`—`).
 - **Section 05 (Client Words / Testimonials - `src/components/home/Quotes.tsx` & `src/content/testimonials.ts`)**: **UPDATED & UNDER REVIEW ⏳**
   - Infinite moving marquee running at 60fps GPU-accelerated speed with pause-on-hover.
   - Left & right soft gradient masks for smooth fade-in / fade-out.
+  - Lighter card color (`bg-[#1b2248]` hover `bg-[#222a58]`) with crisp rim light and high-contrast readability against the dark background.
   - 4 optimized square avatars (`avatar-1.webp` through `avatar-4.webp` in `public/testimonials/`, 5-9KB each).
   - Placeholder instruction texts and dashed dev outlines removed.
 
