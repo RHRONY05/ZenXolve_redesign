@@ -87,9 +87,9 @@ export function SiteFooter() {
           <span>© 2026 XenZolve. All rights reserved.</span>
         </div>
 
-        {/* Giant Outlined Brand Display Wordmark */}
-        <div className="mt-4 md:mt-6 w-full h-24 sm:h-32 md:h-44 lg:h-52 flex items-center justify-center">
-          <TextHoverEffect text="XENZOLVE" className="w-full h-full" />
+        {/* Giant Outlined Brand Display Wordmark: edge-to-edge width covering footer section */}
+        <div className="mt-6 md:mt-8 w-full h-32 sm:h-44 md:h-56 lg:h-64 flex items-center justify-center">
+          <TextHoverEffect className="w-full h-full" />
         </div>
       </div>
     </footer>
