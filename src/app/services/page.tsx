@@ -35,7 +35,7 @@ export default function ServicesPage() {
       </Section>
 
       <Section top="flow" className="!pt-0">
-        <Faq index={null} hideLead={true} />
+        <Faq index={null} hideLead={true} hideHeader={false} />
       </Section>
 
       <CtaBand />

@@ -120,8 +120,19 @@ export default function Home() {
         <IndustryList />
       </Section>
 
-      <Section>
-        <Faq />
+      <Section top="flow" className="!pt-6 md:!pt-10">
+        <SectionHead
+          index="07"
+          label="Frequently Asked Questions"
+          layout="stacked"
+          leadOnMobile
+          title={
+            <>
+              Got questions? <em className="acc">Clear answers.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— Everything you need to know about our sprints, pricing, communication, and IP ownership.</span>
+            </>
+          }
+        />
+        <Faq hideHeader={true} />
       </Section>
 
       <CtaBand />

@@ -69,16 +69,19 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Lighter card color (`bg-[#1b2248]` hover `bg-[#222a58]`) with crisp rim light and high-contrast readability against the dark background.
   - 4 optimized square avatars (`avatar-1.webp` through `avatar-4.webp` in `public/testimonials/`, 5-9KB each).
   - Placeholder instruction texts and dashed dev outlines removed.
-- **Section 06 (Industries We Serve - `src/components/home/IndustryList.tsx` & `src/content/industries.ts`)**: **UPDATED & UNDER REVIEW ⏳**
-  - SectionHead streamlined to single bold headline: `Domains we empower. Engineered for depth.` (subtext removed per client instruction for clean visual balance with the marquee).
-  - Open, container-free layout floating directly across the section (no bounding box, no card border).
+- **Section 06 (Industries We Serve - `src/components/home/IndustryList.tsx` & `src/content/industries.ts`)**: **APPROVED & LOCKED 🔒**
+  - SectionHead streamlined to single bold headline: `Domains we empower. Engineered for depth.`.
+  - Open, container-free layout floating directly across the section.
   - 3-row bi-directional continuous infinite moving marquee (Row 1 Left, Row 2 Right, Row 3 Left at varied speeds) with pause-on-hover.
   - Luminous light brand marks styled with theme soft-violet accents (`#c4b5fd`), light slate typography (`text-slate-200` hover `text-white`), and crisp SVG icons.
   - Soft left & right bilateral edge masks (`mask-image: linear-gradient`) for a seamless infinite horizon.
+- **Section 07 (Frequently Asked Questions - `src/components/home/Faq.tsx` & `src/content/faq.ts`)**: **UPDATED & UNDER REVIEW ⏳**
+  - Unified SectionHead (Index `07`, Eyebrow `Frequently Asked Questions`, inline headline + em dash subtext).
+  - Full-width accordion taking 100% of the content container (2-column restriction removed).
+  - High-contrast interactive rows with numeric mono indicators (`01`-`05`), illuminated plus badges, and smooth grid-template-rows expansion.
 - **Global Theme Scrollbar**: **IMPLEMENTED ✨**
   - Custom thin 6px scrollbar synchronized with the brand: `#060713` cosmic dark track + soft violet thumb (`rgba(139, 92, 246, 0.45)`, hover `rgba(167, 139, 250, 0.8)`), supported across all modern browsers (WebKit + Firefox).
 
 ## 3. Active Next Steps
-1. Review Section 06 (Industries Brand Mark Cloud) with user.
-2. Proceed to Section 07 (Frequently Asked Questions - `src/components/home/Faq.tsx`).
-3. Proceed to Section 08 (Final CTA Band - `src/components/home/CtaBand.tsx`).
+1. Review Section 07 (Full-Width FAQ) with user.
+2. Proceed to Section 08 (Final CTA Band - `src/components/home/CtaBand.tsx`).
