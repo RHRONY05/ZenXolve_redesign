@@ -85,18 +85,18 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - **Section 08 (Interactive Contact Section with Rotating Wireframe Globe - `ContactWithGlobe.tsx`)**: **APPROVED & LOCKED 🔒**
   - Viewport-fitted 2-column layout matching 21st.dev reference.
   - Left column: Unified Index `08` + Eyebrow `Get In Touch`, display heading, direct channels (Email `hello@xenzolve.com`, Phone/WhatsApp `+880 1633-707780`, Location), and continuously auto-rotating D3 TopoJSON wireframe globe with soft bottom gradient fade and pause-on-offscreen performance discipline.
-  - Right column: Clean architectural form card (`bg-[#0d122b]`, `border-white/10`, `shadow-[0_24px_60px_rgba(0,0,0,0.65)]`) with Full Name & Company (2-col), Email Address (full width), Message (textarea), honeypot anti-spam, and responsive submit button.
-  - Budget selector completely removed per client directive.
+  - Right column: Clean architectural form card (`bg-[#0d122b]`, `border-white/10`, `shadow-[0_24px_60px_rgba(0,0,0,0.65)]`) with Full Name & Service Type dropdown (2-col), Email Address (full width), Message (textarea), honeypot anti-spam, and responsive submit button.
+  - Company and budget fields completely removed per client directive; Service Type dropdown maps directly to backend inquiry payload.
   - Anchored to `id="contact"` so all "Start a project" / "Let's Talk" buttons across the site navigate directly here.
 - **Section 09 (Final CTA Band - `src/components/home/CtaBand.tsx`)**: **APPROVED & LOCKED 🔒**
   - Authentic WhatsApp brand icon added to the "Chat on WhatsApp" action button.
 - **Back to Home Navigation (`BackToHome.tsx` & Navigation Bars)**: **IMPLEMENTED ✨**
-  - Global floating **Back to Home** button with upward arrow and theme violet glow, appearing smoothly when scrolled down past 350px.
-  - Dedicated "Home" button added directly to top navbar, mobile menu, and bottom notched dock.
+  - Global floating **Back to Home** button with upward arrow and theme violet glow preserved at the bottom-right corner, appearing smoothly when scrolled down past 350px.
+  - Navbar and bottom notched dock updated to replace redundant "Home" with **"About Us"** linking directly to Section 02 (`/#advantage`).
 - **Global Footer & Navigation (`SiteFooter.tsx`, `SiteHeader.tsx`, `FloatingBottomNav.tsx`, `MobileMenu.tsx`)**: **OPTIMIZED & UNIFIED ✨**
   - Excessive vertical padding in Footer reduced from 96px/128px to compact, well-balanced dimensions (14px/20px).
-  - Outdated separate-page links replaced with direct in-page anchor navigation:
-    - `Home` (`/#`), `Services` (`/#services`), `Advantage` (`/#advantage`), `Process` (`/#process`), `Why Us` (`/#why-us`), `FAQ` (`/#faq`), and `Start a project` (`/#contact`).
+  - Clean anchor navigation:
+    - `About Us` (`/#advantage`), `Services` (`/#services`), `Process` (`/#process`), `Why Us` (`/#why-us`), `FAQ` (`/#faq`), and `Start a project` (`/#contact`).
 
 ## 3. Active Next Steps
 1. Client final review of full homepage and navigation flow.

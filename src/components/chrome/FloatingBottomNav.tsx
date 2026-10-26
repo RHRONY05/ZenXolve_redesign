@@ -61,7 +61,7 @@ export function FloatingBottomNav() {
   };
 
   const navLinks = [
-    { label: "Home", href: "/#", icon: Home },
+    { label: "About Us", href: "/#advantage", icon: Briefcase },
     { label: "Services", href: "/#services", icon: Puzzle },
     { label: "Let's Talk", href: "/#contact", isCta: true },
     { label: "Process", href: "/#process", icon: Cpu },

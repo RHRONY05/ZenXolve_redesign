@@ -18,9 +18,8 @@ export const site = {
 
 /** Navigation items linking directly to individual homepage sections */
 export const nav = [
-  { label: "Home", href: "/#" },
+  { label: "About Us", href: "/#advantage" },
   { label: "Services", href: "/#services" },
-  { label: "Advantage", href: "/#advantage" },
   { label: "Process", href: "/#process" },
   { label: "Why Us", href: "/#why-us" },
   { label: "FAQ", href: "/#faq" },

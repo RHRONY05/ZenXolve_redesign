@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Mail, Phone, MapPin, CheckCircle2, Loader2 } from "lucide-react";
+import { ArrowRight, Mail, Phone, MapPin, CheckCircle2, Loader2, ChevronDown } from "lucide-react";
 import * as d3 from "d3";
 import { feature } from "topojson-client";
 import type {
@@ -665,9 +665,9 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
 
     const formData = new FormData(e.currentTarget);
 
-    const company = formData.get("company")?.toString().trim();
-    if (company) {
-      formData.set("subject", `Inquiry from ${company}`);
+    const service = formData.get("service")?.toString().trim();
+    if (service) {
+      formData.set("subject", `Inquiry for ${service}`);
     }
 
     try {
@@ -797,7 +797,7 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
                 aria-hidden="true"
               />
 
-              {/* Row 1: Full Name & Company (2 columns) */}
+              {/* Row 1: Full Name & Service Type (2 columns) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[11px] font-semibold tracking-widest uppercase text-slate-400">
@@ -807,8 +807,8 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
                     type="text"
                     name="name"
                     required
-                    placeholder="Ahdeetai"
-                    className="w-full bg-[#080b1a] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-600 outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 transition-all duration-200"
+                    placeholder="Alex Chen"
+                    className="w-full bg-[#080b1a] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-500 outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 transition-all duration-200"
                   />
                   {fieldErrors.name && (
                     <span className="text-xs text-rose-400">{fieldErrors.name}</span>
@@ -817,14 +817,45 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
 
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[11px] font-semibold tracking-widest uppercase text-slate-400">
-                    Company
+                    Service Type <span className="text-violet-400">*</span>
                   </label>
-                  <input
-                    type="text"
-                    name="company"
-                    placeholder="ScrollX UI"
-                    className="w-full bg-[#080b1a] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-600 outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 transition-all duration-200"
-                  />
+                  <div className="relative">
+                    <select
+                      name="service"
+                      required
+                      defaultValue=""
+                      className="w-full appearance-none bg-[#080b1a] border border-white/10 rounded-xl px-4 py-2.5 pr-10 text-sm text-white outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 transition-all duration-200 cursor-pointer"
+                    >
+                      <option value="" disabled className="bg-[#0d122b] text-slate-500">
+                        Select a service...
+                      </option>
+                      <option value="Full Stack Web Development" className="bg-[#0d122b] text-white">
+                        Full Stack Web Development
+                      </option>
+                      <option value="Web & Mobile Applications" className="bg-[#0d122b] text-white">
+                        Web & Mobile Applications
+                      </option>
+                      <option value="UI/UX & Product Design" className="bg-[#0d122b] text-white">
+                        UI/UX & Product Design
+                      </option>
+                      <option value="Business Management Systems (ERP/CRM)" className="bg-[#0d122b] text-white">
+                        Business Management Systems (ERP/CRM)
+                      </option>
+                      <option value="AI Agents & Workflow Automation" className="bg-[#0d122b] text-white">
+                        AI Agents & Workflow Automation
+                      </option>
+                      <option value="Custom Bots (WhatsApp / Telegram)" className="bg-[#0d122b] text-white">
+                        Custom Bots (WhatsApp / Telegram)
+                      </option>
+                      <option value="General Architecture Consultation" className="bg-[#0d122b] text-white">
+                        General Consultation / Other
+                      </option>
+                    </select>
+                    <ChevronDown className="w-4 h-4 text-slate-400 pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2" />
+                  </div>
+                  {fieldErrors.service && (
+                    <span className="text-xs text-rose-400">{fieldErrors.service}</span>
+                  )}
                 </div>
               </div>
 
@@ -837,8 +868,8 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
                   type="email"
                   name="email"
                   required
-                  placeholder="support@scrollxui.com"
-                  className="w-full bg-[#080b1a] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-600 outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 transition-all duration-200"
+                  placeholder="alex@company.com"
+                  className="w-full bg-[#080b1a] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-slate-500 outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 transition-all duration-200"
                 />
                 {fieldErrors.email && (
                   <span className="text-xs text-rose-400">{fieldErrors.email}</span>
@@ -854,9 +885,9 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
                   name="message"
                   required
                   minLength={20}
-                  placeholder="Type your message here"
+                  placeholder="Tell us about what you want to build (timeline, tech requirements, scope)..."
                   rows={4}
-                  className="w-full bg-[#080b1a] border border-white/10 rounded-xl px-4 py-2.5 sm:py-3 text-sm text-white placeholder:text-slate-600 outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 resize-none transition-all duration-200"
+                  className="w-full bg-[#080b1a] border border-white/10 rounded-xl px-4 py-2.5 sm:py-3 text-sm text-white placeholder:text-slate-500 outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 resize-none transition-all duration-200"
                 />
                 {fieldErrors.message && (
                   <span className="text-xs text-rose-400">{fieldErrors.message}</span>
