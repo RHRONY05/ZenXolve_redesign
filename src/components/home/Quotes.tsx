@@ -1,77 +1,88 @@
 "use client";
 
-import { useRef, useState } from "react";
+import Image from "next/image";
 import type { Testimonial } from "@/content/testimonials";
-import { Placeholder } from "@/components/ui/Placeholder";
 
-export function QuoteCard({ t, big, className = "" }: { t: Testimonial; big?: boolean; className?: string }) {
+export function QuoteCard({
+  t,
+  className = "",
+}: {
+  t: Testimonial;
+  className?: string;
+}) {
   return (
-    <Placeholder
-      as="figure"
-      active={t.placeholder}
-      className={`m-0 flex flex-col gap-6 rounded-lg border border-line bg-surface p-6 md:p-[30px] ${className}`}
+    <figure
+      className={`m-0 flex w-[320px] sm:w-[380px] md:w-[420px] shrink-0 flex-col justify-between rounded-xl sm:rounded-2xl border border-white/10 bg-[#0e122b]/90 p-5 sm:p-6 md:p-7 shadow-[0_16px_40px_rgba(0,0,0,0.45)] backdrop-blur-sm transition-all duration-300 hover:border-white/25 hover:bg-[#121634] ${className}`}
     >
-      <blockquote
-        className={`m-0 font-serif text-[26px] leading-8 md:text-[28px] md:leading-[34px] ${big ? "md:text-[38px] md:leading-[44px]" : ""}`}
-      >
-        <span className="md:hidden">“{t.short}”</span>
-        <span className="hidden md:inline">“{t.quote}”</span>
+      {/* Quote text */}
+      <blockquote className="m-0 font-serif text-[17px] sm:text-[19px] md:text-[21px] font-normal leading-snug sm:leading-relaxed text-slate-100">
+        “{t.quote}”
       </blockquote>
-      <figcaption className="mt-auto flex items-center gap-3 text-sm">
-        <span className="grid size-11 flex-none place-items-center rounded-full bg-surface-3 font-semibold text-ink-2">
-          {t.initials}
-        </span>
-        <span>
-          <b className="block font-medium">{t.name}</b>
-          <span className="text-ink-3">{t.role}</span>
-        </span>
+
+      {/* Author Figcaption */}
+      <figcaption className="mt-6 sm:mt-8 flex items-center gap-3.5 pt-4 sm:pt-5 border-t border-white/10">
+        {t.avatar ? (
+          <div className="relative size-11 sm:size-12 rounded-full overflow-hidden shrink-0 border border-white/15 ring-2 ring-white/10 bg-slate-800">
+            <Image
+              src={t.avatar}
+              alt={t.name}
+              fill
+              sizes="48px"
+              className="object-cover"
+            />
+          </div>
+        ) : (
+          <span className="grid size-11 sm:size-12 flex-none place-items-center rounded-full bg-white/10 font-mono font-bold text-slate-300">
+            {t.initials}
+          </span>
+        )}
+
+        <div className="flex flex-col min-w-0">
+          <span className="font-semibold text-white text-sm sm:text-base tracking-tight truncate">
+            {t.name}
+          </span>
+          <span className="text-slate-400 font-sans text-xs sm:text-[13px] truncate">
+            {t.role}
+          </span>
+        </div>
       </figcaption>
-    </Placeholder>
+    </figure>
   );
 }
 
-/** Desktop: 3 columns (first bigger). Mobile: swipeable one-card carousel with dots. */
+/** Infinite moving marquee of client reviews */
 export function Quotes({ items }: { items: Testimonial[] }) {
-  const track = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(0);
-
-  const onScroll = () => {
-    const el = track.current;
-    if (!el) return;
-    setActive(Math.round(el.scrollLeft / el.clientWidth));
-  };
-  const go = (i: number) => track.current?.scrollTo({ left: i * track.current.clientWidth, behavior: "smooth" });
+  // Duplicate list twice to guarantee seamless looping across wide displays
+  const marqueeItems = [...items, ...items];
 
   return (
-    <>
-      <div
-        ref={track}
-        onScroll={onScroll}
-        className="-mx-1 flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 py-2 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:p-0 lgx:grid-cols-[1.3fr_1fr_1fr] [&::-webkit-scrollbar]:hidden"
-      >
-        {items.map((t, i) => (
-          <QuoteCard
-            key={t.name}
-            t={t}
-            big={i === 0}
-            className={`min-w-full snap-center md:min-w-0 ${i === 0 ? "md:col-span-2 lgx:col-span-1" : ""}`}
-          />
+    <div className="relative w-full overflow-hidden py-4 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+      {/* Continuous 60fps GPU-accelerated marquee animation */}
+      <style jsx>{`
+        @keyframes marqueeLoop {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(-50%, 0, 0);
+          }
+        }
+        .animate-marquee-track {
+          display: flex;
+          width: max-content;
+          animation: marqueeLoop 38s linear infinite;
+          will-change: transform;
+        }
+        .animate-marquee-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+
+      <div className="animate-marquee-track gap-4 sm:gap-6 pr-4 sm:pr-6">
+        {marqueeItems.map((t, idx) => (
+          <QuoteCard key={`${t.name}-${idx}`} t={t} />
         ))}
       </div>
-      <div className="mt-4 flex justify-center gap-1.5 md:hidden" role="group" aria-label="Choose testimonial">
-        {items.map((t, i) => (
-          <button
-            key={t.name}
-            type="button"
-            aria-label={`Show testimonial ${i + 1}`}
-            aria-current={i === active}
-            onClick={() => go(i)}
-            className={`relative h-1.5 rounded-full before:absolute before:-inset-[19px_-6px] before:content-[''] ${
-              i === active ? "w-[18px] bg-ink" : "w-1.5 bg-line-strong"
-            }`}
-          />
-        ))}
-      </div>
-    </>
+    </div>
   );
 }

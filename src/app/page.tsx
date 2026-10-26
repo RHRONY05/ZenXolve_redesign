@@ -8,7 +8,6 @@ import { Reasons } from "@/components/home/Reasons";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { StudioComparator } from "@/components/home/StudioComparator";
 import { NebulaShader } from "@/components/ui/NebulaShader";
-import { PlaceholderTag } from "@/components/ui/Placeholder";
 import { Section } from "@/components/ui/Section";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { testimonials } from "@/content/testimonials";
@@ -93,7 +92,7 @@ export default function Home() {
         <Reasons />
       </Section>
 
-      <Section>
+      <Section top="flow" className="!pt-4 md:!pt-6">
         <SectionHead
           index="05"
           label="Client words"
@@ -102,14 +101,7 @@ export default function Home() {
               In their <em className="acc">words.</em>
             </>
           }
-          lead={
-            <PlaceholderTag>
-              <span className="hidden md:inline">
-                Placeholder Â· replace with real, named clients (photo + link)
-              </span>
-              <span className="md:hidden">Placeholder Â· real, named clients</span>
-            </PlaceholderTag>
-          }
+          lead="Direct feedback from founders and engineering leaders we've built, deployed, and scaled with."
           leadOnMobile
         />
         <Quotes items={testimonials} />

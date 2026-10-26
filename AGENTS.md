@@ -61,7 +61,13 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Authentic Icons8 color icons (`target`, `speed`, `secure`, `innovative`, `support`, `pricing`) inline with titles.
   - Integrated 4-pillar trust stats directly inside the canvas with full dotted grid floor transparency and updated "10+ Delivered Projects".
   - Vertical spacing normalized between Section 2 -> 3 and Section 3 -> 4.
+- **Section 05 (Client Words / Testimonials - `src/components/home/Quotes.tsx` & `src/content/testimonials.ts`)**: **UPDATED & UNDER REVIEW ⏳**
+  - Infinite moving marquee running at 60fps GPU-accelerated speed with pause-on-hover.
+  - Left & right soft gradient masks for smooth fade-in / fade-out.
+  - 4 optimized square avatars (`avatar-1.webp` through `avatar-4.webp` in `public/testimonials/`, 5-9KB each).
+  - Placeholder instruction texts and dashed dev outlines removed.
 
 ## 3. Active Next Steps
-1. Section 05 (Client Words / Testimonials - `src/components/home/Quotes.tsx` & `src/content/testimonials.ts`).
-2. Continue sequentially down the page (Industries, FAQ, and CTA Band).
+1. Review Section 05 (Infinite Marquee Testimonials) with user.
+2. Proceed to Section 06 (Industries - `src/components/home/IndustryList.tsx`).
+3. Continue sequentially down the page (FAQ and CTA Band).
