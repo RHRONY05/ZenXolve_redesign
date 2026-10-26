@@ -48,14 +48,16 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Sequential interactive 3-stage circuit architecture (Design → Code → Automated Operations) vs. traditional 3-agency handoff friction.
   - Interactive mode switch ("XenZolve Studio" vs. "3 Separate Agencies").
   - Clean solid shell styling (`bg-[var(--surface)]/95 p-5 sm:p-8 backdrop-blur-xl shadow-[0_24px_60px_rgba(0,0,0,0.65)]`).
-  - Anchored at bottom with `StudioCtaBanner.tsx` ("01 Design / 02 Build / 03 Automate -> Discuss Your Entire Project").
-- **Section 03 (How We Work - `src/components/home/ProcessSteps.tsx`)**: **UPDATED & UNDER REVIEW ⏳**
+  - Redundant bottom banner removed completely per client instruction.
+- **Section 03 (How We Work - `src/components/home/ProcessSteps.tsx`)**: **APPROVED & LOCKED 🔒**
   - Interactive scroll-stacking deck of cards (sticky tab offsets mimicking the client reference).
   - 4 distinct colored cards: Sky Blue (Discovery), Fresh Mint (Design), Soft Lavender (Engineering), Warm Peach (Deployment).
-  - Left column: Step title, display headline, process description, and 4 concrete deliverables/metrics.
-  - Right column: Authentic interactive Phase Toolkit & Architecture matrix with SVG tool logos (Notion, Claude, Figma, Next.js, Supabase, n8n, Vercel, Docker, etc.).
+  - Left column: Step title, display headline, process description, and bold highlighted key deliverables with ▶ bullet points.
+  - Right column: Full-height Orbital Constellation with central core hubs (Brain, Pen, CPU, Globe) and continuous, seamless flowing circuit connections with large brand tool icons.
+- **Section 04 (Why Xenzolve - `src/components/home/Reasons.tsx`)**: **ACTIVE FOCUS ⏳**
+  - Next in queue for design review and enhancement.
 
 ## 3. Active Next Steps
-1. Review Section 03 scroll-stacking deck with user.
-2. Proceed to Section 04 (Why Xenzolve).
+1. Review and enhance Section 04 (Why Xenzolve).
+2. Continue sequentially down the page (Section 05 Client Words, Industries, FAQ, and CTA Band).
 3. Continue sequentially down the page (Section 05 Client Words, Industries, FAQ, and CTA Band).
