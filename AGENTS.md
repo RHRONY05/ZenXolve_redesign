@@ -117,26 +117,31 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
      - Section 07 FAQ accordion touch targets
      - Section 08 Contact & Rotating Wireframe Globe (form inputs, dropdown, and globe scaling)
      - Global Footer & Brand Display ("XENZOLVE" SVG scaling without horizontal overflow)
-- **Dual-Palette Multi-Theme Calibration (`cosmic` vs `editorial`)**: **APPROVED & VERIFIED ✨**
-  - **WebGL Shader Canvas (`NebulaShader.tsx`)**: Upgraded to dynamically interpolate between Cosmic Violet (`#060713`, midnight navy, cyan mist, soft ice crests) and Warm Editorial (`#151817`, deep warm charcoal, umber slate, burnt terracotta, and warm amber crests) via live `u_palette` uniform with smooth 60fps lerp transitions.
-  - **Architectural Frames (Sections 01 & 04 - `ServicesGrid.tsx` & `Reasons.tsx`)**: Replaced hardcoded `#090b1e` and `#121634` with `bg-[var(--surface-2)]`, `bg-[var(--surface)]`, and `border-[var(--line)]`, harmonizing with both cosmic navy and warm charcoal surfaces.
-  - **Client Words Marquee (Section 05 - `Quotes.tsx`)**: Replaced hardcoded `#1b2248` with `bg-[var(--surface-2)]` (hover `bg-[var(--surface-3)]`).
-  - **Industry Marquee (Section 06 - `IndustryList.tsx`)**: Replaced hardcoded `#c4b5fd` with `text-[var(--accent-text)]` (hover `group-hover:text-[var(--accent-text)]`), rendering theme-matched soft peach in Editorial and soft violet in Cosmic.
-  - **FAQ Accordion (Section 07 - `Faq.tsx`)**: Replaced hardcoded violet with `text-[var(--accent-text)]`, `border-[var(--accent)]/50`, and `bg-[var(--accent-soft)]`.
-  - **Section 02 Studio Comparator (`StudioComparator.tsx`)**:
-    - Dual-palette dynamic calibration: in Warm Editorial mode, the 3-stage circuit boxes, perimeter lightning beams, overhead loops, and terminal nodes automatically adapt from cosmic violet/cyan into warm terracotta (`#ff7857`), warm amber/gold (`#facc15`), and fresh sage emerald (`#59c7a6`), while preserving full Cosmic Violet styling when in Cosmic mode.
-  - **Contact & Wireframe Globe (Section 08 - `ContactWithGlobe.tsx`)**:
-    - Globe bottom gradient fade updated to `from-[var(--bg)]` to eliminate hardcoded dark seams.
-    - Architectural form card updated to `bg-[var(--surface)]` and all inputs/textarea updated to `bg-[var(--bg)]/90` with `focus:border-[var(--accent)]` and `focus:ring-[var(--accent-soft)]`, completely resolving the leftover `#080b1a` blue textarea.
-    - Submit button wired to `bg-(--picker-btn-primary)` (violet gradient in Cosmic, burnt orange in Editorial).
-  - **Back to Home Floating Button (`BackToHome.tsx`)**:
-    - Synchronized with `bg-[var(--surface-2)]/95`, `hover:bg-[var(--surface-3)]`, `hover:border-[var(--accent)]/60`, and arrow badge to `text-[var(--accent-text)]`, eliminating hardcoded `#090b1e` and violet.
-  - **Footer Wordmark & Atmosphere (`SiteFooter.tsx` & `TextHoverEffect.tsx`)**:
-    - Ambient rise updated to `var(--accent-soft)` for sunset glow in Editorial and celestial cyan glow in Cosmic.
-    - Wordmark Layer 2 illuminated stroke locked to signature `#3ca2fa` and cursor hover gradient locked to the default vibrant iridescent neon lightning beam (`#38bdf8` → `#818cf8` → `#c084fc` → `#38bdf8` → `#80eeb4` → `#06b6d4`) across both themes per client preference.
-  - **Floating Dock & Custom Scrollbar (`FloatingBottomNav.tsx` & `globals.css`)**:
-    - Dock body and mobile SVG path synchronized to `var(--surface)` and `var(--line-strong)`.
-    - Scrollbar thumb and track synchronized to `var(--accent)` and `var(--bg)`.
+  - **Dual-Palette Multi-Theme Calibration (`cosmic` vs `editorial`)**: **APPROVED & FULLY VERIFIED ACROSS ALL 8 SECTIONS ✨**
+    - **WebGL Shader Canvas (`NebulaShader.tsx`)**: Dynamically interpolates between Cosmic Violet (`#060713`, midnight navy, cyan mist, soft ice crests) and Warm Editorial (`#151817`, deep warm charcoal, umber slate, burnt terracotta, and warm amber crests) via live `u_palette` uniform with smooth 60fps lerp transitions.
+    - **Hero Section (`HeroPhoto.tsx` & `HeroProjectsCarousel.tsx`)**:
+      - 3 Service Pillars adapt dynamically: violet/cyan/pink in Cosmic Violet <-> terracotta (`#ff7857`)/warm amber (`#facc15`)/sage emerald (`#59c7a6`) in Warm Editorial.
+      - 4 Social Icon Buttons (Facebook, WhatsApp, LinkedIn, Instagram) adapt from violet rim to `border-[var(--line-strong)] hover:border-[var(--accent)] hover:bg-[var(--accent-soft)] hover:shadow-[0_0_18px_var(--accent-soft)]`.
+      - 2-Row Project Showcase cards adapt from dark purple background to `bg-[var(--surface-2)]/90`, `border-[var(--line)]`, `hover:border-[var(--accent)]/50`, and `hover:shadow-[0_0_30px_var(--accent-soft)]`.
+    - **Architectural Frames (Sections 01 & 04 - `ServicesGrid.tsx` & `Reasons.tsx`)**: Replaced hardcoded `#090b1e` and `#121634` with `bg-[var(--surface-2)]`, `bg-[var(--surface)]`, and `border-[var(--line)]`, harmonizing with both cosmic navy and warm charcoal surfaces.
+    - **Section 02 Studio Comparator (`StudioComparator.tsx` & `globals.css`)**:
+      - Replaced hardcoded keyframe colors (`circuit-stage1-glow`, `circuit-arrow1-circle`, `circuit-stage2-glow`, `circuit-arrow2-circle`, `circuit-stage3-glow`) with explicit dual-theme animation overrides (`circuit-stage1-glow-editorial`, etc.) so Stage 01, Stage 02, Stage 03, and connecting laser arrows pulse exclusively in warm terracotta (`#ff7857`), warm amber (`#facc15`), and sage emerald (`#59c7a6`) in Warm Editorial mode, with zero residual cosmic violet flashing.
+    - **Client Words Marquee (Section 05 - `Quotes.tsx`)**: Replaced hardcoded `#1b2248` with `bg-[var(--surface-2)]` (hover `bg-[var(--surface-3)]`).
+    - **Industry Marquee (Section 06 - `IndustryList.tsx`)**: Replaced hardcoded `#c4b5fd` with `text-[var(--accent-text)]` (hover `group-hover:text-[var(--accent-text)]`), rendering theme-matched soft peach in Editorial and soft violet in Cosmic.
+    - **FAQ Accordion (Section 07 - `Faq.tsx`)**: Replaced hardcoded violet with `text-[var(--accent-text)]`, `border-[var(--accent)]/50`, and `bg-[var(--accent-soft)]`.
+    - **Contact & Wireframe Globe (Section 08 - `ContactWithGlobe.tsx`)**:
+      - Globe bottom gradient fade updated to `from-[var(--bg)]` to eliminate hardcoded dark seams.
+      - Architectural form card updated to `bg-[var(--surface)]` and all inputs/textarea updated to `bg-[var(--bg)]/90` with `focus:border-[var(--accent)]` and `focus:ring-[var(--accent-soft)]`, completely resolving the leftover `#080b1a` blue textarea.
+    - **Back to Home Floating Button (`BackToHome.tsx`)**:
+      - Synchronized with `bg-[var(--surface-2)]/95`, `hover:bg-[var(--surface-3)]`, `hover:border-[var(--accent)]/60`, and arrow badge to `text-[var(--accent-text)]`, eliminating hardcoded `#090b1e` and violet.
+    - **Footer Wordmark & Atmosphere (`SiteFooter.tsx` & `TextHoverEffect.tsx`)**:
+      - Ambient rise updated to `var(--accent-soft)` for sunset glow in Editorial and celestial cyan glow in Cosmic.
+      - Unhovered outline stroke is theme-matched: signature `#3ca2fa` cyan with neon bloom in Cosmic Violet, and `#ff7857` burnt orange with warm glow in Warm Editorial.
+      - Hover reveal lightning beam is locked to the default vibrant multi-color iridescent neon beam (`#38bdf8` → `#818cf8` → `#c084fc` → `#38bdf8` → `#80eeb4` → `#06b6d4`) across both themes per client preference ("the default color that looks better").
+    - **Floating Dock & Custom Scrollbar (`FloatingBottomNav.tsx`, `MobileMenu.tsx` & `globals.css`)**:
+      - Dock body and mobile SVG path synchronized to `var(--surface)` and `var(--line-strong)`.
+      - Mobile action button background synchronized to `from-[var(--surface-2)] to-[var(--surface)]`.
+      - Scrollbar thumb and track synchronized to `var(--accent)` and `var(--bg)`.
 
 ## 3. Active Next Steps (For Next Session)
 1. **Mobile Responsiveness Audit & Optimization**:

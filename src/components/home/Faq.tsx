@@ -113,7 +113,7 @@ export function Faq({ index = "07", hideLead = false, hideHeader = true }: FaqPr
         </span>
         <a
           href="/contact"
-          className="font-mono text-xs font-semibold text-[#c4b5fd] hover:text-white transition-colors inline-flex items-center gap-1.5"
+          className="font-mono text-xs font-semibold text-[var(--accent-text)] hover:text-white transition-colors inline-flex items-center gap-1.5"
         >
           <span>Ask our engineering leads directly</span>
           <span aria-hidden="true">&rarr;</span>

@@ -112,7 +112,7 @@ function ProjectCard({ project }: { project: ProjectCardItem }) {
   return (
     <Link
       href={`/work/${project.slug}`}
-      className={`group relative flex flex-col h-[300px] sm:h-[320px] ${cardWidth} p-2 sm:p-2.5 rounded-[22px] border border-[#c4b5fd]/20 bg-[#0f0a2a]/80 backdrop-blur-xl hover:border-[#c084fc]/50 overflow-hidden cursor-pointer shrink-0 select-none transition-all duration-300 hover:shadow-[0_20px_50px_rgba(4,2,12,0.9),0_0_30px_rgba(139,92,246,0.18)] hover:-translate-y-1.5`}
+      className={`group relative flex flex-col h-[300px] sm:h-[320px] ${cardWidth} p-2 sm:p-2.5 rounded-[22px] border border-[var(--line)] bg-[var(--surface-2)]/90 backdrop-blur-xl hover:border-[var(--accent)]/50 overflow-hidden cursor-pointer shrink-0 select-none transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_var(--accent-soft)] hover:-translate-y-1.5`}
     >
       {/* Minimalist Top Browser Window Bar */}
       <div className="h-6 flex items-center justify-between px-2 mb-1.5 shrink-0">
@@ -134,7 +134,7 @@ function ProjectCard({ project }: { project: ProjectCardItem }) {
       </div>
 
       {/* Screen Frame holding image */}
-      <div className="relative flex-1 w-full rounded-[14px] overflow-hidden bg-[#111425] border border-white/5">
+      <div className="relative flex-1 w-full rounded-[14px] overflow-hidden bg-[var(--surface-3)] border border-white/5">
         <Image
           src={project.image}
           alt={project.title}
@@ -145,7 +145,7 @@ function ProjectCard({ project }: { project: ProjectCardItem }) {
 
         {/* Atmospheric dark gradient scrim so the title is 100% legible */}
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#090414]/95 via-[#090414]/35 to-transparent transition-opacity duration-300 group-hover:from-[#090414]/90"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg)]/95 via-[var(--bg)]/35 to-transparent transition-opacity duration-300 group-hover:from-[var(--bg)]/90"
           aria-hidden
         />
 

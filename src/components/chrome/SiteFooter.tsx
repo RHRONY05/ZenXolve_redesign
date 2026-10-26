@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { footerServices, footerStudio, site } from "@/content/site";
 import { Icon, type IconName } from "@/components/ui/Icon";

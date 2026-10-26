@@ -157,7 +157,7 @@ export function FloatingBottomNav() {
             <Link
               href="/contact"
               aria-label="Let's Talk"
-              className={`size-[50px] rounded-[18px] bg-gradient-to-b from-[#181a30] to-[#0c0d20] border-2 border-(--hero-frame-stroke) flex items-center justify-center transition-all duration-300 cursor-pointer select-none ${
+              className={`size-[50px] rounded-[18px] bg-gradient-to-b from-[var(--surface-2)] to-[var(--surface)] border-2 border-(--hero-frame-stroke) flex items-center justify-center transition-all duration-300 cursor-pointer select-none ${
                 isContactActive
                   ? "scale-105 shadow-[0_0_24px_var(--hero-frame-glow),0_0_10px_rgba(255,255,255,0.4)]"
                   : "shadow-[0_0_18px_var(--hero-frame-glow),0_8px_20px_rgba(0,0,0,0.85)] hover:scale-105 active:scale-95"

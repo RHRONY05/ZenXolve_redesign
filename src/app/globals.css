@@ -172,6 +172,40 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
   --shadow-md: 0 12px 28px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px var(--line);
   --shadow-lg: 0 34px 64px -22px rgba(0, 0, 0, 0.85), 0 0 0 1px var(--line);
+
+  /* Section 02 Circuit Synchronized Animation Tokens: Cosmic Violet */
+  --circuit-s1-glow: rgba(168, 85, 247, 0.32);
+  --circuit-s1-active-border: rgba(192, 132, 252, 0.85);
+  --circuit-s1-border: rgba(139, 92, 246, 0.4);
+
+  --circuit-arr1-border: rgba(6, 182, 212, 0.4);
+  --circuit-arr1-glow: rgba(6, 182, 212, 0.3);
+  --circuit-arr1-active-border: rgba(6, 182, 212, 0.95);
+  --circuit-arr1-active-bg: rgba(6, 182, 212, 0.3);
+  --circuit-arr1-active-glow: rgba(6, 182, 212, 0.85);
+
+  --circuit-s2-glow: rgba(6, 182, 212, 0.32);
+  --circuit-s2-active-border: rgba(34, 211, 238, 0.85);
+  --circuit-s2-border: rgba(6, 182, 212, 0.4);
+
+  --circuit-arr2-border: rgba(16, 185, 129, 0.4);
+  --circuit-arr2-glow: rgba(16, 185, 129, 0.3);
+  --circuit-arr2-active-border: rgba(16, 185, 129, 0.95);
+  --circuit-arr2-active-bg: rgba(16, 185, 129, 0.3);
+  --circuit-arr2-active-glow: rgba(16, 185, 129, 0.85);
+
+  --circuit-s3-glow: rgba(16, 185, 129, 0.32);
+  --circuit-s3-active-border: rgba(52, 211, 153, 0.85);
+  --circuit-s3-border: rgba(16, 185, 129, 0.4);
+
+  /* Hero Service Pillars: Cosmic Violet */
+  --hero-p1-dot: #a855f7;
+  --hero-p1-text: #c4b5fd;
+  --hero-p2-dot: #06b6d4;
+  --hero-p2-text: #67e8f9;
+  --hero-p3-dot: #ec4899;
+  --hero-p3-text: #f9a8d4;
+
   color-scheme: dark;
 }
 
@@ -275,6 +309,40 @@ html[data-palette="editorial"] {
 
   --shadow-md: 0 12px 28px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px var(--line);
   --shadow-lg: 0 34px 64px -22px rgba(0, 0, 0, 0.85), 0 0 0 1px var(--line);
+
+  /* Section 02 Circuit Synchronized Animation Tokens: Warm Editorial */
+  --circuit-s1-glow: rgba(255, 120, 87, 0.35);
+  --circuit-s1-active-border: rgba(255, 120, 87, 0.9);
+  --circuit-s1-border: rgba(255, 120, 87, 0.45);
+
+  --circuit-arr1-border: rgba(250, 204, 21, 0.4);
+  --circuit-arr1-glow: rgba(250, 204, 21, 0.3);
+  --circuit-arr1-active-border: rgba(250, 204, 21, 0.95);
+  --circuit-arr1-active-bg: rgba(250, 204, 21, 0.3);
+  --circuit-arr1-active-glow: rgba(250, 204, 21, 0.85);
+
+  --circuit-s2-glow: rgba(250, 204, 21, 0.35);
+  --circuit-s2-active-border: rgba(250, 204, 21, 0.9);
+  --circuit-s2-border: rgba(250, 204, 21, 0.45);
+
+  --circuit-arr2-border: rgba(89, 199, 166, 0.4);
+  --circuit-arr2-glow: rgba(89, 199, 166, 0.3);
+  --circuit-arr2-active-border: rgba(89, 199, 166, 0.95);
+  --circuit-arr2-active-bg: rgba(89, 199, 166, 0.3);
+  --circuit-arr2-active-glow: rgba(89, 199, 166, 0.85);
+
+  --circuit-s3-glow: rgba(89, 199, 166, 0.35);
+  --circuit-s3-active-border: rgba(89, 199, 166, 0.9);
+  --circuit-s3-border: rgba(89, 199, 166, 0.45);
+
+  /* Hero Service Pillars: Warm Editorial */
+  --hero-p1-dot: #ff7857;
+  --hero-p1-text: #ff9f86;
+  --hero-p2-dot: #facc15;
+  --hero-p2-text: #fef08a;
+  --hero-p3-dot: #59c7a6;
+  --hero-p3-text: #a7f3d0;
+
   color-scheme: dark;
 }
 
@@ -844,16 +912,16 @@ html[data-palette="editorial"] .acc {
 /* Stage 01 Card Elevation (0% - 22%) */
 @keyframes circuit-stage1-glow {
   0%, 22% {
-    box-shadow: 0 0 36px rgba(168, 85, 247, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    border-color: rgba(192, 132, 252, 0.85);
+    box-shadow: 0 0 36px var(--circuit-s1-glow), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-color: var(--circuit-s1-active-border);
   }
   22.1%, 99.9% {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    border-color: rgba(139, 92, 246, 0.4);
+    border-color: var(--circuit-s1-border);
   }
   100% {
-    box-shadow: 0 0 36px rgba(168, 85, 247, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    border-color: rgba(192, 132, 252, 0.85);
+    box-shadow: 0 0 36px var(--circuit-s1-glow), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-color: var(--circuit-s1-active-border);
   }
 }
 
@@ -880,20 +948,20 @@ html[data-palette="editorial"] .acc {
 /* Arrow 1 Center Circle Pulse (25% - 29%) */
 @keyframes circuit-arrow1-circle {
   0%, 24.9% {
-    border-color: rgba(6, 182, 212, 0.4);
-    box-shadow: 0 0 12px rgba(6, 182, 212, 0.3);
+    border-color: var(--circuit-arr1-border);
+    box-shadow: 0 0 12px var(--circuit-arr1-glow);
     transform: scale(1);
   }
   26%, 28% {
-    border-color: rgba(6, 182, 212, 0.95);
-    background-color: rgba(6, 182, 212, 0.3);
-    box-shadow: 0 0 24px rgba(6, 182, 212, 0.85);
+    border-color: var(--circuit-arr1-active-border);
+    background-color: var(--circuit-arr1-active-bg);
+    box-shadow: 0 0 24px var(--circuit-arr1-active-glow);
     color: #ffffff;
     transform: scale(1.12);
   }
   29.5%, 100% {
-    border-color: rgba(6, 182, 212, 0.4);
-    box-shadow: 0 0 12px rgba(6, 182, 212, 0.3);
+    border-color: var(--circuit-arr1-border);
+    box-shadow: 0 0 12px var(--circuit-arr1-glow);
     transform: scale(1);
   }
 }
@@ -924,15 +992,15 @@ html[data-palette="editorial"] .acc {
 @keyframes circuit-stage2-glow {
   0%, 31.9% {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    border-color: rgba(6, 182, 212, 0.4);
+    border-color: var(--circuit-s2-border);
   }
   32%, 54% {
-    box-shadow: 0 0 36px rgba(6, 182, 212, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    border-color: rgba(34, 211, 238, 0.85);
+    box-shadow: 0 0 36px var(--circuit-s2-glow), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-color: var(--circuit-s2-active-border);
   }
   54.1%, 100% {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    border-color: rgba(6, 182, 212, 0.4);
+    border-color: var(--circuit-s2-border);
   }
 }
 
@@ -959,20 +1027,20 @@ html[data-palette="editorial"] .acc {
 /* Arrow 2 Center Circle Pulse (57% - 61%) */
 @keyframes circuit-arrow2-circle {
   0%, 56.9% {
-    border-color: rgba(16, 185, 129, 0.4);
-    box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+    border-color: var(--circuit-arr2-border);
+    box-shadow: 0 0 12px var(--circuit-arr2-glow);
     transform: scale(1);
   }
   58%, 60% {
-    border-color: rgba(16, 185, 129, 0.95);
-    background-color: rgba(16, 185, 129, 0.3);
-    box-shadow: 0 0 24px rgba(16, 185, 129, 0.85);
+    border-color: var(--circuit-arr2-active-border);
+    background-color: var(--circuit-arr2-active-bg);
+    box-shadow: 0 0 24px var(--circuit-arr2-active-glow);
     color: #ffffff;
     transform: scale(1.12);
   }
   61.5%, 100% {
-    border-color: rgba(16, 185, 129, 0.4);
-    box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+    border-color: var(--circuit-arr2-border);
+    box-shadow: 0 0 12px var(--circuit-arr2-glow);
     transform: scale(1);
   }
 }
@@ -1003,15 +1071,15 @@ html[data-palette="editorial"] .acc {
 @keyframes circuit-stage3-glow {
   0%, 63.9% {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    border-color: rgba(16, 185, 129, 0.4);
+    border-color: var(--circuit-s3-border);
   }
   64%, 84% {
-    box-shadow: 0 0 36px rgba(16, 185, 129, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    border-color: rgba(52, 211, 153, 0.85);
+    box-shadow: 0 0 36px var(--circuit-s3-glow), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-color: var(--circuit-s3-active-border);
   }
   84.1%, 100% {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    border-color: rgba(16, 185, 129, 0.4);
+    border-color: var(--circuit-s3-border);
   }
 }
 
@@ -1126,5 +1194,155 @@ html[data-palette="editorial"] .acc {
   }
   100% {
     stroke-dashoffset: 0;
+  }
+}
+
+
+/* Hero Pillar Dual-Theme Classes */
+.hero-pillar-1-dot { background-color: #a855f7; box-shadow: 0 0 8px rgba(168, 85, 247, 0.9); }
+.hero-pillar-1-text { color: #c4b5fd; text-shadow: 0 0 16px rgba(168, 85, 247, 0.35); }
+.hero-pillar-2-dot { background-color: #06b6d4; box-shadow: 0 0 8px rgba(6, 182, 212, 0.9); }
+.hero-pillar-2-text { color: #67e8f9; text-shadow: 0 0 16px rgba(6, 182, 212, 0.35); }
+.hero-pillar-3-dot { background-color: #ec4899; box-shadow: 0 0 8px rgba(236, 72, 153, 0.9); }
+.hero-pillar-3-text { color: #f9a8d4; text-shadow: 0 0 16px rgba(236, 72, 153, 0.35); }
+
+:root[data-palette="editorial"] .hero-pillar-1-dot,
+html[data-palette="editorial"] .hero-pillar-1-dot {
+  background-color: #ff7857 !important;
+  box-shadow: 0 0 8px rgba(255, 120, 87, 0.9) !important;
+}
+:root[data-palette="editorial"] .hero-pillar-1-text,
+html[data-palette="editorial"] .hero-pillar-1-text {
+  color: #ff9f86 !important;
+  text-shadow: 0 0 16px rgba(255, 120, 87, 0.35) !important;
+}
+
+:root[data-palette="editorial"] .hero-pillar-2-dot,
+html[data-palette="editorial"] .hero-pillar-2-dot {
+  background-color: #facc15 !important;
+  box-shadow: 0 0 8px rgba(250, 204, 21, 0.9) !important;
+}
+:root[data-palette="editorial"] .hero-pillar-2-text,
+html[data-palette="editorial"] .hero-pillar-2-text {
+  color: #fef08a !important;
+  text-shadow: 0 0 16px rgba(250, 204, 21, 0.35) !important;
+}
+
+:root[data-palette="editorial"] .hero-pillar-3-dot,
+html[data-palette="editorial"] .hero-pillar-3-dot {
+  background-color: #59c7a6 !important;
+  box-shadow: 0 0 8px rgba(89, 199, 166, 0.9) !important;
+}
+:root[data-palette="editorial"] .hero-pillar-3-text,
+html[data-palette="editorial"] .hero-pillar-3-text {
+  color: #a7f3d0 !important;
+  text-shadow: 0 0 16px rgba(89, 199, 166, 0.35) !important;
+}
+
+
+/* Warm Editorial Keyframes and Overrides for Circuit Animations */
+:root[data-palette="editorial"] .animate-circuit-stage1-glow,
+html[data-palette="editorial"] .animate-circuit-stage1-glow {
+  animation-name: circuit-stage1-glow-editorial !important;
+}
+:root[data-palette="editorial"] .animate-circuit-arrow1-circle,
+html[data-palette="editorial"] .animate-circuit-arrow1-circle {
+  animation-name: circuit-arrow1-circle-editorial !important;
+}
+:root[data-palette="editorial"] .animate-circuit-stage2-glow,
+html[data-palette="editorial"] .animate-circuit-stage2-glow {
+  animation-name: circuit-stage2-glow-editorial !important;
+}
+:root[data-palette="editorial"] .animate-circuit-arrow2-circle,
+html[data-palette="editorial"] .animate-circuit-arrow2-circle {
+  animation-name: circuit-arrow2-circle-editorial !important;
+}
+:root[data-palette="editorial"] .animate-circuit-stage3-glow,
+html[data-palette="editorial"] .animate-circuit-stage3-glow {
+  animation-name: circuit-stage3-glow-editorial !important;
+}
+
+@keyframes circuit-stage1-glow-editorial {
+  0%, 22% {
+    box-shadow: 0 0 36px rgba(255, 120, 87, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 120, 87, 0.9);
+  }
+  22.1%, 99.9% {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 120, 87, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 36px rgba(255, 120, 87, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 120, 87, 0.9);
+  }
+}
+
+@keyframes circuit-arrow1-circle-editorial {
+  0%, 24.9% {
+    border-color: rgba(250, 204, 21, 0.4);
+    box-shadow: 0 0 12px rgba(250, 204, 21, 0.3);
+    transform: scale(1);
+  }
+  26%, 28% {
+    border-color: rgba(250, 204, 21, 0.95);
+    background-color: rgba(250, 204, 21, 0.3);
+    box-shadow: 0 0 24px rgba(250, 204, 21, 0.85);
+    color: #ffffff;
+    transform: scale(1.12);
+  }
+  29.5%, 100% {
+    border-color: rgba(250, 204, 21, 0.4);
+    box-shadow: 0 0 12px rgba(250, 204, 21, 0.3);
+    transform: scale(1);
+  }
+}
+
+@keyframes circuit-stage2-glow-editorial {
+  0%, 31.9% {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border-color: rgba(250, 204, 21, 0.45);
+  }
+  32%, 54% {
+    box-shadow: 0 0 36px rgba(250, 204, 21, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    border-color: rgba(250, 204, 21, 0.9);
+  }
+  54.1%, 100% {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border-color: rgba(250, 204, 21, 0.45);
+  }
+}
+
+@keyframes circuit-arrow2-circle-editorial {
+  0%, 56.9% {
+    border-color: rgba(89, 199, 166, 0.4);
+    box-shadow: 0 0 12px rgba(89, 199, 166, 0.3);
+    transform: scale(1);
+  }
+  58%, 60% {
+    border-color: rgba(89, 199, 166, 0.95);
+    background-color: rgba(89, 199, 166, 0.3);
+    box-shadow: 0 0 24px rgba(89, 199, 166, 0.85);
+    color: #ffffff;
+    transform: scale(1.12);
+  }
+  61.5%, 100% {
+    border-color: rgba(89, 199, 166, 0.4);
+    box-shadow: 0 0 12px rgba(89, 199, 166, 0.3);
+    transform: scale(1);
+  }
+}
+
+@keyframes circuit-stage3-glow-editorial {
+  0%, 63.9% {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border-color: rgba(89, 199, 166, 0.45);
+  }
+  64%, 84% {
+    box-shadow: 0 0 36px rgba(89, 199, 166, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    border-color: rgba(89, 199, 166, 0.9);
+  }
+  84.1%, 100% {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border-color: rgba(89, 199, 166, 0.45);
   }
 }
