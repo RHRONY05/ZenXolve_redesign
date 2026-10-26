@@ -1,3 +1,5 @@
+import { ContactChannels } from "@/components/contact/ContactChannels";
+import { ContactForm } from "@/components/contact/ContactForm";
 import { CtaBand } from "@/components/home/CtaBand";
 import { Faq } from "@/components/home/Faq";
 import { HeroPhoto } from "@/components/home/HeroPhoto";
@@ -134,6 +136,25 @@ export default function Home() {
             }
           />
           <Faq hideHeader={true} />
+        </div>
+      </Section>
+
+      {/* SECTION 08: Direct Contact & Project Inquiry */}
+      <Section top="flow" id="contact" className="!pt-8 md:!pt-12 !pb-10 md:!pb-16">
+        <SectionHead
+          index="08"
+          label="Get In Touch"
+          layout="stacked"
+          leadOnMobile
+          title={
+            <>
+              Have a project in mind? <em className="acc">Let&apos;s talk.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— Tell us about your vision, technical scope, or timeline. We respond within 2 hours.</span>
+            </>
+          }
+        />
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_640px] gap-8 lg:gap-14 items-start">
+          <ContactChannels />
+          <ContactForm />
         </div>
       </Section>
 

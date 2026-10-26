@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 /** Inverse colours (ink in light, paper in dark), giant faint bolt bottom-right. On every page except Contact. */
 export function CtaBand() {
   return (
-    <section id="contact" className="inverse-surface relative mx-2 overflow-hidden rounded-lg bg-inverse px-6 pt-16 pb-14 text-on-inverse md:mx-(--frame-inset) md:rounded-xl md:px-(--gutter-d) md:pt-[110px] md:pb-24">
+    <section id="cta" className="inverse-surface relative mx-2 overflow-hidden rounded-lg bg-inverse px-6 pt-16 pb-14 text-on-inverse md:mx-(--frame-inset) md:rounded-xl md:px-(--gutter-d) md:pt-[110px] md:pb-24">
       <svg
         viewBox="0 0 100 60"
         aria-hidden="true"
@@ -21,7 +21,7 @@ export function CtaBand() {
           Let&apos;s discuss how we can help you achieve your goals with cutting-edge technology solutions.
         </p>
         <div className="flex flex-col flex-wrap gap-3 md:flex-row">
-          <Button href="/contact" size="lg" variant="inverse" icon="arrow-right" className="w-full md:w-auto">
+          <Button href="#contact" size="lg" variant="inverse" icon="arrow-right" className="w-full md:w-auto">
             Start a project
           </Button>
           <Button href={site.whatsapp} external size="lg" variant="ghost-inverse" iconLeft="whatsapp" className="w-full md:w-auto">

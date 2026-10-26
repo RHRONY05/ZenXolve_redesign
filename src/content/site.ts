@@ -18,12 +18,13 @@ export const site = {
 
 /** Navigation items linking directly to individual homepage sections */
 export const nav = [
+  { label: "Home", href: "/#" },
   { label: "Services", href: "/#services" },
   { label: "Advantage", href: "/#advantage" },
   { label: "Process", href: "/#process" },
   { label: "Why Us", href: "/#why-us" },
-  { label: "Reviews", href: "/#reviews" },
   { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
 
 export const footerStudio = [

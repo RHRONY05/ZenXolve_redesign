@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import { ChromeProvider } from "@/components/chrome/ChromeProvider";
 import { FloatingBottomNav } from "@/components/chrome/FloatingBottomNav";
+import { BackToHome } from "@/components/chrome/BackToHome";
 import { InnerPageHeader } from "@/components/chrome/InnerPageHeader";
 import { SiteFooter } from "@/components/chrome/SiteFooter";
 import "./globals.css";
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main">{children}</main>
           <SiteFooter />
           <FloatingBottomNav />
+          <BackToHome />
         </ChromeProvider>
       </body>
     </html>

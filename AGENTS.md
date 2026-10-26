@@ -82,14 +82,19 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - **Global Theme Scrollbar**: **IMPLEMENTED ✨**
   - Custom thin 6px scrollbar synchronized with the brand: `#060713` cosmic dark track + soft violet thumb (`rgba(139, 92, 246, 0.45)`, hover `rgba(167, 139, 250, 0.8)`), supported across all modern browsers (WebKit + Firefox).
 
-- **Section 08 (Final CTA Band - `src/components/home/CtaBand.tsx`)**: **APPROVED & LOCKED 🔒**
+- **Section 08 (Interactive Contact Section - `ContactForm.tsx` & `ContactChannels.tsx`)**: **IMPLEMENTED ✨**
+  - Integrated directly onto the homepage under unified SectionHead (Index `08`, Eyebrow `Get In Touch`, display headline + em dash subtext).
+  - 2-column layout: Direct channels on left (WhatsApp, email, phone, location, 2-hour response SLA) + fully functional interactive project inquiry form on right.
+  - Anchored to `id="contact"` so all "Start a project" and contact buttons across the site land directly here.
+- **Section 09 (Final CTA Band - `src/components/home/CtaBand.tsx`)**: **APPROVED & LOCKED 🔒**
   - Authentic WhatsApp brand icon added to the "Chat on WhatsApp" action button.
-  - Section given `id="contact"` anchor for direct in-page navigation.
+- **Back to Home Navigation (`BackToHome.tsx` & Navigation Bars)**: **IMPLEMENTED ✨**
+  - Global floating **Back to Home** button with upward arrow and theme violet glow, appearing smoothly when scrolled down past 350px.
+  - Dedicated "Home" button added directly to top navbar, mobile menu, and bottom notched dock.
 - **Global Footer & Navigation (`SiteFooter.tsx`, `SiteHeader.tsx`, `FloatingBottomNav.tsx`, `MobileMenu.tsx`)**: **OPTIMIZED & UNIFIED ✨**
   - Excessive vertical padding in Footer reduced from 96px/128px to compact, well-balanced dimensions (14px/20px).
   - Outdated separate-page links replaced with direct in-page anchor navigation:
-    - `Services` (`/#services`), `Advantage` (`/#advantage`), `Process` (`/#process`), `Why Us` (`/#why-us`), `Reviews` (`/#reviews`), `FAQ` (`/#faq`), and `Start a project` (`/#contact`).
-  - Redundant "About" button resolved by pointing to `#why-us` (Why Clients Stay & Trust Pillars).
+    - `Home` (`/#`), `Services` (`/#services`), `Advantage` (`/#advantage`), `Process` (`/#process`), `Why Us` (`/#why-us`), `FAQ` (`/#faq`), and `Start a project` (`/#contact`).
 
 ## 3. Active Next Steps
 1. Client final review of full homepage and navigation flow.

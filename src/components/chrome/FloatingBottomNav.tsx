@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { Briefcase, Puzzle, Users, Cpu, Sun } from "lucide-react";
+import { Briefcase, Puzzle, Users, Cpu, Sun, Home } from "lucide-react";
 
 type PaletteId = "cosmic" | "editorial";
 
@@ -61,8 +61,8 @@ export function FloatingBottomNav() {
   };
 
   const navLinks = [
+    { label: "Home", href: "/#", icon: Home },
     { label: "Services", href: "/#services", icon: Puzzle },
-    { label: "Advantage", href: "/#advantage", icon: Briefcase },
     { label: "Let's Talk", href: "/#contact", isCta: true },
     { label: "Process", href: "/#process", icon: Cpu },
     { label: "Why Us", href: "/#why-us", icon: Users },

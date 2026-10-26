@@ -18,7 +18,7 @@ export const contactChannels: ContactChannel[] = [
     detail: "+880 1633-707780 · fastest way to reach us",
     mobileDetail: "+880 1633-707780",
     href: site.whatsapp,
-    icon: "message-circle",
+    icon: "whatsapp",
     isWhatsApp: true,
   },
   {
