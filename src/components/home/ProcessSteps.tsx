@@ -99,7 +99,7 @@ export function ProcessSteps() {
             }
           >
             {/* Top Category Tab Header: Remains visible when cards stack over each other */}
-            <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-black/10">
+            <div className="flex items-center justify-between pb-3 sm:pb-3.5 mb-4 border-b border-black/10">
               <div className="flex items-center gap-2 sm:gap-3">
                 <span
                   className={`font-serif italic text-base sm:text-lg md:text-xl font-bold tracking-tight ${s.theme.text}`}
@@ -107,13 +107,6 @@ export function ProcessSteps() {
                   Step {s.step} — {s.tab}
                 </span>
               </div>
-
-              <span
-                className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[10.5px] font-bold ${s.theme.tagBg} ${s.theme.tagText}`}
-              >
-                <span className={`size-1.5 rounded-full ${s.theme.tabAccent}`} />
-                PHASE 0{i + 1} // 04
-              </span>
             </div>
 
             {/* Main Split Layout: Left Info & Highlighted Deliverables vs Right Orbital Constellation */}
