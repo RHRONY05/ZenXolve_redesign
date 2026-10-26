@@ -10,12 +10,17 @@ export type StepHub = {
   glowColor: string;
 };
 
+export type StepDeliverable = {
+  highlight: string;
+  detail: string;
+};
+
 export type StepItem = {
   step: string;
   tab: string;
   headline: string;
   body: string;
-  deliverables: string[];
+  deliverables: StepDeliverable[];
   hub: StepHub;
   tools: StepTool[];
   theme: {
@@ -39,10 +44,22 @@ export const stepsData: StepItem[] = [
     headline: "Understanding Your Vision, Mapping the Blueprint",
     body: "We dive deep into your business logic, user journeys, competitor landscape, and technical constraints before writing a single line of code. You get a transparent roadmap with clear milestones and weekly visibility.",
     deliverables: [
-      "Product requirements document (PRD) detailing user personas and system architecture",
-      "Technical scoping, database schema design, and third-party API dependency mapping",
-      "Competitive analysis and feature prioritization matrix aligned with commercial ROI",
-      "Asynchronous Loom video updates and centralized Notion strategy hub with live visibility",
+      {
+        highlight: "Product Requirements Document (PRD)",
+        detail: "with complete user personas and end-to-end system architecture specs",
+      },
+      {
+        highlight: "Technical Scoping & Database Schema",
+        detail: "covering data relationships, third-party APIs, and security constraints",
+      },
+      {
+        highlight: "Competitive ROI & Feature Matrix",
+        detail: "prioritizing high-impact features to eliminate scope creep and save budget",
+      },
+      {
+        highlight: "Asynchronous Loom & Notion Hub",
+        detail: "providing full stakeholder transparency and weekly progress demos",
+      },
     ],
     hub: {
       type: "brain",
@@ -66,7 +83,7 @@ export const stepsData: StepItem[] = [
       tagText: "text-[#081a30]",
       tabAccent: "bg-[#081a30]",
       lineColor: "#0284c7",
-      bulletColor: "text-[#0369a1]",
+      bulletColor: "text-[#0284c7]",
       hubBg: "bg-sky-500",
     },
   },
@@ -76,10 +93,22 @@ export const stepsData: StepItem[] = [
     headline: "High-Converting Interfaces & Living Design Systems",
     body: "User-centered design that turns visitors into active customers. We craft pixel-perfect wireframes, responsive component libraries, and interactive prototypes with real micro-interactions.",
     deliverables: [
-      "Pixel-perfect Figma design systems with tokens, typography scales, and state variants",
-      "Interactive clickable prototypes for real user validation and executive sign-off",
-      "Responsive layout specifications covering mobile, tablet, and widescreen viewports",
-      "1:1 engineering handoff documentation ensuring zero visual fidelity loss in development",
+      {
+        highlight: "Complete Figma Design System",
+        detail: "with design tokens, responsive typography scales, and interactive states",
+      },
+      {
+        highlight: "Clickable High-Fidelity Prototypes",
+        detail: "for real user validation, usability testing, and stakeholder approval",
+      },
+      {
+        highlight: "Multi-Device Layout Specifications",
+        detail: "engineered pixel-for-pixel from mobile viewports to widescreen desktops",
+      },
+      {
+        highlight: "1:1 Engineering Handoff Specs",
+        detail: "guaranteeing zero visual fidelity loss during the frontend build",
+      },
     ],
     hub: {
       type: "pen",
@@ -102,7 +131,7 @@ export const stepsData: StepItem[] = [
       tagText: "text-[#062916]",
       tabAccent: "bg-[#062916]",
       lineColor: "#059669",
-      bulletColor: "text-[#047857]",
+      bulletColor: "text-[#059669]",
       hubBg: "bg-emerald-500",
     },
   },
@@ -112,10 +141,22 @@ export const stepsData: StepItem[] = [
     headline: "Production Code Meets Autonomous AI Workflows",
     body: "Engineered from day one for speed, security, and scalability. Modern type-safe frontends, resilient backend APIs, and automated back-office pipelines wired together with zero technical debt.",
     deliverables: [
-      "Production Next.js & TypeScript frontend built for sub-second speeds and strict type safety",
-      "Scalable PostgreSQL database architecture with vector search and secure authentication",
-      "Autonomous n8n & webhook pipelines to automate manual back-office tasks",
-      "Automated continuous integration (CI/CD) pipelines with linting and unit test coverage",
+      {
+        highlight: "Next.js & TypeScript Architecture",
+        detail: "built for sub-second page loads, zero CLS, and strict static type safety",
+      },
+      {
+        highlight: "PostgreSQL & Supabase Database",
+        detail: "featuring relational integrity, vector search, and secure auth flows",
+      },
+      {
+        highlight: "Autonomous n8n Workflow Pipelines",
+        detail: "connecting webhooks and AI automations to eliminate manual data entry",
+      },
+      {
+        highlight: "Automated CI/CD & Testing Suite",
+        detail: "with GitHub Actions enforcing linting, build validation, and code review",
+      },
     ],
     hub: {
       type: "cpu",
@@ -139,7 +180,7 @@ export const stepsData: StepItem[] = [
       tagText: "text-[#170e33]",
       tabAccent: "bg-[#170e33]",
       lineColor: "#7c3aed",
-      bulletColor: "text-[#6d28d9]",
+      bulletColor: "text-[#7c3aed]",
       hubBg: "bg-purple-600",
     },
   },
@@ -149,10 +190,22 @@ export const stepsData: StepItem[] = [
     headline: "Zero-Downtime Launch, Edge Speed & 24/7 Monitoring",
     body: "Flawless production rollout with edge CDN caching, global database distribution, and continuous performance telemetry. We don't vanish after launch—we monitor, optimize, and scale it alongside you.",
     deliverables: [
-      "Worldwide edge deployment on Vercel and Cloudflare with global low-latency CDN routing",
-      "Containerized backend workloads on Docker with automated health checks and zero downtime",
-      "Real-time application telemetry, Sentry error alerts, and Core Web Vitals monitoring",
-      "Direct client support channels on Telegram and WhatsApp with ongoing iteration",
+      {
+        highlight: "Global Edge CDN Deployment",
+        detail: "on Vercel & Cloudflare with instant cache invalidation and low latency",
+      },
+      {
+        highlight: "Docker Containerized Workloads",
+        detail: "with isolated environments, health checks, and zero-downtime releases",
+      },
+      {
+        highlight: "Real-Time Sentry Error Telemetry",
+        detail: "and automated performance alerts tracking Core Web Vitals 24/7",
+      },
+      {
+        highlight: "Dedicated Support Channels",
+        detail: "on Telegram and WhatsApp with continuous iteration and direct access",
+      },
     ],
     hub: {
       type: "globe",
@@ -176,7 +229,7 @@ export const stepsData: StepItem[] = [
       tagText: "text-[#2c1303]",
       tabAccent: "bg-[#2c1303]",
       lineColor: "#ea580c",
-      bulletColor: "text-[#c2410c]",
+      bulletColor: "text-[#ea580c]",
       hubBg: "bg-amber-600",
     },
   },

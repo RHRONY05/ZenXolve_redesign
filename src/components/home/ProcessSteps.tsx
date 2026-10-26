@@ -39,7 +39,7 @@ function HubIcon({ type }: { type: "brain" | "pen" | "cpu" | "globe" }) {
   }
 }
 
-// 5-node radial coordinates (equidistant pentagon with generous room)
+// 5-node radial coordinates (equidistant pentagon)
 const fiveNodeCoords = [
   { x: 50, y: 14 }, // Top
   { x: 84, y: 35 }, // Top-Right
@@ -59,19 +59,25 @@ const fourNodeCoords = [
 export function ProcessSteps() {
   return (
     <div className="relative pb-24 md:pb-32">
-      {/* Inline style for the flowing dotted circuits (marching dashed circuit animation) */}
+      {/* 
+        Seamless Infinite Flow Keyframe:
+        Pattern period = 5px dash + 5px gap = 10px.
+        Keyframe moves by exactly 20px (2 full periods).
+        20 % 10 === 0 -> 100% mathematically seamless infinite loop without any restart jumps!
+      */}
       <style jsx>{`
-        @keyframes flowCircuitForward {
+        @keyframes seamlessCircuitFlow {
           from {
-            stroke-dashoffset: 24;
+            stroke-dashoffset: 20;
           }
           to {
             stroke-dashoffset: 0;
           }
         }
         .flowing-circuit {
-          stroke-dasharray: 6 5;
-          animation: flowCircuitForward 1.1s linear infinite;
+          stroke-dasharray: 5 5;
+          stroke-linecap: round;
+          animation: seamlessCircuitFlow 0.85s linear infinite;
         }
       `}</style>
 
@@ -110,10 +116,10 @@ export function ProcessSteps() {
               </span>
             </div>
 
-            {/* Main Split Layout: Left Info & Bullet List vs Right Orbital Constellation */}
-            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1.15fr] gap-6 lg:gap-8 items-stretch">
-              {/* Left Column: Heading, Description & Bullet Points (matches image 2 spec) */}
-              <div className="flex flex-col justify-between space-y-4">
+            {/* Main Split Layout: Left Info & Highlighted Deliverables vs Right Orbital Constellation */}
+            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1.15fr] gap-6 lg:gap-8 items-start">
+              {/* Left Column: Heading, Description & Deliverables (Pushed up with NO empty space) */}
+              <div className="flex flex-col justify-start space-y-4">
                 <div>
                   <h3
                     className={`font-serif text-xl sm:text-2xl md:text-[26px] font-bold leading-snug tracking-tight ${s.theme.text}`}
@@ -127,9 +133,9 @@ export function ProcessSteps() {
                   </p>
                 </div>
 
-                {/* Scope & Deliverables: Styled Bullet Points with ▶ marker (no empty space!) */}
-                <ul className="space-y-2.5 pt-3.5 border-t border-black/10">
-                  {s.deliverables.map((item, dIdx) => (
+                {/* Scope & Deliverables: Highlighted Bold Key Terms + ▶ Marker */}
+                <ul className="space-y-3 pt-3 border-t border-black/10">
+                  {s.deliverables.map((d, dIdx) => (
                     <li key={dIdx} className="flex items-start gap-2.5">
                       <span
                         className={`text-xs shrink-0 mt-0.5 ${s.theme.bulletColor}`}
@@ -137,11 +143,16 @@ export function ProcessSteps() {
                       >
                         ▶
                       </span>
-                      <span
-                        className={`font-sans text-xs sm:text-[13px] md:text-[13.5px] leading-relaxed font-medium ${s.theme.subtext}`}
-                      >
-                        {item}
-                      </span>
+                      <p className="font-sans text-xs sm:text-[13px] md:text-[13.5px] leading-relaxed">
+                        <strong
+                          className={`font-bold tracking-tight ${s.theme.text}`}
+                        >
+                          {d.highlight}
+                        </strong>{" "}
+                        <span className={`font-medium ${s.theme.subtext}`}>
+                          — {d.detail}
+                        </span>
+                      </p>
                     </li>
                   ))}
                 </ul>
@@ -156,7 +167,7 @@ export function ProcessSteps() {
                   backgroundSize: "20px 20px",
                 }}
               >
-                {/* SVG Continuously Flowing Dotted Circuit Lines (Matching Image 1 spec) */}
+                {/* SVG Continuously Flowing Dotted Circuit Lines (Seamless 100% infinite loop) */}
                 <svg
                   className="absolute inset-0 size-full pointer-events-none"
                   viewBox="0 0 100 100"
@@ -167,25 +178,12 @@ export function ProcessSteps() {
                       <stop offset="0%" stopColor={s.theme.lineColor} stopOpacity="0.22" />
                       <stop offset="100%" stopColor={s.theme.lineColor} stopOpacity="0" />
                     </radialGradient>
-
-                    {/* Arrowhead marker at satellite end */}
-                    <marker
-                      id={`arrow-${i}`}
-                      viewBox="0 0 10 10"
-                      refX="6"
-                      refY="5"
-                      markerWidth="4.5"
-                      markerHeight="4.5"
-                      orient="auto"
-                    >
-                      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill={s.theme.lineColor} />
-                    </marker>
                   </defs>
 
                   {/* Subtle Ambient Radial Core Glow */}
                   <circle cx="50" cy="50" r="28" fill={`url(#glow-${i})`} />
 
-                  {/* Flowing Dotted Lines from Central Core to each Tool Satellite */}
+                  {/* Continuous Seamless Flowing Circuit Lines */}
                   {coords.map((pos, idx) => (
                     <g key={idx}>
                       {/* Underlay faint guide wire */}
@@ -198,22 +196,26 @@ export function ProcessSteps() {
                         strokeWidth="1.2"
                       />
 
-                      {/* Continuous Flowing Dotted Wire (marching dashed circuit with arrowhead) */}
+                      {/* 
+                        Seamless Marching Circuit Wire:
+                        Flows uninterrupted between center and satellite.
+                        Because the center hub and satellite nodes are positioned OVER the endpoints,
+                        dashes emerge and submerge without any visible pop or restart!
+                      */}
                       <line
                         x1="50"
                         y1="50"
                         x2={pos.x}
                         y2={pos.y}
                         stroke={s.theme.lineColor}
-                        strokeWidth="1.6"
-                        markerEnd={`url(#arrow-${i})`}
+                        strokeWidth="1.7"
                         className="flowing-circuit"
                       />
                     </g>
                   ))}
                 </svg>
 
-                {/* Central Intelligence Hub (No radiating ping circle, clean solid core) */}
+                {/* Central Intelligence Hub (Elevated on z-10) */}
                 <div
                   className="absolute flex flex-col items-center z-10"
                   style={{
@@ -222,7 +224,7 @@ export function ProcessSteps() {
                     transform: "translate(-50%, -50%)",
                   }}
                 >
-                  {/* Central Core Emblem (Substantially Larger) */}
+                  {/* Central Core Emblem */}
                   <div
                     className={`size-16 sm:size-18 md:size-20 rounded-2xl ${s.theme.hubBg} flex items-center justify-center shadow-xl border-3 border-white transition-transform hover:scale-105 duration-200`}
                     style={{
@@ -238,7 +240,7 @@ export function ProcessSteps() {
                   </span>
                 </div>
 
-                {/* Surrounding Tool Satellites (Substantially Larger Icons + Column Name) */}
+                {/* Surrounding Tool Satellites (Elevated on z-20) */}
                 {s.tools.map((t, idx) => {
                   const pos = coords[idx] || { x: 50, y: 50 };
 
@@ -252,7 +254,7 @@ export function ProcessSteps() {
                         transform: "translate(-50%, -50%)",
                       }}
                     >
-                      {/* Big Icon Tile (Substantially Larger: 54–60px tile with 38-42px icon) */}
+                      {/* Big Icon Tile (54–60px with 38-42px brand icon) */}
                       <div className="size-13 sm:size-14 md:size-15 rounded-2xl bg-white shadow-md border border-slate-200/90 flex items-center justify-center p-2.5 group-hover:border-slate-400 group-hover:shadow-xl transition-all duration-200">
                         <Image
                           src={`/tools/${t.iconFile}`}
