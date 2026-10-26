@@ -133,7 +133,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
     - Synchronized with `bg-[var(--surface-2)]/95`, `hover:bg-[var(--surface-3)]`, `hover:border-[var(--accent)]/60`, and arrow badge to `text-[var(--accent-text)]`, eliminating hardcoded `#090b1e` and violet.
   - **Footer Wordmark & Atmosphere (`SiteFooter.tsx` & `TextHoverEffect.tsx`)**:
     - Ambient rise updated to `var(--accent-soft)` for sunset glow in Editorial and celestial cyan glow in Cosmic.
-    - Wordmark Layer 2 illuminated stroke and cursor hover gradient dynamically switch between cosmic iridescent beams and warm terracotta/amber/gold beams.
+    - Wordmark Layer 2 illuminated stroke locked to signature `#3ca2fa` and cursor hover gradient locked to the default vibrant iridescent neon lightning beam (`#38bdf8` → `#818cf8` → `#c084fc` → `#38bdf8` → `#80eeb4` → `#06b6d4`) across both themes per client preference.
   - **Floating Dock & Custom Scrollbar (`FloatingBottomNav.tsx` & `globals.css`)**:
     - Dock body and mobile SVG path synchronized to `var(--surface)` and `var(--line-strong)`.
     - Scrollbar thumb and track synchronized to `var(--accent)` and `var(--bg)`.

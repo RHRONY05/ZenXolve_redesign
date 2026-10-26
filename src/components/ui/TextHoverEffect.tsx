@@ -76,24 +76,12 @@ export const TextHoverEffect = ({
           x2="100%"
           y2="0%"
         >
-          {isEditorial ? (
-            <>
-              <stop offset="0%" stopColor="#ff7857" />
-              <stop offset="25%" stopColor="#fb923c" />
-              <stop offset="50%" stopColor="#facc15" />
-              <stop offset="75%" stopColor="#59c7a6" />
-              <stop offset="100%" stopColor="#ff7857" />
-            </>
-          ) : (
-            <>
-              <stop offset="0%" stopColor="#38bdf8" />
-              <stop offset="20%" stopColor="#818cf8" />
-              <stop offset="42%" stopColor="#c084fc" />
-              <stop offset="65%" stopColor="#38bdf8" />
-              <stop offset="85%" stopColor="#80eeb4" />
-              <stop offset="100%" stopColor="#06b6d4" />
-            </>
-          )}
+          <stop offset="0%" stopColor="#38bdf8" />
+          <stop offset="20%" stopColor="#818cf8" />
+          <stop offset="42%" stopColor="#c084fc" />
+          <stop offset="65%" stopColor="#38bdf8" />
+          <stop offset="85%" stopColor="#80eeb4" />
+          <stop offset="100%" stopColor="#06b6d4" />
         </linearGradient>
 
         <radialGradient
@@ -147,7 +135,7 @@ export const TextHoverEffect = ({
       {/* Layer 2: Main illuminated stroke (#3ca2fa / ice cyan) */}
       <g
         fill="none"
-        stroke={isEditorial ? "#ff7857" : "#3ca2fa"}
+        stroke="#3ca2fa"
         strokeWidth="0.75"
         className="transition-all duration-300"
         style={{
@@ -161,7 +149,7 @@ export const TextHoverEffect = ({
         <path
           d={X_EMBLEM_PATH}
           style={{
-            filter: isEditorial ? "drop-shadow(0 0 10px rgba(255, 120, 87, 0.45))" : "drop-shadow(0 0 10px rgba(60, 162, 250, 0.4))",
+            filter: "drop-shadow(0 0 10px rgba(60, 162, 250, 0.4))",
           }}
         />
         {/* 'ENZOLVE' letters */}
