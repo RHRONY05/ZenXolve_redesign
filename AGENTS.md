@@ -54,10 +54,13 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - 4 distinct colored cards: Sky Blue (Discovery), Fresh Mint (Design), Soft Lavender (Engineering), Warm Peach (Deployment).
   - Left column: Step title, display headline, process description, and bold highlighted key deliverables with ▶ bullet points.
   - Right column: Full-height Orbital Constellation with central core hubs (Brain, Pen, CPU, Globe) and continuous, seamless flowing circuit connections with large brand tool icons.
-- **Section 04 (Why Xenzolve - `src/components/home/Reasons.tsx`)**: **ACTIVE FOCUS ⏳**
-  - Next in queue for design review and enhancement.
+- **Section 04 (Why Xenzolve - `src/components/home/Reasons.tsx`)**: **UPDATED & UNDER REVIEW ⏳**
+  - Continuous narrative flow in every card (`[Heading] — [Subtext]`).
+  - Unified brand-synchronized dark palette (removed loud cobalt, plum, and forest green).
+  - High-impact storytelling aligned with client retention (One Team Zero Handoffs, Direct Engineer Access, Autonomous Scale, Weekly Demos, Transparent Fixed Scopes, Continuous Post-Launch Support).
 
 ## 3. Active Next Steps
-1. Review and enhance Section 04 (Why Xenzolve).
-2. Continue sequentially down the page (Section 05 Client Words, Industries, FAQ, and CTA Band).
+1. Review Section 04 layout and storytelling with user.
+2. Proceed to Section 05 (Client Words / Testimonials).
+3. Continue sequentially down the page (Industries, FAQ, and CTA Band).
 3. Continue sequentially down the page (Section 05 Client Words, Industries, FAQ, and CTA Band).
