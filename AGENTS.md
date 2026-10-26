@@ -77,7 +77,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Soft left & right bilateral edge masks (`mask-image: linear-gradient`) for a seamless infinite horizon.
 - **Section 07 (Frequently Asked Questions - `src/components/home/Faq.tsx` & `src/content/faq.ts`)**: **UPDATED & UNDER REVIEW ⏳**
   - Unified SectionHead (Index `07`, Eyebrow `Frequently Asked Questions`, inline headline + em dash subtext).
-  - Full-width accordion taking 100% of the content container (2-column restriction removed).
+  - Constrained to an optimal centered reading width (`max-w-4xl mx-auto`) so concise questions and answers feel comfortable and tightly aligned with the plus indicators.
   - High-contrast interactive rows with numeric mono indicators (`01`-`05`), illuminated plus badges, and smooth grid-template-rows expansion.
 - **Global Theme Scrollbar**: **IMPLEMENTED ✨**
   - Custom thin 6px scrollbar synchronized with the brand: `#060713` cosmic dark track + soft violet thumb (`rgba(139, 92, 246, 0.45)`, hover `rgba(167, 139, 250, 0.8)`), supported across all modern browsers (WebKit + Firefox).

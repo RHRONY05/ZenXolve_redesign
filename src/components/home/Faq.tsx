@@ -23,7 +23,7 @@ export function Faq({ index = "07", hideLead = false, hideHeader = true }: FaqPr
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-4xl mx-auto">
       {!hideHeader && (
         <div className="reveal mb-10 md:mb-14">
           <div className="mono mb-3.5 flex items-center gap-[14px] text-accent font-semibold md:mb-5">
