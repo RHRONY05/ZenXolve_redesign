@@ -27,6 +27,7 @@ export function FloatingBottomNav() {
   const mobileNavRef = useRef<HTMLDivElement>(null);
   const [dockWidth, setDockWidth] = useState(390);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
     if (!mobileNavRef.current) return;
@@ -48,11 +49,32 @@ export function FloatingBottomNav() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY >= 320);
+
+      // Track active section for homepage anchors
+      if (pathname === "/" || pathname === "") {
+        const sections = ["advantage", "services", "process", "why-us", "contact"];
+        const scrollPos = window.scrollY + 280;
+        let current = "";
+        for (const id of sections) {
+          const el = document.getElementById(id);
+          if (el) {
+            const top = el.offsetTop;
+            const height = el.offsetHeight;
+            if (scrollPos >= top && scrollPos < top + height) {
+              current = id;
+            }
+          }
+        }
+        setActiveSection(current);
+      } else {
+        setActiveSection("");
+      }
     };
+
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   const togglePalette = () => {
     const next: PaletteId = currentPalette === "cosmic" ? "editorial" : "cosmic";
@@ -65,14 +87,26 @@ export function FloatingBottomNav() {
   };
 
   const navLinks = [
-    { label: "About Us", href: "/#advantage", icon: Briefcase },
-    { label: "Services", href: "/#services", icon: Puzzle },
-    { label: "Let's Talk", href: "/#contact", isCta: true },
-    { label: "Process", href: "/#process", icon: Cpu },
-    { label: "Why Us", href: "/#why-us", icon: Users },
+    { label: "About Us", href: "/#advantage", id: "advantage", icon: Users },
+    { label: "Services", href: "/#services", id: "services", icon: Puzzle },
+    { label: "Let's Talk", href: "/#contact", id: "contact", isCta: true },
+    { label: "Process", href: "/#process", id: "process", icon: Cpu },
+    { label: "Why Us", href: "/#why-us", id: "why-us", icon: Briefcase },
   ];
 
-  const isContactActive = pathname === "/contact";
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("/#") && (pathname === "/" || pathname === "")) {
+      const targetId = href.replace("/#", "");
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.pushState(null, "", href);
+      }
+    }
+  };
+
+  const isContactActive = pathname === "/contact" || (pathname === "/" && activeSection === "contact");
 
   // Responsive notched dock dimensions
   const W = Math.max(dockWidth, 320);
@@ -106,9 +140,10 @@ export function FloatingBottomNav() {
     <>
       {/* =========================================================================
           1. MOBILE NAVIGATION DOCK (< 768px): Native Mobile App Bar
+          - Identical links & functionality to Desktop navigation:
+            About Us (/#advantage) | Services (/#services) | Center CTA (/#contact) | Process (/#process) | Why Us (/#why-us)
           - Attached edge-to-edge to sides and bottom (zero floating margin/padding)
-          - Curved glowing cradle scoop for centered floating action button
-          - 4 tab items (Work, Services, About, Stack)
+          - Smooth scroll anchor behavior + active section indicator
           ========================================================================= */}
       <nav
         aria-label="Mobile Navigation Dock"
@@ -151,10 +186,11 @@ export function FloatingBottomNav() {
           {/* Under-dock safe-area background filler (for iPhones with home gesture bar) */}
           <div className="absolute inset-x-0 top-full h-12 bg-[var(--surface)] -mt-px pointer-events-none" />
 
-          {/* Absolute mathematically centered Action Button */}
+          {/* Absolute mathematically centered Action Button (Let's Talk -> /#contact) */}
           <div className="absolute left-1/2 -translate-x-1/2 -top-3.5 z-20 pointer-events-auto">
             <Link
-              href="/contact"
+              href="/#contact"
+              onClick={(e) => handleNavClick(e, "/#contact")}
               aria-label="Let's Talk"
               className={`size-[50px] rounded-[18px] bg-gradient-to-b from-[var(--surface-2)] to-[var(--surface)] border-2 border-(--hero-frame-stroke) flex items-center justify-center transition-all duration-300 cursor-pointer select-none ${
                 isContactActive
@@ -162,7 +198,7 @@ export function FloatingBottomNav() {
                   : "shadow-[0_0_18px_var(--hero-frame-glow),0_8px_20px_rgba(0,0,0,0.85)] hover:scale-105 active:scale-95"
               }`}
             >
-              {/* Authentic solid speech-bubble icon with cutout smile matching reference */}
+              {/* Authentic solid speech-bubble icon with cutout smile */}
               <svg className="size-6.5 select-none transition-transform duration-200 hover:scale-105" viewBox="0 0 32 32">
                 <path
                   d="M16 5C9.9 5 5 9.7 5 15.5c0 2.2.7 4.3 1.9 6L5.5 26.5l5.3-1.4c1.6.9 3.4 1.4 5.2 1.4 6.1 0 11-4.7 11-10.5S22.1 5 16 5z"
@@ -179,35 +215,37 @@ export function FloatingBottomNav() {
             </Link>
           </div>
 
-          {/* Nav Items (Left 2 + Right 2) */}
+          {/* Nav Items (Left 2 + Right 2 matching Desktop functionality) */}
           <div className="relative z-10 w-full h-full flex items-center justify-between">
             {/* Left 2 items */}
             <div className="w-[calc(50%-44px)] h-full flex items-center justify-around pl-2 pr-1 pt-1.5">
-              {/* 1. Work */}
+              {/* 1. About Us (/#advantage) */}
               {(() => {
-                const active = pathname === "/work" || pathname.startsWith("/work/");
+                const active = pathname === "/" ? activeSection === "advantage" : pathname === "/about";
                 return (
                   <Link
-                    href="/work"
-                    aria-label="Work"
+                    href="/#advantage"
+                    onClick={(e) => handleNavClick(e, "/#advantage")}
+                    aria-label="About Us"
                     className={`flex flex-col items-center justify-center py-1 transition-all duration-200 cursor-pointer ${
                       active ? "text-white" : "text-neutral-400 hover:text-white"
                     }`}
                   >
-                    <Briefcase className={`size-5 transition-transform ${active ? "scale-110 text-white" : ""}`} />
+                    <Users className={`size-5 transition-transform ${active ? "scale-110 text-white" : ""}`} />
                     <span className={`text-[11px] tracking-wide mt-1 font-sans ${active ? "font-bold text-white" : "font-medium"}`}>
-                      Work
+                      About Us
                     </span>
                   </Link>
                 );
               })()}
 
-              {/* 2. Services */}
+              {/* 2. Services (/#services) */}
               {(() => {
-                const active = pathname === "/services" || pathname.startsWith("/services/");
+                const active = pathname === "/" ? activeSection === "services" : pathname.startsWith("/services");
                 return (
                   <Link
-                    href="/services"
+                    href="/#services"
+                    onClick={(e) => handleNavClick(e, "/#services")}
                     aria-label="Services"
                     className={`flex flex-col items-center justify-center py-1 transition-all duration-200 cursor-pointer ${
                       active ? "text-white" : "text-neutral-400 hover:text-white"
@@ -227,39 +265,41 @@ export function FloatingBottomNav() {
 
             {/* Right 2 items */}
             <div className="w-[calc(50%-44px)] h-full flex items-center justify-around pl-1 pr-2 pt-1.5">
-              {/* 3. About */}
+              {/* 3. Process (/#process) */}
               {(() => {
-                const active = pathname === "/about" || pathname.startsWith("/about/");
+                const active = pathname === "/" && activeSection === "process";
                 return (
                   <Link
-                    href="/about"
-                    aria-label="About"
-                    className={`flex flex-col items-center justify-center py-1 transition-all duration-200 cursor-pointer ${
-                      active ? "text-white" : "text-neutral-400 hover:text-white"
-                    }`}
-                  >
-                    <Users className={`size-5 transition-transform ${active ? "scale-110 text-white" : ""}`} />
-                    <span className={`text-[11px] tracking-wide mt-1 font-sans ${active ? "font-bold text-white" : "font-medium"}`}>
-                      About
-                    </span>
-                  </Link>
-                );
-              })()}
-
-              {/* 4. Stack */}
-              {(() => {
-                const active = pathname === "/stack" || pathname.startsWith("/stack/");
-                return (
-                  <Link
-                    href="/stack"
-                    aria-label="Stack"
+                    href="/#process"
+                    onClick={(e) => handleNavClick(e, "/#process")}
+                    aria-label="Process"
                     className={`flex flex-col items-center justify-center py-1 transition-all duration-200 cursor-pointer ${
                       active ? "text-white" : "text-neutral-400 hover:text-white"
                     }`}
                   >
                     <Cpu className={`size-5 transition-transform ${active ? "scale-110 text-white" : ""}`} />
                     <span className={`text-[11px] tracking-wide mt-1 font-sans ${active ? "font-bold text-white" : "font-medium"}`}>
-                      Stack
+                      Process
+                    </span>
+                  </Link>
+                );
+              })()}
+
+              {/* 4. Why Us (/#why-us) */}
+              {(() => {
+                const active = pathname === "/" && activeSection === "why-us";
+                return (
+                  <Link
+                    href="/#why-us"
+                    onClick={(e) => handleNavClick(e, "/#why-us")}
+                    aria-label="Why Us"
+                    className={`flex flex-col items-center justify-center py-1 transition-all duration-200 cursor-pointer ${
+                      active ? "text-white" : "text-neutral-400 hover:text-white"
+                    }`}
+                  >
+                    <Briefcase className={`size-5 transition-transform ${active ? "scale-110 text-white" : ""}`} />
+                    <span className={`text-[11px] tracking-wide mt-1 font-sans ${active ? "font-bold text-white" : "font-medium"}`}>
+                      Why Us
                     </span>
                   </Link>
                 );
@@ -294,6 +334,7 @@ export function FloatingBottomNav() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   aria-label="Let's Talk"
                   className={`group relative inline-flex items-center justify-center gap-2 font-sans font-bold text-[15px] tracking-wide rounded-full transition-all duration-300 px-5.5 py-2.5 whitespace-nowrap cursor-pointer ${
                     isContactActive || isScrolled
@@ -315,12 +356,16 @@ export function FloatingBottomNav() {
               );
             }
 
-            const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+            const isActive =
+              pathname === "/"
+                ? activeSection === item.id
+                : pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
 
             return (
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 aria-current={isActive ? "page" : undefined}
                 className={`relative inline-flex items-center justify-center font-sans text-[15px] tracking-normal rounded-full px-4.5 py-2.5 transition-all duration-200 whitespace-nowrap cursor-pointer ${
                   isActive

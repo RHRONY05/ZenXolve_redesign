@@ -141,6 +141,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
     - **Floating Dock & Custom Scrollbar (`FloatingBottomNav.tsx`, `MobileMenu.tsx` & `globals.css`)**:
       - Mobile navigation bar attached edge-to-edge to the bottom and side borders (`bottom: 0`, `inset-x: 0`, full width, zero floating margins) like a native mobile phone app bar, with safe-area padding for home-indicator screens.
       - Full-width SVG path contour with centered scooped cradle and continuous neon-glowing top rim spanning from left screen edge to right screen edge.
+      - Synchronized navigation links 1:1 with desktop: **About Us** (`/#advantage`), **Services** (`/#services`), **Let's Talk** (`/#contact`), **Process** (`/#process`), and **Why Us** (`/#why-us`), with active section scroll-spy tracking and smooth animated anchor scrolling.
       - Dock body and mobile SVG path synchronized to `var(--surface)` and `var(--line-strong)`.
       - Mobile action button background synchronized to `from-[var(--surface-2)] to-[var(--surface)]`.
       - Scrollbar thumb and track synchronized to `var(--accent)` and `var(--bg)`.
