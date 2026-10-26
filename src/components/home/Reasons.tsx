@@ -6,7 +6,7 @@ import { reasons, type ReasonItem } from "@/content/reasons";
 export function Reasons() {
   return (
     <div className="relative rounded-2xl sm:rounded-3xl lg:rounded-[32px] border border-white/12 bg-[#090b1e] p-2.5 sm:p-4 md:p-6 lg:p-7 shadow-[0_30px_90px_rgba(0,0,0,0.75)]">
-      {/* Inner Light Architecture Canvas Window (Matches Section 01 layout exactly) */}
+      {/* Inner Light Architecture Canvas Window (Matches Section 01 layout) */}
       <div className="relative rounded-xl sm:rounded-2xl lg:rounded-[20px] border border-[#121634] ring-1 ring-white/10 bg-[#f8fafc] text-slate-900 overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
         {/* Subtle n8n-style Dotted Grid Floor */}
         <div
@@ -44,7 +44,7 @@ export function Reasons() {
           </div>
         </div>
 
-        {/* Ruled 6-Box Grid Canvas (2 vertical divider lines + 1 horizontal divider line on lg, compact height) */}
+        {/* Ruled 6-Box Grid Canvas (2 vertical divider lines + 1 horizontal divider line on lg) */}
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {reasons.map((r: ReasonItem, idx: number) => {
             const isDesktopRightBorder = (idx + 1) % 3 !== 0; // cols 1 and 2
@@ -56,7 +56,7 @@ export function Reasons() {
             return (
               <div
                 key={r.title}
-                className={`group relative flex flex-col justify-start p-6 sm:p-7 md:p-8 transition-all duration-300 ${
+                className={`group relative flex flex-col justify-start p-5 sm:p-6 md:p-7 transition-all duration-300 ${
                   r.tint
                 } ${isDesktopRightBorder ? "lg:border-r" : "lg:border-r-0"} ${
                   isDesktopBottomBorder ? "lg:border-b" : "lg:border-b-0"
@@ -64,30 +64,30 @@ export function Reasons() {
                   isTabletBottomBorder ? "md:border-b" : "md:border-b-0"
                 } ${isMobileBottomBorder ? "border-b" : "border-b-0"} border-slate-300/80`}
               >
-                {/* Top Row: Authentic Icons8 Brand Icon Tile + Pillar Index */}
-                <div className="flex items-center justify-between">
-                  <div className="size-11 sm:size-12 rounded-xl bg-white shadow-xs border border-slate-200/90 flex items-center justify-center p-2 shrink-0 group-hover:scale-105 group-hover:shadow-sm transition-all duration-200">
-                    <Image
-                      src={`/reasons/${r.iconFile}`}
-                      alt={r.title}
-                      width={36}
-                      height={36}
-                      className="size-7 sm:size-8 object-contain"
-                    />
+                {/* Top Row: Icon directly inline with Heading + Index on right */}
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
+                    <div className="size-10 sm:size-11 rounded-xl bg-white shadow-xs border border-slate-200/90 flex items-center justify-center p-1.5 shrink-0 group-hover:scale-105 group-hover:shadow-sm transition-all duration-200">
+                      <Image
+                        src={`/reasons/${r.iconFile}`}
+                        alt={r.title}
+                        width={32}
+                        height={32}
+                        className="size-6 sm:size-7 object-contain"
+                      />
+                    </div>
+                    <h3 className="text-base sm:text-[17px] md:text-lg font-bold tracking-tight text-slate-900 group-hover:text-black transition-colors leading-snug">
+                      {r.title}
+                    </h3>
                   </div>
 
-                  <span className="font-mono text-[11px] font-bold tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors">
+                  <span className="font-mono text-[11px] font-bold tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors shrink-0 pt-1">
                     0{idx + 1}
                   </span>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-base sm:text-lg md:text-[18.5px] font-bold tracking-tight text-slate-900 group-hover:text-black transition-colors leading-snug mt-4">
-                  {r.title}
-                </h3>
-
                 {/* Description */}
-                <p className="mt-2 text-xs sm:text-[13.5px] leading-relaxed text-slate-600 font-sans">
+                <p className="mt-3 text-xs sm:text-[13.5px] leading-relaxed text-slate-600 font-sans">
                   {r.body}
                 </p>
               </div>

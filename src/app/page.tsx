@@ -39,7 +39,7 @@ export default function Home() {
                 What we build. <em className="acc">Engineered to scale.</em>
               </>
             }
-            lead="From high-conversion web platforms and native mobile apps to autonomous AI agents and custom business systems — everything your business runs on."
+            lead="From high-conversion web platforms and native mobile apps to autonomous AI agents and custom business systems â€” everything your business runs on."
           />
           <ServicesGrid />
         </Section>
@@ -85,10 +85,10 @@ export default function Home() {
           leadOnMobile
           title={
             <>
-              Why clients <em className="acc">stay.</em>
+              Why clients <em className="acc">stay.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— We aim to be the last agency you'll need to hire: one team that builds it, supports it and grows it with you.</span>
             </>
           }
-          lead="We aim to be the last agency you'll need to hire: one team that builds it, supports it and grows it with you."
+          
         />
         <Reasons />
       </Section>
@@ -105,9 +105,9 @@ export default function Home() {
           lead={
             <PlaceholderTag>
               <span className="hidden md:inline">
-                Placeholder · replace with real, named clients (photo + link)
+                Placeholder Â· replace with real, named clients (photo + link)
               </span>
-              <span className="md:hidden">Placeholder · real, named clients</span>
+              <span className="md:hidden">Placeholder Â· real, named clients</span>
             </PlaceholderTag>
           }
           leadOnMobile
