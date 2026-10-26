@@ -7,14 +7,14 @@ function HubIcon({ type }: { type: "brain" | "pen" | "cpu" | "globe" }) {
   switch (type) {
     case "brain":
       return (
-        <svg viewBox="0 0 24 24" className="size-6 sm:size-7 text-white fill-none stroke-current stroke-2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <svg viewBox="0 0 24 24" className="size-8 sm:size-9 text-white fill-none stroke-current stroke-2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z" />
           <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z" />
         </svg>
       );
     case "pen":
       return (
-        <svg viewBox="0 0 24 24" className="size-6 sm:size-7 text-white fill-none stroke-current stroke-2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <svg viewBox="0 0 24 24" className="size-8 sm:size-9 text-white fill-none stroke-current stroke-2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M12 19l7-7 3 3-7 7-3-3z" />
           <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
           <path d="M2 2l7.586 7.586" />
@@ -23,7 +23,7 @@ function HubIcon({ type }: { type: "brain" | "pen" | "cpu" | "globe" }) {
       );
     case "cpu":
       return (
-        <svg viewBox="0 0 24 24" className="size-6 sm:size-7 text-white fill-none stroke-current stroke-2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <svg viewBox="0 0 24 24" className="size-8 sm:size-9 text-white fill-none stroke-current stroke-2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <rect x="4" y="4" width="16" height="16" rx="2" />
           <rect x="9" y="9" width="6" height="6" />
           <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" />
@@ -31,7 +31,7 @@ function HubIcon({ type }: { type: "brain" | "pen" | "cpu" | "globe" }) {
       );
     case "globe":
       return (
-        <svg viewBox="0 0 24 24" className="size-6 sm:size-7 text-white fill-none stroke-current stroke-2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <svg viewBox="0 0 24 24" className="size-8 sm:size-9 text-white fill-none stroke-current stroke-2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <circle cx="12" cy="12" r="10" />
           <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
         </svg>
@@ -39,28 +39,44 @@ function HubIcon({ type }: { type: "brain" | "pen" | "cpu" | "globe" }) {
   }
 }
 
-// 5-node radial coordinates (equidistant pentagon)
+// 5-node radial coordinates (equidistant pentagon with generous room)
 const fiveNodeCoords = [
-  { x: 50, y: 15 }, // Top
-  { x: 85, y: 36 }, // Top-Right
-  { x: 74, y: 80 }, // Bottom-Right
-  { x: 26, y: 80 }, // Bottom-Left
-  { x: 15, y: 36 }, // Top-Left
+  { x: 50, y: 14 }, // Top
+  { x: 84, y: 35 }, // Top-Right
+  { x: 73, y: 82 }, // Bottom-Right
+  { x: 27, y: 82 }, // Bottom-Left
+  { x: 16, y: 35 }, // Top-Left
 ];
 
 // 4-node radial coordinates (cardinal points)
 const fourNodeCoords = [
-  { x: 50, y: 16 }, // Top
-  { x: 84, y: 50 }, // Right
-  { x: 50, y: 84 }, // Bottom
-  { x: 16, y: 50 }, // Left
+  { x: 50, y: 14 }, // Top
+  { x: 85, y: 50 }, // Right
+  { x: 50, y: 86 }, // Bottom
+  { x: 15, y: 50 }, // Left
 ];
 
 export function ProcessSteps() {
   return (
     <div className="relative pb-24 md:pb-32">
+      {/* Inline style for the flowing dotted circuits (marching dashed circuit animation) */}
+      <style jsx>{`
+        @keyframes flowCircuitForward {
+          from {
+            stroke-dashoffset: 24;
+          }
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+        .flowing-circuit {
+          stroke-dasharray: 6 5;
+          animation: flowCircuitForward 1.1s linear infinite;
+        }
+      `}</style>
+
       {stepsData.map((s, i) => {
-        // Sticky offset so top tab peeks out like a physical stacked folder deck
+        // Sticky offset so previous card's top tab remains visible in the stacked deck
         const topOffsetDesktop = 88 + i * 44;
         const topOffsetMobile = 70 + i * 36;
         const coords = s.tools.length === 4 ? fourNodeCoords : fiveNodeCoords;
@@ -94,9 +110,9 @@ export function ProcessSteps() {
               </span>
             </div>
 
-            {/* Main Split Layout: Left Info & Metrics vs Right Full-Height Orbital Constellation */}
+            {/* Main Split Layout: Left Info & Bullet List vs Right Orbital Constellation */}
             <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1.15fr] gap-6 lg:gap-8 items-stretch">
-              {/* Left Column: Heading, Description, Deliverables (Sleek matching height) */}
+              {/* Left Column: Heading, Description & Bullet Points (matches image 2 spec) */}
               <div className="flex flex-col justify-between space-y-4">
                 <div>
                   <h3
@@ -105,44 +121,42 @@ export function ProcessSteps() {
                     {s.headline}
                   </h3>
                   <p
-                    className={`mt-2.5 text-xs sm:text-[13.5px] md:text-sm leading-relaxed font-sans ${s.theme.subtext}`}
+                    className={`mt-2 text-xs sm:text-[13.5px] md:text-sm leading-relaxed font-sans ${s.theme.subtext}`}
                   >
                     {s.body}
                   </p>
                 </div>
 
-                {/* Scope & Deliverables: Compact 2x2 grid */}
-                <div className="grid grid-cols-2 gap-2 sm:gap-2.5 pt-3 border-t border-black/10">
-                  {s.metrics.map((m) => (
-                    <div
-                      key={m.label}
-                      className="px-3 py-2 rounded-xl bg-white/40 border border-black/[0.08]"
-                    >
+                {/* Scope & Deliverables: Styled Bullet Points with ▶ marker (no empty space!) */}
+                <ul className="space-y-2.5 pt-3.5 border-t border-black/10">
+                  {s.deliverables.map((item, dIdx) => (
+                    <li key={dIdx} className="flex items-start gap-2.5">
                       <span
-                        className={`block font-mono text-[9.5px] font-bold uppercase tracking-wider opacity-75 leading-none ${s.theme.subtext}`}
+                        className={`text-xs shrink-0 mt-0.5 ${s.theme.bulletColor}`}
+                        aria-hidden="true"
                       >
-                        {m.label}
+                        ▶
                       </span>
                       <span
-                        className={`mt-1 block font-sans text-xs font-bold truncate leading-tight ${s.theme.text}`}
+                        className={`font-sans text-xs sm:text-[13px] md:text-[13.5px] leading-relaxed font-medium ${s.theme.subtext}`}
                       >
-                        {m.value}
+                        {item}
                       </span>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
 
-              {/* Right Column: Full-Height Architectural Orbital Constellation */}
+              {/* Right Column: Full-Height Orbital Constellation Canvas */}
               <div
-                className="relative rounded-2xl sm:rounded-3xl bg-white/95 border border-black/10 shadow-sm overflow-hidden h-[310px] sm:h-[330px] md:h-[350px] flex items-center justify-center select-none"
+                className="relative rounded-2xl sm:rounded-3xl bg-white/95 border border-black/10 shadow-sm overflow-hidden h-[340px] sm:h-[370px] md:h-[400px] flex items-center justify-center select-none"
                 style={{
                   backgroundImage:
                     "radial-gradient(circle, rgba(0,0,0,0.08) 1.2px, transparent 1.2px)",
                   backgroundSize: "20px 20px",
                 }}
               >
-                {/* SVG Dotted Connecting Circuits with Animated Traveling Pulses */}
+                {/* SVG Continuously Flowing Dotted Circuit Lines (Matching Image 1 spec) */}
                 <svg
                   className="absolute inset-0 size-full pointer-events-none"
                   viewBox="0 0 100 100"
@@ -150,54 +164,56 @@ export function ProcessSteps() {
                 >
                   <defs>
                     <radialGradient id={`glow-${i}`} cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor={s.theme.lineColor} stopOpacity="0.25" />
+                      <stop offset="0%" stopColor={s.theme.lineColor} stopOpacity="0.22" />
                       <stop offset="100%" stopColor={s.theme.lineColor} stopOpacity="0" />
                     </radialGradient>
+
+                    {/* Arrowhead marker at satellite end */}
+                    <marker
+                      id={`arrow-${i}`}
+                      viewBox="0 0 10 10"
+                      refX="6"
+                      refY="5"
+                      markerWidth="4.5"
+                      markerHeight="4.5"
+                      orient="auto"
+                    >
+                      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill={s.theme.lineColor} />
+                    </marker>
                   </defs>
 
-                  {/* Ambient Core Glow Disk */}
-                  <circle cx="50" cy="50" r="26" fill={`url(#glow-${i})`} />
+                  {/* Subtle Ambient Radial Core Glow */}
+                  <circle cx="50" cy="50" r="28" fill={`url(#glow-${i})`} />
 
-                  {/* Circuit Lines and Animated Data Pulses from Core to Satellites */}
+                  {/* Flowing Dotted Lines from Central Core to each Tool Satellite */}
                   {coords.map((pos, idx) => (
                     <g key={idx}>
-                      {/* Static Dotted Connection Wire */}
+                      {/* Underlay faint guide wire */}
                       <line
                         x1="50"
                         y1="50"
                         x2={pos.x}
                         y2={pos.y}
-                        stroke="rgba(0,0,0,0.15)"
-                        strokeWidth="0.8"
-                        strokeDasharray="2 2"
+                        stroke="rgba(0,0,0,0.12)"
+                        strokeWidth="1.2"
                       />
 
-                      {/* Animated Traveling Pulse Signal along the wire */}
-                      <circle r="1.4" fill={s.theme.lineColor}>
-                        <animate
-                          attributeName="cx"
-                          values={`50;${pos.x}`}
-                          dur={`${2 + (idx % 3) * 0.4}s`}
-                          repeatCount="indefinite"
-                        />
-                        <animate
-                          attributeName="cy"
-                          values={`50;${pos.y}`}
-                          dur={`${2 + (idx % 3) * 0.4}s`}
-                          repeatCount="indefinite"
-                        />
-                        <animate
-                          attributeName="opacity"
-                          values="0.2;1;0.2"
-                          dur={`${2 + (idx % 3) * 0.4}s`}
-                          repeatCount="indefinite"
-                        />
-                      </circle>
+                      {/* Continuous Flowing Dotted Wire (marching dashed circuit with arrowhead) */}
+                      <line
+                        x1="50"
+                        y1="50"
+                        x2={pos.x}
+                        y2={pos.y}
+                        stroke={s.theme.lineColor}
+                        strokeWidth="1.6"
+                        markerEnd={`url(#arrow-${i})`}
+                        className="flowing-circuit"
+                      />
                     </g>
                   ))}
                 </svg>
 
-                {/* Central Intelligence Hub */}
+                {/* Central Intelligence Hub (No radiating ping circle, clean solid core) */}
                 <div
                   className="absolute flex flex-col items-center z-10"
                   style={{
@@ -206,30 +222,23 @@ export function ProcessSteps() {
                     transform: "translate(-50%, -50%)",
                   }}
                 >
-                  {/* Pulsing Radar Ring */}
+                  {/* Central Core Emblem (Substantially Larger) */}
                   <div
-                    className="absolute size-20 sm:size-24 rounded-full -z-10 pointer-events-none animate-ping opacity-25"
-                    style={{ backgroundColor: s.theme.lineColor }}
-                    aria-hidden="true"
-                  />
-
-                  {/* Center Core Badge */}
-                  <div
-                    className={`size-13 sm:size-14 rounded-2xl ${s.theme.hubBg} flex items-center justify-center shadow-lg border-2 border-white transition-transform hover:scale-105`}
+                    className={`size-16 sm:size-18 md:size-20 rounded-2xl ${s.theme.hubBg} flex items-center justify-center shadow-xl border-3 border-white transition-transform hover:scale-105 duration-200`}
                     style={{
-                      boxShadow: `0 8px 24px ${s.hub.glowColor}`,
+                      boxShadow: `0 10px 30px ${s.hub.glowColor}`,
                     }}
                   >
                     <HubIcon type={s.hub.type} />
                   </div>
 
                   {/* Core Badge Label */}
-                  <span className="mt-1.5 font-mono text-[9px] font-black uppercase tracking-widest text-slate-700 bg-white/95 px-2 py-0.5 rounded-md shadow-xs border border-slate-200/90 whitespace-nowrap">
+                  <span className="mt-2 font-mono text-[9.5px] sm:text-[10px] font-black uppercase tracking-widest text-slate-800 bg-white/95 px-2.5 py-0.5 rounded-md shadow-xs border border-slate-200/90 whitespace-nowrap">
                     {s.hub.badge}
                   </span>
                 </div>
 
-                {/* Surrounding Tool Satellites (Big Icon + Name in Column!) */}
+                {/* Surrounding Tool Satellites (Substantially Larger Icons + Column Name) */}
                 {s.tools.map((t, idx) => {
                   const pos = coords[idx] || { x: 50, y: 50 };
 
@@ -243,19 +252,19 @@ export function ProcessSteps() {
                         transform: "translate(-50%, -50%)",
                       }}
                     >
-                      {/* Big Icon Container (36-40px Icon) */}
-                      <div className="size-11 sm:size-12 rounded-xl bg-white shadow-md border border-slate-200/90 flex items-center justify-center p-2 group-hover:border-slate-400 group-hover:shadow-lg transition-all">
+                      {/* Big Icon Tile (Substantially Larger: 54–60px tile with 38-42px icon) */}
+                      <div className="size-13 sm:size-14 md:size-15 rounded-2xl bg-white shadow-md border border-slate-200/90 flex items-center justify-center p-2.5 group-hover:border-slate-400 group-hover:shadow-xl transition-all duration-200">
                         <Image
                           src={`/tools/${t.iconFile}`}
                           alt={t.name}
-                          width={32}
-                          height={32}
-                          className="size-7 sm:size-8 object-contain"
+                          width={40}
+                          height={40}
+                          className="size-8 sm:size-9 md:size-10 object-contain"
                         />
                       </div>
 
-                      {/* Tool Name Stacked in Column Underneath */}
-                      <span className="mt-1 font-sans text-[10.5px] sm:text-[11.5px] font-bold text-slate-800 text-center tracking-tight truncate max-w-[75px] bg-white/85 px-1.5 py-0.2 rounded shadow-2xs border border-slate-200/60">
+                      {/* Tool Name Stacked in Column Underneath Icon */}
+                      <span className="mt-1.5 font-sans text-xs sm:text-[12.5px] font-bold text-slate-800 text-center tracking-tight truncate max-w-[85px] bg-white/90 px-2 py-0.5 rounded-md shadow-2xs border border-slate-200/70">
                         {t.name}
                       </span>
                     </div>

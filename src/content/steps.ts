@@ -3,11 +3,6 @@ export type StepTool = {
   iconFile: string;
 };
 
-export type StepMetric = {
-  label: string;
-  value: string;
-};
-
 export type StepHub = {
   type: "brain" | "pen" | "cpu" | "globe";
   title: string;
@@ -20,7 +15,7 @@ export type StepItem = {
   tab: string;
   headline: string;
   body: string;
-  metrics: StepMetric[];
+  deliverables: string[];
   hub: StepHub;
   tools: StepTool[];
   theme: {
@@ -32,6 +27,7 @@ export type StepItem = {
     tagText: string;
     tabAccent: string;
     lineColor: string;
+    bulletColor: string;
     hubBg: string;
   };
 };
@@ -42,16 +38,16 @@ export const stepsData: StepItem[] = [
     tab: "Discovery & Strategy",
     headline: "Understanding Your Vision, Mapping the Blueprint",
     body: "We dive deep into your business logic, user journeys, competitor landscape, and technical constraints before writing a single line of code. You get a transparent roadmap with clear milestones and weekly visibility.",
-    metrics: [
-      { label: "Deliverable", value: "PRD & System Blueprint" },
-      { label: "Timeline", value: "Week 01 – Kickoff & Specs" },
-      { label: "Visibility", value: "Async Loom & Notion Hub" },
-      { label: "Focus", value: "Zero Guesswork Scoping" },
+    deliverables: [
+      "Product requirements document (PRD) detailing user personas and system architecture",
+      "Technical scoping, database schema design, and third-party API dependency mapping",
+      "Competitive analysis and feature prioritization matrix aligned with commercial ROI",
+      "Asynchronous Loom video updates and centralized Notion strategy hub with live visibility",
     ],
     hub: {
       type: "brain",
       title: "Strategic AI Core",
-      badge: "SYNTHESIS",
+      badge: "STRATEGY CORE",
       glowColor: "rgba(14, 165, 233, 0.45)",
     },
     tools: [
@@ -70,6 +66,7 @@ export const stepsData: StepItem[] = [
       tagText: "text-[#081a30]",
       tabAccent: "bg-[#081a30]",
       lineColor: "#0284c7",
+      bulletColor: "text-[#0369a1]",
       hubBg: "bg-sky-500",
     },
   },
@@ -78,16 +75,16 @@ export const stepsData: StepItem[] = [
     tab: "Design & Prototyping",
     headline: "High-Converting Interfaces & Living Design Systems",
     body: "User-centered design that turns visitors into active customers. We craft pixel-perfect wireframes, responsive component libraries, and interactive prototypes with real micro-interactions.",
-    metrics: [
-      { label: "Deliverable", value: "Complete Figma Design System" },
-      { label: "Timeline", value: "Week 02 – Interactive Prototypes" },
-      { label: "Components", value: "Tokens, Auto-layout & States" },
-      { label: "Handoff", value: "1:1 Developer Alignment" },
+    deliverables: [
+      "Pixel-perfect Figma design systems with tokens, typography scales, and state variants",
+      "Interactive clickable prototypes for real user validation and executive sign-off",
+      "Responsive layout specifications covering mobile, tablet, and widescreen viewports",
+      "1:1 engineering handoff documentation ensuring zero visual fidelity loss in development",
     ],
     hub: {
       type: "pen",
       title: "Design System Core",
-      badge: "EXPERIENCE",
+      badge: "DESIGN CORE",
       glowColor: "rgba(16, 185, 129, 0.45)",
     },
     tools: [
@@ -105,6 +102,7 @@ export const stepsData: StepItem[] = [
       tagText: "text-[#062916]",
       tabAccent: "bg-[#062916]",
       lineColor: "#059669",
+      bulletColor: "text-[#047857]",
       hubBg: "bg-emerald-500",
     },
   },
@@ -113,16 +111,16 @@ export const stepsData: StepItem[] = [
     tab: "Engineering & Automation",
     headline: "Production Code Meets Autonomous AI Workflows",
     body: "Engineered from day one for speed, security, and scalability. Modern type-safe frontends, resilient backend APIs, and automated back-office pipelines wired together with zero technical debt.",
-    metrics: [
-      { label: "Architecture", value: "Strict TypeScript & Next.js" },
-      { label: "Database", value: "PostgreSQL & Vector Search" },
-      { label: "Automations", value: "n8n Autonomous Workflows" },
-      { label: "Code Quality", value: "CI/CD & Unit Coverage" },
+    deliverables: [
+      "Production Next.js & TypeScript frontend built for sub-second speeds and strict type safety",
+      "Scalable PostgreSQL database architecture with vector search and secure authentication",
+      "Autonomous n8n & webhook pipelines to automate manual back-office tasks",
+      "Automated continuous integration (CI/CD) pipelines with linting and unit test coverage",
     ],
     hub: {
       type: "cpu",
       title: "Full-Stack Engine",
-      badge: "ARCHITECTURE",
+      badge: "ENGINE CORE",
       glowColor: "rgba(139, 92, 246, 0.45)",
     },
     tools: [
@@ -141,6 +139,7 @@ export const stepsData: StepItem[] = [
       tagText: "text-[#170e33]",
       tabAccent: "bg-[#170e33]",
       lineColor: "#7c3aed",
+      bulletColor: "text-[#6d28d9]",
       hubBg: "bg-purple-600",
     },
   },
@@ -149,16 +148,16 @@ export const stepsData: StepItem[] = [
     tab: "Deployment & Support",
     headline: "Zero-Downtime Launch, Edge Speed & 24/7 Monitoring",
     body: "Flawless production rollout with edge CDN caching, global database distribution, and continuous performance telemetry. We don't vanish after launch—we monitor, optimize, and scale it alongside you.",
-    metrics: [
-      { label: "Availability", value: "99.99% Edge Uptime" },
-      { label: "Global Edge", value: "Global CDN & Low-Latency" },
-      { label: "Telemetry", value: "Real-time Error Tracking" },
-      { label: "Support", value: "Direct Telegram & WhatsApp" },
+    deliverables: [
+      "Worldwide edge deployment on Vercel and Cloudflare with global low-latency CDN routing",
+      "Containerized backend workloads on Docker with automated health checks and zero downtime",
+      "Real-time application telemetry, Sentry error alerts, and Core Web Vitals monitoring",
+      "Direct client support channels on Telegram and WhatsApp with ongoing iteration",
     ],
     hub: {
       type: "globe",
       title: "Global Edge Cloud",
-      badge: "OPERATIONS",
+      badge: "EDGE CORE",
       glowColor: "rgba(249, 115, 22, 0.45)",
     },
     tools: [
@@ -177,6 +176,7 @@ export const stepsData: StepItem[] = [
       tagText: "text-[#2c1303]",
       tabAccent: "bg-[#2c1303]",
       lineColor: "#ea580c",
+      bulletColor: "text-[#c2410c]",
       hubBg: "bg-amber-600",
     },
   },
