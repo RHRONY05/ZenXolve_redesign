@@ -186,7 +186,7 @@ export function NebulaShader({
     let currentPalette = targetPalette;
 
     let animationFrameId: number;
-    let isVisible = true;
+    let isVisible = false;
     let startTime = performance.now();
     let lastRenderTime = 0;
 
@@ -258,7 +258,6 @@ export function NebulaShader({
     }
 
     window.addEventListener("resize", onResize, { passive: true });
-    animationFrameId = requestAnimationFrame(render);
 
     return () => {
       observer.disconnect();
