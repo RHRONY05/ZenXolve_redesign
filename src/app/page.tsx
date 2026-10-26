@@ -27,7 +27,7 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--bg)] to-transparent z-0" />
 
         {/* SECTION 01: What We Build (The 6 Services) */}
-        <Section top="first" id="services" className="relative z-10 pt-8 sm:pt-12 md:pt-14 !pb-10 md:!pb-12">
+        <Section top="first" id="services" className="relative z-10 pt-6 sm:pt-12 md:pt-14 !pb-14 md:!pb-12">
           <SectionHead
             index="01"
             label="Capabilities & Services"

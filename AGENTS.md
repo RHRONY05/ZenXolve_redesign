@@ -39,10 +39,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Do NOT modify its shader formulas, palette tokens, or canvas styling without explicit user instruction.
 - **Section 01 (Capabilities & Services - `src/components/home/ServicesGrid.tsx`)**: **APPROVED & LOCKED 🔒**
   - Light Architecture Workflow Canvas wrapped in an outer dark environment frame/border per client markup.
+  - Desktop View (`md:` and above): 6 services organized via 2 vertical + 1 horizontal divider lines on n8n-style dotted grid floor with interactive arrow links.
+  - Mobile View (`< md`): Height constrained to contain a single service card at a time to eliminate tiring vertical scrolling; features an interactive hardware-accelerated continuous swiper with 4.5s auto-advance, touch gesture swipe (left/right), pause on touch/hover, 6 interactive indicator dots, and previous/next arrow control buttons at the bottom.
   - Header converted to stacked 2-row layout with full-width title like Section 02.
-  - Top row of each box displays the service title directly + interactive arrow link.
-  - 6 services organized via 2 vertical + 1 horizontal divider lines on n8n-style dotted grid floor.
-  - Redundant bottom banner removed and relocated to Section 02.
   - Backup preserved at `src/components/home/ServicesGrid.backup.tsx`.
 - **Section 02 (The Single-Studio Advantage - `src/components/home/StudioComparator.tsx`)**: **APPROVED & LOCKED 🔒**
   - Sequential interactive 3-stage circuit architecture (Design → Code → Automated Operations) vs. traditional 3-agency handoff friction.
