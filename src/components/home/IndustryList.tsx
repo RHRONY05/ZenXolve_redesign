@@ -100,18 +100,18 @@ function IndustryIcon({ icon }: { icon: string }) {
 
 function IndustryBrandMark({ item }: { item: IndustryItem }) {
   return (
-    <div className="group flex items-center gap-3 sm:gap-4 shrink-0 px-3 py-2 transition-all duration-200 cursor-default select-none">
-      {/* Brand Icon Mark */}
-      <div className="text-slate-600 group-hover:text-violet-700 group-hover:scale-110 transition-all duration-200 shrink-0">
+    <div className="group flex items-center gap-3.5 sm:gap-4 shrink-0 px-3 py-2 transition-all duration-200 cursor-default select-none">
+      {/* Brand Icon Mark with subtle glow on hover */}
+      <div className="text-[#c4b5fd] group-hover:text-white group-hover:scale-110 transition-all duration-200 shrink-0">
         <IndustryIcon icon={item.icon} />
       </div>
 
       {/* Brand Name & Tagline */}
       <div className="flex flex-col text-left">
-        <span className="font-sans font-bold text-base sm:text-lg md:text-[19px] tracking-tight text-slate-800 group-hover:text-black transition-colors duration-150">
+        <span className="font-sans font-bold text-base sm:text-lg md:text-[19px] tracking-tight text-slate-200 group-hover:text-white transition-colors duration-150">
           {item.name}
         </span>
-        <span className="font-mono text-[10px] sm:text-[10.5px] font-semibold tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors duration-150">
+        <span className="font-mono text-[10px] sm:text-[11px] font-medium tracking-wide text-slate-400 group-hover:text-[#c4b5fd] transition-colors duration-150">
           {item.tagline}
         </span>
       </div>
@@ -126,20 +126,7 @@ export function IndustryList({ index }: { index?: string } = {}) {
   const row3 = [...industriesData.slice(8, 12), ...industriesData.slice(8, 12), ...industriesData.slice(8, 12), ...industriesData.slice(8, 12)];
 
   return (
-    <div className="relative rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-[#f8fafc] py-7 sm:py-10 md:py-12 px-2 sm:px-4 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.55)]">
-      {/* Subtle n8n-style Dotted Grid Floor */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, rgba(100, 116, 139, 0.20) 1.25px, transparent 1.25px)",
-          backgroundSize: "24px 24px",
-          backgroundPosition: "0 0",
-          opacity: 0.85,
-        }}
-        aria-hidden="true"
-      />
-
+    <div className="relative w-full py-4 sm:py-6 overflow-hidden">
       {/* 60fps GPU-accelerated continuous multi-line marquee keyframes */}
       <style jsx>{`
         @keyframes marqueeScrollLeft {
@@ -173,7 +160,7 @@ export function IndustryList({ index }: { index?: string } = {}) {
         .marquee-track-left-fast {
           display: flex;
           width: max-content;
-          animation: marqueeScrollLeft 32s linear infinite;
+          animation: marqueeScrollLeft 30s linear infinite;
           will-change: transform;
         }
         .marquee-track-left:hover,
@@ -184,7 +171,7 @@ export function IndustryList({ index }: { index?: string } = {}) {
       `}</style>
 
       {/* Bilateral Edge Fade Masks: Seamless infinite illusion at left & right borders */}
-      <div className="relative z-10 flex flex-col gap-6 sm:gap-8 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+      <div className="relative z-10 flex flex-col gap-6 sm:gap-8 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
         {/* Row 1: Moves Left */}
         <div className="marquee-track-left gap-10 sm:gap-14 md:gap-16">
           {row1.map((item, idx) => (

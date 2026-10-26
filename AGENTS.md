@@ -71,10 +71,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Placeholder instruction texts and dashed dev outlines removed.
 - **Section 06 (Industries We Serve - `src/components/home/IndustryList.tsx` & `src/content/industries.ts`)**: **UPDATED & UNDER REVIEW ⏳**
   - Unified SectionHead (Index `06`, Eyebrow `Industries We Serve`, inline display title + em dash subtext).
-  - Light theme architectural canvas container (`bg-[#f8fafc]` with subtle n8n dotted grid floor).
+  - Open, container-free layout floating directly across the section (no bounding box, no card border).
   - 3-row bi-directional continuous infinite moving marquee (Row 1 Left, Row 2 Right, Row 3 Left at varied speeds) with pause-on-hover.
-  - 12 comprehensive domain brand marks in dark charcoal typography with custom SVG monochrome icons and focus tags.
-  - Soft left & right bilateral edge masks (`mask-image: linear-gradient`) for a seamless infinite loop.
+  - Luminous light brand marks styled with theme soft-violet accents (`#c4b5fd`), light slate typography (`text-slate-200` hover `text-white`), and crisp SVG icons.
+  - Soft left & right bilateral edge masks (`mask-image: linear-gradient`) for a seamless infinite horizon.
 
 ## 3. Active Next Steps
 1. Review Section 06 (Industries Brand Mark Cloud) with user.
