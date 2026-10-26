@@ -81,6 +81,8 @@ export default function Home() {
         <SectionHead
           index="04"
           label="Why Xenzolve"
+          layout="stacked"
+          leadOnMobile
           title={
             <>
               Why clients <em className="acc">stay.</em>

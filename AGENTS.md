@@ -55,9 +55,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - Left column: Step title, display headline, process description, and bold highlighted key deliverables with ▶ bullet points.
   - Right column: Full-height Orbital Constellation with central core hubs (Brain, Pen, CPU, Globe) and continuous, seamless flowing circuit connections with large brand tool icons.
 - **Section 04 (Why Xenzolve - `src/components/home/Reasons.tsx`)**: **UPDATED & UNDER REVIEW ⏳**
-  - Continuous narrative flow in every card (`[Heading] — [Subtext]`).
-  - Unified brand-synchronized dark palette (removed loud cobalt, plum, and forest green).
-  - High-impact storytelling aligned with client retention (One Team Zero Handoffs, Direct Engineer Access, Autonomous Scale, Weekly Demos, Transparent Fixed Scopes, Continuous Post-Launch Support).
+  - Unified with Section 01's architectural Light Canvas layout (dark outer frame + dark window header + light dotted grid floor).
+  - Compact, shorter height tailored to concise copy without unnecessary vertical padding.
+  - Divided into 6 contiguous boxes via 2 vertical + 1 horizontal divider lines.
+  - Authentic Icons8 color icons (`target`, `speed`, `secure`, `innovative`, `support`, `pricing`) replacing emojis.
 
 ## 3. Active Next Steps
 1. Review Section 04 layout and storytelling with user.
