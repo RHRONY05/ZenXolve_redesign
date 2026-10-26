@@ -29,6 +29,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
    - All resizing must be event-driven and debounced (`window.resize`).
    - Frame rates must be throttled to ~30-35fps with automatic pause via `IntersectionObserver` when offscreen.
    - Keep internal rendering buffers lightweight (max DPR 1.0, capped dimensions) to guarantee 0 lag across all devices.
+5. **Git Workflow Discipline**:
+   - Always run `git push origin main` immediately after creating any commit.
 
 ## 2. Component Status & Locked Directives
 - **Background Shader (`src/components/ui/NebulaShader.tsx`)**: **LOCKED 🔒**
