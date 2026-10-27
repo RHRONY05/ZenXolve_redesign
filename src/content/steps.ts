@@ -41,24 +41,24 @@ export const stepsData: StepItem[] = [
   {
     step: "01",
     tab: "Discovery & Strategy",
-    headline: "Understanding Your Vision, Mapping the Blueprint",
-    body: "We dive deep into your business logic, user journeys, competitor landscape, and technical constraints before writing a single line of code. You get a transparent roadmap with clear milestones and weekly visibility.",
+    headline: "Discovery & Architecture Blueprint",
+    body: "We map business requirements, data schemas, and technical architecture before writing a single line of code.",
     deliverables: [
       {
-        highlight: "Product Requirements Document (PRD)",
-        detail: "with complete user personas and end-to-end system architecture specs",
+        highlight: "Product Specs (PRD)",
+        detail: "System architecture & user flows",
       },
       {
-        highlight: "Technical Scoping & Database Schema",
-        detail: "covering data relationships, third-party APIs, and security constraints",
+        highlight: "Database Schema",
+        detail: "Entity relationships & API contracts",
       },
       {
-        highlight: "Competitive ROI & Feature Matrix",
-        detail: "prioritizing high-impact features to eliminate scope creep and save budget",
+        highlight: "Scope & Milestone Matrix",
+        detail: "Clear weekly sprint roadmap",
       },
       {
-        highlight: "Asynchronous Loom & Notion Hub",
-        detail: "providing full stakeholder transparency and weekly progress demos",
+        highlight: "Asynchronous Hub",
+        detail: "Weekly Loom demos & Notion updates",
       },
     ],
     hub: {
@@ -90,24 +90,24 @@ export const stepsData: StepItem[] = [
   {
     step: "02",
     tab: "Design & Prototyping",
-    headline: "High-Converting Interfaces & Living Design Systems",
-    body: "User-centered design that turns visitors into active customers. We craft pixel-perfect wireframes, responsive component libraries, and interactive prototypes with real micro-interactions.",
+    headline: "Design Systems & Interactive Prototypes",
+    body: "Pixel-perfect responsive interfaces and complete tokenized design systems tested with real interactions.",
     deliverables: [
       {
-        highlight: "Complete Figma Design System",
-        detail: "with design tokens, responsive typography scales, and interactive states",
+        highlight: "Figma Design System",
+        detail: "Tokenized typography & components",
       },
       {
-        highlight: "Clickable High-Fidelity Prototypes",
-        detail: "for real user validation, usability testing, and stakeholder approval",
+        highlight: "Interactive Prototypes",
+        detail: "Clickable flows for rapid validation",
       },
       {
-        highlight: "Multi-Device Layout Specifications",
-        detail: "engineered pixel-for-pixel from mobile viewports to widescreen desktops",
+        highlight: "Multi-Device Layouts",
+        detail: "Optimized from mobile to desktop",
       },
       {
-        highlight: "1:1 Engineering Handoff Specs",
-        detail: "guaranteeing zero visual fidelity loss during the frontend build",
+        highlight: "1:1 Code Handoff",
+        detail: "Zero visual fidelity loss in build",
       },
     ],
     hub: {
@@ -138,24 +138,24 @@ export const stepsData: StepItem[] = [
   {
     step: "03",
     tab: "Engineering & Automation",
-    headline: "Production Code Meets Autonomous AI Workflows",
-    body: "Engineered from day one for speed, security, and scalability. Modern type-safe frontends, resilient backend APIs, and automated back-office pipelines wired together with zero technical debt.",
+    headline: "Production Engineering & Automation",
+    body: "Modern type-safe web and mobile apps, resilient SQL databases, and automated back-office pipelines.",
     deliverables: [
       {
-        highlight: "Next.js & TypeScript Architecture",
-        detail: "built for sub-second page loads, zero CLS, and strict static type safety",
+        highlight: "Next.js & TypeScript",
+        detail: "Sub-second speed & static type safety",
       },
       {
-        highlight: "PostgreSQL & Supabase Database",
-        detail: "featuring relational integrity, vector search, and secure auth flows",
+        highlight: "Postgres Database",
+        detail: "Relational schemas, vectors & auth",
       },
       {
-        highlight: "Autonomous n8n Workflow Pipelines",
-        detail: "connecting webhooks and AI automations to eliminate manual data entry",
+        highlight: "Workflow Automation",
+        detail: "n8n pipelines replacing manual entry",
       },
       {
-        highlight: "Automated CI/CD & Testing Suite",
-        detail: "with GitHub Actions enforcing linting, build validation, and code review",
+        highlight: "CI/CD Quality Gates",
+        detail: "Automated testing & GitHub Actions",
       },
     ],
     hub: {
@@ -187,24 +187,24 @@ export const stepsData: StepItem[] = [
   {
     step: "04",
     tab: "Deployment & Support",
-    headline: "Zero-Downtime Launch, Edge Speed & 24/7 Monitoring",
-    body: "Flawless production rollout with edge CDN caching, global database distribution, and continuous performance telemetry. We don't vanish after launch—we monitor, optimize, and scale it alongside you.",
+    headline: "Zero-Downtime Deployment & SLA",
+    body: "Flawless edge rollout with global CDN caching and 24/7 telemetry monitoring alongside you.",
     deliverables: [
       {
-        highlight: "Global Edge CDN Deployment",
-        detail: "on Vercel & Cloudflare with instant cache invalidation and low latency",
+        highlight: "Global Edge CDN",
+        detail: "High-speed caching on Vercel & Cloudflare",
       },
       {
-        highlight: "Docker Containerized Workloads",
-        detail: "with isolated environments, health checks, and zero-downtime releases",
+        highlight: "Docker Workloads",
+        detail: "Isolated environments & health checks",
       },
       {
-        highlight: "Real-Time Sentry Error Telemetry",
-        detail: "and automated performance alerts tracking Core Web Vitals 24/7",
+        highlight: "Real-Time Sentry Alerts",
+        detail: "24/7 error & Core Web Vitals telemetry",
       },
       {
-        highlight: "Dedicated Support Channels",
-        detail: "on Telegram and WhatsApp with continuous iteration and direct access",
+        highlight: "Dedicated Direct SLA",
+        detail: "Priority Telegram & WhatsApp support",
       },
     ],
     hub: {

@@ -66,15 +66,14 @@ export default function Home() {
         {/* SECTION 03: How We Work (4 Steps) */}
         <Section top="flow" id="process" className="relative z-10 !pt-2 md:!pt-4 !pb-6 md:!pb-10">
           <SectionHead
-            index="03"
-            label="How we work"
-            layout="stacked"
+            layout="centered"
             leadOnMobile
             title={
               <>
-                Four steps, <em className="acc">no surprises.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— A proven 4-step methodology that delivers results. You see progress every week and know exactly what's next.</span>
+                Four Steps, <em className="acc">No Surprises</em>
               </>
             }
+            lead="A proven four-step methodology — transparent, structured, and predictable."
           />
           <ProcessSteps />
         </Section>

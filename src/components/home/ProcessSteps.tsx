@@ -119,16 +119,16 @@ export function ProcessSteps() {
                   >
                     {s.headline}
                   </h3>
-                  {/* Descriptive paragraph hidden on mobile/smaller devices to keep card height compact */}
+                  {/* Descriptive concise 1-sentence paragraph */}
                   <p
-                    className={`mt-2 text-xs sm:text-[13.5px] md:text-sm leading-relaxed font-sans hidden sm:block ${s.theme.subtext}`}
+                    className={`mt-2 text-xs sm:text-[13.5px] md:text-sm leading-relaxed font-sans ${s.theme.subtext}`}
                   >
                     {s.body}
                   </p>
                 </div>
 
                 {/* Scope & Deliverables: Highlighted Bold Key Terms + ▶ Marker */}
-                <ul className="space-y-2 sm:space-y-3 pt-2.5 sm:pt-3 border-t border-black/10">
+                <ul className="space-y-2.5 sm:space-y-3 pt-3 border-t border-black/10">
                   {s.deliverables.map((d, dIdx) => (
                     <li key={dIdx} className="flex items-start gap-2 sm:gap-2.5">
                       <span
@@ -143,7 +143,7 @@ export function ProcessSteps() {
                         >
                           {d.highlight}
                         </strong>
-                        <span className={`font-medium ${s.theme.subtext} hidden sm:inline`}>
+                        <span className={`font-medium ${s.theme.subtext}`}>
                           {" "}— {d.detail}
                         </span>
                       </p>
