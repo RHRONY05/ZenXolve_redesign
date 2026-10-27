@@ -691,21 +691,11 @@ export default function ContactWithGlobe({ className }: { className?: string }) 
 
   return (
     <div className={cn("w-full", className)}>
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_560px] gap-8 lg:gap-14 items-center max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_560px] xl:grid-cols-[1fr_580px] gap-8 lg:gap-14 items-center w-full">
         {/* Left Column: Get In Touch + Channels + Continuous Rotating Wireframe Globe */}
         <div className="flex flex-col justify-between self-stretch pt-1">
           <div className="flex flex-col gap-6">
             <div>
-              {/* Standardized Index and Eyebrow */}
-              <div className="mb-3.5 flex items-center gap-3 font-mono">
-                <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-md border border-[var(--picker-badge-border)] bg-[var(--picker-badge-bg)] text-xs font-bold text-[var(--picker-badge-text)] shadow-[0_0_10px_var(--picker-badge-shadow)] transition-colors duration-300">
-                  08
-                </span>
-                <span className="text-xs uppercase tracking-widest text-[var(--picker-eyebrow)] font-semibold transition-colors duration-300">
-                  Get In Touch
-                </span>
-              </div>
-
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white tracking-tight leading-tight">
                 Get in touch
               </h2>
