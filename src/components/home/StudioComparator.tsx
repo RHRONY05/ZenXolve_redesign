@@ -26,10 +26,10 @@ export function StudioComparator() {
         <div>
           <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-[var(--picker-eyebrow)]">
             <span className="size-2 rounded-full bg-[var(--picker-accent-dot)] shadow-[0_0_8px_var(--picker-accent-dot-glow)]" />
-            <span>Workflow Architecture</span>
+            <span>Delivery Architecture</span>
           </div>
           <h4 className="mt-1.5 text-lg sm:text-xl md:text-2xl font-semibold text-white tracking-tight">
-            Compare: The 3-Agency Trap vs. The XenZolve Engine
+            Synchronized Studio vs. Three Separate Agencies
           </h4>
         </div>
 
@@ -45,7 +45,7 @@ export function StudioComparator() {
             }`}
           >
             <span className="size-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]" />
-            <span>The XenZolve Engine</span>
+            <span>XenZolve Studio</span>
           </button>
           <button
             type="button"
@@ -56,7 +56,7 @@ export function StudioComparator() {
                 : "text-slate-400 hover:text-white"
             }`}
           >
-            <span>The 3-Agency Trap</span>
+            <span>3 Separate Agencies</span>
           </button>
         </div>
       </div>
@@ -355,26 +355,6 @@ export function StudioComparator() {
               </div>
 
             </div>
-
-            {/* XenZolve Outcome Badges */}
-            <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-3 pt-3">
-              <div className="flex items-center gap-2 rounded-xl bg-emerald-950/30 border border-emerald-500/20 px-3.5 py-2.5 text-xs text-emerald-300 font-medium">
-                <span className="font-bold text-emerald-400">✓</span>
-                <span>1 Unified Partner</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-xl bg-emerald-950/30 border border-emerald-500/20 px-3.5 py-2.5 text-xs text-emerald-300 font-medium">
-                <span className="font-bold text-emerald-400">✓</span>
-                <span>Zero Handoff Loss</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-xl bg-emerald-950/30 border border-emerald-500/20 px-3.5 py-2.5 text-xs text-emerald-300 font-medium">
-                <span className="font-bold text-emerald-400">✓</span>
-                <span>2–4 Week Delivery</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-xl bg-emerald-950/30 border border-emerald-500/20 px-3.5 py-2.5 text-xs text-emerald-300 font-medium">
-                <span className="font-bold text-emerald-400">✓</span>
-                <span>100% Accountability</span>
-              </div>
-            </div>
           </div>
         ) : (
           <div className="space-y-6 animate-fadeIn">
@@ -524,26 +504,6 @@ export function StudioComparator() {
                 </div>
               </div>
 
-            </div>
-
-            {/* Traditional Pain Badges */}
-            <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-3 pt-3">
-              <div className="flex items-center gap-2 rounded-xl bg-rose-950/30 border border-rose-500/20 px-3.5 py-2.5 text-xs text-rose-300 font-medium">
-                <span className="font-bold text-rose-400">✕</span>
-                <span>3 Fragmented Invoices</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-xl bg-rose-950/30 border border-rose-500/20 px-3.5 py-2.5 text-xs text-rose-300 font-medium">
-                <span className="font-bold text-rose-400">✕</span>
-                <span>Months of Finger-pointing</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-xl bg-rose-950/30 border border-rose-500/20 px-3.5 py-2.5 text-xs text-rose-300 font-medium">
-                <span className="font-bold text-rose-400">✕</span>
-                <span>Fragile Duct-Taped APIs</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-xl bg-rose-950/30 border border-rose-500/20 px-3.5 py-2.5 text-xs text-rose-300 font-medium">
-                <span className="font-bold text-rose-400">✕</span>
-                <span>Zero Unified Vision</span>
-              </div>
             </div>
           </div>
         )}

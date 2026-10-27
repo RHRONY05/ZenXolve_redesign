@@ -51,15 +51,14 @@ export default function Home() {
         {/* SECTION 02: The Single-Studio Advantage (The Comparison) */}
         <Section top="flow" id="advantage" className="relative z-10 pt-4 md:pt-6 !pb-8 md:!pb-12">
           <SectionHead
-            index="02"
-            label="The Single-Studio Advantage"
-            layout="stacked"
+            layout="centered"
             leadOnMobile
             title={
               <>
-                Stop managing 3 agencies. <em className="acc">Run on one studio.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— Why hire three separate agencies when you can run on one synchronized studio? We design your interface, engineer your codebase, and automate your operations with zero handoff friction.</span>
+                The Single-Studio <em className="acc">Advantage</em>
               </>
             }
+            lead="Design, code, and automated operations — with zero handoff friction."
           />
           <StudioComparator />
         </Section>
