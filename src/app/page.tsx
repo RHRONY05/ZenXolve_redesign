@@ -123,17 +123,16 @@ export default function Home() {
       </Section>
 
       <Section top="flow" id="faq" className="!pt-6 md:!pt-10">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <SectionHead
-            index="07"
-            label="Frequently Asked Questions"
-            layout="stacked"
+            layout="centered"
             leadOnMobile
             title={
               <>
-                Got questions? <em className="acc">Clear answers.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— Everything you need to know about our sprints, pricing, communication, and IP ownership.</span>
+                Frequently Asked <em className="acc">Questions</em>
               </>
             }
+            lead="Everything you need to know about our sprints, pricing, and IP ownership."
           />
           <Faq hideHeader={true} />
         </div>
