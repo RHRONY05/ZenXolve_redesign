@@ -90,7 +90,7 @@ export function ProcessSteps() {
         return (
           <div
             key={s.step}
-            className={`sticky rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-7 lg:p-8 border ${s.theme.bg} ${s.theme.border} shadow-[0_-14px_36px_rgba(0,0,0,0.35)] transition-all duration-300 mb-12 sm:mb-16 md:mb-20 last:mb-0`}
+            className={`sticky rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-6 lg:p-7 border ${s.theme.bg} ${s.theme.border} shadow-[0_-14px_36px_rgba(0,0,0,0.35)] transition-all duration-300 mb-10 sm:mb-14 md:mb-16 last:mb-0`}
             style={
               {
                 top: `clamp(${topOffsetMobile}px, ${topOffsetDesktop}px, 240px)`,
@@ -99,7 +99,7 @@ export function ProcessSteps() {
             }
           >
             {/* Top Category Tab Header: Remains visible when cards stack over each other */}
-            <div className="flex items-center justify-between pb-3 sm:pb-3.5 mb-4 border-b border-black/10">
+            <div className="flex items-center justify-between pb-2.5 sm:pb-3 mb-3.5 sm:mb-4 border-b border-black/10">
               <div className="flex items-center gap-2 sm:gap-3">
                 <span
                   className={`font-serif text-base sm:text-lg md:text-xl font-bold tracking-tight ${s.theme.text}`}
@@ -110,7 +110,7 @@ export function ProcessSteps() {
             </div>
 
             {/* Main Split Layout: Left Info & Highlighted Deliverables vs Right Orbital Constellation */}
-            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1.15fr] gap-5 sm:gap-6 lg:gap-8 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1.15fr] gap-5 sm:gap-6 lg:gap-8 items-center">
               {/* Left Column: Heading, Description & Deliverables */}
               <div className="flex flex-col justify-start space-y-3 sm:space-y-4">
                 <div>
@@ -121,29 +121,29 @@ export function ProcessSteps() {
                   </h3>
                   {/* Descriptive concise 1-sentence paragraph */}
                   <p
-                    className={`mt-2 text-xs sm:text-[13.5px] md:text-sm leading-relaxed font-sans ${s.theme.subtext}`}
+                    className={`mt-2 text-xs sm:text-[14px] md:text-[14.5px] leading-relaxed font-sans ${s.theme.subtext}`}
                   >
                     {s.body}
                   </p>
                 </div>
 
                 {/* Scope & Deliverables: Highlighted Bold Key Terms + ▶ Marker */}
-                <ul className="space-y-2.5 sm:space-y-3 pt-3 border-t border-black/10">
+                <ul className="space-y-3 sm:space-y-3.5 pt-3 sm:pt-3.5 border-t border-black/10">
                   {s.deliverables.map((d, dIdx) => (
-                    <li key={dIdx} className="flex items-start gap-2 sm:gap-2.5">
+                    <li key={dIdx} className="flex items-start gap-2.5 sm:gap-3">
                       <span
-                        className={`text-xs shrink-0 mt-0.5 ${s.theme.bulletColor}`}
+                        className={`text-[11px] sm:text-xs shrink-0 mt-1 ${s.theme.bulletColor}`}
                         aria-hidden="true"
                       >
                         ▶
                       </span>
-                      <p className="font-sans text-xs sm:text-[13px] md:text-[13.5px] leading-relaxed">
+                      <p className="font-sans text-sm sm:text-[14.5px] md:text-[15px] leading-snug sm:leading-relaxed">
                         <strong
-                          className={`font-bold tracking-tight ${s.theme.text}`}
+                          className={`font-semibold tracking-tight ${s.theme.text}`}
                         >
                           {d.highlight}
                         </strong>
-                        <span className={`font-medium ${s.theme.subtext}`}>
+                        <span className={`font-normal ${s.theme.subtext}`}>
                           {" "}— {d.detail}
                         </span>
                       </p>
@@ -154,7 +154,7 @@ export function ProcessSteps() {
 
               {/* Right Column: Full-Height Orbital Constellation Canvas */}
               <div
-                className="relative rounded-2xl sm:rounded-3xl bg-white/95 border border-black/10 shadow-sm overflow-hidden h-[340px] sm:h-[370px] md:h-[400px] flex items-center justify-center select-none"
+                className="relative rounded-2xl sm:rounded-3xl bg-white/95 border border-black/10 shadow-sm overflow-hidden h-[310px] sm:h-[340px] md:h-[365px] flex items-center justify-center select-none"
                 style={{
                   backgroundImage:
                     "radial-gradient(circle, rgba(0,0,0,0.08) 1.2px, transparent 1.2px)",
