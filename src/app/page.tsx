@@ -81,15 +81,14 @@ export default function Home() {
 
       <Section top="flow" id="why-us" className="!pt-2 md:!pt-4">
         <SectionHead
-          index="04"
-          label="Why Xenzolve"
-          layout="stacked"
+          layout="centered"
           leadOnMobile
           title={
             <>
-              Why clients <em className="acc">stay.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— We aim to be the last agency you'll need to hire: one team that builds it, supports it and grows it with you.</span>
+              Why Clients <em className="acc">Stay</em>
             </>
           }
+          lead="One synchronized team that builds it, supports it, and scales it with you."
         />
         <Reasons />
       </Section>
