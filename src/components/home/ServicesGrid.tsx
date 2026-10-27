@@ -13,51 +13,51 @@ type ServiceLightMeta = {
 };
 
 const serviceThemeMap: Record<string, ServiceLightMeta> = {
-  "web-development": {
-    bgTint: "bg-sky-500/[0.045] hover:bg-sky-500/[0.09]",
-    accentColor: "text-sky-600",
-    hoverBorder: "hover:border-sky-400",
-    dotColor: "bg-sky-500",
-  },
   "ui-ux-design": {
     bgTint: "bg-violet-500/[0.045] hover:bg-violet-500/[0.09]",
     accentColor: "text-violet-600",
     hoverBorder: "hover:border-violet-400",
     dotColor: "bg-violet-500",
   },
-  "web-mobile-apps": {
+  "web-saas": {
+    bgTint: "bg-sky-500/[0.045] hover:bg-sky-500/[0.09]",
+    accentColor: "text-sky-600",
+    hoverBorder: "hover:border-sky-400",
+    dotColor: "bg-sky-500",
+  },
+  "mobile-apps": {
     bgTint: "bg-blue-500/[0.045] hover:bg-blue-500/[0.09]",
     accentColor: "text-blue-600",
     hoverBorder: "hover:border-blue-400",
     dotColor: "bg-blue-500",
   },
-  "ai-automation": {
-    bgTint: "bg-emerald-500/[0.045] hover:bg-emerald-500/[0.09]",
-    accentColor: "text-emerald-600",
-    hoverBorder: "hover:border-emerald-400",
-    dotColor: "bg-emerald-500",
-  },
-  bots: {
-    bgTint: "bg-teal-500/[0.045] hover:bg-teal-500/[0.09]",
-    accentColor: "text-teal-600",
-    hoverBorder: "hover:border-teal-400",
-    dotColor: "bg-teal-500",
-  },
-  "business-systems": {
+  "enterprise-systems": {
     bgTint: "bg-indigo-500/[0.045] hover:bg-indigo-500/[0.09]",
     accentColor: "text-indigo-600",
     hoverBorder: "hover:border-indigo-400",
     dotColor: "bg-indigo-500",
   },
+  "workflow-automation": {
+    bgTint: "bg-teal-500/[0.045] hover:bg-teal-500/[0.09]",
+    accentColor: "text-teal-600",
+    hoverBorder: "hover:border-teal-400",
+    dotColor: "bg-teal-500",
+  },
+  "ai-agents": {
+    bgTint: "bg-emerald-500/[0.045] hover:bg-emerald-500/[0.09]",
+    accentColor: "text-emerald-600",
+    hoverBorder: "hover:border-emerald-400",
+    dotColor: "bg-emerald-500",
+  },
 };
 
 const serviceOrder = [
-  "web-development",
   "ui-ux-design",
-  "web-mobile-apps",
-  "ai-automation",
-  "bots",
-  "business-systems",
+  "web-saas",
+  "mobile-apps",
+  "enterprise-systems",
+  "workflow-automation",
+  "ai-agents",
 ];
 
 export function ServicesGrid() {
@@ -228,15 +228,13 @@ export function ServicesGrid() {
                     </div>
                   </div>
 
-                  {/* Box Footer: Tech Stack & Delivery Scope */}
-                  <div className="mt-6 pt-3.5 border-t border-slate-200/90 flex items-center justify-between font-mono text-[11px] text-slate-500">
-                    <span className="truncate max-w-[190px] font-medium text-slate-600 group-hover:text-slate-900 transition-colors">
+                  {/* Box Footer: Tech Stack & Explore Link */}
+                  <div className="mt-6 pt-3.5 border-t border-slate-200/90 flex items-center justify-between font-mono text-[11.5px] text-slate-500">
+                    <span className="truncate max-w-[210px] font-medium text-slate-600 group-hover:text-slate-900 transition-colors">
                       {s.tools}
                     </span>
-                    <span className="text-[10.5px] font-semibold shrink-0 px-2 py-0.5 rounded bg-slate-200/70 text-slate-800 border border-slate-300/60">
-                      {s.timelinePlaceholder
-                        ? "Custom Scope"
-                        : s.timeline.split(":")[1]?.trim() || s.timeline}
+                    <span className={`text-[11px] font-semibold tracking-wide ${theme.accentColor} group-hover:translate-x-0.5 transition-transform flex items-center gap-1`}>
+                      Explore <span>→</span>
                     </span>
                   </div>
                 </Link>
@@ -275,7 +273,7 @@ export function ServicesGrid() {
                   return (
                     <div
                       key={s.slug}
-                      className={`w-full shrink-0 p-4 sm:p-5 flex flex-col justify-between min-h-[320px] ${theme.bgTint} transition-colors duration-300`}
+                      className={`w-full shrink-0 p-4 sm:p-5 flex flex-col justify-between min-h-[300px] ${theme.bgTint} transition-colors duration-300`}
                     >
                       <Link
                         href={`/services#${s.slug}`}
@@ -325,15 +323,13 @@ export function ServicesGrid() {
                           </div>
                         </div>
 
-                        {/* Box Footer: Tech Stack & Delivery Scope */}
+                        {/* Box Footer: Tech Stack & Explore Link */}
                         <div className="mt-4 pt-2.5 border-t border-slate-200/90 flex items-center justify-between font-mono text-[11px] text-slate-500">
-                          <span className="truncate max-w-[180px] font-medium text-slate-600">
+                          <span className="truncate max-w-[190px] font-medium text-slate-600">
                             {s.tools}
                           </span>
-                          <span className="text-[10px] font-semibold shrink-0 px-2 py-0.5 rounded bg-slate-200/80 text-slate-800 border border-slate-300/70">
-                            {s.timelinePlaceholder
-                              ? "Custom Scope"
-                              : s.timeline.split(":")[1]?.trim() || s.timeline}
+                          <span className={`text-[10.5px] font-semibold ${theme.accentColor} flex items-center gap-1`}>
+                            Explore <span>→</span>
                           </span>
                         </div>
                       </Link>

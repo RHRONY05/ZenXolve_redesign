@@ -33,18 +33,17 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[var(--bg)] to-transparent z-0" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--bg)] to-transparent z-0" />
 
-        {/* SECTION 01: What We Build (The 6 Services) */}
+        {/* SECTION 01: Our Core Services */}
         <Section top="first" id="services" className="relative z-10 pt-6 sm:pt-12 md:pt-14 !pb-14 md:!pb-12">
           <SectionHead
-            index="01"
-            label="Capabilities & Services"
-            layout="stacked"
+            layout="centered"
             leadOnMobile
             title={
               <>
-                What we build. <em className="acc">Engineered to scale.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— From high-conversion web platforms and native mobile apps to autonomous AI agents and custom business systems — everything your business runs on.</span>
+                Our Core <em className="acc">Services</em>
               </>
             }
+            lead="From intuitive interfaces to intelligent systems — built to scale."
           />
           <ServicesGrid />
         </Section>

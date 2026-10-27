@@ -1,4 +1,4 @@
-/** Mono index + label, serif title (end with one `<em className="acc">` phrase), lead on the right or stacked below. */
+/** Mono index + label, serif title (end with one `<em className="acc">` phrase), lead on the right or stacked below, or centered. */
 export function SectionHead({
   index,
   label,
@@ -8,14 +8,43 @@ export function SectionHead({
   layout = "split",
   className = "",
 }: {
-  index: string;
-  label: string;
+  index?: string;
+  label?: string;
   title: React.ReactNode;
   lead?: React.ReactNode;
   leadOnMobile?: boolean;
-  layout?: "split" | "stacked";
+  layout?: "split" | "stacked" | "centered";
   className?: string;
 }) {
+  if (layout === "centered") {
+    return (
+      <div className={`reveal mb-8 sm:mb-10 md:mb-12 text-center flex flex-col items-center mx-auto max-w-4xl ${className}`}>
+        {index && label && (
+          <div className="mb-3 flex items-center justify-center gap-2.5 sm:gap-3 font-mono md:mb-4">
+            <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-md border border-[var(--picker-badge-border)] bg-[var(--picker-badge-bg)] text-xs font-bold text-[var(--picker-badge-text)] shadow-[0_0_10px_var(--picker-badge-shadow)] transition-colors duration-300">
+              {index}
+            </span>
+            <span className="text-xs uppercase tracking-widest text-[var(--picker-eyebrow)] font-semibold transition-colors duration-300">
+              {label}
+            </span>
+          </div>
+        )}
+        <h2 className="font-serif text-[30px] sm:text-[38px] md:text-[44px] lg:text-[50px] leading-[1.2] md:leading-[1.15] font-normal tracking-display text-white overflow-visible">
+          {title}
+        </h2>
+        {lead && (
+          <p
+            className={`mt-2.5 sm:mt-3 max-w-2xl text-sm sm:text-base md:text-[17px] leading-relaxed text-slate-300 ${
+              leadOnMobile ? "" : "hidden md:block"
+            }`}
+          >
+            {lead}
+          </p>
+        )}
+      </div>
+    );
+  }
+
   if (layout === "stacked") {
     return (
       <div className={`reveal mb-10 md:mb-14 ${className}`}>

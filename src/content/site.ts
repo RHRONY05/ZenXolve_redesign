@@ -36,9 +36,10 @@ export const footerStudio = [
 ];
 
 export const footerServices = [
-  { label: "High-Conversion Web Platforms", href: "/#services" },
-  { label: "Native iOS & Android Apps", href: "/#services" },
-  { label: "Autonomous AI Agents & Bots", href: "/#services" },
-  { label: "Custom Business Systems & ERP", href: "/#services" },
-  { label: "Design Systems & UI/UX", href: "/#services" },
+  { label: "Product Design (UI/UX)", href: "/#services" },
+  { label: "Web & SaaS Platforms", href: "/#services" },
+  { label: "Mobile App Development", href: "/#services" },
+  { label: "Custom Enterprise Systems", href: "/#services" },
+  { label: "Workflow Automation", href: "/#services" },
+  { label: "Autonomous AI Agents", href: "/#services" },
 ];
