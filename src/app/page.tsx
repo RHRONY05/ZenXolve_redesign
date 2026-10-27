@@ -95,30 +95,29 @@ export default function Home() {
 
       <Section top="flow" id="reviews" className="!pt-4 md:!pt-6">
         <SectionHead
-          index="05"
-          label="Client words"
-          layout="stacked"
+          layout="centered"
           leadOnMobile
           title={
             <>
-              In their <em className="acc">words.</em> <span className="font-sans font-normal text-base sm:text-lg md:text-[20px] text-slate-300 tracking-normal align-middle">— Direct feedback from founders and engineering leaders we've built, deployed, and scaled with.</span>
+              What Clients <em className="acc">Say</em>
             </>
           }
+          lead="Direct feedback from founders and engineering leaders we build and scale with."
         />
         <Quotes items={testimonials} />
       </Section>
 
       <Section top="flow" id="industries" className="!pt-4 md:!pt-6">
         <SectionHead
-          index="06"
-          label="Industries We Serve"
-          layout="stacked"
+          layout="centered"
           className="!mb-6 sm:!mb-8 md:!mb-10"
+          leadOnMobile
           title={
             <>
-              Domains we empower. <em className="acc">Engineered for depth.</em>
+              Industries We <em className="acc">Empower</em>
             </>
           }
+          lead="Deep domain knowledge tailored to regulated, fast-growing sectors."
         />
         <IndustryList />
       </Section>
