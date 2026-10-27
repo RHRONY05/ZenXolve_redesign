@@ -110,7 +110,7 @@ export default function Home() {
       <Section top="flow" id="industries" className="!pt-4 md:!pt-6">
         <SectionHead
           layout="centered"
-          className="!mb-6 sm:!mb-8 md:!mb-10"
+          className="!mb-12 sm:!mb-16 md:!mb-20"
           leadOnMobile
           title={
             <>
